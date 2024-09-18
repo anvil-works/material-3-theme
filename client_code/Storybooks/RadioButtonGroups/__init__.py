@@ -13,3 +13,9 @@ class RadioButtonGroups(RadioButtonGroupsTemplate):
     self.radio_button_group_2.items = [("First Option", 0), ("Second Option", 1), ("Third Option", 2), ("Fourth Option", 3)]
 
     # Any code you write here will run before the form opens.
+
+  def radio_button_group_1_change(self, **event_args):
+    self.text_4.text = self.radio_button_group_1.selected_item
+
+  def radio_button_group_2_change(self, **event_args):
+    self.text_5.text = self.radio_button_group_2.selected_item[1]

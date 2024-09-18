@@ -24,6 +24,11 @@ components:
   - components:
     - components:
       - layout_properties: {slot: card-content-container-slot}
+        name: text_4
+        properties: {}
+        type: form:_Components.Text
+      - event_bindings: {change: radio_button_group_1_change}
+        layout_properties: {slot: card-content-container-slot}
         name: radio_button_group_1
         properties:
           items: [radio button 1, radio button 2, radio button 3]
@@ -39,6 +44,11 @@ components:
   - components:
     - components:
       - layout_properties: {slot: card-content-container-slot}
+        name: text_5
+        properties: {}
+        type: form:_Components.Text
+      - event_bindings: {change: radio_button_group_2_change}
+        layout_properties: {slot: card-content-container-slot}
         name: radio_button_group_2
         properties: {}
         type: form:_Components.RadioButtonGroup

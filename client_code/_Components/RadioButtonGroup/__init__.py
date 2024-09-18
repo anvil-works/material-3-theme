@@ -25,6 +25,7 @@ from ...Functions import (
   margin_property,
 )
 from ...utils import gen_id
+from RadioButton import RadioButton
 
 class RadioButtonGroup(RadioButtonGroupTemplate):
   def __init__(self, **properties):
@@ -64,7 +65,21 @@ class RadioButtonGroup(RadioButtonGroupTemplate):
 
   def renderItems(self):
     for item in self.items:
-      pass
+      rb = RadioButton()
+      rb.text = item[0] if isinstance(item, tuple) else item
+      if isinstance(item, tuple): 
+        rb.text = item[0]
+        # todo: check if there's an item 2 and all the props
+      else:
+        item
+      
+      rb.group_name = self._group_name
+
+      def _handle_select_rb(value = item, **e):
+        self.selected_item = value
+        self.raise_event("change")
+      rb.add_event_handler('change', _handle_select_rb)
+      self.add_component(rb, slot="anvil-m3-radiobuttongroup-slot")
 
 
 
