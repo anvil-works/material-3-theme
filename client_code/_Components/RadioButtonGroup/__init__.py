@@ -72,9 +72,10 @@ class RadioButtonGroup(RadioButtonGroupTemplate):
         rb.value = item[1]
         if len(item) > 2:
           if isinstance(item[2], object):
-            print(item[2])
-            # for prop in item[2]:
-            #   print(prop)
+            for prop_name, val in item[2].items():
+              if hasattr(rb, prop_name):
+                setattr(rb, prop_name, val)
+                
         # todo: check if there's an item 2 and all the props
       else:
         rb.text = item
