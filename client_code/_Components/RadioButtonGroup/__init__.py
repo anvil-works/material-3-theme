@@ -60,8 +60,11 @@ class RadioButtonGroup(RadioButtonGroupTemplate):
   #   selected_value = property_with_callback("selected_value", _set_selected_value)
 
   def form_show(self, **event_args):
-    """This method is called when the form is shown on the page"""
-    pass
+    self.renderItems()
+
+  def renderItems(self):
+    for item in self.items:
+      pass
 
 
 
