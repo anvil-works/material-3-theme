@@ -70,6 +70,11 @@ class RadioButtonGroup(RadioButtonGroupTemplate):
       if isinstance(item, tuple): 
         rb.text = item[0]
         rb.value = item[1]
+        if len(item) > 2:
+          if isinstance(item[2], object):
+            print(item[2])
+            # for prop in item[2]:
+            #   print(prop)
         # todo: check if there's an item 2 and all the props
       else:
         rb.text = item
