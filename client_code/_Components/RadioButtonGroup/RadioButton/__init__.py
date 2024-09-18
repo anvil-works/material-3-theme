@@ -7,7 +7,8 @@ from anvil.tables import app_tables
 from anvil import HtmlTemplate
 from anvil.js.window import document
 import anvil.designer
-from ...Functions import (
+from ....Functions import (
+  property_with_callback,
   checked_property,
   role_property,
   tooltip_property,
@@ -27,7 +28,7 @@ from ...Functions import (
   font_family_property,
   margin_property,
 )
-from ...utils import gen_id
+from ....utils import gen_id
 
 
 class RadioButton(RadioButtonTemplate):
@@ -45,22 +46,12 @@ class RadioButton(RadioButtonTemplate):
       self.dom_nodes["anvil-m3-radiobutton-label"].setAttribute("for", id)
 
   def _on_mount(self, **event_args):
-    self.dom_nodes["anvil-m3-radiobutton-hover"].addEventListener(
-      "click", self._handle_click
-    )
-    self.dom_nodes["anvil-m3-radiobutton-input"].addEventListener(
-      "change", self._handle_change
-    )
+    self.dom_nodes["anvil-m3-radiobutton-hover"].addEventListener("click", self._handle_click)
+    self.dom_nodes["anvil-m3-radiobutton-input"].addEventListener("change", self._handle_change)
 
   def _on_cleanup(self, **event_args):
-    self.dom_nodes["anvil-m3-radiobutton-hover"].removeEventListener(
-      "click", self._handle_click
-    )
-    self.dom_nodes["anvil-m3-radiobutton-input"].removeEventListener(
-      "change", self._handle_change
-    )
-
-
+    self.dom_nodes["anvil-m3-radiobutton-hover"].removeEventListener("click", self._handle_click)
+    self.dom_nodes["anvil-m3-radiobutton-input"].removeEventListener("change", self._handle_change)
 
   # Properties
   enabled = enabled_property("anvil-m3-radiobutton-input")
@@ -83,18 +74,13 @@ class RadioButton(RadioButtonTemplate):
   role = role_property("anvil-m3-radiobutton-container")
   # selected = checked_property('anvil-m3-radiobutton-input')
 
-  @property
-  def radio_color(self):
-    return self._props.get("radio_color")
-
-  @radio_color.setter
-  def radio_color(self, value):
+  def _set_radio_color(self, value):
     if value:
       value = theme_color_to_css(value)
     self.dom_nodes["anvil-m3-radiobutton-checked"].style["color"] = value
     self.dom_nodes["anvil-m3-radiobutton-unchecked"].style["color"] = value
-    self._props["radio_color"] = value
-
+  radio_color = property_with_callback("radio_color", _set_radio_color)
+  
   @property
   def selected(self):
     return self.dom_nodes["anvil-m3-radiobutton-input"].checked
