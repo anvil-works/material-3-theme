@@ -58,4 +58,15 @@ class RadioButtonGroup(RadioButtonGroupTemplate):
   #     else:
   #       self.selection_field.dom_nodes['anvil-m3-textfield'].value = "<Invalid value>"
   #   selected_value = property_with_callback("selected_value", _set_selected_value)
-  
+
+  def form_show(self, **event_args):
+    """This method is called when the form is shown on the page"""
+    pass
+
+
+
+
+# <div anvil-name="anvil-m3-radiobuttongroup-component" style="display:flex">
+#   <div anvil-name="anvil-m3-radiobuttongroup-container" class="anvil-m3-radiobuttongroup-container" anvil-slot="anvil-m3-radiobuttongroup-slot" anvil-slot-internal>
+#   </div>
+# </div>

@@ -1,11 +1,8 @@
 components: []
 container:
+  event_bindings: {show: form_show}
   properties:
-    html: |-
-      <center style="font-style:italic; color:#888; margin: 3em;">
-        (Insert your custom HTML here)
-      </center>
-      <div anvil-slot="default"></div>
+    html: "<div anvil-name=\"anvil-m3-radiobuttongroup-component\" style=\"display:flex\">\n  <div anvil-name=\"anvil-m3-radiobuttongroup-container\" class=\"anvil-m3-radiobuttongroup-container\" anvil-slot=\"anvil-m3-radiobuttongroup-slot\" anvil-slot-internal>\n   \n  </div>\n</div>"
   type: HtmlTemplate
 custom_component: true
 events:
