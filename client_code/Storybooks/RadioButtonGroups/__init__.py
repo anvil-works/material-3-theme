@@ -21,11 +21,6 @@ class RadioButtonGroups(RadioButtonGroupsTemplate):
   def radio_button_group_2_change(self, **event_args):
     self.text_5.text = self.radio_button_group_2.selected_item[1]
 
-  def radio_button_3_change(self, **event_args):
+  def update_text(self, **event_args):
     self.text_3.text = self.radio_button_1.get_group_value()
-
-  def radio_button_1_change(self, **event_args):
-    self.text_3.text = self.radio_button_1.get_group_value()
-
-  def radio_button_2_change(self, **event_args):
-    self.text_3.text = self.radio_button_1.get_group_value()
+    

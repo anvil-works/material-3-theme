@@ -82,7 +82,7 @@ class RadioButton(RadioButtonTemplate):
   value = property_with_callback("value", _set_value)
 
   def _set_text(self, value):
-    v = value
+    v = value[0] if 
     self.dom_nodes["anvil-m3-radiobutton-label"].classList.toggle(
       "anvil-m3-textlessComponentText", False
     )
@@ -138,7 +138,7 @@ class RadioButton(RadioButtonTemplate):
   #!defMethod(str)!2: "Returns the value of the button in the group which is selected." ["get_group_value"]
   def get_group_value(self):
     selected_item = document.querySelector(
-      f".anvil-m3-radiobutton-input[name={self.group_name}]:checked"
+      f'.anvil-m3-radiobutton-input[name="{self.group_name}"]:checked'
     )
     return selected_item.value
 
