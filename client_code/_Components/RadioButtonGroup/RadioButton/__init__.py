@@ -24,12 +24,10 @@ from ....Functions import (
   color_property,
   theme_color_to_css,
   value_property,
-  property_with_callback,
   font_family_property,
   margin_property,
 )
 from ....utils import gen_id
-
 
 class RadioButton(RadioButtonTemplate):
   def __init__(self, **properties):
@@ -46,11 +44,11 @@ class RadioButton(RadioButtonTemplate):
       self.dom_nodes["anvil-m3-radiobutton-label"].setAttribute("for", id)
 
   def _on_mount(self, **event_args):
-    self.dom_nodes["anvil-m3-radiobutton-hover"].addEventListener("click", self._handle_click)
+    self.dom_nodes["anvil-m3-radiobutton-container"].addEventListener("click", self._handle_click)
     self.dom_nodes["anvil-m3-radiobutton-input"].addEventListener("change", self._handle_change)
 
   def _on_cleanup(self, **event_args):
-    self.dom_nodes["anvil-m3-radiobutton-hover"].removeEventListener("click", self._handle_click)
+    self.dom_nodes["anvil-m3-radiobutton-container"].removeEventListener("click", self._handle_click)
     self.dom_nodes["anvil-m3-radiobutton-input"].removeEventListener("change", self._handle_change)
 
   # Properties
@@ -65,14 +63,12 @@ class RadioButton(RadioButtonTemplate):
   border = border_property("anvil-m3-radiobutton-container")
   font_family = font_family_property("anvil-m3-radiobutton-label", "font_family")
   text_color = color_property("anvil-m3-radiobutton-label", "color", "text_color")
-  background = color_property(
-    "anvil-m3-radiobutton-component", "backgroundColor", "background"
-  )
+  background = color_property("anvil-m3-radiobutton-component", "backgroundColor", "background")
   align = style_property("anvil-m3-radiobutton-component", "justifyContent", "align")
   margin = margin_property("anvil-m3-radiobutton-component")
   tooltip = tooltip_property("anvil-m3-radiobutton-component")
   role = role_property("anvil-m3-radiobutton-container")
-  # selected = checked_property('anvil-m3-radiobutton-input')
+  selected = checked_property('anvil-m3-radiobutton-input')
 
   def _set_radio_color(self, value):
     if value:
@@ -80,14 +76,6 @@ class RadioButton(RadioButtonTemplate):
     self.dom_nodes["anvil-m3-radiobutton-checked"].style["color"] = value
     self.dom_nodes["anvil-m3-radiobutton-unchecked"].style["color"] = value
   radio_color = property_with_callback("radio_color", _set_radio_color)
-  
-  @property
-  def selected(self):
-    return self.dom_nodes["anvil-m3-radiobutton-input"].checked
-
-  @selected.setter
-  def selected(self, value):
-    self.dom_nodes["anvil-m3-radiobutton-input"].checked = value
 
   def _set_text(self, value):
     v = value
@@ -100,7 +88,6 @@ class RadioButton(RadioButtonTemplate):
         "anvil-m3-textlessComponentText", True
       )
     self.dom_nodes["anvil-m3-radiobutton-label"].innerText = v
-
   text = property_with_callback("text", _set_text)
 
   # Class Functions
@@ -130,10 +117,12 @@ class RadioButton(RadioButtonTemplate):
     anvil.designer.update_component_properties(self, {"selected": self.selected})
 
   def _handle_click(self, event):
-    if self.enabled:
-      self.dom_nodes["anvil-m3-radiobutton-input"].focus()
-      self.selected = True
-      self.raise_event("click")
+    print("CLICKY", self.dom_nodes["anvil-m3-radiobutton-input"].id)
+    self.dom_nodes["anvil-m3-radiobutton-input"].click()
+    # if self.enabled:
+    #   self.dom_nodes["anvil-m3-radiobutton-input"].focus()
+    #   self.selected = True
+    #   self.raise_event("click")
 
   def _handle_change(self, event):
     self.raise_event("change")
