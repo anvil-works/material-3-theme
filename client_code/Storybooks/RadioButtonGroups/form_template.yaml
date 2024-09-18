@@ -76,11 +76,6 @@ components:
         name: radio_button_2
         properties: {group_name: '1', text: test 2, value: v2}
         type: form:_Components.RadioButtonGroup.RadioButton
-      - event_bindings: {change: update_text}
-        layout_properties: {slot: card-content-container-slot}
-        name: radio_button_3
-        properties: {group_name: '1'}
-        type: form:_Components.RadioButton
       layout_properties: {slot: card-content-slot}
       name: card_content_container_2
       properties: {}

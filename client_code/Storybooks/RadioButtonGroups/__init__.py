@@ -11,7 +11,6 @@ class RadioButtonGroups(RadioButtonGroupsTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.radio_button_group_2.items = [("First Option", 0), ("Second Option", 1), ("Third Option", 2), ("Fourth Option", 3)]
-    self.radio_button_3.value = ("tuple option", 100)
 
     # Any code you write here will run before the form opens.
 

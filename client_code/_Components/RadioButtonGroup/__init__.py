@@ -69,9 +69,11 @@ class RadioButtonGroup(RadioButtonGroupTemplate):
       rb.text = item[0] if isinstance(item, tuple) else item
       if isinstance(item, tuple): 
         rb.text = item[0]
+        rb.value = item[1]
         # todo: check if there's an item 2 and all the props
       else:
-        item
+        rb.text = item
+        rb.value = item
       
       rb.group_name = self._group_name
 
