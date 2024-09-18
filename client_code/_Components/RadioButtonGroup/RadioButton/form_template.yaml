@@ -1,0 +1,57 @@
+components: []
+container:
+  event_bindings: {show: form_show}
+  properties:
+    background: ''
+    html: |-
+      <div anvil-name="anvil-m3-radiobutton-component" style="display:flex">
+        <div anvil-name="anvil-m3-radiobutton-container" class="anvil-m3-radiobutton-container">
+          <input class="anvil-m3-radiobutton-input" anvil-name="anvil-m3-radiobutton-input" type="radio">
+          <div class="anvil-m3-radiobutton-hover" anvil-name="anvil-m3-radiobutton-hover">
+            <span class="material-symbols-outlined anvil-m3-radiobutton-unchecked" anvil-name="anvil-m3-radiobutton-unchecked">radio_button_unchecked</span>
+            <span class="material-symbols-outlined anvil-m3-radiobutton-checked" anvil-name="anvil-m3-radiobutton-checked" style="display:none">radio_button_checked</span>
+          </div>
+          <label class="anvil-m3-radiobutton-label" anvil-name="anvil-m3-radiobutton-label"></label>
+        </div>
+      </div>
+    visible: true
+  type: HtmlTemplate
+custom_component: true
+events:
+- {default_event: true, description: When the component is selected., name: change}
+- {name: click}
+- {description: When the component is shown on the screen., name: show}
+- {description: When the component is removed from the screen., name: hide}
+is_package: true
+properties:
+- {default_binding_prop: true, default_value: '', description: 'Radio button group name,  must begin with a letter ([A-Za-z]) and may be followed by any number of letters, digits ([0-9]), hyphens ("-"), underscores ("_"), colons (":"), and periods (".").', group: Key Properties, name: group_name, type: string}
+- {default_value: false, description: 'If True, the component is in the selected state.', designer_hint: toggle, group: Interaction, name: selected, type: boolean}
+- {default_value: '', description: A style for this component defined in CSS and added to Roles., group: Look and Feel, name: role, type: themeRole}
+- {default_value: true, description: 'If True, this component allows user interaction.', designerHint: enabled, designer_hint: enabled, group: Interaction, name: enabled, type: boolean}
+- {default_value: '', description: The text displayed on this component., group: Key Properties, name: text, type: string}
+- {default_value: '', description: The value of the group when this radio button is selected, group: Key Properties, name: value, type: string}
+- {description: Use this property to store any extra data for the component., group: Other, important: false, name: tag, type: object}
+- default_value: left
+  description: The position of this component in the available space.
+  designerHint: align-horizontal
+  designer_hint: align-horizontal
+  group: Look and Feel
+  important: true
+  name: align
+  options: [left, center, right]
+  type: enum
+- {default_value: '', description: The colour of the background of this component., group: Look and Feel, name: background_color, type: color}
+- {default_value: false, description: 'If True, this component’s text will be bold.', group: Text, name: bold, type: boolean}
+- {default_value: '', description: The border of this component. Can take any valid CSS border value., group: Look and Feel, name: border, type: string}
+- {default_value: '', description: The font family to use for this component., group: Text, name: font_family, type: string}
+- {description: The font size of the text displayed on this component., group: Text, name: font_size, type: number}
+- {default_value: '', description: The colour of the text on the component., group: Text, name: text_color, type: color}
+- {default_value: false, description: 'If True, this component’s text will be italic.', group: Text, name: italic, type: boolean}
+- {default_value: false, description: 'If True, this component’s text will be underlined.', group: Text, name: underline, type: boolean}
+- {default_value: true, description: 'If True, the component will be displayed.', designerHint: visible, designer_hint: visible, group: Look and Feel, name: visible, type: boolean}
+- {description: The margin (pixels) of the component., group: Layout, important: true, name: margin, type: margin}
+- {default_value: '', description: The text to display when the mouse is hovered over this component., group: Other, important: true, name: tooltip, type: string}
+- {default_value: '', description: The color of the radio button., group: Look and Feel, important: true, name: radio_color, type: color}
+toolbox_item:
+  hidden: true
+  icon: {dark: 'asset:designer_icons/radio_button_dark.svg', light: 'asset:designer_icons/radio_button.svg'}
