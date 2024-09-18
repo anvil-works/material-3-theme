@@ -117,12 +117,10 @@ class RadioButton(RadioButtonTemplate):
     anvil.designer.update_component_properties(self, {"selected": self.selected})
 
   def _handle_click(self, event):
-    print("CLICKY", self.dom_nodes["anvil-m3-radiobutton-input"].id)
+    self.dom_nodes["anvil-m3-radiobutton-input"].focus()
     self.dom_nodes["anvil-m3-radiobutton-input"].click()
-    # if self.enabled:
-    #   self.dom_nodes["anvil-m3-radiobutton-input"].focus()
-    #   self.selected = True
-    #   self.raise_event("click")
+    if self.enabled:
+      self.raise_event("click")
 
   def _handle_change(self, event):
     self.raise_event("change")
@@ -133,7 +131,7 @@ class RadioButton(RadioButtonTemplate):
       if not self.text:
         self.dom_nodes["anvil-m3-radiobutton-label"].innerText = self._design_name
 
-  #!defMethod(str)!2: "Returns the value of the button in the group which is pressed." ["get_group_value"]
+  #!defMethod(str)!2: "Returns the value of the button in the group which is selected." ["get_group_value"]
   def get_group_value(self):
     selected_item = document.querySelector(
       f".anvil-m3-radiobutton-input[name={self.group_name}]:checked"
