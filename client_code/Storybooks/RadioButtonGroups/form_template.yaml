@@ -25,7 +25,8 @@ components:
     - components:
       - layout_properties: {slot: card-content-container-slot}
         name: radio_button_group_1
-        properties: {}
+        properties:
+          items: [radio button 1, radio button 2, radio button 3]
         type: form:_Components.RadioButtonGroup
       layout_properties: {slot: card-content-slot}
       name: card_content_container_1
@@ -33,6 +34,20 @@ components:
       type: form:_Components.Card.CardContentContainer
     layout_properties: {grid_position: 'MTHMJM,DLCISR'}
     name: card_1
+    properties: {}
+    type: form:_Components.Card
+  - components:
+    - components:
+      - layout_properties: {slot: card-content-container-slot}
+        name: radio_button_group_2
+        properties: {}
+        type: form:_Components.RadioButtonGroup
+      layout_properties: {slot: card-content-slot}
+      name: card_content_container_3
+      properties: {}
+      type: form:_Components.Card.CardContentContainer
+    layout_properties: {grid_position: 'PISLNH,JRRYOQ'}
+    name: card_3
     properties: {}
     type: form:_Components.Card
   - components:

@@ -4,11 +4,54 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-
+from ...Functions import (
+  property_with_callback,
+  checked_property,
+  role_property,
+  tooltip_property,
+  name_property,
+  innerText_property,
+  enabled_property,
+  style_property,
+  underline_property,
+  italic_property,
+  border_property,
+  bold_property,
+  font_size_property,
+  color_property,
+  theme_color_to_css,
+  value_property,
+  font_family_property,
+  margin_property,
+)
+from ...utils import gen_id
 
 class RadioButtonGroup(RadioButtonGroupTemplate):
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
+    self._props = properties
+    self._group_name = gen_id()
     self.init_components(**properties)
 
-    # Any code you write here will run before the form opens.
+  def _set_orientation(self, value):
+    # change flex direction
+    pass
+  orientation = property_with_callback("orientation", _set_orientation)
+  def _set_items(self, value):
+    # rerending all radiobutton items, might have to go thru
+    pass
+  items = property_with_callback("items", _set_items)
+
+
+  
+  # def _set_selected_value(self, value):
+  #     if (value is None and self.allow_none) or (value in self.items):
+  #       if value is None and self.allow_none:
+  #         self._hoverIndex = None
+  #       if isinstance(value, tuple):
+  #         self.selection_field.dom_nodes['anvil-m3-textfield'].value = value[0]
+  #       else:
+  #         self.selection_field.dom_nodes['anvil-m3-textfield'].value = value
+  #     else:
+  #       self.selection_field.dom_nodes['anvil-m3-textfield'].value = "<Invalid value>"
+  #   selected_value = property_with_callback("selected_value", _set_selected_value)
+  
