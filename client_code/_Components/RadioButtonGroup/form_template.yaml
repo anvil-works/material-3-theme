@@ -7,4 +7,19 @@ container:
       </center>
       <div anvil-slot="default"></div>
   type: HtmlTemplate
+custom_component: true
+events:
+- {default_event: true, name: change}
 is_package: true
+properties:
+- default_binding_prop: true
+  default_value: vertical
+  important: true
+  name: orientation
+  options: [vertical, horizontal]
+  type: enum
+- default_value: []
+  important: true
+  name: items
+  type: text[]
+- {important: true, name: selected_item, type: object}

@@ -22,7 +22,12 @@ components:
     properties: {}
     type: LinearPanel
   - components:
-    - layout_properties: {slot: card-content-slot}
+    - components:
+      - layout_properties: {slot: card-content-container-slot}
+        name: radio_button_group_1
+        properties: {}
+        type: form:_Components.RadioButtonGroup
+      layout_properties: {slot: card-content-slot}
       name: card_content_container_1
       properties: {}
       type: form:_Components.Card.CardContentContainer
