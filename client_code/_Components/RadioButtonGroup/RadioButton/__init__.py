@@ -55,7 +55,7 @@ class RadioButton(RadioButtonTemplate):
   enabled = enabled_property("anvil-m3-radiobutton-input")
   visible = HtmlTemplate.visible
   group_name = name_property("anvil-m3-radiobutton-input", "group_name")
-  value = value_property("anvil-m3-radiobutton-input")
+  # value = value_property("anvil-m3-radiobutton-input")
   underline = underline_property("anvil-m3-radiobutton-label")
   italic = italic_property("anvil-m3-radiobutton-label")
   bold = bold_property("anvil-m3-radiobutton-label")
@@ -76,6 +76,10 @@ class RadioButton(RadioButtonTemplate):
     self.dom_nodes["anvil-m3-radiobutton-checked"].style["color"] = value
     self.dom_nodes["anvil-m3-radiobutton-unchecked"].style["color"] = value
   radio_color = property_with_callback("radio_color", _set_radio_color)
+
+  def _set_value(self, value):
+    self.dom_nodes["anvil-m3-radiobutton-input"].value = value[1] if isinstance(value, tuple) else value
+  value = property_with_callback("value", _set_value)
 
   def _set_text(self, value):
     v = value

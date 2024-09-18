@@ -11,6 +11,7 @@ class RadioButtonGroups(RadioButtonGroupsTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.radio_button_group_2.items = [("First Option", 0), ("Second Option", 1), ("Third Option", 2), ("Fourth Option", 3)]
+    self.radio_button_3.value = ("tuple option", 100)
 
     # Any code you write here will run before the form opens.
 
@@ -19,3 +20,12 @@ class RadioButtonGroups(RadioButtonGroupsTemplate):
 
   def radio_button_group_2_change(self, **event_args):
     self.text_5.text = self.radio_button_group_2.selected_item[1]
+
+  def radio_button_3_change(self, **event_args):
+    self.text_3.text = self.radio_button_1.get_group_value()
+
+  def radio_button_1_change(self, **event_args):
+    self.text_3.text = self.radio_button_1.get_group_value()
+
+  def radio_button_2_change(self, **event_args):
+    self.text_3.text = self.radio_button_1.get_group_value()
