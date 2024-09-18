@@ -32,15 +32,19 @@ class RadioButtonGroup(RadioButtonGroupTemplate):
     self._group_name = gen_id()
     self.init_components(**properties)
 
+  # properties
   def _set_orientation(self, value):
     # change flex direction
     pass
   orientation = property_with_callback("orientation", _set_orientation)
   def _set_items(self, value):
-    # rerending all radiobutton items, might have to go thru
+    # rerending all radiobutton items, if tuple with extra special stuff might have to rerender special stuff
     pass
   items = property_with_callback("items", _set_items)
-
+  def _set_selected_item(self, item):
+    # find the radio button assocatd with this item and set checked to true
+    pass
+  selected_item = property_with_callback("selected_item", _set_selected_item)
 
   
   # def _set_selected_value(self, value):
