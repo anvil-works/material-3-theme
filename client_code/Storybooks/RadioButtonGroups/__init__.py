@@ -10,9 +10,19 @@ class RadioButtonGroups(RadioButtonGroupsTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.radio_button_group_2.items = [("First Option", 0), ("Second Option", 1), ("Third Option", 2), 
+    self.radio_button_group_2.items = [("First Option", 0), ("Second Option", 1), 
+                                       ("Third Option", 2, {
+                                         "enabled": False
+                                       }), 
                                        ("Fourth Option", 3, {
-                                         
+                                         "background_color": "#00ffcc",
+                                         "bold": True,
+                                         "italic": True,
+                                         "underline": True,
+                                         "text_color": "magenta",
+                                         "radio_color": "grey",
+                                         "border": "4px dotted cyan",
+                                         "tooltip": "tooltip property",
                                        })]
 
     # Any code you write here will run before the form opens.

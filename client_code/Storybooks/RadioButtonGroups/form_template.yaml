@@ -69,7 +69,7 @@ components:
       - event_bindings: {change: update_text}
         layout_properties: {slot: card-content-container-slot}
         name: radio_button_1
-        properties: {group_name: '1', radio_color: '', text: test 1, value: v1}
+        properties: {background_color: 'theme:Primary Container', border: 1px solid yellow, group_name: '1', radio_color: '', text: test 1, value: v1}
         type: form:_Components.RadioButtonGroup.RadioButton
       - event_bindings: {change: update_text}
         layout_properties: {slot: card-content-container-slot}
