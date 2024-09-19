@@ -26,7 +26,7 @@ class Link(LinkTemplate):
       self.dom_nodes['anvil-m3-link-text'].innerText = anvil.designer.get_design_name(self)
     
   def _handle_click(self, event):
-    self.raise_event("click")
+    self.raise_event("click", event=event)
 
   def _anvil_get_interactions_(self):
     return [{
