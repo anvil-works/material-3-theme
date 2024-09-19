@@ -13,7 +13,8 @@ class RadioButtonGroups(RadioButtonGroupsTemplate):
     self.radio_button_group_2.items = [("First Option", 0), ("Second Option", 1), 
                                        ("Third Option", 2, {
                                          "enabled": False,
-                                         "LALILA": "ASDFADf"
+                                         "LALILA": "ASDFADf",
+                                         "selected": True
                                        }), 
                                        ("Fourth Option", 3, {
                                          "background_color": "green",
