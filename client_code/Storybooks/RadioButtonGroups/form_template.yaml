@@ -32,6 +32,7 @@ components:
         name: radio_button_group_1
         properties:
           items: [radio button 1, radio button 2, radio button 3]
+          orientation: horizontal
         type: form:_Components.RadioButtonGroup
       layout_properties: {slot: card-content-slot}
       name: card_content_container_1

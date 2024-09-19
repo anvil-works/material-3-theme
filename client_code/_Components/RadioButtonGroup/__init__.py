@@ -36,8 +36,7 @@ class RadioButtonGroup(RadioButtonGroupTemplate):
 
   # properties
   def _set_orientation(self, value):
-    # change flex direction
-    pass
+    self.dom_nodes['anvil-m3-radiobuttongroup-container'].style = f"flex-direction: {'row' if value == 'horizontal' else 'column'};"
   orientation = property_with_callback("orientation", _set_orientation)
   def _set_items(self, value):
     # rerending all radiobutton items, if tuple with extra special stuff might have to rerender special stuff
