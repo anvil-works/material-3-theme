@@ -26,6 +26,7 @@ from ...Functions import (
 )
 from ...utils import gen_id
 from RadioButton import RadioButton
+from anvil.designer import in_designer
 
 class RadioButtonGroup(RadioButtonGroupTemplate):
   def __init__(self, **properties):
@@ -47,23 +48,17 @@ class RadioButtonGroup(RadioButtonGroupTemplate):
     pass
   selected_item = property_with_callback("selected_item", _set_selected_item)
 
-  
-  # def _set_selected_value(self, value):
-  #     if (value is None and self.allow_none) or (value in self.items):
-  #       if value is None and self.allow_none:
-  #         self._hoverIndex = None
-  #       if isinstance(value, tuple):
-  #         self.selection_field.dom_nodes['anvil-m3-textfield'].value = value[0]
-  #       else:
-  #         self.selection_field.dom_nodes['anvil-m3-textfield'].value = value
-  #     else:
-  #       self.selection_field.dom_nodes['anvil-m3-textfield'].value = "<Invalid value>"
-  #   selected_value = property_with_callback("selected_value", _set_selected_value)
-
   def form_show(self, **event_args):
     self.renderItems()
 
   def renderItems(self):
+    if in_designer:
+      if len(self.items) == 0:
+        placeholder = RadioButton()
+        placeholder.text = "radio_button"
+        placeholder.visible = False
+        placeholder.enabled = False
+        self.add_component(placeholder, slot="anvil-m3-radiobuttongroup-slot")
     for item in self.items:
       rb = RadioButton()
       rb.text = item[0] if isinstance(item, tuple) else item
@@ -75,8 +70,6 @@ class RadioButtonGroup(RadioButtonGroupTemplate):
             for prop_name, val in item[2].items():
               if hasattr(rb, prop_name):
                 setattr(rb, prop_name, val)
-                
-        # todo: check if there's an item 2 and all the props
       else:
         rb.text = item
         rb.value = item

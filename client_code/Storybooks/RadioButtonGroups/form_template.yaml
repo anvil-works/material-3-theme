@@ -63,6 +63,25 @@ components:
   - components:
     - components:
       - layout_properties: {slot: card-content-container-slot}
+        name: text_5_copy
+        properties: {text: Empty group}
+        type: form:_Components.Text
+      - event_bindings: {change: radio_button_group_2_change}
+        layout_properties: {slot: card-content-container-slot}
+        name: radio_button_group_3
+        properties: {}
+        type: form:_Components.RadioButtonGroup
+      layout_properties: {slot: card-content-slot}
+      name: card_content_container_3_copy
+      properties: {}
+      type: form:_Components.Card.CardContentContainer
+    layout_properties: {grid_position: 'UOHXLB,RGFSNI'}
+    name: card_3_copy
+    properties: {}
+    type: form:_Components.Card
+  - components:
+    - components:
+      - layout_properties: {slot: card-content-container-slot}
         name: text_3
         properties: {text: Individual RadioButtons}
         type: form:_Components.Text
