@@ -53,11 +53,12 @@ class RadioButtonGroup(RadioButtonGroupTemplate):
   def renderItems(self):
     if in_designer:
       if len(self.items) == 0:
-        placeholder = RadioButton()
-        placeholder.text = "radio_button"
-        placeholder.visible = False
-        placeholder.enabled = False
-        self.add_component(placeholder, slot="anvil-m3-radiobuttongroup-slot")
+        for _ in range(2):
+          placeholder = RadioButton()
+          placeholder.text = "radio_button"
+          placeholder.visible = False
+          placeholder.enabled = False
+          self.add_component(placeholder, slot="anvil-m3-radiobuttongroup-slot")
     for item in self.items:
       rb = RadioButton()
       rb.text = item[0] if isinstance(item, tuple) else item

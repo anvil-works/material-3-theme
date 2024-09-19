@@ -45,13 +45,34 @@ components:
   - components:
     - components:
       - layout_properties: {slot: card-content-container-slot}
+        name: text_4_copy
+        properties: {text: plain text items}
+        type: form:_Components.Text
+      - event_bindings: {change: radio_button_group_1_change}
+        layout_properties: {slot: card-content-container-slot}
+        name: radio_button_group_1_copy
+        properties:
+          items: [radio button 1, radio button 2, radio button 3]
+          orientation: horizontal
+        type: form:_Components.RadioButtonGroup
+      layout_properties: {slot: card-content-slot}
+      name: card_content_container_1_copy
+      properties: {}
+      type: form:_Components.Card.CardContentContainer
+    layout_properties: {grid_position: 'MTHMJM,NNTHCD'}
+    name: card_1_copy
+    properties: {}
+    type: form:_Components.Card
+  - components:
+    - components:
+      - layout_properties: {slot: card-content-container-slot}
         name: text_5
         properties: {text: tuple items}
         type: form:_Components.Text
       - event_bindings: {change: radio_button_group_2_change}
         layout_properties: {slot: card-content-container-slot}
         name: radio_button_group_2
-        properties: {}
+        properties: {orientation: vertical}
         type: form:_Components.RadioButtonGroup
       layout_properties: {slot: card-content-slot}
       name: card_content_container_3
@@ -89,12 +110,12 @@ components:
       - event_bindings: {change: update_text}
         layout_properties: {slot: card-content-container-slot}
         name: radio_button_1
-        properties: {background_color: 'theme:Primary Container', border: 1px solid yellow, group_name: '1', radio_color: '', text: test 1, value: v1}
+        properties: {background_color: 'theme:Primary Container', border: 4px dashed yellow, group_name: '1', radio_color: '', selected: true, text: test 1, value: v1}
         type: form:_Components.RadioButtonGroup.RadioButton
       - event_bindings: {change: update_text}
         layout_properties: {slot: card-content-container-slot}
         name: radio_button_2
-        properties: {group_name: '1', text: test 2, value: v2}
+        properties: {group_name: '1', selected: true, text: test 2, value: v2}
         type: form:_Components.RadioButtonGroup.RadioButton
       layout_properties: {slot: card-content-slot}
       name: card_content_container_2
@@ -102,6 +123,35 @@ components:
       type: form:_Components.Card.CardContentContainer
     layout_properties: {grid_position: 'XVVELZ,YPNFVE'}
     name: card_2
+    properties: {}
+    type: form:_Components.Card
+  - components:
+    - components:
+      - components:
+        - layout_properties: {slot: card-content-container-slot}
+          name: text_3_copy
+          properties: {text: Individual RadioButtons}
+          type: form:_Components.Text
+        - event_bindings: {change: update_text2}
+          layout_properties: {slot: card-content-container-slot}
+          name: radio_button_1_copy
+          properties: {background_color: '', border: '', group_name: '2', radio_color: '', selected: true, text: test 1, value: v1}
+          type: form:_Components.RadioButtonGroup.RadioButton
+        - event_bindings: {change: update_text2}
+          layout_properties: {slot: card-content-container-slot}
+          name: radio_button_2_copy
+          properties: {group_name: '2', text: test 2, value: v2}
+          type: form:_Components.RadioButtonGroup.RadioButton
+        layout_properties: {slot: card-content-container-slot}
+        name: card_content_container_2_copy
+        properties: {}
+        type: form:_Components.Card.CardContentContainer
+      layout_properties: {slot: card-content-slot}
+      name: card_content_container_4
+      properties: {}
+      type: form:_Components.Card.CardContentContainer
+    layout_properties: {grid_position: 'XVVELZ,LISUUH'}
+    name: card_4
     properties: {}
     type: form:_Components.Card
   layout_properties: {slot: default}
