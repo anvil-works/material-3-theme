@@ -40,4 +40,8 @@ class RadioButtonGroups(RadioButtonGroupsTemplate):
 
   def update_text2(self, **event_args):
     self.text_3_copy.text = self.radio_button_1_copy.get_group_value()
+
+  def button_1_click(self, **event_args):
+    """This method is called when the component is clicked."""
+    self.radio_button_1.get_group_buttons()
     

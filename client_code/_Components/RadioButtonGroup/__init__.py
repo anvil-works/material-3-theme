@@ -32,6 +32,7 @@ class RadioButtonGroup(RadioButtonGroupTemplate):
   def __init__(self, **properties):
     self._props = properties
     self._group_name = gen_id()
+    self._items = []
     self.init_components(**properties)
 
   # properties
@@ -39,11 +40,12 @@ class RadioButtonGroup(RadioButtonGroupTemplate):
     self.dom_nodes['anvil-m3-radiobuttongroup-container'].style = f"flex-direction: {'row' if value == 'horizontal' else 'column'};"
   orientation = property_with_callback("orientation", _set_orientation)
   def _set_items(self, value):
-    # rerending all radiobutton items, if tuple with extra special stuff might have to rerender special stuff
-    pass
+    for item in value:
+      self._items.append(item) if isinstance(item, tuple) else self._items.append((item, item))
+    self.renderItems()
   items = property_with_callback("items", _set_items)
   def _set_selected_item(self, item):
-    # find the radio button assocatd with this item and set checked to true
+    print(item)
     pass
   selected_item = property_with_callback("selected_item", _set_selected_item)
 
@@ -51,31 +53,26 @@ class RadioButtonGroup(RadioButtonGroupTemplate):
     self.renderItems()
 
   def renderItems(self):
+    self.clear(slot="anvil-m3-radiobuttongroup-slot")
     if in_designer:
-      if len(self.items) == 0:
+      if len(self._items) == 0:
         for _ in range(2):
           placeholder = RadioButton()
           placeholder.text = "radio_button"
           placeholder.visible = False
           placeholder.enabled = False
-          self.add_component(placeholder, slot="anvil-m3-radiobuttongroup-slot")
-    for item in self.items:
+          self.add_component(placeholder, slot="anvil-m3-radiobuttongroup-slot")          
+    for item in self._items:
       rb = RadioButton()
-      rb.text = item[0] if isinstance(item, tuple) else item
-      if isinstance(item, tuple): 
-        rb.text = item[0]
-        rb.value = item[1]
-        if len(item) > 2:
-          if isinstance(item[2], object):
-            for prop_name, val in item[2].items():
-              if hasattr(rb, prop_name):
-                setattr(rb, prop_name, val)
-      else:
-        rb.text = item
-        rb.value = item
-      
+      rb.text = item[0]
+      rb.value = item[1]
+      if len(item) > 2:
+        print(item[2])
+        if isinstance(item[2], object):
+          for prop_name, val in item[2].items():
+            if hasattr(rb, prop_name):
+              setattr(rb, prop_name, val)
       rb.group_name = self._group_name
-
       def _handle_select_rb(value = item, **e):
         self.selected_item = value
         self.raise_event("change")

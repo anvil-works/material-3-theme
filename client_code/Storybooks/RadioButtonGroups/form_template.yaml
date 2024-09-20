@@ -53,7 +53,7 @@ components:
         name: radio_button_group_1_copy
         properties:
           items: [radio button 1, radio button 2, radio button 3]
-          orientation: horizontal
+          orientation: vertical
         type: form:_Components.RadioButtonGroup
       layout_properties: {slot: card-content-slot}
       name: card_content_container_1_copy
@@ -79,6 +79,11 @@ components:
         name: radio_button_2
         properties: {group_name: '1', selected: true, text: test 2, value: v2}
         type: form:_Components.RadioButtonGroup.RadioButton
+      - event_bindings: {click: button_1_click}
+        layout_properties: {slot: card-content-container-slot}
+        name: button_1
+        properties: {text: get radio buttons}
+        type: form:_Components.Button
       layout_properties: {slot: card-content-slot}
       name: card_content_container_2
       properties: {}

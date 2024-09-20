@@ -69,16 +69,14 @@ class RadioButton(RadioButtonTemplate):
   tooltip = tooltip_property("anvil-m3-radiobutton-component")
   role = role_property("anvil-m3-radiobutton-container")
   # selected = checked_property('anvil-m3-radiobutton-input')
-
   
-  def _set_set_selected(self, value):
+  def _set_selected(self, value):
     v = self.get_group_value()
     if v:
-      # print(v)
-      print(self.get_open_form())
-      #if there a selected value for the group, set it to None
+      pass
+      #go find every radiobutton of this group and set the one that is selected to false
     self.dom_nodes["anvil-m3-radiobutton-input"].checked = value
-  selected = property_with_callback("selected", _set_set_selected)
+  selected = property_with_callback("selected", _set_selected)
 
   def _set_radio_color(self, value):
     if value:
@@ -149,7 +147,15 @@ class RadioButton(RadioButtonTemplate):
     return selected_item.value if selected_item else None
 
   def get_group_buttons(self):
-    pass
+    top = self._top_most_parent(self.parent)
+    print(top)
+
+  def _top_most_parent(self, component):
+    if (self.parent):
+      return self._top_most_parent(component)
+
+  
+    
 
 
 #!defClass(material_3, RadioButton, anvil.Component)!:
