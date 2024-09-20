@@ -72,7 +72,11 @@ class RadioButton(RadioButtonTemplate):
 
   
   def _set_set_selected(self, value):
-    #if there a selected valuee forthe group, set it to None
+    v = self.get_group_value()
+    if v:
+      # print(v)
+      print(self.get_open_form())
+      #if there a selected value for the group, set it to None
     self.dom_nodes["anvil-m3-radiobutton-input"].checked = value
   selected = property_with_callback("selected", _set_set_selected)
 
