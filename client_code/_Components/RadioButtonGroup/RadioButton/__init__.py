@@ -91,26 +91,26 @@ class RadioButton(RadioButtonTemplate):
   text = property_with_callback("text", _set_text)
 
   # Class Functions
-  def _anvil_get_interactions_(self):
-    return [
-      {
-        "type": "whole_component",
-        "title": "Edit text",
-        "icon": "edit",
-        "default": True,
-        "callbacks": {
-          "execute": lambda: anvil.designer.start_inline_editing(
-            self, "text", self.dom_nodes["anvil-m3-radiobutton-label"]
-          )
-        },
-      },
-      {
-        "type": "region",
-        "bounds": self.dom_nodes["anvil-m3-radiobutton-hover"],
-        "sensitivity": 0,
-        "callbacks": {"execute": self._toggle_selected},
-      },
-    ]
+  # def _anvil_get_interactions_(self):
+  #   return [
+  #     {
+  #       "type": "whole_component",
+  #       "title": "Edit text",
+  #       "icon": "edit",
+  #       "default": True,
+  #       "callbacks": {
+  #         "execute": lambda: anvil.designer.start_inline_editing(
+  #           self, "text", self.dom_nodes["anvil-m3-radiobutton-label"]
+  #         )
+  #       },
+  #     },
+  #     {
+  #       "type": "region",
+  #       "bounds": self.dom_nodes["anvil-m3-radiobutton-hover"],
+  #       "sensitivity": 0,
+  #       "callbacks": {"execute": self._toggle_selected},
+  #     },
+  #   ]
 
   def _toggle_selected(self):
     self.selected = not self.selected

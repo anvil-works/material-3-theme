@@ -23,50 +23,40 @@ components:
     type: LinearPanel
   - components:
     - components:
+      - layout_properties: {slot: card-content-container-slot}
+        name: text_3_copy_1
+        properties: {text: Determinate}
+        type: form:_Components.Text
+      - event_bindings: {click: button_1_click}
+        layout_properties: {slot: card-content-container-slot}
+        name: button_1
+        properties: {appearance: filled, text: Make Progress Go}
+        type: form:_Components.Button
+      - layout_properties: {slot: card-content-container-slot}
+        name: circular_progress_indicator_determinate
+        properties: {align: center, color: '#', progress: 50, type: determinate, visible: true}
+        type: form:_Components.CircularProgressIndicator
       - components:
-        - layout_properties: {grid_position: 'HQXNTC,YSZACR'}
-          name: text_3_copy_1
-          properties: {text: Determinate}
-          type: form:_Components.Text
-        - event_bindings: {click: button_1_click}
-          layout_properties: {grid_position: 'HHGCRC,SOUFZA'}
-          name: button_1
-          properties: {appearance: filled, text: Make Progress Go}
-          type: form:_Components.Button
-        - layout_properties: {grid_position: 'GOCHRS,EAGRUI'}
-          name: circular_progress_indicator_determinate
-          properties: {align: center, color: '#', progress: 50, type: determinate, visible: true}
-          type: form:_Components.CircularProgressIndicator
         - layout_properties: {grid_position: 'FJJOWZ,JMVCER'}
           name: linear_progress_indicator_determinate
           properties: {align: right, color: '', progress: 33, progress_color: '', track_color: '', type: determinate, visible: true}
           type: form:_Components.LinearProgressIndicator
-        layout_properties: {slot: anvil-m3-card-content-container-slot}
+        layout_properties: {slot: card-content-container-slot}
         name: column_panel_2
         properties: {}
         type: ColumnPanel
-      - components:
-        - components:
-          - layout_properties: {grid_position: 'HJLVQL,QGOPQU'}
-            name: text_3
-            properties: {text: Indeterminate}
-            type: form:_Components.Text
-          - layout_properties: {grid_position: 'KTGWGP,OENKJQ'}
-            name: circular_progress_indicator
-            properties: {align: left, color: '', type: indeterminate, visible: true}
-            type: form:_Components.CircularProgressIndicator
-          - layout_properties: {grid_position: 'FGXMBK,JSORRS'}
-            name: linear_progress_indicator
-            properties: {align: right, color: '', progress: 60, progress_color: '', track_color: '', type: indeterminate, visible: true}
-            type: form:_Components.LinearProgressIndicator
-          layout_properties: {width: 578}
-          name: column_panel_1
-          properties: {}
-          type: ColumnPanel
-        layout_properties: {slot: anvil-m3-card-content-container-slot}
-        name: flow_panel_2
-        properties: {}
-        type: FlowPanel
+      - layout_properties: {slot: card-content-container-slot}
+        name: text_3
+        properties: {text: Indeterminate}
+        type: form:_Components.Text
+      - layout_properties: {slot: card-content-container-slot}
+        name: circular_progress_indicator
+        properties: {align: left, color: '', type: indeterminate, visible: true}
+        type: form:_Components.CircularProgressIndicator
+      - layout_properties: {slot: card-content-container-slot}
+        name: linear_progress_indicator
+        properties: {align: right, color: '', progress: 60, progress_color: '', track_color: '', type: indeterminate, visible: true}
+        type: form:_Components.LinearProgressIndicator
       layout_properties: {slot: card-content-slot}
       name: card_content_container_1
       properties: {}
