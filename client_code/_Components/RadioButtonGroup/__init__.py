@@ -34,7 +34,6 @@ class RadioButtonGroup(RadioButtonGroupTemplate):
     self._props = properties
     self._group_name = gen_id()
     self._items = []
-    self._children = []
     self.init_components(**properties)
 
   # properties
@@ -55,6 +54,7 @@ class RadioButtonGroup(RadioButtonGroupTemplate):
     self.renderItems()
 
   def renderItems(self):
+    # self.clear() 
     self.clear(slot="anvil-m3-radiobuttongroup-slot") 
     if in_designer:
       if len(self._items) == 0:
@@ -77,10 +77,6 @@ class RadioButtonGroup(RadioButtonGroupTemplate):
       def _handle_select_rb(value = item, selected_button = rb, **e):
         self.selected_item = value
         self.raise_event("change")
-        self.get_children()
       rb.add_event_handler('change', _handle_select_rb)
       self.add_component(rb, slot="anvil-m3-radiobuttongroup-slot")
-      self._children.append(rb)
 
-  def get_children(self):
-    print(self._children)

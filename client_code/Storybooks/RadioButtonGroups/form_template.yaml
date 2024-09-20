@@ -52,7 +52,7 @@ components:
         layout_properties: {slot: card-content-container-slot}
         name: radio_button_group_1_copy
         properties:
-          items: [a, b, c, d]
+          items: [a, b, c, d, '']
           orientation: vertical
         type: form:_Components.RadioButtonGroup
       layout_properties: {slot: card-content-slot}
@@ -157,6 +157,25 @@ components:
       type: form:_Components.Card.CardContentContainer
     layout_properties: {grid_position: 'UOHXLB,RGFSNI'}
     name: card_3_copy
+    properties: {}
+    type: form:_Components.Card
+  - components:
+    - components:
+      - event_bindings: {click: go_away_click}
+        layout_properties: {slot: card-content-container-slot}
+        name: go_away
+        properties: {text: go away}
+        type: form:_Components.Button
+      - layout_properties: {slot: card-content-container-slot}
+        name: special_panel
+        properties: {}
+        type: ColumnPanel
+      layout_properties: {slot: card-content-slot}
+      name: card_content_container_5
+      properties: {}
+      type: form:_Components.Card.CardContentContainer
+    layout_properties: {grid_position: 'DDUVTW,KDQKQF'}
+    name: card_5
     properties: {}
     type: form:_Components.Card
   layout_properties: {slot: default}

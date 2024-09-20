@@ -48,6 +48,8 @@ class RadioButtonGroups(RadioButtonGroupsTemplate):
     self.text_3_copy.text = self.radio_button_1_copy.get_group_value()
 
   def button_1_click(self, **event_args):
-    """This method is called when the component is clicked."""
-    self.radio_button_1.get_group_buttons()
+    self.special_panel.add_component(Button(text="BLAH"))
+
+  def go_away_click(self, **event_args):
+    self.special_panel.clear()
     

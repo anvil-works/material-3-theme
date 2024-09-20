@@ -5,7 +5,7 @@ container:
     html: "<div anvil-name=\"anvil-m3-radiobuttongroup-component\" style=\"display:flex\">\n  <div anvil-name=\"anvil-m3-radiobuttongroup-container\" class=\"anvil-m3-radiobuttongroup-container\" anvil-slot=\"anvil-m3-radiobuttongroup-slot\" anvil-slot-internal>\n   \n  </div>\n</div>"
   type: HtmlTemplate
 custom_component: true
-custom_component_container: true
+custom_component_container: false
 events:
 - {default_event: true, name: change}
 is_package: true
