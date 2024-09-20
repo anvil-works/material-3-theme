@@ -30,10 +30,16 @@ class RadioButtonGroups(RadioButtonGroupsTemplate):
     # Any code you write here will run before the form opens.
 
   def radio_button_group_1_change(self, **event_args):
-    self.text_4.text = self.radio_button_group_1.selected_item
+    i = self.radio_button_group_1.selected_item
+    self.text_4.text = i[1] if isinstance(i, tuple) else i
 
   def radio_button_group_2_change(self, **event_args):
-    self.text_5.text = self.radio_button_group_2.selected_item[1]
+    i = self.radio_button_group_2.selected_item
+    self.text_5.text = i[1] if isinstance(i, tuple) else i
+
+  def radio_button_group_3_change(self, **event_args):
+    i = self.radio_button_group_1_copy.selected_item
+    self.text_4_copy.text = i[1] if isinstance(i, tuple) else i
 
   def update_text(self, **event_args):
     self.text_3.text = self.radio_button_1.get_group_value()

@@ -48,11 +48,11 @@ components:
         name: text_4_copy
         properties: {text: plain text items}
         type: form:_Components.Text
-      - event_bindings: {change: radio_button_group_1_change}
+      - event_bindings: {change: radio_button_group_3_change}
         layout_properties: {slot: card-content-container-slot}
         name: radio_button_group_1_copy
         properties:
-          items: [radio button 1, radio button 2, radio button 3]
+          items: [a, b, c, d]
           orientation: vertical
         type: form:_Components.RadioButtonGroup
       layout_properties: {slot: card-content-slot}

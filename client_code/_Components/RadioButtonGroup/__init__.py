@@ -6,6 +6,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from ...Functions import (
   property_with_callback,
+  property_without_callback,
   checked_property,
   role_property,
   tooltip_property,
@@ -33,6 +34,7 @@ class RadioButtonGroup(RadioButtonGroupTemplate):
     self._props = properties
     self._group_name = gen_id()
     self._items = []
+    self._children = []
     self.init_components(**properties)
 
   # properties
@@ -44,16 +46,16 @@ class RadioButtonGroup(RadioButtonGroupTemplate):
       self._items.append(item) if isinstance(item, tuple) else self._items.append((item, item))
     self.renderItems()
   items = property_with_callback("items", _set_items)
-  def _set_selected_item(self, item):
-    print(item)
-    pass
-  selected_item = property_with_callback("selected_item", _set_selected_item)
+  # def _set_selected_item(self, item):
+  #   print(item)
+  #   pass
+  selected_item = property_without_callback("selected_item")
 
   def form_show(self, **event_args):
     self.renderItems()
 
   def renderItems(self):
-    self.clear(slot="anvil-m3-radiobuttongroup-slot")
+    self.clear(slot="anvil-m3-radiobuttongroup-slot") 
     if in_designer:
       if len(self._items) == 0:
         for _ in range(2):
@@ -67,22 +69,18 @@ class RadioButtonGroup(RadioButtonGroupTemplate):
       rb.text = item[0]
       rb.value = item[1]
       if len(item) > 2:
-        print(item[2])
         if isinstance(item[2], object):
           for prop_name, val in item[2].items():
             if hasattr(rb, prop_name):
               setattr(rb, prop_name, val)
       rb.group_name = self._group_name
-      def _handle_select_rb(value = item, **e):
+      def _handle_select_rb(value = item, selected_button = rb, **e):
         self.selected_item = value
         self.raise_event("change")
+        self.get_children()
       rb.add_event_handler('change', _handle_select_rb)
       self.add_component(rb, slot="anvil-m3-radiobuttongroup-slot")
+      self._children.append(rb)
 
-
-
-
-# <div anvil-name="anvil-m3-radiobuttongroup-component" style="display:flex">
-#   <div anvil-name="anvil-m3-radiobuttongroup-container" class="anvil-m3-radiobuttongroup-container" anvil-slot="anvil-m3-radiobuttongroup-slot" anvil-slot-internal>
-#   </div>
-# </div>
+  def get_children(self):
+    print(self._children)
