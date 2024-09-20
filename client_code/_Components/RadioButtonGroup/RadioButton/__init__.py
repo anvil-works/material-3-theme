@@ -68,7 +68,13 @@ class RadioButton(RadioButtonTemplate):
   margin = margin_property("anvil-m3-radiobutton-component")
   tooltip = tooltip_property("anvil-m3-radiobutton-component")
   role = role_property("anvil-m3-radiobutton-container")
-  selected = checked_property('anvil-m3-radiobutton-input')
+  # selected = checked_property('anvil-m3-radiobutton-input')
+
+  
+  def _set_set_selected(self, value):
+    #if there a selected valuee forthe group, set it to None
+    self.dom_nodes["anvil-m3-radiobutton-input"].checked = value
+  selected = property_with_callback("selected", _set_set_selected)
 
   def _set_radio_color(self, value):
     if value:
@@ -90,7 +96,7 @@ class RadioButton(RadioButtonTemplate):
     self.dom_nodes["anvil-m3-radiobutton-label"].innerText = v
   text = property_with_callback("text", _set_text)
 
-  Class Functions
+  # Class Functions
   def _anvil_get_interactions_(self):
     return [
       {
@@ -136,7 +142,10 @@ class RadioButton(RadioButtonTemplate):
     selected_item = document.querySelector(
       f'.anvil-m3-radiobutton-input[name="{self.group_name}"]:checked'
     )
-    return selected_item.value
+    return selected_item.value if selected_item else None
+
+  def get_group_buttons(self):
+    pass
 
 
 #!defClass(material_3, RadioButton, anvil.Component)!:
