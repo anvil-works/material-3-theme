@@ -19,9 +19,6 @@ class DropdownMenu(DropdownMenuTemplate):
     self._props = properties
     self._design_name = ""
     self.init_components(**properties)
-
-    if not self.allow_none:
-      self.selection_field.dom_nodes['anvil-m3-textfield'].value = ""
         
     self._cleanup = noop
 
@@ -32,6 +29,9 @@ class DropdownMenu(DropdownMenuTemplate):
     self._children = None
 
     self.selected_value = None
+    
+    if not self.allow_none:
+      self.selection_field.dom_nodes['anvil-m3-textfield'].value = ""
 
     self._has_focus = False
     self._handle_keyboard_events = self._handle_keyboard_events
