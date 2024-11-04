@@ -106,6 +106,7 @@ class Button(ButtonTemplate):
       
   def form_show(self, **event_args):
     self._update_button_look()
+    print("")
 
   
   align = property_with_callback('align', _set_align)
