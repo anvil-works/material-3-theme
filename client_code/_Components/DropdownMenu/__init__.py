@@ -51,6 +51,10 @@ class DropdownMenu(DropdownMenuTemplate):
       'blur', self._handle_selection_field_blur
     )
 
+    # self.selection_field.dom_nodes["anvil-trailing-icon"].addEventListener(
+    #   "click", self._handle_icon_click
+    # )
+
     self.add_event_handler("x-anvil-page-added", self._on_mount)
     self.add_event_handler("x-anvil-page-removed", self._on_cleanup)
 
@@ -110,6 +114,9 @@ class DropdownMenu(DropdownMenuTemplate):
 
   def _handle_selection_field_blur(self, event):
     self._has_focus = False
+
+  def _handle_icon_click(self, event):
+    self.selection_field.focus()
 
   def _handle_keyboard_events(self, event):
     if not self._has_focus:
@@ -227,9 +234,9 @@ class DropdownMenu(DropdownMenuTemplate):
       or self._menuNode.contains(event.target)
       or icon.contains(event.target)
     ):
-      self._has_focus = True
-      return
-    self._set_menu_visibility(False)
+      self.selection_field.focus()
+    else:
+        self._set_menu_visibility(False)
 
   def _child_clicked(self, event):
     event.stopPropagation()
