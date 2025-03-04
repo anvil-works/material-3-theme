@@ -6,7 +6,7 @@ from ._Components.TextInput.TextBox import TextBox
 
 
 def make_footer_button(button_type, **kwargs):
-  return Button(align**kwargs)
+  return Button(align='left', **kwargs)
 
 
 pluggable_ui.provide(
