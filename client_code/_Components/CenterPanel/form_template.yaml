@@ -5,6 +5,6 @@ container:
       <center style="font-style:italic; color:#888; margin: 3em;">
         (Insert your custom HTML here)
       </center>
-      <div anvil-slot="default"></div>
+      <div anvil-slot="center-panel-slot" anvil-name="anvil-m3-center-panel"></div>
   type: HtmlTemplate
 is_package: true
