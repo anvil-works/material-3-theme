@@ -5,8 +5,11 @@ from ._Components.Checkbox import Checkbox
 from ._Components.TextInput.TextBox import TextBox
 
 
-def make_footer_button(button_type, align=None, **kwargs):
-  return Button(align='left', **kwargs)
+def make_button(button_type, align=None, **kwargs):
+  return Button(align='center', **kwargs)
+
+def make_footer_button(button_type, **kwargs):
+  return Button(**kwargs)
 
 
 pluggable_ui.provide(
