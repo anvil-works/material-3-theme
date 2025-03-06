@@ -10,4 +10,5 @@ container:
 custom_component: true
 is_package: true
 properties:
-- {default_binding_prop: true, default_value: '', important: true, name: name, type: string}
+- {default_binding_prop: true, default_value: '', description: 'The name of the associated user. If no image is provided, the avatar will display initials generated from the name.', group: Key Properties, important: true, name: name, type: string}
+- {accept: image/*, description: The image to display on the component. If no image is displayed, important: true, name: image, type: uri}
