@@ -5,7 +5,7 @@ from ._Components.Checkbox import Checkbox
 from ._Components.TextInput.TextBox import TextBox
 
 
-def make_button(button_type, align=None, **kwargs):
+def make_button(align=None, **kwargs):
   return Button(align='center', **kwargs)
 
 def make_footer_button(button_type, **kwargs):
@@ -17,7 +17,7 @@ pluggable_ui.provide(
   {
     "anvil.TextBoxWithLabel": TextBox,
     "anvil.TextBox": TextBox,
-    "anvil.Button": Button,
+    "anvil.Button": make_button,
     "anvil.CheckBox": Checkbox,
     "anvil.alerts.FooterButton": make_footer_button,
   },
