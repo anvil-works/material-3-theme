@@ -2,9 +2,9 @@ components: []
 container:
   properties:
     html: |-
-      <center style="font-style:italic; color:#888; margin: 3em;">
-        (Insert your custom HTML here)
-      </center>
-      <div anvil-slot="center-panel-slot" anvil-name="anvil-m3-center-panel"></div>
+      <div anvil-slot="center-panel-slot" anvil-name="anvil-m3-center-panel" class="anvil-m3-card-content-container">
+      </div>
   type: HtmlTemplate
+custom_component: true
+custom_component_container: true
 is_package: true
