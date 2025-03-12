@@ -10,6 +10,7 @@ from ...utils import gen_id
 
 class TextInput(TextInputTemplate):
   def __init__(self, **properties):
+    print()
     self._props = properties
     self._tooltip_node = None
     self.init_components(**properties)
