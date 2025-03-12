@@ -10,7 +10,7 @@ from ...utils import gen_id
 
 class TextInput(TextInputTemplate):
   def __init__(self, **properties):
-    print()
+    print("TEEHEEHEEHEEHEE")
     self._props = properties
     self._tooltip_node = None
     self.init_components(**properties)
@@ -80,6 +80,7 @@ class TextInput(TextInputTemplate):
     id = gen_id();
     self._set_id(id)
     if anvil.designer.in_designer:
+      print("BLAHABLHA")
       if not self.label_text:
         self.dom_nodes['anvil-m3-label-text'].innerText = anvil.designer.get_design_name(self)
 
@@ -91,6 +92,7 @@ class TextInput(TextInputTemplate):
   def _on_change(self, e):
     # on text input/textarea the change event fires when we lose focus
     self.raise_event("x-anvil-write-back-input_text")
+    print("changing text")
 
   def _on_focus(self, e):
     self.raise_event("focus")

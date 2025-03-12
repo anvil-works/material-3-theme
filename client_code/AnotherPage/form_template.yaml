@@ -4,11 +4,11 @@ components_by_slot:
   - event_bindings: {pressed_enter: text_field_3_pressed_enter}
     layout_properties: {}
     name: text_field_3
-    properties: {label_text: hello}
+    properties: {label_text: asdf}
     type: form:_Components.TextInput.TextField
   - layout_properties: {}
     name: text_field_1
-    properties: {appearance: outlined, label_text: Hello}
+    properties: {align: right, appearance: outlined, label_text: Hello}
     type: form:_Components.TextInput.TextField
   - layout_properties: {}
     name: text_area_1
