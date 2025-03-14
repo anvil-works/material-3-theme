@@ -1,36 +1,7 @@
 components: []
 container:
   properties:
-    html: |-
-      <div anvil-name="anvil-m3-navigation-drawer" class="anvil-m3-navigation-drawer anvil-m3-navigation-drawer-out-designer">
-        <!-- <div anvil-name="anvil-m3-drawer-close-btn" class="anvil-m3-drawer-close-btn"> -->
-          <!-- <span class="material-symbols-outlined">menu_open</span>
-        </div> -->
-        <div class="anvil-m3-navigation-drawer-content" anvil-slot="anvil-m3-navigation-drawer-content">
-            <p anvil-if-slot-empty="anvil-m3-navigation-drawer-content" class="anvil-designer-only" style="font-style: italic;">Add navigation links here</p>
-        </div>
-      </div>
-
-      <div anvil-name="anvil-m3-top-app-bar" class="anvil-m3-top-app-bar">
-        <!--TODO: change this to an icon button-->
-        <div class="anvil-m3-title-container">
-          <div anvil-name="anvil-m3-drawer-open-btn" class="anvil-m3-drawer-open-btn">
-            <span class="material-symbols-outlined">menu</span>
-          </div>
-          <div anvil-slot="anvil-m3-app-title" class="anvil-m3-app-title"><span anvil-if-slot-empty="anvil-m3-app-title" class="anvil-designer-only" style="font-style: italic;">Drop optional title here</span></div>
-        </div>
-        <div class="anvil-m3-app-bar-links" anvil-slot="anvil-m3-app-bar-links"><span anvil-if-slot-empty="anvil-m3-app-bar-links" class="anvil-designer-only"  style="font-style: italic; font-size:14px;">Drop optional icon buttons here</span></div>
-      </div>
-
-      <div anvil-name="anvil-m3-navigation-drawer-scrim" class="anvil-m3-navigation-drawer-scrim"></div>
-      <div anvil-name="anvil-m3-sidesheet-scrim" class="anvil-m3-sidesheet-scrim"></div>
-
-      <div class="anvil-m3-content anvil-m3-content-navigation-drawer" anvil-slot="anvil-m3-content" anvil-name="anvil-m3-content">
-        <p anvil-if-slot-empty="anvil-m3-content" class="anvil-designer-only" style="font-style: italic;">Add content here</p>
-      </div>
-      <div class="anvil-m3-sidesheet anvil-m3-open" anvil-slot="anvil-m3-sidesheet" anvil-name="anvil-m3-sidesheet">
-        <p anvil-if-slot-empty="anvil-m3-sidesheet" class="anvil-designer-only" style="font-style: italic;">Add optional sidesheet content here</p>
-      </div>
+    html: "<div class=\"anvil-m3-structure\">\n\n  <div anvil-name=\"anvil-m3-navigation-drawer\" class=\"anvil-m3-navigation-drawer anvil-m3-navigation-drawer-out-designer\">\n  <!-- <div anvil-name=\"anvil-m3-drawer-close-btn\" class=\"anvil-m3-drawer-close-btn\"> -->\n    <!-- <span class=\"material-symbols-outlined\">menu_open</span>\n  </div> -->\n    <div class=\"anvil-m3-navigation-drawer-content\" anvil-slot=\"anvil-m3-navigation-drawer-content\">\n        <p anvil-if-slot-empty=\"anvil-m3-navigation-drawer-content\" class=\"anvil-designer-only\" style=\"font-style: italic;\">Add navigation links here</p>\n    </div>\n  </div>\n\n  <div anvil-name=\"anvil-m3-top-app-bar\" class=\"anvil-m3-top-app-bar\">\n    <!--TODO: change this to an icon button-->\n    <div class=\"anvil-m3-title-container\">\n      <div anvil-name=\"anvil-m3-drawer-open-btn\" class=\"anvil-m3-drawer-open-btn\">\n        <span class=\"material-symbols-outlined\">menu</span>\n      </div>\n      <div anvil-slot=\"anvil-m3-app-title\" class=\"anvil-m3-app-title\"><span anvil-if-slot-empty=\"anvil-m3-app-title\" class=\"anvil-designer-only\" style=\"font-style: italic;\">Drop optional title here</span></div>\n    </div>\n    <div class=\"anvil-m3-app-bar-links\" anvil-slot=\"anvil-m3-app-bar-links\"><span anvil-if-slot-empty=\"anvil-m3-app-bar-links\" class=\"anvil-designer-only\"  style=\"font-style: italic; font-size:14px;\">Drop optional icon buttons here</span></div>\n  </div>\n  \n  <div anvil-name=\"anvil-m3-navigation-drawer-scrim\" class=\"anvil-m3-navigation-drawer-scrim\"></div>\n  <div anvil-name=\"anvil-m3-sidesheet-scrim\" class=\"anvil-m3-sidesheet-scrim\"></div>\n  \n  <div class=\"anvil-m3-content anvil-m3-content-navigation-drawer\" anvil-slot=\"anvil-m3-content\" anvil-name=\"anvil-m3-content\">\n    <p anvil-if-slot-empty=\"anvil-m3-content\" class=\"anvil-designer-only\" style=\"font-style: italic;\">Add content here</p>\n  </div>\n  <div class=\"anvil-m3-sidesheet anvil-m3-open\" anvil-slot=\"anvil-m3-sidesheet\" anvil-name=\"anvil-m3-sidesheet\">\n    <p anvil-if-slot-empty=\"anvil-m3-sidesheet\" class=\"anvil-designer-only\" style=\"font-style: italic;\">Add optional sidesheet content here</p>\n  </div>\n  \n</div>\n\n"
   type: HtmlTemplate
 is_package: true
 layout_metadata: {description: 'A simple layout with a left-side navigation drawer and optional right-hand sidepanel ', thumbnail: 'asset:designer_icons/navigation-drawer-thumb.png', title: NavigationDrawerLayout}

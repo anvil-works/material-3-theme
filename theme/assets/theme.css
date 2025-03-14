@@ -72,6 +72,13 @@ body {
     outline-color: var(--anvil-m3-primary);
 }
 
+.anvil-m3-structure {
+  min-height: 100vh;
+  min-height: calc(100vh - %anvil-banner-height%);
+  position: relative;
+  top: calc(0px + %anvil-banner-height%);
+}
+
 /*NAVIGATION: RAIL, DRAWER, APP BAR*/
 @media(min-width: 980px) {
   .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-out-designer {
@@ -84,7 +91,7 @@ body {
     position: fixed;
     overflow-y: auto;
     z-index:8;
-    top: 0;
+    /* top: 0; */
     left: 0px !important;
   }
 }
@@ -113,11 +120,12 @@ body {
     position: fixed;
     overflow-y: auto;
     z-index:8;
-    top: 0;
+    /* top: 0; */
     left: 0px !important;
     background: linear-gradient(0deg, %color:Primary Overlay 2%, %color:Primary Overlay 2%), %color:Background%; 
     width: 80px !important;
     height: 100%;
+    height: calc(100% - %anvil-banner-height%)
   }
 }
 
@@ -149,15 +157,17 @@ body {
     background: linear-gradient(0deg, %color:Primary Overlay 2%, %color:Primary Overlay 2%), %color:Background%;
     z-index:8;
     display: block;
-    height: 100%;
+    height: 100vh;
+    height: calc(100vh - %anvil-banner-height%);
     padding: 28px;
     box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
     margin: 0;
     top: 0;
+    top: calc(0px + %anvil-banner-height%);
     left: -101%;
     border-right: none;
     border-radius: 0 20px 20px 0;
-    position: absolute;
+    position: fixed;
   }
 }
 
@@ -170,7 +180,7 @@ body {
     background: linear-gradient(0deg, %color:Primary Overlay 2%, %color:Primary Overlay 2%), %color:Background%;
     z-index:8;
     display: block;
-    height: 100%;
+    height: 100vh;
     padding: 28px;
     box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
     margin: 0;
@@ -178,43 +188,48 @@ body {
     left: -101%;
     border-right: none;
     border-radius: 0 20px 20px 0;
-    position: absolute;
+    position: fixed;
   }
 }
 
 @media(max-width: 600px) {
-  .anvil-m3-navigation-rail.anvil-m3-bottom-app-bar, .anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer {
+  .anvil-m3-navigation-rail.anvil-m3-bottom-app-bar {
     width: 100%;
     padding: 12px 8px 16px 8px;
     flex-direction: row;
     justify-content: center;
     overflow-y: hidden;
     background: linear-gradient(0deg, %color:Primary Overlay 2%, %color:Primary Overlay 2%), %color:Background%;
-    height: 100%;
+    bottom: 0;
+    top: unset;
+    height: 80px;
     display: flex;
     position: fixed;
     z-index:8;
-    top: 0;
   }
 }
-
 
 
 @media(max-width: 600px) {
   .anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer {
     display: block;
-    height: 100%;
+    z-index:8;
+    height: 100vh;
+    height: calc(100vh - %anvil-banner-height%);
     padding: 28px;
     box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
     margin: 0;
     top: 0;
+    top: calc(0px + %anvil-banner-height%);
     left: -101%;
     border-right: none;
     border-radius: 0 20px 20px 0;
-    position: absolute;
-
+    position: fixed;
+    overflow-y: hidden;
+    background: linear-gradient(0deg, %color:Primary Overlay 2%, %color:Primary Overlay 2%), %color:Background%;
   }
 }
+
 
 @property --PrimaryOverlay2 {
   syntax: '<color>';
@@ -228,13 +243,6 @@ body {
   background: linear-gradient(0deg, %color:Primary Overlay 2%, %color:Primary Overlay 2%), %color:Background%;
 }
 
-@media(max-width: 600px) {
-.anvil-m3-navigation-rail.anvil-m3-bottom-app-bar {
-    bottom: 0;
-    top: unset;
-    height: 80px;
-  }
-}
 
 .anvil-m3-top-app-bar  {
   display:none;

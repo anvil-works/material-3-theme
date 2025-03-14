@@ -3,7 +3,9 @@ container:
   event_bindings: {}
   properties:
     html: |+
-      <div anvil-name="anvil-m3-navigation-rail" class="anvil-m3-navigation-rail">
+      <div class="anvil-m3-structure">
+
+        <div anvil-name="anvil-m3-navigation-rail" class="anvil-m3-navigation-rail">
         <!-- <div anvil-name="anvil-m3-drawer-close-btn" class="anvil-m3-drawer-close-btn"> -->
           <!-- <span class="material-symbols-outlined">menu_open</span>
         </div> -->
@@ -31,6 +33,8 @@ container:
       </div>
       <div class="anvil-m3-sidesheet anvil-m3-open" anvil-slot="anvil-m3-sidesheet" anvil-name="anvil-m3-sidesheet">
         <p anvil-if-slot-empty="anvil-m3-sidesheet" class="anvil-designer-only" style="font-style: italic;">Add optional sidesheet content here</p>
+      </div>
+
       </div>
 
   type: HtmlTemplate
