@@ -92,6 +92,8 @@ class FileLoader(FileLoaderTemplate):
 
   def _handle_change(self, event, **event_args):
     files = self.dom_nodes['anvil-m3-fileloader-input'].files
+    if not files:
+      return
     self.files = [anvil.js.to_media(file) for file in files]
     self.file = self.files[0]
     self.raise_event('change', file=self.files[0], files=self.files)
