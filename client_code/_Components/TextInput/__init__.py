@@ -11,6 +11,7 @@ from ..._utils.properties import (
   font_size_property,
   get_unset_margin,
   get_unset_value,
+  innerText_property,
   italic_property,
   margin_property,
   property_with_callback,
@@ -98,6 +99,7 @@ class TextInput(TextInputTemplate):
   subcontent_font_size = font_size_property(
     'anvil-m3-subcontent', 'subcontent_font_size'
   )
+  supporting_text = innerText_property('anvil-m3-supporting-text', 'supporting_text')
 
   @anvil_prop
   @property
@@ -106,11 +108,6 @@ class TextInput(TextInputTemplate):
       self.dom_nodes['anvil-m3-textinput'].classList.toggle('outlined', True)
     else:
       self.dom_nodes['anvil-m3-textinput'].classList.toggle('outlined', False)
-
-  @anvil_prop
-  @property
-  def supporting_text(self, value):
-    self.dom_nodes['anvil-m3-supporting-text'].innerHTML = value
 
   def _set_error(self, value):
     classes = self.dom_nodes['anvil-m3-textinput'].classList

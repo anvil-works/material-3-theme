@@ -9,6 +9,7 @@ from ..._utils.properties import (
   color_property,
   font_family_property,
   font_size_property,
+  innerText_property,
   italic_property,
   spacing_property,
   tooltip_property,
@@ -52,12 +53,8 @@ class MenuItem(MenuItemTemplate):
   visible = HtmlTemplate.visible
   spacing = spacing_property('anvil-m3-menuItem-container')
   tooltip = tooltip_property('anvil-m3-menuItem-container')
-
-  @anvil_prop
-  @property
-  def text(self, value) -> str:
-    """The text displayed on this component."""
-    self.dom_nodes['anvil-m3-menuItem-labelText'].innerText = value
+  text = innerText_property('anvil-m3-menuItem-labelText')
+  trailing_text = innerText_property('anvil-m3-menuItem-trailingText', 'trailing_text')
 
   @anvil_prop
   @property
@@ -78,12 +75,6 @@ class MenuItem(MenuItemTemplate):
   def trailing_icon(self, value) -> str:
     """The icon to display on this component."""
     self.dom_nodes["anvil-m3-menuItem-trailingIcon"].innerText = value[3:]
-
-  @anvil_prop
-  @property
-  def trailing_text(self, value) -> str:
-    """The text to be displayed on the right side of the component. Will be to the left of the trailing icon if both exist."""
-    self.dom_nodes["anvil-m3-menuItem-trailingText"].innerText = value
 
   @anvil_prop
   @property

@@ -81,7 +81,7 @@ def innerHTML_property(dom_node_name, prop_name="text"):
 
 def innerText_property(dom_node_name, prop_name="text"):
   def set_innerText(self, value):
-    self.dom_nodes[dom_node_name].innerText = value
+    self.dom_nodes[dom_node_name].innerText = str(value if value is not None else "")
 
   return property_with_callback(prop_name, set_innerText)
 

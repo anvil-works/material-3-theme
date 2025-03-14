@@ -10,11 +10,11 @@ from ..._utils.properties import (
   font_size_property,
   get_unset_spacing,
   get_unset_value,
-  innerHTML_property,
+  innerText_property,
   italic_property,
   role_property,
-  spacing_property,
   simple_prop,
+  spacing_property,
   tooltip_property,
   underline_property,
 )
@@ -110,7 +110,7 @@ class NavigationLink(NavigationLinkTemplate):
   #!componentProp(m3.NavigationLink)!1: {name:"background_color",type:"color",description:"The color of the background of this component."}
 
   visible = HtmlTemplate.visible
-  text = innerHTML_property('anvil-m3-navigation-link-text')
+  text = innerText_property('anvil-m3-navigation-link-text')
   role = role_property('anvil-m3-navigation-link')
   italic = italic_property('anvil-m3-navigation-link-text')
   bold = bold_property('anvil-m3-navigation-link-text')
