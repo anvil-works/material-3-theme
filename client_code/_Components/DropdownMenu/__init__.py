@@ -189,6 +189,8 @@ class DropdownMenu(DropdownMenuTemplate):
   def _set_menu_visibility(self, value=None):
     if value is None:
       value = not self.menu.visible
+    if self.read_only:
+        value = False
 
     self.menu.visible = value
     self._menuNode.classList.toggle("anvil-m3-menu-hidden", not value)
@@ -216,7 +218,7 @@ class DropdownMenu(DropdownMenuTemplate):
           ].scrollIntoView({'block': 'nearest'})
 
     else:
-      self.selection_field.trailing_icon = "mi:arrow_drop_down"
+      self.selection_field.trailing_icon = "" if self.read_only else "mi:arrow_drop_down"
       if self.selected_value is None:
         self._hoverIndex = None
 
@@ -353,6 +355,13 @@ class DropdownMenu(DropdownMenuTemplate):
   def enabled(self, value) -> bool:
     """If True, this component allows user interaction."""
     self.selection_field.enabled = value
+
+  @anvil_prop
+  @property
+  def read_only(self, value) -> bool:
+    """If True, this component won't allow it's value to be changed."""
+    self.selection_field.read_only = value
+    self._set_menu_visibility(False)
 
   @anvil_prop
   @property
