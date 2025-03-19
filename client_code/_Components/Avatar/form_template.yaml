@@ -17,4 +17,4 @@ properties:
   name: size
   options: [small, medium, large]
   type: enum
-- {default_value: 'mi:', important: true, name: fallback_icon, type: icon}
+- {default_value: '', important: true, name: fallback_icon, type: icon}
