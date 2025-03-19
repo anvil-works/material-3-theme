@@ -55,5 +55,8 @@ class Avatar(AvatarTemplate):
   @property
   def name(self, value):
     initials_div = self.dom_nodes['anvil-m3-avatar-initials']
-    name =
+    names = name.split()
+    initials = ""
+    for n in names:
+      initials += 
     
