@@ -13,6 +13,7 @@ class Avatar(AvatarTemplate):
     self._tooltip_node = None
     self.initials_div = self.dom_nodes['anvil-m3-avatar-initials']
     self.fallback_icon_div = self.dom_nodes['anvil-m3-avatar-icon']
+    self.image_div = self.dom_nodes['anvil-m3-avatar-image']
     self.init_components(**properties)
 
     self.dom_nodes['anvil-m3-avatar'].addEventListener(
@@ -37,7 +38,10 @@ class Avatar(AvatarTemplate):
   @property
   def fallback_icon(self, value) -> str:
     """The icon to display on this component."""
-    self.fallback_icon_div.style.display = "none"
+    if self.image or self.name:
+      self.fallback_icon_div.style.display = "none"
+    elif value:
+      self.fallback_icon_div.style.display = "block"
     if value:
       self.fallback_icon_div.className = ""
       self.fallback_icon_div.classList.add("material-symbols-outlined")
@@ -48,27 +52,40 @@ class Avatar(AvatarTemplate):
   @anvil_prop
   @property
   def image(self, value):
-    image = self.dom_nodes['anvil-m3-avatar-image']
     if value: 
-      image.style.display = "block"
-      image.src = value
+      self.image_div.style.display = "block"
+      self.image_div.src = value
       self.initials_div.style.display = "none"
-      self.fallback_icon_div.display = "none"
+      self.fallback_icon_div.style.display = "none"
     else:
-      image.style.display = "none"
+      self.image_div.style.display = "none"
+      if self.name:
+        self.initials_div.style.display = "block"
+        self.fallback_icon_div.style.display = "none"
+      else:
+        self.fallback_icon_div.style.display = "block"
+        self.initials_div.style.display = "none"
+        
 
 
   @anvil_prop
   @property
   def name(self, value):
-    if value and not self.image:
+    if self.image: 
+      self.image_div.style.display = "block"
+      self.initials_div.style.display = "none"
+    elif value:
       self.initials_div.style.display = "block"
+      self.fallback_icon_div.style.display = "none"
+      self.image_div.style.display = "none"
       names = value.split()
       initials = ""
       for n in names:
         initials += n[0]
       self.initials_div.innerText = initials
-    else:
+    elif not value:
+      self.fallback_icon_div.style.display = "block"
       self.initials_div.style.display = "none"
+      
 
     
