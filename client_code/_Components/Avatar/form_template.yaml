@@ -23,5 +23,5 @@ properties:
   iconsets: [material-icons]
   important: true
   include_none_option: true
-  name: icon
+  name: fallback_icon
   type: icon
