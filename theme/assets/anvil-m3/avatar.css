@@ -4,8 +4,22 @@
   justify-content: center;
   border-radius: 50%;
   font-weight: 500;
+}
+
+.anvil-m3-avatar.anvil-m3-avatar-filled {
   background-color: var(--anvil-m3-primary);
   color: var(--anvil-m3-on-primary);
+}
+
+.anvil-m3-avatar.anvil-m3-avatar-tonal {
+  background-color: var(--anvil-m3-secondary-container);
+  color: var(--anvil-m3-on-secondary-container);
+}
+
+.anvil-m3-avatar.anvil-m3-avatar-outlined {
+  background-color: transparent;
+  color: var(--anvil-m3-on-surface-variant);
+  border: 1px solid var(--anvil-m3-outline);
 }
 
 .anvil-m3-avatar.anvil-m3-avatar-small {

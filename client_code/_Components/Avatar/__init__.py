@@ -14,6 +14,7 @@ class Avatar(AvatarTemplate):
     self.initials_div = self.dom_nodes['anvil-m3-avatar-initials']
     self.fallback_icon_div = self.dom_nodes['anvil-m3-avatar-icon']
     self.image_div = self.dom_nodes['anvil-m3-avatar-image']
+    self.avatar_div = self.dom_nodes['anvil-m3-avatar']
     self.init_components(**properties)
 
     self.dom_nodes['anvil-m3-avatar'].addEventListener(
@@ -85,8 +86,15 @@ class Avatar(AvatarTemplate):
   @property
   def size(self, value):
     for c in ['anvil-m3-avatar-small', 'anvil-m3-avatar-medium', 'anvil-m3-avatar-large']:
-      self.dom_nodes['anvil-m3-avatar'].classList.remove(c)
-    self.dom_nodes['anvil-m3-avatar'].classList.add(f'anvil-m3-avatar-{value}')
+      self.avatar_div.classList.remove(c)
+    self.avatar_div.classList.add(f'anvil-m3-avatar-{value}')
+
+  @anvil_prop
+  @property
+  def appearance(self, value) -> str:
+    for c in ['anvil-m3-avatar-filled', 'anvil-m3-avatar-tonal', 'anvil-m3-avatar-outlined']:
+      self.avatar_div.classList.remove(c)
+    self.avatar_div.classList.add(f"anvil-m3-avatar-{value}")
       
 
     
