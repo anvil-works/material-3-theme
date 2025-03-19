@@ -40,17 +40,12 @@ class Avatar(AvatarTemplate):
     """The icon to display on this component."""
     if self.image or self.name:
       self.fallback_icon_div.style.display = "none"
-    elif value:
+    else:
       self.fallback_icon_div.style.display = "block"
       self.fallback_icon_div.className = ""
       self.fallback_icon_div.classList.add("material-symbols-outlined")
       self.fallback_icon_div.innerText = value[3:]
-    if value:
-      self.fallback_icon_div.className = ""
-      self.fallback_icon_div.classList.add("material-symbols-outlined")
-      self.fallback_icon_div.innerText = value[3:]
-      if not self.image and not self.name:
-        self.fallback_icon_div.style.display = "block"
+
 
   @anvil_prop
   @property
@@ -60,12 +55,15 @@ class Avatar(AvatarTemplate):
       self.image_div.src = value
       self.initials_div.style.display = "none"
       self.fallback_icon_div.style.display = "none"
+      print(value)
     else:
+      print('else triggered')
       self.image_div.style.display = "none"
       if self.name:
         self.initials_div.style.display = "block"
         self.fallback_icon_div.style.display = "none"
       else:
+        print('there is no name')
         self.fallback_icon_div.style.display = "block"
         self.initials_div.style.display = "none"
         
