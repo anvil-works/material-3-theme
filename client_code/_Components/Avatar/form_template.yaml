@@ -2,7 +2,7 @@ components: []
 container:
   properties:
     html: |-
-      <div class="anvil-m3-avatar">
+      <div anvil-name="anvil-m3-avatar" class="anvil-m3-avatar">
         <img class="anvil-m3-avatar-image"></img>
         <span class="anvil-m3-avatar-initials"></span>
         <span anvil-name="anvil-m3-avatar-icon" class="anvil-m3-avatar-icon material-symbols-outlined"></span>
