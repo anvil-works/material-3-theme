@@ -11,6 +11,7 @@
 @import '_/theme/anvil-m3/text.css';
 @import '_/theme/anvil-m3/progress-indicator.css';
 @import '_/theme/anvil-m3/fileloader.css';
+@import '_/theme/anvil-m3/avatar.css';
 
 :root {
   --anvil-m3-primary: %color:Primary%;
