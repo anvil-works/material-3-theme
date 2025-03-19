@@ -53,7 +53,6 @@ class Avatar(AvatarTemplate):
       self.image_div.src = value
       self.initials_div.style.display = "none"
       self.fallback_icon_div.style.display = "none"
-      print(value)
     else:
       self.image_div.style.display = "none"
       if self.name:
