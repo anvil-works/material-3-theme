@@ -36,3 +36,8 @@ properties:
   name: align
   options: [left, center, right]
   type: enum
+- default_value: filled
+  important: true
+  name: appearance
+  options: [filled, tonal, outlined]
+  type: enum
