@@ -1,6 +1,9 @@
 from ._anvil_designer import AvatarTemplate
 from anvil import *
 
+from ..._utils.properties import (
+  anvil_prop
+)
 
 class Avatar(AvatarTemplate):
   def __init__(self, **properties):
@@ -30,9 +33,9 @@ class Avatar(AvatarTemplate):
 
   @anvil_prop
   @property
-  def icon(self, value) -> str:
+  def fallback_icon(self, value) -> str:
     """The icon to display on this component."""
-    link_icon = self.dom_nodes['anvil-m3-navigation-link-icon']
+    fallback_icon = self.dom_nodes['anvil-m3-avatar-icon']
     if value:
       link_icon.className = ""
       link_icon.classList.add("material-symbols-outlined")
