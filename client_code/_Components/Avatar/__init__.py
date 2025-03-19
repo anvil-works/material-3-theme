@@ -40,6 +40,8 @@ class Avatar(AvatarTemplate):
       fallback_icon.className = ""
       fallback_icon.classList.add("material-symbols-outlined")
       fallback_icon.innerText = value[3:]
+      if not self.image and self.name:
+        fallback_icon.style.display = "block"
 
   @anvil_prop
   @property
