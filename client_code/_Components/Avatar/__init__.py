@@ -37,6 +37,11 @@ class Avatar(AvatarTemplate):
     """The icon to display on this component."""
     fallback_icon = self.dom_nodes['anvil-m3-avatar-icon']
     if value:
-      link_icon.className = ""
-      link_icon.classList.add("material-symbols-outlined")
-      link_icon.innerText = value[3:]
+      fallback_icon.className = ""
+      fallback_icon.classList.add("material-symbols-outlined")
+      fallback_icon.innerText = value[3:]
+
+  @anvil_prop
+  @property
+  def image(self, value):
+    
