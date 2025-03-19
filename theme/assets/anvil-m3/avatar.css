@@ -23,8 +23,8 @@
 }
 
 .anvil-m3-avatar.anvil-m3-avatar-small {
-  height: 48px;
-  width: 48px;
+  height: 40px;
+  width: 40px;
 }
 
 .anvil-m3-avatar-initials {
@@ -33,7 +33,7 @@
 }
 
 .anvil-m3-avatar.anvil-m3-avatar-small img.anvil-m3-avatar-image {
-  height: 48px;
-  width: 48px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
 }

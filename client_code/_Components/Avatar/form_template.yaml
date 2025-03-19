@@ -1,11 +1,13 @@
 components: []
 container:
   properties:
-    html: |-
-      <div anvil-name="anvil-m3-avatar" class="anvil-m3-avatar">
-        <img anvil-name="anvil-m3-avatar-image" class="anvil-m3-avatar-image"></img>
-        <span anvil-name="anvil-m3-avatar-initials" class="anvil-m3-avatar-initials"></span>
-        <span anvil-name="anvil-m3-avatar-icon" class="anvil-m3-avatar-icon material-symbols-outlined"></span>
+    html: |
+      <div anvil-name="anvil-m3-avatar-container">
+        <div anvil-name="anvil-m3-avatar" class="anvil-m3-avatar">
+          <img anvil-name="anvil-m3-avatar-image" class="anvil-m3-avatar-image"></img>
+          <span anvil-name="anvil-m3-avatar-initials" class="anvil-m3-avatar-initials"></span>
+          <span anvil-name="anvil-m3-avatar-icon" class="anvil-m3-avatar-icon material-symbols-outlined"></span>
+        </div>
       </div>
   type: HtmlTemplate
 custom_component: true
@@ -41,3 +43,4 @@ properties:
   name: appearance
   options: [filled, tonal, outlined]
   type: enum
+- {important: true, name: margin, type: margin}
