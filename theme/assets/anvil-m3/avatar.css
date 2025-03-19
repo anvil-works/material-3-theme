@@ -5,6 +5,11 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  background-color: var(--anvil-m3-primary);
+  color: var(--anvil-m3-on-primary);
+  letter-spacing: .1em;
+  text-indent: .1em;
+  font-weight: 500;
 }
 
 .anvil-m3-avatar-image {
