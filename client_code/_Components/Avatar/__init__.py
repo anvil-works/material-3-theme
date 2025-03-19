@@ -44,4 +44,7 @@ class Avatar(AvatarTemplate):
   @anvil_prop
   @property
   def image(self, value):
+    image = self.dom_nodes['anvil-m3-avatar-image']
+    print(value)
+    image.src = value
     
