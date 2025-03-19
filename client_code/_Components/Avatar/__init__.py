@@ -42,6 +42,9 @@ class Avatar(AvatarTemplate):
       self.fallback_icon_div.style.display = "none"
     elif value:
       self.fallback_icon_div.style.display = "block"
+      self.fallback_icon_div.className = ""
+      self.fallback_icon_div.classList.add("material-symbols-outlined")
+      self.fallback_icon_div.innerText = value[3:]
     if value:
       self.fallback_icon_div.className = ""
       self.fallback_icon_div.classList.add("material-symbols-outlined")
