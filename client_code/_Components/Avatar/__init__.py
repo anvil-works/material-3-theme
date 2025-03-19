@@ -11,6 +11,8 @@ class Avatar(AvatarTemplate):
     self.tag = ComponentTag()
     self._props = properties
     self._tooltip_node = None
+    self.initials_div = self.dom_nodes['anvil-m3-avatar-initials']
+    self.fallback_icon_div = self.dom_nodes['anvil-m3-avatar-icon']
     self.init_components(**properties)
 
     self.dom_nodes['anvil-m3-avatar'].addEventListener(
@@ -35,28 +37,38 @@ class Avatar(AvatarTemplate):
   @property
   def fallback_icon(self, value) -> str:
     """The icon to display on this component."""
-    fallback_icon = self.dom_nodes['anvil-m3-avatar-icon']
-    fallback_icon.style.display = "none"
+    self.fallback_icon_div.style.display = "none"
     if value:
-      fallback_icon.className = ""
-      fallback_icon.classList.add("material-symbols-outlined")
-      fallback_icon.innerText = value[3:]
-      if not self.image and self.name:
-        fallback_icon.style.display = "block"
+      self.fallback_icon_div.className = ""
+      self.fallback_icon_div.classList.add("material-symbols-outlined")
+      self.fallback_icon_div.innerText = value[3:]
+      if not self.image and not self.name:
+        self.fallback_icon_div.style.display = "block"
 
   @anvil_prop
   @property
   def image(self, value):
     image = self.dom_nodes['anvil-m3-avatar-image']
-    print(value)
-    image.src = value
+    if value: 
+      image.style.display = "block"
+      image.src = value
+      self.initials_div.style.display = "none"
+      self.fallback_icon_div.display = "none"
+    else:
+      image.style.display = "none"
+
 
   @anvil_prop
   @property
   def name(self, value):
-    initials_div = self.dom_nodes['anvil-m3-avatar-initials']
-    names = name.split()
+    if value and not self.image:
+      self.initials_div.style.display = "block"
+    self.initials_div.style.display = "none"
+    names = value.split()
     initials = ""
     for n in names:
-      initials += 
+      initials += n[0]
+    self.initials_div.innerText = initials
+    if not self.image:
+      
     
