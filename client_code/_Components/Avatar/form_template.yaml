@@ -31,3 +31,8 @@ properties:
   type: icon
 - {default_value: '', description: Background color of the component if no image is provided, group: Look and Feel, important: false, name: background_color, type: color}
 - {default_value: '', description: Color of the initials displayed on the component if no image is provided, group: Look and Feel, important: false, name: text_color, type: color}
+- default_value: left
+  important: true
+  name: align
+  options: [left, center, right]
+  type: enum

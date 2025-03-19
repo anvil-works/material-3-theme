@@ -19,7 +19,6 @@ class Avatar(AvatarTemplate):
     self.dom_nodes['anvil-m3-avatar'].addEventListener(
       "click", self._handle_click
     )
-
     
   def _handle_click(self, event):
     self.raise_event(
@@ -46,7 +45,6 @@ class Avatar(AvatarTemplate):
       self.fallback_icon_div.classList.add("material-symbols-outlined")
       self.fallback_icon_div.innerText = value[3:]
 
-
   @anvil_prop
   @property
   def image(self, value):
@@ -57,21 +55,17 @@ class Avatar(AvatarTemplate):
       self.fallback_icon_div.style.display = "none"
       print(value)
     else:
-      print('else triggered')
       self.image_div.style.display = "none"
       if self.name:
         self.initials_div.style.display = "block"
         self.fallback_icon_div.style.display = "none"
       else:
-        print('there is no name')
         self.fallback_icon_div.style.display = "block"
         self.initials_div.style.display = "none"
-        
-
 
   @anvil_prop
   @property
-  def name(self, value):
+  def name(self, value) -> str:
     if self.image: 
       self.image_div.style.display = "block"
       self.initials_div.style.display = "none"
@@ -87,6 +81,13 @@ class Avatar(AvatarTemplate):
     elif not value:
       self.fallback_icon_div.style.display = "block"
       self.initials_div.style.display = "none"
+
+  @anvil_prop
+  @property
+  def size(self, value):
+    for c in ['anvil-m3-avatar-small', 'anvil-m3-avatar-medium', 'anvil-m3-avatar-large']:
+      self.dom_nodes['anvil-m3-avatar'].classList.remove(c)
+    self.dom_nodes['anvil-m3-avatar'].classList.add(f'anvil-m3-avatar-{value}')
       
 
     

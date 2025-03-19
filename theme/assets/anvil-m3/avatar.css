@@ -1,3 +1,8 @@
-.anvil-m3-avatar.anvil-m3-avatar-smal {
-  
+.anvil-m3-avatar.anvil-m3-avatar-small {
+  height: 48px;
+  width: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
