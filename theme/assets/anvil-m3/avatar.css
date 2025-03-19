@@ -1,18 +1,21 @@
-.anvil-m3-avatar.anvil-m3-avatar-small {
-  height: 48px;
-  width: 48px;
+.anvil-m3-avatar {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+}
+
+.anvil-m3-avatar.anvil-m3-avatar-small {
+  height: 48px;
+  width: 48px;
   background-color: var(--anvil-m3-primary);
   color: var(--anvil-m3-on-primary);
-  letter-spacing: .1em;
-  text-indent: .1em;
+  letter-spacing: .15em;
+  text-indent: .15em;
   font-weight: 500;
 }
 
-.anvil-m3-avatar-image {
+.anvil-m3-avatar.anvil-m3-avatar-small img.anvil-m3-avatar-image {
   height: 48px;
   width: 48px;
   border-radius: 50%;
