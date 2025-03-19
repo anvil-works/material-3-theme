@@ -63,12 +63,12 @@ class Avatar(AvatarTemplate):
   def name(self, value):
     if value and not self.image:
       self.initials_div.style.display = "block"
-    self.initials_div.style.display = "none"
-    names = value.split()
-    initials = ""
-    for n in names:
-      initials += n[0]
-    self.initials_div.innerText = initials
-    if not self.image:
-      
+      names = value.split()
+      initials = ""
+      for n in names:
+        initials += n[0]
+      self.initials_div.innerText = initials
+    else:
+      self.initials_div.style.display = "none"
+
     
