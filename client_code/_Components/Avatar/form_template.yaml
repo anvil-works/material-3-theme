@@ -17,4 +17,11 @@ properties:
   name: size
   options: [small, medium, large]
   type: enum
-- {default_value: '', important: true, name: fallback_icon, type: icon}
+- default_value: mi:person
+  description: The icon to display if no image or name is provided.
+  group: Key Properties
+  iconsets: [material-icons]
+  important: true
+  include_none_option: true
+  name: icon
+  type: icon
