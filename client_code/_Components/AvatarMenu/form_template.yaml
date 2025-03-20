@@ -1,5 +1,6 @@
 components:
-- layout_properties: {slot: avatar}
+- event_bindings: {click: _toggle_menu_visibility}
+  layout_properties: {slot: avatar}
   name: avatar
   properties: {}
   type: form:_Components.Avatar

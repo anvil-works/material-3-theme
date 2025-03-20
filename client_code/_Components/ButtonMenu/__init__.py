@@ -245,7 +245,6 @@ class ButtonMenu(ButtonMenuTemplate):
     self._toggle_visibility()
 
   def _toggle_visibility(self, value=None):
-    print('inside toggle visibility')
     classes = self._menuNode.classList
     if value is not None:
       classes.toggle('anvil-m3-buttonMenu-items-hidden', not value)
@@ -262,7 +261,6 @@ class ButtonMenu(ButtonMenuTemplate):
       self._clear_hover_styles()
 
   def _child_clicked(self, event):
-    print("child clicked")
     # do the click action. The child should handle this
     self._toggle_visibility(False)
     if self.enabled:
@@ -278,10 +276,7 @@ class ButtonMenu(ButtonMenuTemplate):
       )
 
   def _body_click(self, event):
-    print('body clicked')
     if self._btnNode.contains(event.target) or self._menuNode.contains(event.target):
-      print(event.target)
-      print('returning')
       return
     self._toggle_visibility(False)
 
@@ -292,7 +287,6 @@ class ButtonMenu(ButtonMenuTemplate):
         self._itemIndices.add(i)
 
   def _handle_keyboard_events(self, event):
-    print('handling keyboard events')
     if not self._open:
       return
     action_keys = set(["ArrowUp", "ArrowDown", "Tab", "Escape", " ", "Enter"])
@@ -383,7 +377,6 @@ class ButtonMenu(ButtonMenuTemplate):
     ]
 
   def _on_select_descendent(self):
-    print('select descendent')
     self._toggle_visibility(True)
 
   def _on_select_other(self):
