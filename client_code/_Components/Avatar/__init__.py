@@ -97,7 +97,6 @@ class Avatar(AvatarTemplate):
       self.avatar_div.style.width = '40px'
       self.image_div.style.width = '40px'
       
-
   @anvil_prop
   @property
   def appearance(self, value) -> str:
