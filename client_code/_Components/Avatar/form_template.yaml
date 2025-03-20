@@ -28,11 +28,13 @@ properties:
 - {default_value: '', description: Background color of the component if no image is provided, group: Look and Feel, important: false, name: background_color, type: color}
 - {default_value: '', description: Color of the initials displayed on the component if no image is provided, group: Look and Feel, important: false, name: text_color, type: color}
 - default_value: left
+  description: The position of this component in the available space.
   important: true
   name: align
   options: [left, center, right]
   type: enum
 - default_value: filled
+  description: A predefined style for this component.
   important: true
   name: appearance
   options: [filled, tonal, outlined]
@@ -41,3 +43,5 @@ properties:
   important: true
   name: margin
   type: margin
+- {default_value: true, description: 'If True, the component will be displayed.', designer_hint: visible, group: Look and Feel, important: true, name: visible, type: boolean}
+- {default_value: '', description: A style for this component defined in CSS and added to Roles, group: Look and Feel, important: false, name: role, type: string}

@@ -1,6 +1,12 @@
 from anvil import *
 
-from ..._utils.properties import anvil_prop, get_unset_value, margin_property, style_property, get_unset_margin
+from ..._utils.properties import (
+  anvil_prop,
+  get_unset_margin,
+  get_unset_value,
+  margin_property,
+  style_property,
+)
 from ._anvil_designer import AvatarTemplate
 
 
@@ -18,6 +24,7 @@ class Avatar(AvatarTemplate):
 
   margin = margin_property('anvil-m3-avatar')
   align = style_property('anvil-m3-avatar-container', 'justifyContent', 'align')
+  visible = HtmlTemplate.visible
 
   @anvil_prop
   @property
@@ -94,6 +101,21 @@ class Avatar(AvatarTemplate):
     )
     m = get_unset_margin(self.avatar_div, self.margin)
     return {"size": sz, "margin": m}
-      
+
+
+  #!componentProp(m3.Avatar)!1: {name:"align",type:"enum",description:"The position of this component in the available space."}
+  #!componentProp(m3.Avatar)!1: {name:"appearance",type:"enum",options:["filled", "tonal", "outlined"],description:"A predefined style for this component."}
+  #!componentProp(m3.Avatar)!1: {name:"visible",type:"boolean",description:"If True, the component will be displayed."}
+  #!componentProp(m3.Avatar)!1: {name:"role",type:"themeRole",description:"A style for this component defined in CSS and added to Roles"}
+  #!componentProp(m3.Avatar)!1: {name:"fallback_icon",type:"enum",description:"The icon to display if no image or name is provided."}
+
+  
+  #!componentProp(m3.Avatar)!1: {name:"icon_color",type:"color",description:"The colour of the icon displayed on this component."}
+  #!componentProp(m3.Avatar)!1: {name:"background_color",type:"color",description:"The colour of the background of this component."}
+  #!componentProp(m3.Avatar)!1: {name:"margin",type:"margin",description:"The margin (pixels) of the component."}
+  #!componentProp(m3.Avatar)!1: {name:"border",type:"string",description:"The border of this component. Can take any valid CSS border value."}
+  #!componentProp(m3.Avatar)!1: {name:"tooltip",type:"string",description:"The text to display when the mouse is hovered over this component."}
+  #!componentProp(m3.Avatar)!1: {name:"tag",type:"object",description:"Use this property to store any extra data for the component."}
 
     
+#!defClass(m3,Avatar,anvil.Component)!:
