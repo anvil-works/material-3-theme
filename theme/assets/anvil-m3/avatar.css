@@ -22,39 +22,16 @@
   border: 1px solid var(--anvil-m3-outline);
 }
 
-.anvil-m3-avatar.anvil-m3-avatar-small {
+.anvil-m3-avatar.anvil-m3-avatar {
   height: 40px;
   width: 40px;
 }
 
-.anvil-m3-avatar.anvil-m3-avatar-small img.anvil-m3-avatar-image {
+.anvil-m3-avatar.anvil-m3-avatar img.anvil-m3-avatar-image {
   height: 40px;
   width: 40px;
   border-radius: 50%;
 }
-
-.anvil-m3-avatar.anvil-m3-avatar-medium {
-  height: 64px;
-  width: 64px;
-}
-
-.anvil-m3-avatar.anvil-m3-avatar-medium img.anvil-m3-avatar-image {
-  height: 64px;
-  width: 64px;
-  border-radius: 50%;
-}
-
-.anvil-m3-avatar.anvil-m3-avatar-large {
-  height: 82px;
-  width: 82px;
-}
-
-.anvil-m3-avatar.anvil-m3-avatar-large img.anvil-m3-avatar-image {
-  height: 82px;
-  width: 82px;
-  border-radius: 50%;
-}
-
 
 
 .anvil-m3-avatar-initials {

@@ -85,9 +85,7 @@ class Avatar(AvatarTemplate):
   @anvil_prop
   @property
   def size(self, value):
-    for c in ['anvil-m3-avatar-small', 'anvil-m3-avatar-medium', 'anvil-m3-avatar-large']:
-      self.avatar_div.classList.remove(c)
-    self.avatar_div.classList.add(f'anvil-m3-avatar-{value}')
+    
 
   @anvil_prop
   @property
