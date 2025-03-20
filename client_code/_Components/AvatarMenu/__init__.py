@@ -199,6 +199,7 @@ class AvatarMenu(AvatarMenuTemplate):
     self._toggle_visibility()
 
   def _toggle_visibility(self, value=None):
+    print('inside toggle_visibility')
     classes = self._menuNode.classList
     if value is not None:
       classes.toggle('anvil-m3-buttonMenu-items-hidden', not value)
