@@ -1,6 +1,6 @@
 components:
 - layout_properties: {slot: avatar}
-  name: avatar_1
+  name: avatar
   properties: {}
   type: form:_Components.Avatar
 container:
