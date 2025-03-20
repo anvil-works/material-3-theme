@@ -1,10 +1,8 @@
-from ._anvil_designer import AvatarTemplate
 from anvil import *
 
-from ..._utils.properties import (
-  anvil_prop,
-  get_unset_value
-)
+from ..._utils.properties import anvil_prop, get_unset_value, margin_property
+from ._anvil_designer import AvatarTemplate
+
 
 class Avatar(AvatarTemplate):
   def __init__(self, **properties):
@@ -33,7 +31,8 @@ class Avatar(AvatarTemplate):
         "meta": event.metaKey,
       },
     )
-    # Any code you write here will run before the form opens.
+
+  margin = margin_property('anvil-m3-avatar-container')
 
   @anvil_prop
   @property
