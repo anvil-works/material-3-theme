@@ -40,6 +40,7 @@ properties:
   options: [filled, tonal, outlined]
   type: enum
 - default_value: ['', '', '', '']
+  group: Layout
   important: true
   name: margin
   type: margin
