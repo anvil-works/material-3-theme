@@ -11,7 +11,8 @@ container:
       </div>
   type: HtmlTemplate
 custom_component: true
-events: []
+events:
+- {default_event: true, name: click}
 is_package: true
 properties:
 - {default_binding_prop: true, default_value: '', description: 'The name of the associated user. If no image is provided, the avatar will display initials generated from the name.', group: Key Properties, important: true, name: name, type: string}
