@@ -41,7 +41,7 @@ class Avatar(AvatarTemplate):
   )
   text_color = color_property('anvil-m3-avatar-initials', 'color', 'text_color')
   font_size = font_size_property('anvil-m3-avatar-initials', 'font_size')
-  fallbac
+  fallback_icon_size = font_size_property('anvil-m3-avatar-icon', 'fallback_icon_size')
 
 
   def _handle_click(self, event):
@@ -131,7 +131,13 @@ class Avatar(AvatarTemplate):
       self.avatar_div, "height", self.size
     )
     m = get_unset_margin(self.avatar_div, self.margin)
-    return {"size": sz, "margin": m}
+    tfs = get_unset_value(
+      self.dom_nodes['anvil-m3-avatar-initials'], "fontSize", self.font_size
+    )
+    ifs = get_unset_value(
+      self.dom_nodes['anvil-m3-avatar-icon'], "fontSize", self.fallback_icon_size
+    )
+    return {"font_size": tfs, "fallback_icon_size": ifs, "size": sz, "margin": m}
 
 
   #!componentProp(m3.Avatar)!1: {name:"align",type:"enum",description:"The position of this component in the available space."}
