@@ -23,7 +23,7 @@ class AvatarMenu(AvatarMenuTemplate):
     self._design_name = ""
     self._cleanup = noop
     self._menuNode = self.dom_nodes['anvil-m3-avatarMenu-items-container']
-    self._avatarNode = get_dom_node(self.avatar).querySelector("button")
+    self._avatarNode = get_dom_node(self.avatar).querySelector("div.anvil-m3-avatar")
     self._open = False
     self._hoverIndex = None
     self._itemIndices = set()
@@ -39,14 +39,14 @@ class AvatarMenu(AvatarMenuTemplate):
     if self._shown:
       self._cleanup()
       self._cleanup = fui.auto_update(
-        self._btnNode, self._menuNode, placement="bottom-start"
+        self._avatarNode, self._menuNode, placement="bottom-start"
       )
 
   def _on_mount(self, **event_args):
     self._shown = True
     document.addEventListener('keydown', self._handle_keyboard_events)
     self._menuNode.addEventListener('click', self._child_clicked)
-    self._btnNode.addEventListener('click', self._handle_click)
+    self._avatarNode.addEventListener('click', self._handle_click)
     document.addEventListener('click', self._body_click)
     # We still have a reference to the dom node but we've moved it to the body
     # This gets around the fact that Anvil containers set their overflow to hidden
@@ -62,20 +62,20 @@ class AvatarMenu(AvatarMenuTemplate):
     # Remove the menu node we put on the body
     self._menuNode.remove()
 
-  def _anvil_get_unset_property_values_(self):
-    el = self.menu_button.dom_nodes["anvil-m3-button"]
-    sp = get_unset_spacing(el, el, self.spacing)
-    tfs = get_unset_value(
-      self.menu_button.dom_nodes['anvil-m3-button-text'],
-      "fontSize",
-      self.button_font_size,
-    )
-    ifs = tfs = get_unset_value(
-      self.menu_button.dom_nodes['anvil-m3-button-icon'],
-      "fontSize",
-      self.button_font_size,
-    )
-    return {"button_font_size": tfs, "icon_size": ifs, "spacing": sp}
+  # def _anvil_get_unset_property_values_(self):
+  #   el = self.menu_button.dom_nodes["anvil-m3-button"]
+  #   sp = get_unset_spacing(el, el, self.spacing)
+  #   tfs = get_unset_value(
+  #     self.menu_button.dom_nodes['anvil-m3-button-text'],
+  #     "fontSize",
+  #     self.button_font_size,
+  #   )
+  #   ifs = tfs = get_unset_value(
+  #     self.menu_button.dom_nodes['anvil-m3-button-icon'],
+  #     "fontSize",
+  #     self.button_font_size,
+  #   )
+  #   return {"button_font_size": tfs, "icon_size": ifs, "spacing": sp}
 
   def _handle_click(self, event):
     if self.enabled:
@@ -91,154 +91,108 @@ class AvatarMenu(AvatarMenuTemplate):
       )
 
   menu_background_color = color_property(
-    'anvil-m3-buttonMenu-items-container', 'background', 'menu_background_color'
+    'anvil-m3-avatarMenu-items-container', 'background', 'menu_background_color'
   )
-  menu_border = border_property('anvil-m3-buttonMenu-items-container', 'menu_border')
+  menu_border = border_property('anvil-m3-avatarMenu-items-container', 'menu_border')
   visible = HtmlTemplate.visible
 
   @anvil_prop
   @property
-  def text(self, value) -> str:
-    """The text displayed on the Button"""
-    v = value
-    self.menu_button.dom_nodes['anvil-m3-button-text'].classList.toggle(
-      'anvil-m3-textlessComponentText', False
-    )
-    if anvil.designer.in_designer and not value:
-      v = self._design_name
-      self.menu_button.dom_nodes['anvil-m3-button-text'].classList.toggle(
-        'anvil-m3-textlessComponentText', True
-      )
-    self.menu_button.text = v
+  def name(self, value) -> str:
+    """The name of the avatar component"""
+    self.avatar.name = value
 
   @anvil_prop
   @property
   def appearance(self, value) -> str:
-    """A predefined style for the Button."""
-    self.menu_button.appearance = value
+    """A predefined style for the avatar."""
+    self.avatar.appearance = value
 
   @anvil_prop
   @property
   def tooltip(self, value) -> str:
     """The text to display when the mouse is hovered over this component."""
-    self.menu_button.tooltip = value
+    self.avatar.tooltip = value
+
+  #TODO: add enabled property to avatar menu
+  # @anvil_prop
+  # @property
+  # def enabled(self, value) -> bool:
+  #   """If True, this component allows user interaction."""
+  #   self.avatar.enabled = value
 
   @anvil_prop
   @property
-  def enabled(self, value) -> bool:
-    """If True, this component allows user interaction."""
-    self.menu_button.enabled = value
+  def avatar_border(self, value) -> str:
+    """The border of the avatar. Can take any valid CSS border value."""
+    self.avatar.border = value
 
   @anvil_prop
   @property
-  def bold(self, value) -> bool:
-    """If True, the Button’s text will be bold."""
-    self.menu_button.bold = value
-
-  @anvil_prop
-  @property
-  def italic(self, value) -> bool:
-    """If True, the Button’s text will be italic."""
-    self.menu_button.italic = value
-
-  @anvil_prop
-  @property
-  def underline(self, value) -> bool:
-    """If True, the Button’s text will be underlined."""
-    self.menu_button.underline = value
-
-  @anvil_prop
-  @property
-  def button_border(self, value) -> str:
-    """The border of the Button. Can take any valid CSS border value."""
-    self.menu_button.border = value
-
-  @anvil_prop
-  @property
-  def button_background_color(self, value) -> str:
+  def avatar_background_color(self, value) -> str:
     """The colour of the background of the Button."""
-    self.menu_button.background_color = value
+    self.avatar.background_color = value
 
   @anvil_prop
   @property
-  def button_text_color(self, value) -> str:
+  def avatar_text_color(self, value) -> str:
     """The colour of the text on the Button."""
-    self.menu_button.text_color = value
+    self.avatar.text_color = value
 
   @anvil_prop
   @property
-  def button_font_size(self, value) -> int:
+  def avatar_font_size(self, value) -> int:
     """The font size of the text displayed on the Button."""
-    self.menu_button.font_size = value
+    self.avatar.font_size = value
 
   @anvil_prop
   @property
-  def icon(self, value) -> str:
+  def fallback_icon(self, value) -> str:
     """The icon to display on the Button."""
-    self.menu_button.icon = value
+    self.avatar.fallback_icon = value
 
   @anvil_prop
   @property
   def icon_color(self, value) -> str:
     """The colour of the icon displayed on the Button."""
-    self.menu_button.icon_color = value
+    self.avatar.icon_color = value
 
   @anvil_prop
   @property
   def icon_size(self, value) -> int:
     """The size (pixels) of the icon displayed on this component."""
-    self.menu_button.icon_size = value
+    self.avatar.icon_size = value
 
   @anvil_prop
   @property
-  def icon_position(self, value) -> str:
-    """The alignment of the icon on this component."""
-    self.menu_button.icon_position = value
-
-  @anvil_prop
-  @property
-  def spacing(self, value) -> list:
-    """The margin and padding (pixels) of the component."""
-    self.menu_button.spacing = value
+  def margin(self, value) -> list:
+    """The margin (pixels) of the component."""
+    self.avatar.margin = value
 
   @anvil_prop
   @property
   def align(self, value) -> str:
-    """The position of this component in the available space."""
-    self.menu_button.dom_nodes['anvil-m3-button'].classList.toggle(
-      'anvil-m3-full-width', False
-    )
-    self.menu_button.dom_nodes['anvil-m3-button-component'].style.removeProperty(
-      'justify-content'
-    )
-    if value == 'full':
-      self.menu_button.dom_nodes['anvil-m3-button'].classList.toggle(
-        'anvil-m3-full-width', True
-      )
-    else:
-      self.menu_button.dom_nodes[
-        'anvil-m3-button-component'
-      ].style.justifyContent = value
+    self.avatar.align = value
     self._setup_fui()
 
   @anvil_prop
   @property
-  def button_font_family(self, value) -> str:
+  def avatar_font_family(self, value) -> str:
     """The font family to use for the Button"""
-    self.menu_button.font_family = value
+    self.avatar.font_family = value
 
   @anvil_prop
   @property
   def role(self, value) -> str:
     """A style for this component defined in CSS and added to Roles"""
-    self.menu_button.role = value
+    self.avatar.role = value
 
   @anvil_prop
   @property
   def menu_items(self, value=[]) -> list:
     """A list of components to be added to the menu."""
     for i in value:
-      self.add_component(i, slot='anvil-m3-buttonMenu-slot')
+      self.add_component(i, slot='anvil-m3-avatarMenu-slot')
 
   def _toggle_menu_visibility(self, **event_args):
     self._toggle_visibility()
@@ -275,7 +229,7 @@ class AvatarMenu(AvatarMenuTemplate):
       )
 
   def _body_click(self, event):
-    if self._btnNode.contains(event.target) or self._menuNode.contains(event.target):
+    if self._avatarNode.contains(event.target) or self._menuNode.contains(event.target):
       return
     self._toggle_visibility(False)
 
@@ -369,7 +323,7 @@ class AvatarMenu(AvatarMenuTemplate):
         "default": True,
         "callbacks": {
           "execute": lambda: anvil.designer.start_inline_editing(
-            self, "text", self.menu_button.dom_nodes["anvil-m3-button-text"]
+            self, "text", self.avatar.dom_nodes["anvil-m3-button-text"]
           )
         },
       },
@@ -385,5 +339,5 @@ class AvatarMenu(AvatarMenuTemplate):
     if anvil.designer.in_designer:
       self._design_name = anvil.designer.get_design_name(self)
       if not self.text:
-        self.menu_button.text = self._design_name
+        self.avatar.text = self._design_name
 

@@ -12,6 +12,7 @@ from ..._utils.properties import (
 )
 from ._anvil_designer import AvatarTemplate
 
+#TODO: Add font_size property and icon_size property and font_family?
 
 class Avatar(AvatarTemplate):
   def __init__(self, **properties):
