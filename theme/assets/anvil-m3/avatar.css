@@ -6,6 +6,12 @@
   font-weight: 500;
 }
 
+.anvil-m3-avatar-container{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .anvil-m3-avatar.anvil-m3-avatar-filled {
   background-color: var(--anvil-m3-primary);
   color: var(--anvil-m3-on-primary);

@@ -32,7 +32,7 @@ class Avatar(AvatarTemplate):
       },
     )
 
-  margin = margin_property('anvil-m3-avatar-container')
+  margin = margin_property('anvil-m3-avatar')
 
   @anvil_prop
   @property
