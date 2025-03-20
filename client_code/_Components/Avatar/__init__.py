@@ -1,6 +1,6 @@
 from anvil import *
 
-from ..._utils.properties import anvil_prop, get_unset_value, margin_property
+from ..._utils.properties import anvil_prop, get_unset_value, margin_property, style_property, get_unset_margin
 from ._anvil_designer import AvatarTemplate
 
 
@@ -33,6 +33,7 @@ class Avatar(AvatarTemplate):
     )
 
   margin = margin_property('anvil-m3-avatar')
+  align = style_property('anvil-m3-avatar-container', 'justifyContent', 'align')
 
   @anvil_prop
   @property
@@ -107,7 +108,8 @@ class Avatar(AvatarTemplate):
     sz = get_unset_value(
       self.avatar_div, "height", self.size
     )
-    return {"size": sz}
+    m = get_unset_margin(self.avatar_div, self.margin)
+    return {"size": sz, "margin": m}
       
 
     
