@@ -9,6 +9,7 @@ from ..._utils.properties import (
   margin_property,
   style_property,
   tooltip_property,
+  font_size_property,
 )
 from ._anvil_designer import AvatarTemplate
 
@@ -39,6 +40,8 @@ class Avatar(AvatarTemplate):
     'anvil-m3-avatar', 'backgroundColor', 'background_color'
   )
   text_color = color_property('anvil-m3-avatar-initials', 'color', 'text_color')
+  font_size = font_size_property('anvil-m3-avatar-initials', 'font_size')
+  fallbac
 
 
   def _handle_click(self, event):
