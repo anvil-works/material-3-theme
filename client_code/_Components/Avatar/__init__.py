@@ -91,7 +91,11 @@ class Avatar(AvatarTemplate):
       self.image_div.style.height = f'{value}px'
       self.avatar_div.style.width = f'{value}px'
       self.image_div.style.width = f'{value}px'
-
+    else:
+      self.avatar_div.style.height = '40px'
+      self.image_div.style.height = '40px'
+      self.avatar_div.style.width = '40px'
+      self.image_div.style.width = '40px'
       
 
   @anvil_prop
