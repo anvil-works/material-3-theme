@@ -126,6 +126,5 @@ class Avatar(AvatarTemplate):
   #!componentProp(m3.Avatar)!1: {name:"border",type:"string",description:"The border of this component. Can take any valid CSS border value."}
   #!componentProp(m3.Avatar)!1: {name:"text_color",type:"color",description:"The colour of the initials displayed when there is no image."}
 
-
     
 #!defClass(m3,Avatar,anvil.Component)!:
