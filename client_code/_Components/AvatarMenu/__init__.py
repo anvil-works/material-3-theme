@@ -9,7 +9,6 @@ from ..._utils.properties import (
   anvil_prop,
   border_property,
   color_property,
-  get_unset_spacing,
   get_unset_value,
 )
 from ..MenuItem import MenuItem
@@ -29,6 +28,8 @@ class AvatarMenu(AvatarMenuTemplate):
     self._itemIndices = set()
     self._children = None
     self._shown = False
+    #TODO: remove this
+    self.enabled = True
 
     self.init_components(**properties)
 
@@ -192,7 +193,7 @@ class AvatarMenu(AvatarMenuTemplate):
   def menu_items(self, value=[]) -> list:
     """A list of components to be added to the menu."""
     for i in value:
-      self.add_component(i, slot='anvil-m3-buttonMenu-slot')
+      self.add_component(i, slot='anvil-m3-avatarMenu-slot')
 
   def _toggle_menu_visibility(self, **event_args):
     self._toggle_visibility()

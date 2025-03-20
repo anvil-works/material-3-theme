@@ -25,17 +25,34 @@ class Avatar(AvatarTemplate):
     self.image_div = self.dom_nodes['anvil-m3-avatar-image']
     self.avatar_div = self.dom_nodes['anvil-m3-avatar']
     self.init_components(**properties)
+    self.dom_nodes['anvil-m3-avatar-container'].addEventListener(
+      'click', self._handle_click
+    )
 
   margin = margin_property('anvil-m3-avatar')
   align = style_property('anvil-m3-avatar-container', 'justifyContent', 'align')
   visible = HtmlTemplate.visible
   border = border_property('anvil-m3-avatar')
-  tooltip = tooltip_property('anvil-m3-iconbutton-component')
+  tooltip = tooltip_property('anvil-m3-avatar')
   fallback_icon_color = color_property('anvil-m3-avatar-icon', 'color', 'fallback_icon_color')
   background_color = color_property(
     'anvil-m3-avatar', 'backgroundColor', 'background_color'
   )
   text_color = color_property('anvil-m3-avatar-initials', 'color', 'text_color')
+
+
+  def _handle_click(self, event):
+    event.preventDefault()
+    self.raise_event(
+      "click",
+      event=event,
+      keys={
+        "shift": event.shiftKey,
+        "alt": event.altKey,
+        "ctrl": event.ctrlKey,
+        "meta": event.metaKey,
+      },
+    )
 
   @anvil_prop
   @property

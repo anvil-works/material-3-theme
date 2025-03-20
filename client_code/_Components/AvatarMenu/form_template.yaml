@@ -7,4 +7,5 @@ container:
   properties:
     html: "<div anvil-name=\"anvil-m3-avatarMenu-container\" class=\"anvil-m3-avatarMenu-container\">\n  <!-- the following div needs marker where it prevents exposure of the slot when being used in a parent component -->\n  <div anvil-slot=\"avatar\" anvil-slot-internal style=\"width: 100%\"></div> \n  \n  <div anvil-slot=\"anvil-m3-avatarMenu-slot\" anvil-name=\"anvil-m3-avatarMenu-items-container\" \n    class=\"anvil-m3-avatarMenu-items-container anvil-m3-avatarMenu-items-hidden\">\n      <p anvil-if-slot-empty=\"anvil-m3-avatarMenu-slot\" style=\"color: #BBB;\"><i>Menu items go here</i></p>\n  </div>\n</div>"
   type: HtmlTemplate
+custom_component: true
 is_package: true
