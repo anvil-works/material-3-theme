@@ -16,7 +16,7 @@ is_package: true
 properties:
 - {default_binding_prop: true, default_value: '', description: 'The name of the associated user. If no image is provided, the avatar will display initials generated from the name.', group: Key Properties, important: true, name: name, type: string}
 - {accept: image/*, description: The image to display on the component. If no image is displayed, group: Key Properties, important: true, name: image, type: uri}
-- {default_value: 40, description: Dimensions (in pixels) of the component's height and width, group: Key Properties, important: true, name: size, type: number}
+- {default_value: 40, description: Dimensions (in pixels) of the component's height and width, group: Look and Feel, important: true, name: size, type: number}
 - default_value: mi:person
   description: The icon to display if no image or name is provided.
   group: Key Properties
@@ -29,6 +29,7 @@ properties:
 - {default_value: '', description: Color of the initials displayed on the component if no image is provided, group: Look and Feel, important: false, name: text_color, type: color}
 - default_value: left
   description: The position of this component in the available space.
+  group: Layout
   important: true
   name: align
   options: [left, center, right]
@@ -49,3 +50,4 @@ properties:
 - {default_value: '', description: The text to display when the mouse is hovered over this component., group: Other, important: true, name: tooltip, type: string}
 - {default_value: '', description: The colour of the icon displayed on this component., group: Look and Feel, important: false, name: fallback_icon_color, type: color}
 - {default_value: '', description: The border of this component. Can take any valid CSS border value., group: Look and Feel, important: false, name: border, type: string}
+- {description: Use this property to store any extra data for the component., group: Other, important: true, name: tag, type: object}
