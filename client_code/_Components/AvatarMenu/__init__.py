@@ -192,7 +192,7 @@ class AvatarMenu(AvatarMenuTemplate):
   def menu_items(self, value=[]) -> list:
     """A list of components to be added to the menu."""
     for i in value:
-      self.add_component(i, slot='anvil-m3-avatarMenu-slot')
+      self.add_component(i, slot='anvil-m3-buttonMenu-slot')
 
   def _toggle_menu_visibility(self, **event_args):
     self._toggle_visibility()
