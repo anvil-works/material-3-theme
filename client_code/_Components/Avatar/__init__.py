@@ -2,11 +2,13 @@ from anvil import *
 
 from ..._utils.properties import (
   anvil_prop,
+  border_property,
+  color_property,
   get_unset_margin,
   get_unset_value,
   margin_property,
   style_property,
-  tooltip_property
+  tooltip_property,
 )
 from ._anvil_designer import AvatarTemplate
 
@@ -26,7 +28,13 @@ class Avatar(AvatarTemplate):
   margin = margin_property('anvil-m3-avatar')
   align = style_property('anvil-m3-avatar-container', 'justifyContent', 'align')
   visible = HtmlTemplate.visible
+  border = border_property('anvil-m3-avatar')
   tooltip = tooltip_property('anvil-m3-iconbutton-component')
+  fallback_icon_color = color_property('anvil-m3-avatar-icon', 'color', 'fallback_icon_color')
+  background_color = color_property(
+    'anvil-m3-avatar', 'backgroundColor', 'background_color'
+  )
+  text_color = color_property('anvil-m3-avatar-initials', 'color', 'text_color')
 
   @anvil_prop
   @property
@@ -113,10 +121,8 @@ class Avatar(AvatarTemplate):
   #!componentProp(m3.Avatar)!1: {name:"tooltip",type:"string",description:"The text to display when the mouse is hovered over this component."}
   #!componentProp(m3.Avatar)!1: {name:"tag",type:"object",description:"Use this property to store any extra data for the component."}
   #!componentProp(m3.Avatar)!1: {name:"margin",type:"margin",description:"The margin (pixels) of the component."}
-  
-  #!componentProp(m3.Avatar)!1: {name:"icon_color",type:"color",description:"The colour of the icon displayed on this component."}
+  #!componentProp(m3.Avatar)!1: {name:"fallback_icon_color",type:"color",description:"The colour of the icon displayed on this component."}
   #!componentProp(m3.Avatar)!1: {name:"background_color",type:"color",description:"The colour of the background of this component."}
-
   #!componentProp(m3.Avatar)!1: {name:"border",type:"string",description:"The border of this component. Can take any valid CSS border value."}
 
 
