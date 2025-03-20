@@ -27,13 +27,38 @@
   width: 40px;
 }
 
-.anvil-m3-avatar-initials {
-  letter-spacing: .15em;
-  text-indent: .15em;
-}
-
 .anvil-m3-avatar.anvil-m3-avatar-small img.anvil-m3-avatar-image {
   height: 40px;
   width: 40px;
   border-radius: 50%;
 }
+
+.anvil-m3-avatar.anvil-m3-avatar-medium {
+  height: 64px;
+  width: 64px;
+}
+
+.anvil-m3-avatar.anvil-m3-avatar-medium img.anvil-m3-avatar-image {
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+}
+
+.anvil-m3-avatar.anvil-m3-avatar-large {
+  height: 82px;
+  width: 82px;
+}
+
+.anvil-m3-avatar.anvil-m3-avatar-large img.anvil-m3-avatar-image {
+  height: 82px;
+  width: 82px;
+  border-radius: 50%;
+}
+
+
+
+.anvil-m3-avatar-initials {
+  letter-spacing: .15em;
+  text-indent: .15em;
+}
+
