@@ -276,7 +276,10 @@ class ButtonMenu(ButtonMenuTemplate):
       )
 
   def _body_click(self, event):
+    print('body clicked')
     if self._btnNode.contains(event.target) or self._menuNode.contains(event.target):
+      print(event.target)
+      print('returning')
       return
     self._toggle_visibility(False)
 

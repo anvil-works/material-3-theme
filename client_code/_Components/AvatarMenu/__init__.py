@@ -216,6 +216,7 @@ class AvatarMenu(AvatarMenuTemplate):
       self._clear_hover_styles()
 
   def _child_clicked(self, event):
+    print('child clicked')
     # do the click action. The child should handle this
     self._toggle_visibility(False)
     if self.enabled:
@@ -231,7 +232,10 @@ class AvatarMenu(AvatarMenuTemplate):
       )
 
   def _body_click(self, event):
+    print('body clicked')
     if self._avatarNode.contains(event.target) or self._menuNode.contains(event.target):
+      print(event.target)
+      print('returning')
       return
     self._toggle_visibility(False)
 
@@ -242,6 +246,7 @@ class AvatarMenu(AvatarMenuTemplate):
         self._itemIndices.add(i)
 
   def _handle_keyboard_events(self, event):
+    print('handling keyboard events')
     if not self._open:
       return
     action_keys = set(["ArrowUp", "ArrowDown", "Tab", "Escape", " ", "Enter"])
