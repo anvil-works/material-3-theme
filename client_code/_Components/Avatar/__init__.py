@@ -2,7 +2,8 @@ from ._anvil_designer import AvatarTemplate
 from anvil import *
 
 from ..._utils.properties import (
-  anvil_prop
+  anvil_prop,
+  get_unset_value
 )
 
 class Avatar(AvatarTemplate):
@@ -90,11 +91,7 @@ class Avatar(AvatarTemplate):
       self.image_div.style.height = f'{value}px'
       self.avatar_div.style.width = f'{value}px'
       self.image_div.style.width = f'{value}px'
-    else:
-      self.avatar_div.style.height = f'{value}px'
-      self.image_div.style.height = f'{value}px'
-      self.avatar_div.style.width = f'{value}px'
-      self.image_div.style.width = f'{value}px'
+
       
 
   @anvil_prop
