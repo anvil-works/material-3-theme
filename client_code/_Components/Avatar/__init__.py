@@ -16,22 +16,6 @@ class Avatar(AvatarTemplate):
     self.avatar_div = self.dom_nodes['anvil-m3-avatar']
     self.init_components(**properties)
 
-    self.dom_nodes['anvil-m3-avatar'].addEventListener(
-      "click", self._handle_click
-    )
-    
-  def _handle_click(self, event):
-    self.raise_event(
-      "click",
-      event=event,
-      keys={
-        "shift": event.shiftKey,
-        "alt": event.altKey,
-        "ctrl": event.ctrlKey,
-        "meta": event.metaKey,
-      },
-    )
-
   margin = margin_property('anvil-m3-avatar')
   align = style_property('anvil-m3-avatar-container', 'justifyContent', 'align')
 
