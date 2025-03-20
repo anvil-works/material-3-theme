@@ -85,7 +85,17 @@ class Avatar(AvatarTemplate):
   @anvil_prop
   @property
   def size(self, value):
-    
+    if value:
+      self.avatar_div.style.height = f'{value}px'
+      self.image_div.style.height = f'{value}px'
+      self.avatar_div.style.width = f'{value}px'
+      self.image_div.style.width = f'{value}px'
+    else:
+      self.avatar_div.style.height = f'{value}px'
+      self.image_div.style.height = f'{value}px'
+      self.avatar_div.style.width = f'{value}px'
+      self.image_div.style.width = f'{value}px'
+      
 
   @anvil_prop
   @property
@@ -93,6 +103,12 @@ class Avatar(AvatarTemplate):
     for c in ['anvil-m3-avatar-filled', 'anvil-m3-avatar-tonal', 'anvil-m3-avatar-outlined']:
       self.avatar_div.classList.remove(c)
     self.avatar_div.classList.add(f"anvil-m3-avatar-{value}")
+
+  def _anvil_get_unset_property_values_(self):
+    sz = get_unset_value(
+      self.avatar_div, "height", self.size
+    )
+    return {"size": sz}
       
 
     
