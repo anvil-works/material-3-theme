@@ -13,3 +13,6 @@ events:
 - {default_event: true, name: click}
 is_package: true
 properties: []
+toolbox_item:
+  group: Menus
+  icon: {dark: 'asset:designer_icons/avatar_menu_dark.svg', light: 'asset:designer_icons/avatar_menu.svg'}
