@@ -14,6 +14,7 @@ from ..._utils.properties import (
 from ..MenuItem import MenuItem
 from ._anvil_designer import AvatarMenuTemplate
 
+#TODO: add hover effects to avatar in avatarmenu
 
 class AvatarMenu(AvatarMenuTemplate):
   def __init__(self, **properties):

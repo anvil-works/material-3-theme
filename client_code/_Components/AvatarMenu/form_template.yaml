@@ -17,6 +17,15 @@ properties:
 - {default_binding_prop: true, default_value: '', description: The color of the background of the Menu, group: Look and Feel, important: false, name: menu_background_color, type: color}
 - {default_value: '', description: The border of the Menu. Can take any valid CSS border value., group: Look and Feel, important: true, name: menu_border, type: string}
 - {default_value: true, description: 'If True, the component will be displayed.', designer_hint: visible, group: Look and Feel, important: true, name: visible, type: boolean}
+- {default_value: '', description: 'The name of the associated user. If no image is provided, the avatar will display initials generated from the name.', group: Key Properties, important: true, name: name, type: string}
+- default_value: filed
+  description: A predefined style for this component.
+  group: Look and Feel
+  important: true
+  name: appearance
+  options: [filed, tonal, outlined]
+  type: enum
+- {default_value: '', description: The text to display when the mouse is hovered over this component., group: Other, important: true, name: tooltip, type: string}
 toolbox_item:
   group: Menus
   icon: {dark: 'asset:designer_icons/avatar_menu_dark.svg', light: 'asset:designer_icons/avatar_menu.svg'}
