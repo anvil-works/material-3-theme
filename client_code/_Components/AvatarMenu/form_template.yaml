@@ -6,14 +6,17 @@ components:
   type: form:_Components.Avatar
 container:
   properties:
-    html: "<div anvil-name=\"anvil-m3-avatarMenu-container\" class=\"anvil-m3-buttonMenu-container\">\n  <!-- the following div needs marker where it prevents exposure of the slot when being used in a parent component -->\n  <div anvil-slot=\"avatar\" anvil-slot-internal style=\"width: 100%\"></div> \n  \n  <div anvil-slot=\"anvil-m3-avatarMenu-slot\" anvil-name=\"anvil-m3-buttonMenu-items-container\" \n    class=\"anvil-m3-buttonMenu-items-container anvil-m3-buttonMenu-items-hidden\">\n      <p anvil-if-slot-empty=\"anvil-m3-avatarMenu-slot\" style=\"color: #BBB;\"><i>Menu items go here</i></p>\n  </div>\n</div>"
+    html: "<div anvil-name=\"anvil-m3-avatarMenu-container\" class=\"anvil-m3-buttonMenu-container\">\n  <!-- the following div needs marker where it prevents exposure of the slot when being used in a parent component -->\n  <div anvil-slot=\"avatar\" anvil-slot-internal style=\"width: 100%\"></div> \n  \n  <div anvil-slot=\"anvil-m3-avatarMenu-slot\" anvil-name=\"anvil-m3-avatarMenu-items-container\" \n    class=\"anvil-m3-buttonMenu-items-container anvil-m3-buttonMenu-items-hidden\">\n      <p anvil-if-slot-empty=\"anvil-m3-avatarMenu-slot\" style=\"color: #BBB;\"><i>Menu items go here</i></p>\n  </div>\n</div>"
   type: HtmlTemplate
 custom_component: true
 custom_component_container: true
 events:
 - {default_event: true, name: click}
 is_package: true
-properties: []
+properties:
+- {default_binding_prop: true, default_value: '', description: The color of the background of the Menu, group: Look and Feel, important: false, name: menu_background_color, type: color}
+- {default_value: '', description: The border of the Menu. Can take any valid CSS border value., group: Look and Feel, important: true, name: menu_border, type: string}
+- {default_value: true, description: 'If True, the component will be displayed.', designer_hint: visible, group: Look and Feel, important: true, name: visible, type: boolean}
 toolbox_item:
   group: Menus
   icon: {dark: 'asset:designer_icons/avatar_menu_dark.svg', light: 'asset:designer_icons/avatar_menu.svg'}

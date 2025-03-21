@@ -21,7 +21,7 @@ class AvatarMenu(AvatarMenuTemplate):
     self._props = properties
     self._design_name = ""
     self._cleanup = noop
-    self._menuNode = self.dom_nodes['anvil-m3-buttonMenu-items-container']
+    self._menuNode = self.dom_nodes['anvil-m3-avatarMenu-items-container']
     self._avatarNode = get_dom_node(self.avatar).querySelector("div.anvil-m3-avatar")
     self._open = False
     self._hoverIndex = None
@@ -92,9 +92,9 @@ class AvatarMenu(AvatarMenuTemplate):
       )
 
   menu_background_color = color_property(
-    'anvil-m3-buttonMenu-items-container', 'background', 'menu_background_color'
+    'anvil-m3-avatarMenu-items-container', 'background', 'menu_background_color'
   )
-  menu_border = border_property('anvil-m3-buttonMenu-items-container', 'menu_border')
+  menu_border = border_property('anvil-m3-avatarMenu-items-container', 'menu_border')
   visible = HtmlTemplate.visible
 
   @anvil_prop
