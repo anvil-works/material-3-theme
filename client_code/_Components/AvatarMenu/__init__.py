@@ -1,6 +1,5 @@
 from anvil import *
 from anvil import HtmlTemplate
-from anvil.js import get_dom_node
 from anvil.js.window import document
 
 from ..._utils import fui, noop
@@ -9,12 +8,13 @@ from ..._utils.properties import (
   anvil_prop,
   border_property,
   color_property,
+  enabled_property,
   get_unset_value,
 )
 from ..MenuItem import MenuItem
 from ._anvil_designer import AvatarMenuTemplate
 
-#TODO: add hover effects to avatar in avatarmenu
+
 
 class AvatarMenu(AvatarMenuTemplate):
   def __init__(self, **properties):
@@ -29,8 +29,6 @@ class AvatarMenu(AvatarMenuTemplate):
     self._itemIndices = set()
     self._children = None
     self._shown = False
-    #TODO: remove this
-    self.enabled = True
 
     self.init_components(**properties)
 
@@ -88,6 +86,7 @@ class AvatarMenu(AvatarMenuTemplate):
   )
   menu_border = border_property('anvil-m3-avatarMenu-items-container', 'menu_border')
   visible = HtmlTemplate.visible
+  enabled = enabled_property('anvil-m3-avatarMenu-button')
 
   @anvil_prop
   @property
@@ -106,13 +105,6 @@ class AvatarMenu(AvatarMenuTemplate):
   def tooltip(self, value) -> str:
     """The text to display when the mouse is hovered over this component."""
     self.avatar.tooltip = value
-
-
-  @anvil_prop
-  @property
-  def enabled(self, value) -> bool:
-    """If True, this component allows user interaction."""
-    self._buttonNode.
 
   @anvil_prop
   @property
