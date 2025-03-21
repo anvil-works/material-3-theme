@@ -61,9 +61,12 @@
   background: linear-gradient(0deg, var(--anvil-m3-on-surface-variant-overlay-2), var(--anvil-m3-on-surface-variant-overlay-2)),  transparent !important 
 } 
 
-.anvil-m3-avatarMenu-button:disabled .anvil-m3-avatar.anvil-m3-avatar-tonal:disabled { 
+.anvil-m3-avatarMenu-button:disabled .anvil-m3-avatar.anvil-m3-avatar-tonal { 
   background: linear-gradient(0deg, var(--anvil-m3-on-surface-variant-overlay-2), var(--anvil-m3-on-surface-variant-overlay-2)),  transparent !important 
 } 
+
+.anvil-m3-avatarMenu-button:disabled .anvil-m3-avatar.anvil-m3-avatar-outlined { border: 1px solid var(--anvil-m3-disabled-container) }
+
 
 
 .anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-avatar-filled:hover {
