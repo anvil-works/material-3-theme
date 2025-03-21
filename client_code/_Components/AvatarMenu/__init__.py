@@ -23,7 +23,7 @@ class AvatarMenu(AvatarMenuTemplate):
     self._design_name = ""
     self._cleanup = noop
     self._menuNode = self.dom_nodes['anvil-m3-avatarMenu-items-container']
-    self._avatarNode = self.dom_nodes['anvil-m3-avatarMenu-button']
+    self._buttonNode = self.dom_nodes['anvil-m3-avatarMenu-button']
     self._open = False
     self._hoverIndex = None
     self._itemIndices = set()
@@ -41,14 +41,14 @@ class AvatarMenu(AvatarMenuTemplate):
     if self._shown:
       self._cleanup()
       self._cleanup = fui.auto_update(
-        self._avatarNode, self._menuNode, placement="bottom-start"
+        self._buttonNode, self._menuNode, placement="bottom-start"
       )
 
   def _on_mount(self, **event_args):
     self._shown = True
     document.addEventListener('keydown', self._handle_keyboard_events)
     self._menuNode.addEventListener('click', self._child_clicked)
-    self._avatarNode.addEventListener('click', self._handle_click)
+    self._buttonNode.addEventListener('click', self._handle_click)
     document.addEventListener('click', self._body_click)
     # We still have a reference to the dom node but we've moved it to the body
     # This gets around the fact that Anvil containers set their overflow to hidden
@@ -107,12 +107,12 @@ class AvatarMenu(AvatarMenuTemplate):
     """The text to display when the mouse is hovered over this component."""
     self.avatar.tooltip = value
 
-  #TODO: add enabled property to avatar menu
-  # @anvil_prop
-  # @property
-  # def enabled(self, value) -> bool:
-  #   """If True, this component allows user interaction."""
-  #   self.avatar.enabled = value
+
+  @anvil_prop
+  @property
+  def enabled(self, value) -> bool:
+    """If True, this component allows user interaction."""
+    self._buttonNode.
 
   @anvil_prop
   @property
@@ -222,7 +222,7 @@ class AvatarMenu(AvatarMenuTemplate):
       )
 
   def _body_click(self, event):
-    if self._avatarNode.contains(event.target) or self._menuNode.contains(event.target):
+    if self._buttonNode.contains(event.target) or self._menuNode.contains(event.target):
       return
     self._toggle_visibility(False)
 
