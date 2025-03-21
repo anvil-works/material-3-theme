@@ -41,7 +41,16 @@ properties:
 - {default_value: '', description: The colour of the icon displayed on the Avatar, group: Look and Feel, important: false, name: fallback_icon_color, type: color}
 - {description: The size (pixels) of the icon on the Avatar, group: Icon, important: false, name: fallback_icon_size, type: number}
 - {description: The margin (pixels) of the component., group: Layout, important: true, name: margin, type: margin}
-- {default_value: '', important: true, name: prop, type: string}
+- default_value: left
+  description: The position of this component in the available space.
+  group: Layout
+  important: true
+  name: align
+  options: [left, center, rigt]
+  type: enum
+- {default_value: '', description: The font family to use for the initials on the Avatar, group: Text, important: false, name: avatar_font_family, type: string}
+- {default_value: '', description: A style for this component defined in CSS and added to Roles, group: Look and Feel, important: false, name: role, type: string}
+- {description: A list of components to be added to the menu, group: Other, important: true, name: menu_items, type: object}
 toolbox_item:
   group: Menus
   icon: {dark: 'asset:designer_icons/avatar_menu_dark.svg', light: 'asset:designer_icons/avatar_menu.svg'}
