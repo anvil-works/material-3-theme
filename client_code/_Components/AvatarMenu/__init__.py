@@ -90,9 +90,9 @@ class AvatarMenu(AvatarMenuTemplate):
 
   @anvil_prop
   @property
-  def name(self, value) -> str:
+  def user_name(self, value) -> str:
     """The name of the avatar component"""
-    self.avatar.name = value
+    self.avatar.user_name = value
 
   @anvil_prop
   @property

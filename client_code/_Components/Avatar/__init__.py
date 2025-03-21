@@ -46,7 +46,7 @@ class Avatar(AvatarTemplate):
   @property
   def fallback_icon(self, value) -> str:
     """The icon to display on this component."""
-    if self.image or self.name:
+    if self.image or self.user_name:
       self.fallback_icon_div.style.display = "none"
     elif value:
       self.fallback_icon_div.style.display = "block"
@@ -65,7 +65,7 @@ class Avatar(AvatarTemplate):
       self.fallback_icon_div.style.display = "none"
     else:
       self.image_div.style.display = "none"
-      if self.name:
+      if self.user_name:
         self.initials_div.style.display = "block"
         self.fallback_icon_div.style.display = "none"
       else:
@@ -74,7 +74,7 @@ class Avatar(AvatarTemplate):
 
   @anvil_prop
   @property
-  def name(self, value) -> str:
+  def user_name(self, value) -> str:
     if self.image: 
       self.image_div.style.display = "block"
       self.initials_div.style.display = "none"
@@ -130,7 +130,10 @@ class Avatar(AvatarTemplate):
   #!componentProp(m3.Avatar)!1: {name:"appearance",type:"enum",options:["filled", "tonal", "outlined"],description:"A predefined style for this component."}
   #!componentProp(m3.Avatar)!1: {name:"visible",type:"boolean",description:"If True, the component will be displayed."}
   #!componentProp(m3.Avatar)!1: {name:"role",type:"themeRole",description:"A style for this component defined in CSS and added to Roles"}
-  #!componentProp(m3.Avatar)!1: {name:"fallback_icon",type:"enum",description:"The icon to display if no image or name is provided."}
+  #!componentProp(m3.Avatar)!1: {name:"fallback_icon",type:"enum",description:"The icon to display if no image or user_name is provided."}
+  #!componentProp(m3.Avatar)!1: {name:"size",type:"number",description:"Dimensions (in pixels) of the component's height and width"}
+  #!componentProp(m3.Avatar)!1: {name:"user_name",type:"string",description:"The name of the associated user. If no image is provided, the avatar will display initials generated from the user_name."}
+  #!componentProp(m3.Avatar)!1: {name:"image",type:"uri",description:"The image to display on the component."}
   #!componentProp(m3.Avatar)!1: {name:"tooltip",type:"string",description:"The text to display when the mouse is hovered over this component."}
   #!componentProp(m3.Avatar)!1: {name:"tag",type:"object",description:"Use this property to store any extra data for the component."}
   #!componentProp(m3.Avatar)!1: {name:"margin",type:"margin",description:"The margin (pixels) of the component."}
