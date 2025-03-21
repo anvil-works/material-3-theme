@@ -48,11 +48,12 @@ class Avatar(AvatarTemplate):
     """The icon to display on this component."""
     if self.image or self.name:
       self.fallback_icon_div.style.display = "none"
+    elif value:
+      self.fallback_icon_div.style.display = "block"
+      self.fallback_icon_div.innerText = value[3:]
     else:
       self.fallback_icon_div.style.display = "block"
-      self.fallback_icon_div.className = ""
-      self.fallback_icon_div.classList.add("material-symbols-outlined")
-      self.fallback_icon_div.innerText = value[3:]
+      self.fallback_icon_div.innerText = "person"
 
   @anvil_prop
   @property

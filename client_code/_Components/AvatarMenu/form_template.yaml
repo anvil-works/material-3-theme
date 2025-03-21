@@ -26,7 +26,7 @@ properties:
   options: [filled, tonal, outlined]
   type: enum
 - {default_value: '', description: The text to display when the mouse is hovered over this component., group: Other, important: true, name: tooltip, type: string}
-- {default_value: true, description: 'If True, this component allows user interaction.', designer_hint: enabled, group: Interaction, important: true, name: enabled, type: boolean}
+- {default_value: true, description: 'If True, this component allows user interaction.', designer_hint: enabled, group: Interaction, important: false, name: enabled, type: boolean}
 toolbox_item:
   group: Menus
   icon: {dark: 'asset:designer_icons/avatar_menu_dark.svg', light: 'asset:designer_icons/avatar_menu.svg'}
