@@ -2,11 +2,11 @@ components:
 - event_bindings: {click: _toggle_menu_visibility}
   layout_properties: {slot: avatar}
   name: avatar
-  properties: {}
+  properties: {appearance: filled}
   type: form:_Components.Avatar
 container:
   properties:
-    html: "<div anvil-name=\"anvil-m3-avatarMenu-container\" class=\"anvil-m3-buttonMenu-container\">\n  <!-- the following div needs marker where it prevents exposure of the slot when being used in a parent component -->\n  <div anvil-slot=\"avatar\" anvil-slot-internal style=\"width: 100%\"></div> \n  \n  <div anvil-slot=\"anvil-m3-avatarMenu-slot\" anvil-name=\"anvil-m3-avatarMenu-items-container\" \n    class=\"anvil-m3-buttonMenu-items-container anvil-m3-buttonMenu-items-hidden\">\n      <p anvil-if-slot-empty=\"anvil-m3-avatarMenu-slot\" style=\"color: #BBB;\"><i>Menu items go here</i></p>\n  </div>\n</div>"
+    html: "<div anvil-name=\"anvil-m3-avatarMenu-container\" class=\"anvil-m3-buttonMenu-container\">\n  <!-- the following div needs marker where it prevents exposure of the slot when being used in a parent component -->\n  <button>  \n    <div anvil-slot=\"avatar\" anvil-slot-internal style=\"width: 100%\"></div>\n  </button>\n\n  \n  <div anvil-slot=\"anvil-m3-avatarMenu-slot\" anvil-name=\"anvil-m3-avatarMenu-items-container\" \n    class=\"anvil-m3-buttonMenu-items-container anvil-m3-buttonMenu-items-hidden\">\n      <p anvil-if-slot-empty=\"anvil-m3-avatarMenu-slot\" style=\"color: #BBB;\"><i>Menu items go here</i></p>\n  </div>\n</div>"
   type: HtmlTemplate
 custom_component: true
 custom_component_container: true
@@ -18,12 +18,12 @@ properties:
 - {default_value: '', description: The border of the Menu. Can take any valid CSS border value., group: Look and Feel, important: true, name: menu_border, type: string}
 - {default_value: true, description: 'If True, the component will be displayed.', designer_hint: visible, group: Look and Feel, important: true, name: visible, type: boolean}
 - {default_value: '', description: 'The name of the associated user. If no image is provided, the avatar will display initials generated from the name.', group: Key Properties, important: true, name: name, type: string}
-- default_value: filed
+- default_value: filled
   description: A predefined style for this component.
   group: Look and Feel
   important: true
   name: appearance
-  options: [filed, tonal, outlined]
+  options: [filled, tonal, outlined]
   type: enum
 - {default_value: '', description: The text to display when the mouse is hovered over this component., group: Other, important: true, name: tooltip, type: string}
 toolbox_item:
