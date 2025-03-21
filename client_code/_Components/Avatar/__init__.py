@@ -141,7 +141,7 @@ class Avatar(AvatarTemplate):
   #!componentProp(m3.Avatar)!1: {name:"background_color",type:"color",description:"The colour of the background of this component."}
   #!componentProp(m3.Avatar)!1: {name:"border",type:"string",description:"The border of this component. Can take any valid CSS border value."}
   #!componentProp(m3.Avatar)!1: {name:"text_color",type:"color",description:"The colour of the initials displayed when there is no image."}
-  #!componentProp(m3.Avatar)!1: {name:"font_size",type:"number",description:"The font size of the text displayed on this component."}
+  #!componentProp(m3.Avatar)!1: {name:"font_size",type:"number",description:"The font size of the initials displayed on this component."}
   #!componentProp(m3.Avatar)!1: {name:"fallback_icon_size",type:"number",description:"The size (pixels) of the icon on this component"}
   #!componentProp(m3.Avatar)!1: {name:"font_family",type:"string",description:"The font family to use for the initials on this component."}
     

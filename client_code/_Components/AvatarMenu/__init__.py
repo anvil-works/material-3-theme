@@ -138,15 +138,15 @@ class AvatarMenu(AvatarMenuTemplate):
 
   @anvil_prop
   @property
-  def icon_color(self, value) -> str:
+  def fallback_icon_color(self, value) -> str:
     """The colour of the icon displayed on the Button."""
-    self.avatar.icon_color = value
+    self.avatar.fallback_icon_color = value
 
   @anvil_prop
   @property
-  def icon_size(self, value) -> int:
+  def fallback_icon_size(self, value) -> int:
     """The size (pixels) of the icon displayed on this component."""
-    self.avatar.icon_size = value
+    self.avatar.fallback_icon_size = value
 
   @anvil_prop
   @property

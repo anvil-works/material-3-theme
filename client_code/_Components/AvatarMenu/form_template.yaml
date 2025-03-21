@@ -17,7 +17,6 @@ properties:
 - {default_value: '', description: The color of the background of the Menu, group: Look and Feel, important: false, name: menu_background_color, type: color}
 - {default_value: '', description: The border of the Menu. Can take any valid CSS border value., group: Look and Feel, important: true, name: menu_border, type: string}
 - {default_value: true, description: 'If True, the component will be displayed.', designer_hint: visible, group: Look and Feel, important: true, name: visible, type: boolean}
-- {default_value: '', description: 'The name of the associated user. If no image is provided, the avatar will display initials generated from the name.', group: Key Properties, important: true, name: name, type: string}
 - default_value: filled
   description: A predefined style for this component.
   group: Look and Feel
@@ -28,10 +27,21 @@ properties:
 - {default_value: '', description: The text to display when the mouse is hovered over this component., group: Other, important: true, name: tooltip, type: string}
 - {default_value: true, description: 'If True, this component allows user interaction.', designer_hint: enabled, group: Interaction, important: false, name: enabled, type: boolean}
 - {default_binding_prop: true, default_value: '', description: 'The name of the associated user. If no image is provided, the avatar will display initials generated from the user_name.', group: Key Properties, important: true, name: user_name, type: string}
-- {default_value: '', description: The border of the avatar in this component. Can take any valid CSS border value., group: Look and Feel, important: false, name: avatar_border, type: string}
-- {default_value: '', description: Background color of the avatar in this component if no image is provided, group: Look and Feel, important: false, name: avatar_background_color, type: color}
-- {default_value: '', description: Color of the initials displayed on the avatar if no image is provided, group: Look and Feel, important: false, name: avatar_text_color, type: color}
-- {default_value: '', important: true, name: fallback_icon, type: icon, iconsets: [material-icons]}
+- {default_value: '', description: The border of the Avatar in this component. Can take any valid CSS border value., group: Look and Feel, important: false, name: avatar_border, type: string}
+- {default_value: '', description: Background color of the Avatar in this component if no image is provided, group: Look and Feel, important: false, name: avatar_background_color, type: color}
+- {default_value: '', description: Color of the initials displayed on the Avatar if no image is provided, group: Look and Feel, important: false, name: avatar_text_color, type: color}
+- default_value: mi:person
+  description: The icon to display on the Avatar if no image or user_name is provided.
+  group: Key Properties
+  iconsets: [material-icons]
+  important: true
+  name: fallback_icon
+  type: icon
+- {description: The font size of the initials displayed on the Avatar, group: Text, important: false, name: avatar_font_size, type: number}
+- {default_value: '', description: The colour of the icon displayed on the Avatar, group: Look and Feel, important: false, name: fallback_icon_color, type: color}
+- {description: The size (pixels) of the icon on the Avatar, group: Icon, important: false, name: fallback_icon_size, type: number}
+- {description: The margin (pixels) of the component., group: Layout, important: true, name: margin, type: margin}
+- {default_value: '', important: true, name: prop, type: string}
 toolbox_item:
   group: Menus
   icon: {dark: 'asset:designer_icons/avatar_menu_dark.svg', light: 'asset:designer_icons/avatar_menu.svg'}
