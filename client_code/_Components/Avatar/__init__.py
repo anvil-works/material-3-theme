@@ -4,16 +4,16 @@ from ..._utils.properties import (
   anvil_prop,
   border_property,
   color_property,
+  font_family_property,
+  font_size_property,
   get_unset_margin,
   get_unset_value,
   margin_property,
   style_property,
   tooltip_property,
-  font_size_property,
 )
 from ._anvil_designer import AvatarTemplate
 
-#TODO: add font_family
 
 class Avatar(AvatarTemplate):
   def __init__(self, **properties):
@@ -42,6 +42,7 @@ class Avatar(AvatarTemplate):
   text_color = color_property('anvil-m3-avatar-initials', 'color', 'text_color')
   font_size = font_size_property('anvil-m3-avatar-initials', 'font_size')
   fallback_icon_size = font_size_property('anvil-m3-avatar-icon', 'fallback_icon_size')
+  font_family = font_family_property('anvil-m3-avatar-initials')
 
 
   def _handle_click(self, event):
