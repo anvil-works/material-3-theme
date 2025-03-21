@@ -23,7 +23,7 @@ class AvatarMenu(AvatarMenuTemplate):
     self._design_name = ""
     self._cleanup = noop
     self._menuNode = self.dom_nodes['anvil-m3-avatarMenu-items-container']
-    self._avatarNode = get_dom_node(self.avatar).querySelector("div.anvil-m3-avatar")
+    self._avatarNode = self.dom_nodes['anvil-m3-avatarMenu-button']
     self._open = False
     self._hoverIndex = None
     self._itemIndices = set()

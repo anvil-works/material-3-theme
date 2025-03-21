@@ -6,7 +6,7 @@ components:
   type: form:_Components.Avatar
 container:
   properties:
-    html: "<div anvil-name=\"anvil-m3-avatarMenu-container\" class=\"anvil-m3-buttonMenu-container\">\n  <!-- the following div needs marker where it prevents exposure of the slot when being used in a parent component -->\n  <button>  \n    <div anvil-slot=\"avatar\" anvil-slot-internal style=\"width: 100%\"></div>\n  </button>\n\n  \n  <div anvil-slot=\"anvil-m3-avatarMenu-slot\" anvil-name=\"anvil-m3-avatarMenu-items-container\" \n    class=\"anvil-m3-buttonMenu-items-container anvil-m3-buttonMenu-items-hidden\">\n      <p anvil-if-slot-empty=\"anvil-m3-avatarMenu-slot\" style=\"color: #BBB;\"><i>Menu items go here</i></p>\n  </div>\n</div>"
+    html: "<div anvil-name=\"anvil-m3-avatarMenu-container\" class=\"anvil-m3-buttonMenu-container\">\n  <!-- the following div needs marker where it prevents exposure of the slot when being used in a parent component -->\n  <button anvil-name=\"anvil-m3-avatarMenu-button\" class=\"anvil-m3-avatarMenu-button\">  \n    <div anvil-slot=\"avatar\" anvil-slot-internal style=\"width: 100%\"></div>\n  </button>\n\n  \n  <div anvil-slot=\"anvil-m3-avatarMenu-slot\" anvil-name=\"anvil-m3-avatarMenu-items-container\" \n    class=\"anvil-m3-buttonMenu-items-container anvil-m3-buttonMenu-items-hidden\">\n      <p anvil-if-slot-empty=\"anvil-m3-avatarMenu-slot\" style=\"color: #BBB;\"><i>Menu items go here</i></p>\n  </div>\n</div>"
   type: HtmlTemplate
 custom_component: true
 custom_component_container: true
