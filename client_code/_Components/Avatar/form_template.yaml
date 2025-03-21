@@ -48,7 +48,7 @@ properties:
   name: margin
   type: margin
 - {default_value: true, description: 'If True, the component will be displayed.', designer_hint: visible, group: Look and Feel, important: true, name: visible, type: boolean}
-- {default_value: '', description: A style for this component defined in CSS and added to Roles, group: Look and Feel, important: false, name: role, type: string}
+- {default_value: '', description: A style for this component defined in CSS and added to Roles, group: Look and Feel, important: false, name: role, type: themeRole}
 - {default_value: '', description: The text to display when the mouse is hovered over this component., group: Other, important: true, name: tooltip, type: string}
 - {default_value: '', description: The colour of the icon displayed on this component., group: Look and Feel, important: false, name: fallback_icon_color, type: color}
 - {default_value: '', description: The border of this component. Can take any valid CSS border value., group: Look and Feel, important: false, name: border, type: string}
