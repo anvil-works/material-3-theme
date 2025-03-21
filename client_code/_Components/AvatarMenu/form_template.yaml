@@ -31,7 +31,7 @@ properties:
 - {default_value: '', description: The border of the avatar in this component. Can take any valid CSS border value., group: Look and Feel, important: false, name: avatar_border, type: string}
 - {default_value: '', description: Background color of the avatar in this component if no image is provided, group: Look and Feel, important: false, name: avatar_background_color, type: color}
 - {default_value: '', description: Color of the initials displayed on the avatar if no image is provided, group: Look and Feel, important: false, name: avatar_text_color, type: color}
-- {default_value: '', important: true, name: fallback_icon, type: icon}
+- {default_value: '', important: true, name: fallback_icon, type: icon, iconsets: [material-icons]}
 toolbox_item:
   group: Menus
   icon: {dark: 'asset:designer_icons/avatar_menu_dark.svg', light: 'asset:designer_icons/avatar_menu.svg'}
