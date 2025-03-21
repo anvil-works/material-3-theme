@@ -26,9 +26,7 @@ class Avatar(AvatarTemplate):
     self.image_div = self.dom_nodes['anvil-m3-avatar-image']
     self.avatar_div = self.dom_nodes['anvil-m3-avatar']
     self.init_components(**properties)
-    # self.dom_nodes['anvil-m3-avatar-container'].addEventListener(
-    #   'click', self._handle_click
-    # )
+
 
   margin = margin_property('anvil-m3-avatar')
   align = style_property('anvil-m3-avatar-container', 'justifyContent', 'align')
@@ -43,20 +41,6 @@ class Avatar(AvatarTemplate):
   font_size = font_size_property('anvil-m3-avatar-initials', 'font_size')
   fallback_icon_size = font_size_property('anvil-m3-avatar-icon', 'fallback_icon_size')
   font_family = font_family_property('anvil-m3-avatar-initials')
-
-
-  # def _handle_click(self, event):
-  #   event.preventDefault()
-  #   self.raise_event(
-  #     "click",
-  #     event=event,
-  #     keys={
-  #       "shift": event.shiftKey,
-  #       "alt": event.altKey,
-  #       "ctrl": event.ctrlKey,
-  #       "meta": event.metaKey,
-  #     },
-  #   )
 
   @anvil_prop
   @property

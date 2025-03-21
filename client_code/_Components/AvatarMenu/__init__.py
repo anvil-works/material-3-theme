@@ -81,16 +81,7 @@ class AvatarMenu(AvatarMenuTemplate):
 
   def _handle_click(self, event):
     if self.enabled:
-      self.raise_event(
-        "click",
-        event=event,
-        keys={
-          "shift": event.shiftKey,
-          "alt": event.altKey,
-          "ctrl": event.ctrlKey,
-          "meta": event.metaKey,
-        },
-      )
+      self._toggle_menu_visibility()
 
   menu_background_color = color_property(
     'anvil-m3-avatarMenu-items-container', 'background', 'menu_background_color'
@@ -197,7 +188,7 @@ class AvatarMenu(AvatarMenuTemplate):
       self.add_component(i, slot='anvil-m3-avatarMenu-slot')
 
   def _toggle_menu_visibility(self, **event_args):
-    self._toggle_visibility()
+      self._toggle_visibility()
 
   def _toggle_visibility(self, value=None):
     classes = self._menuNode.classList
