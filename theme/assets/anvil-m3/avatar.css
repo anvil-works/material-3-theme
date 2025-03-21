@@ -51,16 +51,26 @@
   border: none;
 }
 
-.anvil-m3-avatarMenu-button.anvil-m3-filled:hover { background: linear-gradient(0deg, var(--anvil-m3-light-overlay-1), var(--anvil-m3-light-overlay-1)),  var(--anvil-m3-primary) }
-.anvil-m3-avatarMenu-button.anvil-m3-filled:focus { background: linear-gradient(0deg, var(--anvil-m3-light-overlay-2), var(--anvil-m3-light-overlay-2)),  var(--anvil-m3-primary) }
-.anvil-m3-avatarMenu-button.anvil-m3-filled:active { background: linear-gradient(0deg, var(--anvil-m3-light-overlay-2), var(--anvil-m3-light-overlay-2)),  var(--anvil-m3-primary) }
+.anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-filled:hover {
+  background: linear-gradient(0deg, var(--anvil-m3-light-overlay-1), var(--anvil-m3-light-overlay-1)),  var(--anvil-m3-primary)
+}
 
-.anvil-m3-avatarMenu-button.anvil-m3-tonal:hover { background: linear-gradient(0deg, var(--anvil-m3-dark-overlay-1), var(--anvil-m3-dark-overlay-1)),  var(--anvil-m3-secondary-container) }
-.anvil-m3-avatarMenu-button.anvil-m3-tonal:focus { background: linear-gradient(0deg, var(--anvil-m3-dark-overlay-2), var(--anvil-m3-dark-overlay-2)),  var(--anvil-m3-secondary-container) }
-.anvil-m3-avatarMenu-button.anvil-m3-tonal:active { background: linear-gradient(0deg, var(--anvil-m3-dark-overlay-2), var(--anvil-m3-dark-overlay-2)),  var(--anvil-m3-secondary-container) }
+.anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-filled:focus, .anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-filled:active {
+  background: linear-gradient(0deg, var(--anvil-m3-light-overlay-2), var(--anvil-m3-light-overlay-2)),  var(--anvil-m3-primary)
+}
 
-.anvil-m3-avatarMenu-button.anvil-m3-outlined:hover { background: linear-gradient(0deg, var(--anvil-m3-light-overlay-1), var(--anvil-m3-light-overlay-1)),  var(--anvil-m3-dark-overlay-1) }
-.anvil-m3-avatarMenu-button.anvil-m3-outlined:focus { background: linear-gradient(0deg, var(--anvil-m3-light-overlay-2), var(--anvil-m3-light-overlay-2)),  var(--anvil-m3-dark-overlay-2) }
-.anvil-m3-avatarMenu-button.anvil-m3-outlined:active { background: linear-gradient(0deg, var(--anvil-m3-light-overlay-2), var(--anvil-m3-light-overlay-2)),  var(--anvil-m3-dark-overlay-2) }
+.anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-tonal:hover {
+  background: linear-gradient(0deg, var(--anvil-m3-dark-overlay-1), var(--anvil-m3-dark-overlay-1)),  var(--anvil-m3-secondary-container)
+}
 
+.anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-tonal:focus, .anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-tonal:active {
+  background: linear-gradient(0deg, var(--anvil-m3-dark-overlay-2), var(--anvil-m3-dark-overlay-2)),  var(--anvil-m3-secondary-container)
+}
+
+.anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-outlined:hover {
+  background: linear-gradient(0deg, var(--anvil-m3-light-overlay-1), var(--anvil-m3-light-overlay-1)),  var(--anvil-m3-dark-overlay-1)
+}
+.anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-outlined:focus, .anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-outlined:active {
+  background: linear-gradient(0deg, var(--anvil-m3-light-overlay-2), var(--anvil-m3-light-overlay-2)), var(--anvil-m3-dark-overlay-2)
+}
 
