@@ -1,4 +1,5 @@
-from anvil import *
+import anvil
+import anvil.designer
 
 from ..._utils.properties import (
   get_unset_spacing,
@@ -10,6 +11,7 @@ from ._anvil_designer import CenterPanelTemplate
 class CenterPanel(CenterPanelTemplate):
     def __init__(self, **properties):
         # Set Form properties and Data Bindings.
+        self._props = properties
         self.init_components(**properties)
     
         def _anvil_get_unset_property_values_(self):
