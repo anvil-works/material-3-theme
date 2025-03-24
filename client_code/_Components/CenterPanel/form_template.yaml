@@ -13,3 +13,5 @@ events:
 is_package: true
 properties:
 - {default_binding_prop: true, description: The margin and padding (pixels) of the component., group: Layout, important: true, name: spacing, type: spacing}
+- {default_value: '', description: A style for this component defined in CSS and added to Roles, group: Look and Feel, important: true, name: role, type: string}
+- {default_value: '', description: The text to display when the mouse is hovered over this component., group: Other, important: true, name: tooltip, type: string}
