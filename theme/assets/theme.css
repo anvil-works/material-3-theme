@@ -729,8 +729,12 @@ a.anvil-inlinable { color: %color:Primary%%; }
 
 /* CENTER PANEL */
 
+.anvil-designer .anvil-m3-center-panel { min-height: 45px; }
+
 .anvil-m3-center-panel {
-  min-height: 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*TOOLTIP PROPERTY*/
