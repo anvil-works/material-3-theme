@@ -19,4 +19,4 @@ class CenterPanel(CenterPanelTemplate):
             sp = get_unset_spacing(el, el, self.spacing)
             return {"spacing": sp}
     
-        spacing = spacing_property('anvil-m3-center-panel')
+    spacing = spacing_property('anvil-m3-center-panel')
