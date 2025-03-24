@@ -7,4 +7,9 @@ container:
   type: HtmlTemplate
 custom_component: true
 custom_component_container: true
+events:
+- {default_event: true, description: When the component is shown on the screen., name: show}
+- {description: When the component is removed from the screen., name: hide}
 is_package: true
+properties:
+- {default_binding_prop: true, description: The margin and padding (pixels) of the component., group: Layout, important: true, name: spacing, type: spacing}
