@@ -572,7 +572,6 @@ body {
   border-top: none;
 }
 
-
 /*Notifications*/
 .anvil-alert {
   background-color: %color:Inverse Surface%;
@@ -603,23 +602,6 @@ body {
 
 .anvil-alert.anvil-alert-warning .anvil-close {
   color: #2b2b2b;
-}
-  
-/*DIVIDER*/
-.anvil-m3-divider {
-  border-top: solid 1px %color:Outline Variant%;
-  margin-top: 8px;
-  margin-bottom: 8px
-}
-
-.anvil-m3-divider.inset {
-  margin-left: 16px;
-  margin-right: 16px;
-}
-
-.anvil-m3-divider.full-width {
-  margin-left: 0px;
-  margin-right: 0px;
 }
 
 .anvil-m3-textlessComponentText {
@@ -659,7 +641,6 @@ body {
   justify-content: space-between;
   height: 100%;
 }
-
 
 @media(min-width:600px) {
   .anvil-m3-sidesheet.anvil-m3-open {
@@ -728,6 +709,29 @@ body {
 
 /* Modals */
 a.anvil-inlinable { color: %color:Primary%%; }
+
+/*DIVIDER*/
+.anvil-m3-divider {
+  border-top: solid 1px %color:Outline Variant%;
+  margin-top: 8px;
+  margin-bottom: 8px
+}
+
+.anvil-m3-divider.inset {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.anvil-m3-divider.full-width {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+/* CENTER PANEL */
+
+.anvil-m3-center-panel {
+  min-height: 
+}
 
 /*TOOLTIP PROPERTY*/
 

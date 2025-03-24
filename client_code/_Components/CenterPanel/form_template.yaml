@@ -2,7 +2,7 @@ components: []
 container:
   properties:
     html: |-
-      <div anvil-slot="center-panel-slot" anvil-name="anvil-m3-center-panel" class="anvil-m3-card-content-container">
+      <div anvil-slot="center-panel-slot" anvil-name="anvil-m3-center-panel" class="anvil-m3-center-panel">
       </div>
   type: HtmlTemplate
 custom_component: true
