@@ -735,6 +735,7 @@ a.anvil-inlinable { color: %color:Primary%%; }
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 5px;
 }
 
 /*TOOLTIP PROPERTY*/
