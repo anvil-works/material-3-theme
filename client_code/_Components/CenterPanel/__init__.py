@@ -2,6 +2,7 @@ import anvil
 import anvil.designer
 
 from ..._utils.properties import (
+  border_property,
   get_unset_spacing,
   role_property,
   spacing_property,
@@ -22,6 +23,8 @@ class CenterPanel(CenterPanelTemplate):
       sp = get_unset_spacing(el, el, self.spacing)
       return {"spacing": sp}
 
-  spacing = spacing_property('anvil-m3-center-panel')
+  visible = anvil.HtmlTemplate.visible
+  border = border_property('anvil-m3-center-panel')
   role = role_property('anvil-m3-center-panel')
+  spacing = spacing_property('anvil-m3-center-panel')
   tooltip = tooltip_property('anvil-m3-text-container')

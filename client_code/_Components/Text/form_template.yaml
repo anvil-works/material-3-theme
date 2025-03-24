@@ -9,6 +9,7 @@ container:
       </div>
   type: HtmlTemplate
 custom_component: true
+custom_component_container: false
 events:
 - {default_event: true, description: When the component is shown on the screen., name: show}
 - {description: When the component is removed from the screen., name: hide}
