@@ -86,7 +86,7 @@ class ButtonMenu(ButtonMenuTemplate):
 
   def _child_clicked(self, event):
     # do the click action. The child should handle this
-    self.menu_container_1.toggle_visibility(self.bt,value=False)
+    self.menu_container_1.toggle_visibility(self._btnNode, value=False)
     if self.enabled:
       self.raise_event(
         "click",
