@@ -64,18 +64,18 @@ class AvatarMenu(AvatarMenuTemplate):
 
   def _anvil_get_unset_property_values_(self):
     el = self.avatar.dom_nodes["anvil-m3-avatar"]
-    m = get_unset_margin(el, el, self.spacing)
+    m = get_unset_margin(el, self.margin)
     tfs = get_unset_value(
-      self.avatar.dom_nodes['anvil-m3-initials'],
+      self.avatar.dom_nodes['anvil-m3-avatar-initials'],
       "fontSize",
-      self.button_font_size,
+      self.avatar_font_size,
     )
     ifs = get_unset_value(
-      self.menu_button.dom_nodes['anvil-m3-avatar-icon'],
+      self.avatar.dom_nodes['anvil-m3-avatar-icon'],
       "fontSize",
-      self.button_font_size,
+      self.fallback_icon_size,
     )
-    return {"button_font_size": tfs, "icon_size": ifs, "spacing": sp}
+    return {"button_font_size": tfs, "icon_size": ifs, "margin": m}
 
   def _handle_click(self, event):
     if self.enabled:

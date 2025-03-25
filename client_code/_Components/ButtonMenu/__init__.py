@@ -74,7 +74,7 @@ class ButtonMenu(ButtonMenuTemplate):
     ifs = get_unset_value(
       self.menu_button.dom_nodes['anvil-m3-button-icon'],
       "fontSize",
-      self.button_font_size,
+      self.button_icon_size,
     )
     return {"button_font_size": tfs, "icon_size": ifs, "spacing": sp}
 
