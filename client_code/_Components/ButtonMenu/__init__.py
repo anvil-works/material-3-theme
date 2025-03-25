@@ -36,13 +36,6 @@ class ButtonMenu(ButtonMenuTemplate):
     self.add_event_handler("x-anvil-page-added", self._on_mount)
     self.add_event_handler("x-anvil-page-removed", self._on_cleanup)
 
-  def _setup_fui(self):
-    if self._shown:
-      self._cleanup()
-      self._cleanup = fui.auto_update(
-        self._btnNode, self._menuNode, placement="bottom-start"
-      )
-
   def _on_mount(self, **event_args):
     self._shown = True
     document.addEventListener('keydown', self._handle_keyboard_events)
@@ -52,7 +45,7 @@ class ButtonMenu(ButtonMenuTemplate):
     # We still have a reference to the dom node but we've moved it to the body
     # This gets around the fact that Anvil containers set their overflow to hidden
     document.body.append(self._menuNode)
-    self._setup_fui()
+    self._setup_fui(self._btnNode)
 
   def _on_cleanup(self, **event_args):
     self._shown = False
@@ -228,7 +221,7 @@ class ButtonMenu(ButtonMenuTemplate):
       self.menu_button.dom_nodes[
         'anvil-m3-button-component'
       ].style.justifyContent = value
-    self._setup_fui()
+    self._setup_fui(self._btnNode)
 
   @anvil_prop
   @property
@@ -250,7 +243,7 @@ class ButtonMenu(ButtonMenuTemplate):
       self.add_component(i, slot='anvil-m3-buttonMenu-slot')
 
   def _toggle_menu_visibility(self, **event_args):
-    self._toggle_visibility()
+    self.menu_container_1._toggle_visibility()
 
   def _toggle_visibility(self, value=None):
     classes = self._menuNode.classList
