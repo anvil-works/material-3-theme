@@ -63,15 +63,15 @@ class AvatarMenu(AvatarMenuTemplate):
     self._menuNode.remove()
 
   def _anvil_get_unset_property_values_(self):
-    el = self.menu_button.dom_nodes["anvil-m3-button"]
+    el = self.avatar.dom_nodes["anvil-m3-avatar"]
     m = get_unset_margin(el, el, self.spacing)
     tfs = get_unset_value(
-      self.menu_button.dom_nodes['anvil-m3-button-text'],
+      self.avatar.dom_nodes['anvil-m3-initials'],
       "fontSize",
       self.button_font_size,
     )
-    ifs = tfs = get_unset_value(
-      self.menu_button.dom_nodes['anvil-m3-button-icon'],
+    ifs = get_unset_value(
+      self.menu_button.dom_nodes['anvil-m3-avatar-icon'],
       "fontSize",
       self.button_font_size,
     )
