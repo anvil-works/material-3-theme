@@ -46,7 +46,7 @@ properties:
   group: Layout
   important: true
   name: align
-  options: [left, center, rigt]
+  options: [left, center, right]
   type: enum
 - {default_value: '', description: The font family to use for the initials on the Avatar, group: Text, important: false, name: avatar_font_family, type: string}
 - {default_value: '', description: A style for this component defined in CSS and added to Roles, group: Look and Feel, important: false, name: role, type: themeRole}
