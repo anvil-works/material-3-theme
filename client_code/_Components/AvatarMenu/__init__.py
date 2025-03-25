@@ -197,14 +197,17 @@ class AvatarMenu(AvatarMenuTemplate):
 
     self._open = not classes.contains('anvil-m3-buttonMenu-items-hidden')
     if self._open:
+      print('open')
       self._setup_fui()
       self._get_hover_index_information()
     else:
+      print('not open')
       self._cleanup()
       self._hoverIndex = None
       self._clear_hover_styles()
 
   def _child_clicked(self, event):
+    print('child clicked')
     # do the click action. The child should handle this
     self._toggle_visibility(False)
     if self.enabled:
@@ -220,6 +223,7 @@ class AvatarMenu(AvatarMenuTemplate):
       )
 
   def _body_click(self, event):
+    print('body clicked')
     if self._buttonNode.contains(event.target) or self._menuNode.contains(event.target):
       return
     self._toggle_visibility(False)
@@ -310,6 +314,7 @@ class AvatarMenu(AvatarMenuTemplate):
     ]
 
   def _on_select_descendent(self):
+    print('selecting descendent')
     self._toggle_visibility(True)
 
   def _on_select_other(self):
