@@ -90,8 +90,7 @@ class ButtonMenu(ButtonMenuTemplate):
           "meta": event.metaKey,
         },
       )
-
-  menu_border = border_property('anvil-m3-buttonMenu-items-container', 'menu_border')
+      
   visible = HtmlTemplate.visible
 
   @anvil_prop
@@ -112,8 +111,14 @@ class ButtonMenu(ButtonMenuTemplate):
   @anvil_prop
   @property
   def menu_background_color(self, value) -> str:
-    """A predefined style for the Button."""
+    """Background color of the menu."""
     self.menu_container_1.background_color = value
+
+  @anvil_prop
+  @property
+  def menu_border(self, value) -> str:
+    """The border of the menu."""
+    self.menu_container_1.border = value
 
   @anvil_prop
   @property

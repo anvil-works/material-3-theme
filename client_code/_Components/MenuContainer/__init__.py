@@ -11,6 +11,7 @@ from ..._utils.properties import (
 class MenuContainer(MenuContainerTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
+    self._props = properties
     self.init_components(**properties)
 
   background_color = color_property(
