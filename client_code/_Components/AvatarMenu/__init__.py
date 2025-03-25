@@ -315,10 +315,5 @@ class AvatarMenu(AvatarMenuTemplate):
   def _on_select_other(self):
     self._toggle_visibility(False)
 
-  def form_show(self, **event_args):
-    if anvil.designer.in_designer:
-      self._design_name = anvil.designer.get_design_name(self)
-      if not self.text:
-        self.avatar.text = self._design_name
 
 
