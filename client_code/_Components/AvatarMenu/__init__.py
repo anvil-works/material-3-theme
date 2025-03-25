@@ -87,6 +87,12 @@ class AvatarMenu(AvatarMenuTemplate):
   menu_border = border_property('anvil-m3-avatarMenu-items-container', 'menu_border')
   visible = HtmlTemplate.visible
   enabled = enabled_property('anvil-m3-avatarMenu-button')
+  
+  @anvil_prop
+  @property
+  def image(self, value) -> str:
+    """The name of the avatar component"""
+    self.avatar.image = value
 
   @anvil_prop
   @property
