@@ -1,10 +1,6 @@
 components: []
 container:
   properties:
-    html: |-
-      <center style="font-style:italic; color:#888; margin: 3em;">
-        (Insert your custom HTML here)
-      </center>
-      <div anvil-slot="default"></div>
+    html: "<div anvil-slot=\"anvil-m3-menuContainer-slot\" anvil-name=\"anvil-m3-menuContainer-items-container\" \n  class=\"anvil-m3-menuContainer-items-container anvil-m3-menuContainer-items-hidden\">\n    <p anvil-if-slot-empty=\"anvil-m3-menuContainer-slot\" style=\"color: #BBB;\"><i>Menu items go here</i></p>\n</div>"
   type: HtmlTemplate
 is_package: true
