@@ -93,6 +93,7 @@ unique_ids:
     _Components.LinearProgressIndicator: '169900965150797501169878.6904'
     _Components.Link: '169174463576231955159881.56439'
     _Components.Menu: '1691484055779239355188821.15225'
+    _Components.MenuContainer: '1742915341394754272794276.3274'
     _Components.MenuItem: '1691072927249332240116307.56104'
     _Components.NavigationLink: '1687431782226411358777892.8858'
     _Components.RadioButton: '1690464716172125967535572.36772'
