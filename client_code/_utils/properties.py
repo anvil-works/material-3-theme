@@ -1,5 +1,7 @@
 import anvil.designer
 from anvil import *
+import anvil
+from anvil.js import get_dom_node
 from anvil.js.window import document
 from anvil.property_utils import (
   get_margin_styles,
@@ -24,12 +26,13 @@ class ComponentTag:
     return f"ComponentTag({self.__dict__})"
 
 
+_TB = anvil.TextBox()
+_TB_NODE = get_dom_node(_TB)
+
+
 def theme_color_to_css(color: str):
-  if color.startswith('theme:'):
-    color = color.lstrip('theme:')
-    return app.theme_colors[color]
-  else:
-    return color
+  _TB.foreground = color
+  return _TB_NODE.style.color
 
 
 """ REUSABLE PROPERTIES """
