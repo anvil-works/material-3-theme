@@ -10,10 +10,10 @@ from ..._utils.properties import (
   color_property,
   enabled_property,
   get_unset_value,
+  get_unset_margin,
 )
 from ..MenuItem import MenuItem
 from ._anvil_designer import AvatarMenuTemplate
-
 
 
 class AvatarMenu(AvatarMenuTemplate):
@@ -62,20 +62,20 @@ class AvatarMenu(AvatarMenuTemplate):
     # Remove the menu node we put on the body
     self._menuNode.remove()
 
-  # def _anvil_get_unset_property_values_(self):
-  #   el = self.menu_button.dom_nodes["anvil-m3-button"]
-  #   sp = get_unset_spacing(el, el, self.spacing)
-  #   tfs = get_unset_value(
-  #     self.menu_button.dom_nodes['anvil-m3-button-text'],
-  #     "fontSize",
-  #     self.button_font_size,
-  #   )
-  #   ifs = tfs = get_unset_value(
-  #     self.menu_button.dom_nodes['anvil-m3-button-icon'],
-  #     "fontSize",
-  #     self.button_font_size,
-  #   )
-  #   return {"button_font_size": tfs, "icon_size": ifs, "spacing": sp}
+  def _anvil_get_unset_property_values_(self):
+    el = self.menu_button.dom_nodes["anvil-m3-button"]
+    m = get_unset_margin(el, el, self.spacing)
+    tfs = get_unset_value(
+      self.menu_button.dom_nodes['anvil-m3-button-text'],
+      "fontSize",
+      self.button_font_size,
+    )
+    ifs = tfs = get_unset_value(
+      self.menu_button.dom_nodes['anvil-m3-button-icon'],
+      "fontSize",
+      self.button_font_size,
+    )
+    return {"button_font_size": tfs, "icon_size": ifs, "spacing": sp}
 
   def _handle_click(self, event):
     if self.enabled:
