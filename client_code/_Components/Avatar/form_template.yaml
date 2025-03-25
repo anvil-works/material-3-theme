@@ -30,6 +30,7 @@ properties:
 - {default_value: '', description: Color of the initials displayed on the component if no image is provided, group: Look and Feel, important: false, name: text_color, type: color}
 - default_value: left
   description: The position of this component in the available space.
+  designer_hint: align-horizontal
   group: Layout
   important: true
   name: align

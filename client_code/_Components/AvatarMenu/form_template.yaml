@@ -43,6 +43,7 @@ properties:
 - {description: The margin (pixels) of the component., group: Layout, important: true, name: margin, type: margin}
 - default_value: left
   description: The position of this component in the available space.
+  designer_hint: align-horizontal
   group: Layout
   important: true
   name: align

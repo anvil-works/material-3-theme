@@ -163,7 +163,7 @@ class AvatarMenu(AvatarMenuTemplate):
   @anvil_prop
   @property
   def align(self, value) -> str:
-    self.avatar.align = value
+    self.dom_nodes['anvil-m3-avatarMenu-container'].style.justifyContent = value
     self._setup_fui()
 
   @anvil_prop
