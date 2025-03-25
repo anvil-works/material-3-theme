@@ -307,17 +307,6 @@ class AvatarMenu(AvatarMenuTemplate):
           "onSelectOther": self._on_select_other,
         },
       },
-      {
-        "type": "whole_component",
-        "title": "Edit text",
-        "icon": "edit",
-        "default": True,
-        "callbacks": {
-          "execute": lambda: anvil.designer.start_inline_editing(
-            self, "text", self.avatar.dom_nodes["anvil-m3-button-text"]
-          )
-        },
-      },
     ]
 
   def _on_select_descendent(self):
