@@ -23,7 +23,7 @@ class ButtonMenu(ButtonMenuTemplate):
     self._props = properties
     self._design_name = ""
     self._cleanup = noop
-    self._menuNode = self.dom_nodes['anvil-m3-buttonMenu-items-container']
+    self._menuNode = self.menu_container_1.dom_nodes['anvil-m3-menuContainer-items-container']
     self._btnNode = get_dom_node(self.menu_button).querySelector("button")
     self._open = False
     self._hoverIndex = None
@@ -91,9 +91,6 @@ class ButtonMenu(ButtonMenuTemplate):
         },
       )
 
-  menu_background_color = color_property(
-    'anvil-m3-buttonMenu-items-container', 'background', 'menu_background_color'
-  )
   menu_border = border_property('anvil-m3-buttonMenu-items-container', 'menu_border')
   visible = HtmlTemplate.visible
 
@@ -111,6 +108,12 @@ class ButtonMenu(ButtonMenuTemplate):
         'anvil-m3-textlessComponentText', True
       )
     self.menu_button.text = v
+
+  @anvil_prop
+  @property
+  def menu_background_color(self, value) -> str:
+    """A predefined style for the Button."""
+    self.menu_container_1.background_color = value
 
   @anvil_prop
   @property

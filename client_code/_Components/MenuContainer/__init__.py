@@ -1,12 +1,22 @@
 from ..MenuItem import MenuItem
 from ._anvil_designer import MenuContainerTemplate
 from anvil import *
+from ..._utils.properties import (
+  color_property,
+  border_property
+
+)
 
 
 class MenuContainer(MenuContainerTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+
+  background_color = color_property(
+    'anvil-m3-menuContainer-items-container', 'background', 'background_color'
+  )
+  border = border_property('anvil-m3-menuContainer-items-container', 'border')
 
     
   def _toggle_menu_visibility(self, **event_args):
