@@ -102,7 +102,7 @@
   position: relative;
 }
 
-.anvil-m3-buttonMenu-items-container {
+.anvil-m3-menuContainer-items-container {
   box-sizing: border-box;
   position: absolute;
   inset: 0 0 auto auto;
@@ -118,7 +118,7 @@
   z-index: 1050;
 }
 
-.anvil-m3-buttonMenu-items-hidden {
+.anvil-m3-menuContainer-items-hidden {
   pointer-events: none;
   opacity: 0;
   overflow: hidden;

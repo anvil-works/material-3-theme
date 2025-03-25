@@ -39,13 +39,12 @@ class ButtonMenu(ButtonMenuTemplate):
   def _on_mount(self, **event_args):
     self._shown = True
     document.addEventListener('keydown', self._handle_keyboard_events)
-    self._menuNode.addEventListener('click', self._child_clicked)
     self._btnNode.addEventListener('click', self._handle_click)
     document.addEventListener('click', self._body_click)
     # We still have a reference to the dom node but we've moved it to the body
     # This gets around the fact that Anvil containers set their overflow to hidden
     document.body.append(self._menuNode)
-    self._setup_fui(self._btnNode)
+    self.menu_container_1._setup_fui(self._btnNode)
 
   def _on_cleanup(self, **event_args):
     self._shown = False
@@ -84,21 +83,7 @@ class ButtonMenu(ButtonMenuTemplate):
         },
       )
 
-  def _child_clicked(self, event):
-    # do the click action. The child should handle this
-    self.menu_container_1.toggle_visibility(self._btnNode, value=False)
-    if self.enabled:
-      self.raise_event(
-        "click",
-        event=event,
-        keys={
-          "shift": event.shiftKey,
-          "alt": event.altKey,
-          "ctrl": event.ctrlKey,
-          "meta": event.metaKey,
-        },
-      )
-      
+
   visible = HtmlTemplate.visible
 
   @anvil_prop
@@ -236,7 +221,7 @@ class ButtonMenu(ButtonMenuTemplate):
       self.menu_button.dom_nodes[
         'anvil-m3-button-component'
       ].style.justifyContent = value
-    self._setup_fui(self._btnNode)
+    self.menu_container_1._setup_fui(self._btnNode)
 
   @anvil_prop
   @property
@@ -260,20 +245,6 @@ class ButtonMenu(ButtonMenuTemplate):
   def _toggle_menu_visibility(self, **event_args):
     self.menu_container_1.toggle_visibility(self._btnNode)
 
-  def _child_clicked(self, event):
-    # do the click action. The child should handle this
-    self._toggle_visibility(False)
-    if self.enabled:
-      self.raise_event(
-        "click",
-        event=event,
-        keys={
-          "shift": event.shiftKey,
-          "alt": event.altKey,
-          "ctrl": event.ctrlKey,
-          "meta": event.metaKey,
-        },
-      )
 
   def _body_click(self, event):
     if self._btnNode.contains(event.target) or self._menuNode.contains(event.target):
