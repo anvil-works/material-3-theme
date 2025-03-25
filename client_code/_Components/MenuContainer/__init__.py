@@ -28,7 +28,7 @@ class MenuContainer(MenuContainerTemplate):
         component_node, self.dom_nodes['anvil-m3-menuContainer-items-container'], placement="bottom-start"
       )
 
-  def _toggle_visibility(self, component_node, value=None):
+  def toggle_visibility(self, component_node, value=None):
     classes = self.dom_nodes['anvil-m3-menuContainer-items-container'].classList
     if value is not None:
       classes.toggle('anvil-m3-menuContainer-items-hidden', not value)
@@ -44,20 +44,7 @@ class MenuContainer(MenuContainerTemplate):
       self._hoverIndex = None
       self._clear_hover_styles()
 
-  def _child_clicked(self, event):
-    # do the click action. The child should handle this
-    self._toggle_visibility(False)
-    if self.enabled:
-      self.raise_event(
-        "click",
-        event=event,
-        keys={
-          "shift": event.shiftKey,
-          "alt": event.altKey,
-          "ctrl": event.ctrlKey,
-          "meta": event.metaKey,
-        },
-      )
+
 
   def _get_hover_index_information(self):
     self._children = self.get_components()[:-1]
@@ -78,7 +65,7 @@ class MenuContainer(MenuContainerTemplate):
     hover = (
       self._hoverIndex
     )  # holding value for situations like alerts, where it awaits
-    self._toggle_visibility(False)
+    self.toggle_visibility(False)
 
     def attemptSelect():
       event.preventDefault()
@@ -145,7 +132,7 @@ class MenuContainer(MenuContainerTemplate):
     ]
 
   def _on_select_descendent(self):
-    self._toggle_visibility(True)
+    self.toggle_visibility(True)
 
   def _on_select_other(self):
-    self._toggle_visibility(False)
+    self.toggle_visibility(False)

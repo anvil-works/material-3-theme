@@ -83,6 +83,21 @@ class ButtonMenu(ButtonMenuTemplate):
           "meta": event.metaKey,
         },
       )
+
+  def _child_clicked(self, event):
+    # do the click action. The child should handle this
+    self.menu_container_1.toggle_visibility(self.bt,value=False)
+    if self.enabled:
+      self.raise_event(
+        "click",
+        event=event,
+        keys={
+          "shift": event.shiftKey,
+          "alt": event.altKey,
+          "ctrl": event.ctrlKey,
+          "meta": event.metaKey,
+        },
+      )
       
   visible = HtmlTemplate.visible
 
@@ -243,23 +258,7 @@ class ButtonMenu(ButtonMenuTemplate):
       self.add_component(i, slot='anvil-m3-buttonMenu-slot')
 
   def _toggle_menu_visibility(self, **event_args):
-    self.menu_container_1._toggle_visibility()
-
-  def _toggle_visibility(self, value=None):
-    classes = self._menuNode.classList
-    if value is not None:
-      classes.toggle('anvil-m3-buttonMenu-items-hidden', not value)
-    else:
-      classes.toggle('anvil-m3-buttonMenu-items-hidden')
-
-    self._open = not classes.contains('anvil-m3-buttonMenu-items-hidden')
-    if self._open:
-      self._setup_fui()
-      self._get_hover_index_information()
-    else:
-      self._cleanup()
-      self._hoverIndex = None
-      self._clear_hover_styles()
+    self.menu_container_1.toggle_visibility(self._btnNode)
 
   def _child_clicked(self, event):
     # do the click action. The child should handle this
