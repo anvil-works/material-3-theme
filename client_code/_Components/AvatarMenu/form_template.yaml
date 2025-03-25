@@ -19,7 +19,7 @@ properties:
 - {default_value: true, description: 'If True, the component will be displayed.', designer_hint: visible, group: Look and Feel, important: true, name: visible, type: boolean}
 - default_value: filled
   description: A predefined style for this component.
-  group: Look and Feel
+  group: Key Properties
   important: true
   name: appearance
   options: [filled, tonal, outlined]
