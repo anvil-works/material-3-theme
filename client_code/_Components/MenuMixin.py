@@ -2,6 +2,7 @@ from ..._utils import fui, noop
 
 
 class MenuMixin():
+    self._open = False
 
     def _setup_fui(self, component_node, menu_node):
         if self._shown:
@@ -56,3 +57,22 @@ class MenuMixin():
             self._hoverIndex
         )  # holding value for situations like alerts, where it awaits
         self._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode, value=False)
+
+    def _iterate_hover(self, inc=True):
+        if inc:
+            if self._hoverIndex is None or self._hoverIndex is (len(self._children) - 1):
+                self._hoverIndex = -1
+            while True:
+                self._hoverIndex += 1
+                if self._hoverIndex in self._itemIndices:
+                    break
+        else:
+            if self._hoverIndex is None or self._hoverIndex == 0:
+                self._hoverIndex = len(self._children)
+            while True:
+                self._hoverIndex -= 1
+                if self._hoverIndex in self._itemIndices:
+                    break
+        self._children[self._hoverIndex].dom_nodes['anvil-m3-menuItem-container'].scrollIntoView({'block': 'nearest'})
+        self._update_hover_styles()
+        
