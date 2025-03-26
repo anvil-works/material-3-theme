@@ -42,5 +42,17 @@ class MenuMixin():
             self._hoverIndex = None
             self._clear_hover_styles()
 
-
-  
+    def _handle_keyboard_events(self, event):
+        if not self._open:
+            return
+        action_keys = set(["ArrowUp", "ArrowDown", "Tab", "Escape", " ", "Enter"])
+        if event.key not in action_keys:
+            return
+        if event.key in ["ArrowUp", "ArrowDown"]:
+            self._iterate_hover(event.key == "ArrowDown")
+            event.preventDefault()
+            return
+        hover = (
+            self._hoverIndex
+        )  # holding value for situations like alerts, where it awaits
+        self._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode, value=False)
