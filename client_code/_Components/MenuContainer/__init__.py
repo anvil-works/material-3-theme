@@ -54,20 +54,20 @@ class MenuContainer(MenuContainerTemplate):
       self._hoverIndex = None
       self._clear_hover_styles()
 
-  def _child_clicked(self, event, enabled):
-    # do the click action. The child should handle this
-    self.toggle_visibility(None, value=False)
-    if self.enabled:
-      self.raise_event(
-        "click",
-        event=event,
-        keys={
-          "shift": event.shiftKey,
-          "alt": event.altKey,
-          "ctrl": event.ctrlKey,
-          "meta": event.metaKey,
-        },
-      )
+  # def _child_clicked(self, event):
+  #   # do the click action. The child should handle this
+  #   self.toggle_visibility(None, value=False)
+  #   if self.enabled:
+  #     self.raise_event(
+  #       "click",
+  #       event=event,
+  #       keys={
+  #         "shift": event.shiftKey,
+  #         "alt": event.altKey,
+  #         "ctrl": event.ctrlKey,
+  #         "meta": event.metaKey,
+  #       },
+  #     )
 
   def _get_hover_index_information(self):
     self._children = self.get_components()[:-1]

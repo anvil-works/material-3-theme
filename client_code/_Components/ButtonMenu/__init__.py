@@ -41,7 +41,7 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
     self._shown = True
     document.addEventListener('keydown', self._handle_keyboard_events)
     self._btnNode.addEventListener('click', self._handle_click)
-    self._menuNode.addEventListener('click', self._child_clicked)
+    self._menuNode.addEventListener('click', self._handle_child_clicked)
     document.addEventListener('click', self._body_click)
     
     # We still have a reference to the dom node but we've moved it to the body
@@ -59,8 +59,9 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
     # Remove the menu node we put on the body
     self._menuNode.remove()
 
-  def _child_clicked(self, event):
-    
+  def _handle_child_clicked(self, event):
+    self._child_clicked(event, self.enabled)
+
     
 
   def _anvil_get_unset_property_values_(self):
@@ -250,8 +251,6 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
     for i in value:
       self.add_component(i, slot='anvil-m3-buttonMenu-slot')
 
-  def _toggle_menu_visibility(self, **event_args):
-    self.menu_container_1.toggle_visibility(self._btnNode)
 
 
   def _body_click(self, event):
