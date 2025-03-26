@@ -121,6 +121,7 @@ class TextBox(TextInput):
     self.text = self.text
     self.label = self.label
     self.enabled = self.enabled
+    self.read_only = self.read_only
     self.error = self.error
     self.leading_icon = self.leading_icon
     self.character_limit = self.character_limit
@@ -245,6 +246,15 @@ class TextBox(TextInput):
       self.dom_nodes['anvil-m3-textbox'].setAttribute("disabled", " ")
       supporting_text.classList.add("anvil-m3-textinput-disabled")
       trailing_icon.classList.add("anvil-m3-disable-icon")
+
+  @anvil_prop
+  @property
+  def read_only(self, value) -> bool:
+    """If True, this component won't allow it's value to be changed."""
+    if value:
+      self.dom_nodes['anvil-m3-textbox'].setAttribute("readonly", " ")
+    else:
+      self.dom_nodes['anvil-m3-textbox'].removeAttribute("readonly")
 
   @anvil_prop
   @property
