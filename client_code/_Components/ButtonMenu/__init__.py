@@ -256,7 +256,7 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
   def _body_click(self, event):
     if self._btnNode.contains(event.target) or self._menuNode.contains(event.target):
       return
-    self._toggle_visibility(False)
+    self._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode, value=False)
 
   def _get_hover_index_information(self):
     self._children = self.get_components()[:-1]
@@ -277,7 +277,7 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
     hover = (
       self._hoverIndex
     )  # holding value for situations like alerts, where it awaits
-    self._toggle_visibility(False)
+    self._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode, value=False)
 
     def attemptSelect():
       event.preventDefault()
@@ -395,3 +395,7 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
 
 
 #!defClass(m3, ButtonMenu, anvil.Component)!:
+
+  def _toggle_menu_visibility(self, **event_args):
+      """This method is called when the component is clicked."""
+      self._toggle_visibility()

@@ -1,8 +1,4 @@
 components:
-- layout_properties: {slot: anvil-m3-buttonMenu-slot}
-  name: menu_container_1
-  properties: {}
-  type: form:_Components.MenuContainer
 - event_bindings: {click: _toggle_menu_visibility}
   layout_properties: {slot: button}
   name: menu_button
