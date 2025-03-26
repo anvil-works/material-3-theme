@@ -9,7 +9,6 @@ from ..._utils.properties import (
     enabled_property,
     get_unset_margin,
     margin_property,
-    role_property,
     style_property,
     tooltip_property,
 )
@@ -60,6 +59,7 @@ class IconButton(IconButtonTemplate):
 
     #!componentEvent(m3.IconButton)!1: {name: "click", description: "When the component is clicked.", parameters:[]}
 
+    role = HtmlTemplate.role
     visible = HtmlTemplate.visible
     enabled = enabled_property('anvil-m3-iconbutton-container')
     align = style_property('anvil-m3-iconbutton-component', 'justifyContent', 'align')
@@ -69,7 +69,6 @@ class IconButton(IconButtonTemplate):
         'anvil-m3-iconbutton-container', 'backgroundColor', 'background_color'
     )
     margin = margin_property('anvil-m3-iconbutton-container')
-    role = role_property('anvil-m3-iconbutton-container')
     tooltip = tooltip_property('anvil-m3-iconbutton-container')
 
     @anvil_prop

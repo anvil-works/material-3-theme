@@ -48,6 +48,7 @@ class IconButtonMenu(MenuMixin, IconButtonMenuTemplate):
         """This method is called when the component is clicked."""
         self._toggle_visibility()
 
+    role = HtmlTemplate.role
     visible = HtmlTemplate.visible
     menu_border = border_property('anvil-m3-iconButtonMenu-items-container', 'border')
     menu_background_color = color_property(
@@ -109,11 +110,6 @@ class IconButtonMenu(MenuMixin, IconButtonMenuTemplate):
         self.dom_nodes['anvil-m3-iconButtonMenu-container'].style.justifyContent = value
         self._setup_fui()
 
-    @anvil_prop
-    @property
-    def role(self, value) -> str:
-        """A style for this component defined in CSS and added to Roles"""
-        self.icon_button.role = value
 
     @anvil_prop
     @property

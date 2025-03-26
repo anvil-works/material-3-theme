@@ -14,7 +14,6 @@ from ..._utils.properties import (
     get_unset_spacing,
     get_unset_value,
     italic_property,
-    role_property,
     spacing_property,
     simple_prop,
     style_property,
@@ -116,6 +115,7 @@ class Checkbox(CheckboxTemplate):
     #!componentProp(m3.Checkbox)!1: {name:"tag",type:"object",description:"Use this property to store any extra data for the component."}
 
     enabled = enabled_property('anvil-m3-checkbox')
+    role = HtmlTemplate.role
     visible = HtmlTemplate.visible
     underline = underline_property('anvil-m3-checkbox-label')
     italic = italic_property('anvil-m3-checkbox-label')
@@ -130,7 +130,6 @@ class Checkbox(CheckboxTemplate):
     align = style_property('anvil-m3-checkbox-component', 'justifyContent', 'align')
     spacing = spacing_property('anvil-m3-checkbox-component')
     tooltip = tooltip_property('anvil-m3-checkbox-container')
-    role = role_property('anvil-m3-checkbox-container')
     allow_indeterminate = simple_prop('allow_indeterminate')
 
     @anvil_prop
