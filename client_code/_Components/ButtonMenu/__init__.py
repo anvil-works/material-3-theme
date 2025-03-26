@@ -228,11 +228,7 @@ class ButtonMenu(ButtonMenuTemplate):
     """The font family to use for the Button"""
     self.menu_button.font_family = value
 
-  @anvil_prop
-  @property
-  def role(self, value) -> str:
-    """A style for this component defined in CSS and added to Roles"""
-    self.menu_button.role = value
+  role = HtmlTemplate.role
 
   @anvil_prop
   @property

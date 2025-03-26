@@ -12,7 +12,6 @@ from ..._utils.properties import (
   get_unset_value,
   inline_editing,
   italic_property,
-  role_property,
   spacing_property,
   tooltip_property,
   underline_property,
@@ -94,7 +93,7 @@ class Text(TextTemplate):
   icon_size = font_size_property('anvil-m3-text-icon', 'icon_size')
   spacing = spacing_property('anvil-m3-text-container')
   tooltip = tooltip_property('anvil-m3-text-container')
-  role = role_property('anvil-m3-text-container')
+  role = anvil.HtmlTemplate.role
 
   @anvil_prop
   @property

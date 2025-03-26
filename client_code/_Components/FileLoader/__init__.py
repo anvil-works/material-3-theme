@@ -13,7 +13,6 @@ from ..._utils.properties import (
   get_unset_value,
   innerText_property,
   italic_property,
-  role_property,
   simple_prop,
   spacing_property,
   style_property,
@@ -158,7 +157,7 @@ class FileLoader(FileLoaderTemplate):
   border = style_property('anvil-m3-fileloader-container', 'border', 'border')
   spacing = spacing_property('anvil-m3-fileloader-container')
   tooltip = tooltip_property('anvil-m3-fileloader-container')
-  role = role_property('anvil-m3-fileloader-container')
+  role = HtmlTemplate.role
   show_state = simple_prop("show_state")
   file = simple_prop("file")
   files = simple_prop("files")

@@ -9,7 +9,6 @@ from ..._utils.properties import (
   enabled_property,
   get_unset_margin,
   margin_property,
-  role_property,
   style_property,
   tooltip_property,
 )
@@ -69,7 +68,7 @@ class IconButton(IconButtonTemplate):
     'anvil-m3-iconbutton-container', 'backgroundColor', 'background_color'
   )
   margin = margin_property('anvil-m3-iconbutton-container')
-  role = role_property('anvil-m3-iconbutton-container')
+  role = HtmlTemplate.role
   tooltip = tooltip_property('anvil-m3-iconbutton-component')
 
   @anvil_prop

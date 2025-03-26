@@ -9,7 +9,6 @@ from ..._utils.properties import (
   get_unset_margin,
   margin_property,
   property_with_callback,
-  role_property,
   style_property,
   theme_color_to_css,
   tooltip_property,
@@ -114,7 +113,7 @@ class Switch(SwitchTemplate):
   visible = HtmlTemplate.visible
   margin = margin_property('anvil-m3-switch-container')
   tooltip = tooltip_property('anvil-m3-switch')
-  role = role_property('anvil-m3-switch')
+  role = HtmlTemplate.role
   selected_background_color = property_with_callback(
     'selected_background_color', _set_color_styles
   )

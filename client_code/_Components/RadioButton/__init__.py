@@ -14,7 +14,6 @@ from ..._utils.properties import (
   font_size_property,
   inline_editing,
   italic_property,
-  role_property,
   simple_prop,
   spacing_property,
   style_property,
@@ -100,7 +99,7 @@ class RadioButton(RadioButtonTemplate):
   align = style_property('anvil-m3-radiobutton-component', 'justifyContent', 'align')
   spacing = spacing_property('anvil-m3-radiobutton-component')
   tooltip = tooltip_property('anvil-m3-radiobutton-component')
-  role = role_property('anvil-m3-radiobutton-container')
+  role = HtmlTemplate.role
 
   def _set_text(self, value):
     self.dom_nodes['anvil-m3-radiobutton-label'].innerText = value

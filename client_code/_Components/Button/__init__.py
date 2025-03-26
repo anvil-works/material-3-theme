@@ -14,7 +14,6 @@ from ..._utils.properties import (
   get_unset_value,
   italic_property,
   property_with_callback,
-  role_property,
   spacing_property,
   style_property,
   tooltip_property,
@@ -117,7 +116,6 @@ class Button(ButtonTemplate):
       else:
         self.dom_nodes['anvil-m3-button-text'].innerText = ""
 
-  role = role_property('anvil-m3-button')
   text = property_with_callback("text", _update_button_look)
   icon = property_with_callback("icon", _update_button_look)
   text_color = color_property('anvil-m3-button-text', 'color', 'text_color')
@@ -135,6 +133,7 @@ class Button(ButtonTemplate):
   border = style_property('anvil-m3-button', 'border', 'border')
   tooltip = tooltip_property('anvil-m3-button')
   visible = HtmlTemplate.visible
+  role = HtmlTemplate.role
 
   @anvil_prop
   @property

@@ -9,7 +9,6 @@ from ..._utils.properties import (
   font_size_property,
   inline_editing,
   italic_property,
-  role_property,
   spacing_property,
   style_property,
   tooltip_property,
@@ -111,7 +110,7 @@ class Link(LinkTemplate):
   border = style_property('anvil-m3-link', 'border', 'border')
   spacing = spacing_property('anvil-m3-link')
   tooltip = tooltip_property('anvil-m3-link')
-  role = role_property('anvil-m3-link')
+  role = anvil.HtmlTemplate.role
   background_color = color_property(
     'anvil-m3-link', 'backgroundColor', 'background_color'
   )

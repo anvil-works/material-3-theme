@@ -11,7 +11,6 @@ from ..._utils.properties import (
   get_unset_value,
   inline_editing,
   italic_property,
-  role_property,
   tooltip_property,
 )
 from ._anvil_designer import HeadingTemplate
@@ -97,7 +96,7 @@ class Heading(HeadingTemplate):
     'anvil-m3-heading-container', 'backgroundColor', 'background_color'
   )
   tooltip = tooltip_property('anvil-m3-heading-container')
-  role = role_property('anvil-m3-heading-container')
+  role = anvil.HtmlTemplate.role
 
   @anvil_prop
   @property
