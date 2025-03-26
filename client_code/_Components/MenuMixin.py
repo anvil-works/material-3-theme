@@ -1,4 +1,5 @@
 from ..._utils import fui, noop
+from ..MenuItem import MenuItem
 
 
 class MenuMixin():
@@ -58,6 +59,24 @@ class MenuMixin():
         )  # holding value for situations like alerts, where it awaits
         self._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode, value=False)
 
+        def attemptSelect():
+            event.preventDefault()
+            if hover is not None:
+                self._children[hover].raise_event(
+                    "click",
+                    event=event,
+                    keys={
+                        "shift": event.shiftKey,
+                        "alt": event.altKey,
+                        "ctrl": event.ctrlKey,
+                        "meta": event.metaKey,
+                    },
+                    )
+            if event.key == " ":  # " " indicates the space key
+                attemptSelect()
+            if event.key == "Enter":
+                attemptSelect()
+
     def _iterate_hover(self, inc=True):
         if inc:
             if self._hoverIndex is None or self._hoverIndex is (len(self._children) - 1):
@@ -75,4 +94,13 @@ class MenuMixin():
                     break
         self._children[self._hoverIndex].dom_nodes['anvil-m3-menuItem-container'].scrollIntoView({'block': 'nearest'})
         self._update_hover_styles()
-        
+
+    def _update_hover_styles(self):
+        self._clear_hover_styles()
+        self._children[self._hoverIndex].dom_nodes['anvil-m3-menuItem-container'].classList.toggle('anvil-m3-menuItem-container-keyboardHover', True)
+
+    def _clear_hover_styles(self):
+        if self._children is not None:
+            for child in self._children:
+                if isinstance(child, MenuItem):
+                    child.dom_nodes['anvil-m3-menuItem-container'].classList.toggle('anvil-m3-menuItem-container-keyboardHover', False)

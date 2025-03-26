@@ -266,7 +266,20 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
       if isinstance(self._children[i], MenuItem):
         self._itemIndices.add(i)
 
-
+  def _handle_keyboard_events(self, event):
+    if not self._open:
+      return
+    action_keys = set(["ArrowUp", "ArrowDown", "Tab", "Escape", " ", "Enter"])
+    if event.key not in action_keys:
+      return
+    if event.key in ["ArrowUp", "ArrowDown"]:
+      self._iterate_hover(event.key == "ArrowDown")
+      event.preventDefault()
+      return
+    hover = (
+      self._hoverIndex
+    )  # holding value for situations like alerts, where it awaits
+    self._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode, value=False)
 
     def attemptSelect():
       event.preventDefault()
