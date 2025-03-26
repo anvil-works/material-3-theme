@@ -253,8 +253,6 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
     for i in value:
       self.add_component(i, slot='anvil-m3-buttonMenu-slot')
 
-
-
   def _body_click(self, event):
     if self._btnNode.contains(event.target) or self._menuNode.contains(event.target):
       return
