@@ -62,8 +62,10 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
   def _handle_child_clicked(self, event):
     self._child_clicked(event, self.enabled)
 
+  def _toggle_menu_visibility(self, **event_args):
+      """This method is called when the component is clicked."""
+      self._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode)
     
-
   def _anvil_get_unset_property_values_(self):
     el = self.menu_button.dom_nodes["anvil-m3-button"]
     sp = get_unset_spacing(el, el, self.spacing)
@@ -264,20 +266,7 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
       if isinstance(self._children[i], MenuItem):
         self._itemIndices.add(i)
 
-  def _handle_keyboard_events(self, event):
-    if not self._open:
-      return
-    action_keys = set(["ArrowUp", "ArrowDown", "Tab", "Escape", " ", "Enter"])
-    if event.key not in action_keys:
-      return
-    if event.key in ["ArrowUp", "ArrowDown"]:
-      self._iterate_hover(event.key == "ArrowDown")
-      event.preventDefault()
-      return
-    hover = (
-      self._hoverIndex
-    )  # holding value for situations like alerts, where it awaits
-    self._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode, value=False)
+
 
     def attemptSelect():
       event.preventDefault()
@@ -355,10 +344,10 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
     ]
 
   def _on_select_descendent(self):
-    self._toggle_visibility(True)
+    self._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode, value=True)
 
   def _on_select_other(self):
-    self._toggle_visibility(False)
+    self._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode, value=False)
 
   def form_show(self, **event_args):
     if anvil.designer.in_designer:
@@ -395,7 +384,3 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
 
 
 #!defClass(m3, ButtonMenu, anvil.Component)!:
-
-  def _toggle_menu_visibility(self, **event_args):
-      """This method is called when the component is clicked."""
-      self._toggle_visibility()

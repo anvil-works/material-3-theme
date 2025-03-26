@@ -31,12 +31,12 @@ class MenuContainer(MenuContainerTemplate):
   )
   border = border_property('anvil-m3-menuContainer-items-container', 'border')
 
-  def _setup_fui(self, component_node):
-    if self._shown:
-      self._cleanup()
-      self._cleanup = fui.auto_update(
-        component_node, self.dom_nodes['anvil-m3-menuContainer-items-container'], placement="bottom-start"
-      )
+  # def _setup_fui(self, component_node):
+  #   if self._shown:
+  #     self._cleanup()
+  #     self._cleanup = fui.auto_update(
+  #       component_node, self.dom_nodes['anvil-m3-menuContainer-items-container'], placement="bottom-start"
+  #     )
 
   # def toggle_visibility(self, component_node, value=None):
   #   classes = self.dom_nodes['anvil-m3-menuContainer-items-container'].classList
