@@ -15,15 +15,16 @@ from ..._utils.properties import (
 )
 from ..MenuItem import MenuItem
 from ._anvil_designer import ButtonMenuTemplate
+from ..MenuMixin import MenuMixin
 
 
-class ButtonMenu(ButtonMenuTemplate):
+class ButtonMenu(ButtonMenuTemplate, MenuMixin):
   def __init__(self, **properties):
     self.tag = ComponentTag()
     self._props = properties
     self._design_name = ""
     self._cleanup = noop
-    self._menuNode = self.menu_container_1.dom_nodes['anvil-m3-menuContainer-items-container']
+    self._menuNode = self.dom_nodes['anvil-m3-buttonMenu-items-container']
     self._btnNode = get_dom_node(self.menu_button).querySelector("button")
     self._open = False
     self._hoverIndex = None
@@ -40,7 +41,9 @@ class ButtonMenu(ButtonMenuTemplate):
     self._shown = True
     document.addEventListener('keydown', self._handle_keyboard_events)
     self._btnNode.addEventListener('click', self._handle_click)
+    self._menuNode.addEventListener('click', self._child_clicked)
     document.addEventListener('click', self._body_click)
+    
     # We still have a reference to the dom node but we've moved it to the body
     # This gets around the fact that Anvil containers set their overflow to hidden
     document.body.append(self._menuNode)
@@ -50,10 +53,15 @@ class ButtonMenu(ButtonMenuTemplate):
     self._shown = False
     document.removeEventListener('keydown', self._handle_keyboard_events)
     self._menuNode.removeEventListener('click', self._child_clicked)
+    self._btnNode.removeEventListener('click', self._handle_click)
     document.removeEventListener('click', self._body_click)
     self._cleanup()
     # Remove the menu node we put on the body
     self._menuNode.remove()
+
+  def _child_clicked(self, event):
+    
+    
 
   def _anvil_get_unset_property_values_(self):
     el = self.menu_button.dom_nodes["anvil-m3-button"]

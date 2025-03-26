@@ -1,3 +1,3 @@
-class MenuContainer():
+class MenuMixin():
   def __init__(self, **properties):
-    pa
+    pass
