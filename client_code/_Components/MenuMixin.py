@@ -3,7 +3,9 @@ from ..MenuItem import MenuItem
 
 
 class MenuMixin():
-    self._open = False
+    def __init__(self, **properties):
+        self._open = False
+        self._hoverIndex = None
 
     def _setup_fui(self, component_node, menu_node):
         if self._shown:
