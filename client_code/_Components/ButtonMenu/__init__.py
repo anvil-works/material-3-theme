@@ -47,7 +47,7 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
     # We still have a reference to the dom node but we've moved it to the body
     # This gets around the fact that Anvil containers set their overflow to hidden
     document.body.append(self._menuNode)
-    self.menu_container_1._setup_fui(self._btnNode)
+    self._setup_fui(self._btnNode, self._menuNode)
 
   def _on_cleanup(self, **event_args):
     self._shown = False
@@ -230,7 +230,7 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
       self.menu_button.dom_nodes[
         'anvil-m3-button-component'
       ].style.justifyContent = value
-    self.menu_container_1._setup_fui(self._btnNode)
+    self._setup_fui(self._btnNode, self._menuNode)
 
   @anvil_prop
   @property

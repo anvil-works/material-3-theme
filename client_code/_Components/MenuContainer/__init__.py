@@ -38,21 +38,21 @@ class MenuContainer(MenuContainerTemplate):
         component_node, self.dom_nodes['anvil-m3-menuContainer-items-container'], placement="bottom-start"
       )
 
-  def toggle_visibility(self, component_node, value=None):
-    classes = self.dom_nodes['anvil-m3-menuContainer-items-container'].classList
-    if value is not None:
-      classes.toggle('anvil-m3-menuContainer-items-hidden', not value)
-    else:
-      classes.toggle('anvil-m3-menuContainer-items-hidden')
+  # def toggle_visibility(self, component_node, value=None):
+  #   classes = self.dom_nodes['anvil-m3-menuContainer-items-container'].classList
+  #   if value is not None:
+  #     classes.toggle('anvil-m3-menuContainer-items-hidden', not value)
+  #   else:
+  #     classes.toggle('anvil-m3-menuContainer-items-hidden')
 
-    self._open = not classes.contains('anvil-m3-menuContainer-items-hidden')
-    if self._open:
-      self._setup_fui(component_node)
-      self._get_hover_index_information()
-    else:
-      self._cleanup()
-      self._hoverIndex = None
-      self._clear_hover_styles()
+  #   self._open = not classes.contains('anvil-m3-menuContainer-items-hidden')
+  #   if self._open:
+  #     self._setup_fui(component_node)
+  #     self._get_hover_index_information()
+  #   else:
+  #     self._cleanup()
+  #     self._hoverIndex = None
+  #     self._clear_hover_styles()
 
   # def _child_clicked(self, event):
   #   # do the click action. The child should handle this

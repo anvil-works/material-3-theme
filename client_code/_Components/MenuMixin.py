@@ -1,7 +1,19 @@
+from ..._utils import fui, noop
+
+
 class MenuMixin():
+
+    def _setup_fui(self, component_node, menu_node):
+        if self._shown:
+            self._cleanup()
+            self._cleanup = fui.auto_update(
+                component_node, menu_node, placement="bottom-start"
+            )
+
     def _child_clicked(self, event, enabled):
         # do the click action. The child should handle this
-        self._toggle_visibility(None, value=False)
+        print(event)
+        self._toggle_visibility(None, None, value=False)
         if enabled:
             self.raise_event(
             "click",
@@ -14,8 +26,8 @@ class MenuMixin():
             },
           )
     
-    def _toggle_visibility(self, component_node, value=None):
-        classes = self.dom_nodes['anvil-m3-menuContainer-items-container'].classList
+    def _toggle_visibility(self, component_node, menu_node, value=None):
+        classes = menu_node.classList
         if value is not None:
             classes.toggle('anvil-m3-menuContainer-items-hidden', not value)
         else:
@@ -23,7 +35,7 @@ class MenuMixin():
 
         self._open = not classes.contains('anvil-m3-menuContainer-items-hidden')
         if self._open and component_node:
-            self._setup_fui(component_node)
+            self._setup_fui(component_node, menu_node)
             self._get_hover_index_information()
         else:
             self._cleanup()
