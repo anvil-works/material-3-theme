@@ -30,7 +30,6 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
         self._itemIndices = set()
         self._menuNode = self.dom_nodes['anvil-m3-buttonMenu-items-container']
         self._btnNode = get_dom_node(self.menu_button).querySelector("button")
-        super().__init__(**properties)
 
         self.init_components(**properties)
     
