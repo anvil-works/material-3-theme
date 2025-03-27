@@ -27,7 +27,6 @@ class MenuMixin():
           )
     
     def _toggle_visibility(self, component_node, menu_node, value=None):
-        print(menu_node)
         classes = menu_node.classList
         if value is not None:
             classes.toggle('anvil-m3-buttonMenu-items-hidden', not value)
