@@ -20,7 +20,7 @@ from ._anvil_designer import ButtonMenuTemplate
 
 class ButtonMenu(ButtonMenuTemplate, MenuMixin):
     def __init__(self, **properties):
-        super().__init__()
+        super().__init__(**properties)
         self.tag = ComponentTag()
         self._props = properties
         self._design_name = ""
@@ -59,11 +59,11 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
         self._menuNode.remove()
 
     def _handle_child_clicked(self, event):
-        self._child_clicked(event, self.enabled)
+        super()._child_clicked(event, self.enabled)
     
     def _toggle_menu_visibility(self, **event_args):
         """This method is called when the component is clicked."""
-        self._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode)
+        super()._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode)
     
     def _anvil_get_unset_property_values_(self):
         el = self.menu_button.dom_nodes["anvil-m3-button"]
@@ -94,7 +94,7 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
             )
             
     def _handle_body_click(self, event):
-        self._body_click(event, self._btnNode, self._menuNode)
+        super()._body_click(event, self._btnNode, self._menuNode)
 
     visible = HtmlTemplate.visible
 
@@ -254,29 +254,10 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
         for i in value:
             self.add_component(i, slot='anvil-m3-buttonMenu-slot')
 
-
     def _call_handle_keyboard_events(self, event):
-        self._handle_keyboard_events
+        super()._handle_keyboard_events(event, self._btnNode, self._menuNode)
 
-  def _iterate_hover(self, inc=True):
-    if inc:
-      if self._hoverIndex is None or self._hoverIndex is (len(self._children) - 1):
-        self._hoverIndex = -1
-      while True:
-        self._hoverIndex += 1
-        if self._hoverIndex in self._itemIndices:
-          break
-    else:
-      if self._hoverIndex is None or self._hoverIndex == 0:
-        self._hoverIndex = len(self._children)
-      while True:
-        self._hoverIndex -= 1
-        if self._hoverIndex in self._itemIndices:
-          break
-    self._children[self._hoverIndex].dom_nodes[
-      'anvil-m3-menuItem-container'
-    ].scrollIntoView({'block': 'nearest'})
-    self._update_hover_styles()
+
 
   def _clear_hover_styles(self):
     if self._children is not None:
@@ -315,10 +296,10 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
     ]
 
   def _on_select_descendent(self):
-    self._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode, value=True)
+    super()._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode, value=True)
 
   def _on_select_other(self):
-    self._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode, value=False)
+    super()._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode, value=False)
 
   def form_show(self, **event_args):
     if anvil.designer.in_designer:
