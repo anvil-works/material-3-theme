@@ -10,8 +10,8 @@ from ..._utils.properties import (
   get_unset_value,
   italic_property,
   property_with_callback,
-  underline_property,
   style_property,
+  underline_property,
 )
 from . import TextInput
 
@@ -223,7 +223,7 @@ class TextBox(TextInput):
   @property
   def label(self, value) -> str:
     """The label text of the component."""
-    self.dom_nodes['anvil-m3-label-text'].innerText = value or ""
+    self.dom_nodes['anvil-m3-label-text'].innerText = str(value if value is not None else "")
     if value:
       self.dom_nodes['anvil-m3-textbox'].classList.toggle('has_label_text', True)
     else:

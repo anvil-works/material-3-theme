@@ -138,7 +138,7 @@ class Checkbox(CheckboxTemplate):
   def text(self, value) -> str:
     """The text displayed on this component"""
     if value:
-      self.dom_nodes['anvil-m3-checkbox-label'].innerText = value
+      self.dom_nodes['anvil-m3-checkbox-label'].innerText = str(value if value is not None else "")
       self.dom_nodes['anvil-m3-checkbox-label'].style.display = 'block'
     else:
       self.dom_nodes['anvil-m3-checkbox-label'].style.display = 'none'
