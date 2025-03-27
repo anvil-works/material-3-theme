@@ -19,7 +19,6 @@ from ._anvil_designer import ButtonMenuTemplate
 
 class ButtonMenu(ButtonMenuTemplate, MenuMixin):
     def __init__(self, **properties):
-        
         self.tag = ComponentTag()
         self._props = properties
         self._design_name = ""
@@ -199,9 +198,9 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
     
     @anvil_prop
     @property
-    def icon_position(self, value) -> str:
+    def icon_align(self, value) -> str:
         """The alignment of the icon on this component."""
-        self.menu_button.icon_position = value
+        self.menu_button.icon_align = value
 
     @anvil_prop
     @property
@@ -306,7 +305,7 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
   #!componentProp(m3.ButtonMenu)!1: {name:"spacing",type:"spacing",description:"The margin and padding (pixels) of the component."}
   #!componentProp(m3.ButtonMenu)!1: {name:"button_border",type:"string",description:"The border of the Button. Can take any valid CSS border value."}
   #!componentProp(m3.ButtonMenu)!1: {name:"tooltip",type:"string",description:"The text to display when the mouse is hovered over this component."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"icon_position",type:"enum",options:["left", "right"],description:"The alignment of the icon on this component."}
+  #!componentProp(m3.ButtonMenu)!1: {name:"icon_align",type:"enum",options:["left", "right"],description:"The alignment of the icon on this component."}
   #!componentProp(m3.ButtonMenu)!1: {name:"menu_items",type:"object",description:"A list of components to be added to the menu."}
   #!componentProp(m3.ButtonMenu)!1: {name:"tag",type:"object",description:"Use this property to store any extra data for the component."}
 

@@ -44,7 +44,7 @@ properties:
   description: The position of the icon on the Button.
   group: Icon
   important: true
-  name: icon_position
+  name: icon_align
   options: [left, right]
   type: enum
 - default_value: ''
