@@ -1,0 +1,59 @@
+components: []
+container:
+  properties:
+    html: |
+      <div anvil-name="anvil-m3-avatar-container" class="anvil-m3-avatar-container">
+        <div anvil-name="anvil-m3-avatar" class="anvil-m3-avatar">
+          <img anvil-name="anvil-m3-avatar-image" class="anvil-m3-avatar-image"></img>
+          <span anvil-name="anvil-m3-avatar-initials" class="anvil-m3-avatar-initials"></span>
+          <span anvil-name="anvil-m3-avatar-icon" class="anvil-m3-avatar-icon material-symbols-outlined"></span>
+        </div>
+      </div>
+  type: HtmlTemplate
+custom_component: true
+events: []
+is_package: true
+properties:
+- {default_binding_prop: true, default_value: '', description: 'The name of the associated user. If no image is provided, the avatar will display initials generated from the user_name.', group: Key Properties, important: true, name: user_name, type: string}
+- {accept: image/*, description: The image to display on the component., group: Key Properties, important: true, name: image, type: uri}
+- {default_value: 40, description: Dimensions (in pixels) of the component's height and width, group: Look and Feel, important: true, name: size, type: number}
+- default_value: mi:person
+  description: The icon to display if no image or name is provided.
+  group: Icon
+  iconsets: [material-icons]
+  important: true
+  include_none_option: true
+  name: fallback_icon
+  type: icon
+- {default_value: '', description: Background color of the component if no image is provided, group: Look and Feel, important: false, name: background_color, type: color}
+- {default_value: '', description: Color of the initials displayed on the component if no image is provided, group: Look and Feel, important: false, name: text_color, type: color}
+- default_value: left
+  description: The position of this component in the available space.
+  designer_hint: align-horizontal
+  group: Layout
+  important: true
+  name: align
+  options: [left, center, right]
+  type: enum
+- default_value: filled
+  description: A predefined style for this component.
+  important: true
+  name: appearance
+  options: [filled, tonal, outlined]
+  type: enum
+- default_value: ['', '', '', '']
+  description: The margin (pixels) of the component.
+  group: Layout
+  important: true
+  name: margin
+  type: margin
+- {default_value: true, description: 'If True, the component will be displayed.', designer_hint: visible, group: Look and Feel, important: true, name: visible, type: boolean}
+- {default_value: '', description: A style for this component defined in CSS and added to Roles, group: Look and Feel, important: false, name: role, type: themeRole}
+- {default_value: '', description: The text to display when the mouse is hovered over this component., group: Other, important: true, name: tooltip, type: string}
+- {default_value: '', description: The colour of the icon displayed on this component., group: Look and Feel, important: false, name: fallback_icon_color, type: color}
+- {default_value: '', description: The border of this component. Can take any valid CSS border value., group: Look and Feel, important: false, name: border, type: string}
+- {description: Use this property to store any extra data for the component., group: Other, important: true, name: tag, type: object}
+- {description: The font size of the initials displayed on this component., group: Text, important: false, name: font_size, type: number}
+- {description: The size (pixels) of the icon on this component, group: Icon, important: false, name: fallback_icon_size, type: number}
+- {default_value: '', description: The font family to use for the initials on this component., group: Text, important: false, name: font_family, type: string}
+toolbox_item: {hidden: true}

@@ -13,8 +13,8 @@ from ..._utils.properties import (
   innerHTML_property,
   italic_property,
   role_property,
-  spacing_property,
   simple_prop,
+  spacing_property,
   tooltip_property,
   underline_property,
 )

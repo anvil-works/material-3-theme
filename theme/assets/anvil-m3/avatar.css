@@ -1,0 +1,103 @@
+.anvil-m3-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 500;
+  margin: 5px;
+}
+
+.anvil-m3-avatar-container {
+  display: flex;
+  align-items: center;
+}
+
+.anvil-m3-avatar.anvil-m3-avatar-filled {
+  background-color: var(--anvil-m3-primary);
+  color: var(--anvil-m3-on-primary);
+}
+
+.anvil-m3-avatar.anvil-m3-avatar-tonal {
+  background-color: var(--anvil-m3-secondary-container);
+  color: var(--anvil-m3-on-secondary-container);
+}
+
+.anvil-m3-avatar.anvil-m3-avatar-outlined {
+  background-color: transparent;
+  color: var(--anvil-m3-on-surface-variant);
+  border: 1px solid var(--anvil-m3-outline);
+}
+
+.anvil-m3-avatar {
+  height: 40px;
+  width: 40px;
+}
+
+.anvil-m3-avatar img.anvil-m3-avatar-image {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+
+.anvil-m3-avatar-initials {
+  letter-spacing: .12em;
+  text-indent: .12em;
+}
+
+/*AvatarMenu*/
+
+.anvil-m3-avatarMenu-button {
+  background: transparent;
+  padding: 0px;
+  border: none;
+}
+
+.anvil-m3-avatarMenu-button:disabled {
+  cursor: not-allowed;
+}
+
+.anvil-m3-avatarMenu-button:disabled .anvil-m3-avatar-icon { 
+  color: var(--anvil-m3-on-disabled) !important 
+}
+
+.anvil-m3-avatarMenu-button:disabled .anvil-m3-avatar.anvil-m3-avatar-filled { 
+  background: linear-gradient(0deg, var(--anvil-m3-on-surface-variant-overlay-2), var(--anvil-m3-on-surface-variant-overlay-2)),  transparent !important 
+} 
+
+.anvil-m3-avatarMenu-button:disabled .anvil-m3-avatar.anvil-m3-avatar-tonal { 
+  background: linear-gradient(0deg, var(--anvil-m3-on-surface-variant-overlay-2), var(--anvil-m3-on-surface-variant-overlay-2)),  transparent !important 
+} 
+
+.anvil-m3-avatarMenu-button:disabled .anvil-m3-avatar.anvil-m3-avatar-outlined { 
+  border: 1px solid var(--anvil-m3-disabled-container)
+}
+
+
+
+.anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-avatar-filled:hover {
+  background: linear-gradient(0deg, var(--anvil-m3-light-overlay-1), var(--anvil-m3-light-overlay-1)),  var(--anvil-m3-primary)
+}
+
+.anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-avatar-filled:focus, 
+.anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-avatar-filled:active {
+  background: linear-gradient(0deg, var(--anvil-m3-light-overlay-2), var(--anvil-m3-light-overlay-2)),  var(--anvil-m3-primary)
+}
+
+.anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-avatar-tonal:hover {
+  background: linear-gradient(0deg, var(--anvil-m3-dark-overlay-1), var(--anvil-m3-dark-overlay-1)),  var(--anvil-m3-secondary-container)
+}
+
+.anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-avatar-tonal:focus, 
+.anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-avatar-tonal:active {
+  background: linear-gradient(0deg, var(--anvil-m3-dark-overlay-2), var(--anvil-m3-dark-overlay-2)),  var(--anvil-m3-secondary-container)
+}
+
+.anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-avatar-outlined:hover {
+  background: linear-gradient(0deg, var(--anvil-m3-light-overlay-1), var(--anvil-m3-light-overlay-1)),  var(--anvil-m3-dark-overlay-1)
+}
+.anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-avatar-outlined:focus, 
+.anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-avatar-outlined:active {
+  background: linear-gradient(0deg, var(--anvil-m3-light-overlay-2), var(--anvil-m3-light-overlay-2)), var(--anvil-m3-dark-overlay-2)
+}
+
