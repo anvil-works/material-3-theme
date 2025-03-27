@@ -4,14 +4,13 @@ from anvil.js.window import document
 
 from ..._utils import noop
 from ..._utils.properties import (
-  ComponentTag,
-  anvil_prop,
-  border_property,
-  color_property,
-  enabled_property,
-  get_unset_value,
-  get_unset_margin,
-)
+    ComponentTag,
+    anvil_prop,
+    border_property,
+    color_property,
+    enabled_property,
+    get_unset_margin,
+    get_unset_value,
 )
 from ..MenuMixin import MenuMixin
 from ._anvil_designer import AvatarMenuTemplate
@@ -45,7 +44,7 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
         # We still have a reference to the dom node but we've moved it to the body
         # This gets around the fact that Anvil containers set their overflow to hidden
         document.body.append(self._menuNode)
-        super()._setup_fui(self._buttonNode, )
+        super()._setup_fui(self._buttonNode, self._menuNode)
 
     def _on_cleanup(self, **event_args):
         self._shown = False
@@ -71,9 +70,12 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
             )
         return {"button_font_size": tfs, "icon_size": ifs, "margin": m}
 
+    def _call_handle_keyboard_events(self, event):
+        super()._handle_keyboard_events(event, self._buttonNode, self._menuNode)
+
     def _handle_click(self, event):
         if self.enabled:
-            super()._toggle_visibility()
+            super()._toggle_visibility(component_node=self._buttonNode, menu_node=self._menuNode)
 
     menu_background_color = color_property(
         'anvil-m3-avatarMenu-items-container', 'background', 'menu_background_color'
@@ -158,7 +160,7 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
     @property
     def align(self, value) -> str:
         self.dom_nodes['anvil-m3-avatarMenu-container'].style.justifyContent = value
-        self._setup_fui()
+        super()._setup_fui(self._buttonNode, self._menuNode)
     
     @anvil_prop
     @property
@@ -179,12 +181,10 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
         for i in value:
             self.add_component(i, slot='anvil-m3-avatarMenu-slot')
 
-    def _toggle_menu_visibility(self, **event_args):
-        super()._toggle_visibility(component_node=self._buttonNode, menu_node=self._menuNode)
-
     def _handle_child_clicked(self, event):
+        print('child clicked')
         # do the click action. The child should handle this
-        super()._child_clicked(self.enabled)
+        super()._child_clicked(event, self.enabled)
 
     def _handle_body_click(self, event):
         super()._body_click(event, self._buttonNode, self._menuNode)

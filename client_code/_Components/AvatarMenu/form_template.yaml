@@ -1,5 +1,5 @@
 components:
-- event_bindings: {click: _toggle_menu_visibility}
+- event_bindings: {}
   layout_properties: {slot: avatar}
   name: avatar
   properties: {appearance: filled}
