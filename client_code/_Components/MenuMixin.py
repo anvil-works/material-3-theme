@@ -1,4 +1,4 @@
-from ..._utils import fui, noop
+from .._utils import fui
 from ..MenuItem import MenuItem
 
 
@@ -7,6 +7,7 @@ class MenuMixin():
         self._open = False
         self._hoverIndex = None
         self._children = None
+        self._shown = False
         self._itemIndices = set()
 
     def _setup_fui(self, component_node, menu_node):

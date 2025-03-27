@@ -4,7 +4,7 @@ from anvil import HtmlTemplate
 from anvil.js import get_dom_node
 from anvil.js.window import document
 
-from ..._utils import fui, noop
+from ..._utils import noop
 from ..._utils.properties import (
   ComponentTag,
   anvil_prop,
@@ -13,7 +13,6 @@ from ..._utils.properties import (
   get_unset_spacing,
   get_unset_value,
 )
-from ..MenuItem import MenuItem
 from ..MenuMixin import MenuMixin
 from ._anvil_designer import ButtonMenuTemplate
 
@@ -27,9 +26,6 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
         self._cleanup = noop
         self._menuNode = self.dom_nodes['anvil-m3-buttonMenu-items-container']
         self._btnNode = get_dom_node(self.menu_button).querySelector("button")
-
-
-        self._shown = False
 
         self.init_components(**properties)
     
@@ -46,12 +42,12 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
         # We still have a reference to the dom node but we've moved it to the body
         # This gets around the fact that Anvil containers set their overflow to hidden
         document.body.append(self._menuNode)
-        self._setup_fui(self._btnNode, self._menuNode)
+        super()._setup_fui(self._btnNode, self._menuNode)
 
     def _on_cleanup(self, **event_args):
         self._shown = False
         document.removeEventListener('keydown', self._call_handle_keyboard_events)
-        self._menuNode.removeEventListener('click', self._child_clicked)
+        self._menuNode.removeEventListener('click', self._handle_child_clicked)
         self._btnNode.removeEventListener('click', self._handle_click)
         document.removeEventListener('click', self._handle_body_click)
         self._cleanup()
@@ -97,6 +93,10 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
         super()._body_click(event, self._btnNode, self._menuNode)
 
     visible = HtmlTemplate.visible
+    border = border_property('anvil-m3-buttonMenu-items-container', 'border')
+    background_color = color_property(
+        'anvil-m3-buttonMenu-items-container', 'background', 'background_color'
+    )
 
     @anvil_prop
     @property
@@ -233,7 +233,7 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
             self.menu_button.dom_nodes[
                 'anvil-m3-button-component'
             ].style.justifyContent = value
-        self._setup_fui(self._btnNode, self._menuNode)
+        super()._setup_fui(self._btnNode, self._menuNode)
 
     @anvil_prop
     @property
@@ -257,55 +257,39 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
     def _call_handle_keyboard_events(self, event):
         super()._handle_keyboard_events(event, self._btnNode, self._menuNode)
 
-
-
-  def _clear_hover_styles(self):
-    if self._children is not None:
-      for child in self._children:
-        if isinstance(child, MenuItem):
-          child.dom_nodes['anvil-m3-menuItem-container'].classList.toggle(
-            'anvil-m3-menuItem-container-keyboardHover', False
-          )
-
-  def _update_hover_styles(self):
-    self._clear_hover_styles()
-    self._children[self._hoverIndex].dom_nodes[
-      'anvil-m3-menuItem-container'
-    ].classList.toggle('anvil-m3-menuItem-container-keyboardHover', True)
-
-  def _anvil_get_interactions_(self):
-    return [
-      {
-        "type": "designer_events",
-        "callbacks": {
-          "onSelectDescendent": self._on_select_descendent,
-          "onSelectOther": self._on_select_other,
+    def _anvil_get_interactions_(self):
+        return [
+        {
+            "type": "designer_events",
+            "callbacks": {
+            "onSelectDescendent": self._on_select_descendent,
+            "onSelectOther": self._on_select_other,
+            },
         },
-      },
-      {
-        "type": "whole_component",
-        "title": "Edit text",
-        "icon": "edit",
-        "default": True,
-        "callbacks": {
-          "execute": lambda: anvil.designer.start_inline_editing(
-            self, "text", self.menu_button.dom_nodes["anvil-m3-button-text"]
-          )
+        {
+            "type": "whole_component",
+            "title": "Edit text",
+            "icon": "edit",
+            "default": True,
+            "callbacks": {
+            "execute": lambda: anvil.designer.start_inline_editing(
+                self, "text", self.menu_button.dom_nodes["anvil-m3-button-text"]
+            )
+            },
         },
-      },
-    ]
+        ]
 
-  def _on_select_descendent(self):
-    super()._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode, value=True)
+    def _on_select_descendent(self):
+        super()._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode, value=True)
+    
+    def _on_select_other(self):
+        super()._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode, value=False)
 
-  def _on_select_other(self):
-    super()._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode, value=False)
-
-  def form_show(self, **event_args):
-    if anvil.designer.in_designer:
-      self._design_name = anvil.designer.get_design_name(self)
-      if not self.text:
-        self.menu_button.text = self._design_name
+    def form_show(self, **event_args):
+        if anvil.designer.in_designer:
+            self._design_name = anvil.designer.get_design_name(self)
+            if not self.text:
+                self.menu_button.text = self._design_name
 
   #!componentProp(m3.ButtonMenu)!1: {name:"align",type:"enum",options:["left", "right", "center"],description:"The position of this component in the available space."}
   #!componentProp(m3.ButtonMenu)!1: {name:"appearance",type:"enum",options:["filled", "elevated", "tonal", "outlined", "text"],description:"A predefined style for the Button."}
