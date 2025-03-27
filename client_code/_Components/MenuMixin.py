@@ -11,9 +11,9 @@ class MenuMixin():
                 component_node, menu_node, placement="bottom-start"
             )
 
-    def _child_clicked(self, event, enabled):
+    def _child_clicked(self, event, enabled, component_node, menu_node):
         # do the click action. The child should handle this
-        self._toggle_visibility(value=False)
+        self._toggle_visibility(component_node, menu_node, value=False)
         if enabled:
             self.raise_event(
             "click",

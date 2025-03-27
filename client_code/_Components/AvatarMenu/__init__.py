@@ -182,9 +182,8 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
             self.add_component(i, slot='anvil-m3-avatarMenu-slot')
 
     def _handle_child_clicked(self, event):
-        print('child clicked')
         # do the click action. The child should handle this
-        super()._child_clicked(event, self.enabled)
+        super()._child_clicked(event, self.enabled, self._buttonNode, self._menuNode)
 
     def _handle_body_click(self, event):
         super()._body_click(event, self._buttonNode, self._menuNode)

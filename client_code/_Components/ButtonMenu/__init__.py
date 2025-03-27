@@ -59,7 +59,7 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
         self._menuNode.remove()
 
     def _handle_child_clicked(self, event):
-        super()._child_clicked(event, self.enabled)
+        super()._child_clicked(event, self.enabled, self._btnNode, self._menuNode)
     
     def _toggle_menu_visibility(self, **event_args):
         """This method is called when the component is clicked."""
