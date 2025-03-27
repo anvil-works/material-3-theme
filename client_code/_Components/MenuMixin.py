@@ -1,5 +1,5 @@
 from .._utils import fui
-from ..MenuItem import MenuItem
+from .MenuItem import MenuItem
 
 
 class MenuMixin():

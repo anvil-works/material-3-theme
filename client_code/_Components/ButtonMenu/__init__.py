@@ -19,13 +19,19 @@ from ._anvil_designer import ButtonMenuTemplate
 
 class ButtonMenu(ButtonMenuTemplate, MenuMixin):
     def __init__(self, **properties):
-        super().__init__(**properties)
+        
         self.tag = ComponentTag()
         self._props = properties
         self._design_name = ""
         self._cleanup = noop
+        self._open = False
+        self._hoverIndex = None
+        self._children = None
+        self._shown = False
+        self._itemIndices = set()
         self._menuNode = self.dom_nodes['anvil-m3-buttonMenu-items-container']
         self._btnNode = get_dom_node(self.menu_button).querySelector("button")
+        super().__init__(**properties)
 
         self.init_components(**properties)
     
@@ -93,8 +99,8 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
         super()._body_click(event, self._btnNode, self._menuNode)
 
     visible = HtmlTemplate.visible
-    border = border_property('anvil-m3-buttonMenu-items-container', 'border')
-    background_color = color_property(
+    menu_border = border_property('anvil-m3-buttonMenu-items-container', 'border')
+    menu_background_color = color_property(
         'anvil-m3-buttonMenu-items-container', 'background', 'background_color'
     )
 
@@ -112,18 +118,6 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
                 'anvil-m3-textlessComponentText', True
             )
         self.menu_button.text = v
-
-    @anvil_prop
-    @property
-    def menu_background_color(self, value) -> str:
-        """Background color of the menu."""
-        self.menu_container_1.background_color = value
-
-    @anvil_prop
-    @property
-    def menu_border(self, value) -> str:
-        """The border of the menu."""
-        self.menu_container_1.border = value
 
     @anvil_prop
     @property
