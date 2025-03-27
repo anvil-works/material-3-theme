@@ -5,7 +5,6 @@ from ..._utils.properties import (
   color_property,
   get_unset_margin,
   margin_property,
-  role_property,
 )
 from ._anvil_designer import DividerTemplate
 
@@ -33,7 +32,7 @@ class Divider(DividerTemplate):
 
   visible = HtmlTemplate.visible
   color = color_property('anvil-m3-divider', 'border-color', 'color')
-  role = role_property('anvil-m3-divider')
+  role = HtmlTemplate.role
   margin = margin_property('anvil-m3-divider')
 
   @anvil_prop

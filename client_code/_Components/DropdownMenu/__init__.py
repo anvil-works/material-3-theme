@@ -298,6 +298,7 @@ class DropdownMenu(DropdownMenuTemplate):
 
   # properties
   visible = anvil.HtmlTemplate.visible
+  role = anvil.HtmlTemplate.role
   margin = margin_property('anvil-m3-dropdownMenu-textbox')
 
   @anvil_prop
@@ -365,18 +366,6 @@ class DropdownMenu(DropdownMenuTemplate):
   def align(self, value) -> str:
     """The position of this component in the available space."""
     self.selection_field.align = value
-
-  @anvil_prop
-  @property
-  def role(self, value) -> str:
-    """A style for this component defined in CSS and added to Roles"""
-    self.selection_field.role = value
-
-  @anvil_prop
-  @property
-  def selected_italic(self, value) -> bool:
-    """If True and there is a selected item, the displayed text in italic."""
-    self.selection_field.display_italic = value
 
   @anvil_prop
   @property

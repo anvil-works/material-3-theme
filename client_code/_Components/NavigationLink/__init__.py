@@ -12,7 +12,6 @@ from ..._utils.properties import (
   get_unset_value,
   innerHTML_property,
   italic_property,
-  role_property,
   spacing_property,
   simple_prop,
   tooltip_property,
@@ -111,7 +110,7 @@ class NavigationLink(NavigationLinkTemplate):
 
   visible = HtmlTemplate.visible
   text = innerHTML_property('anvil-m3-navigation-link-text')
-  role = role_property('anvil-m3-navigation-link')
+  role = HtmlTemplate.role
   italic = italic_property('anvil-m3-navigation-link-text')
   bold = bold_property('anvil-m3-navigation-link-text')
   underline = underline_property('anvil-m3-navigation-link-text')
