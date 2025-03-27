@@ -55,12 +55,7 @@ properties:
   include_none_option: true
   name: icon
   type: icon
-- default_value: ['8', '8', '8', '8']
-  description: The margin (pixels) of the component.
-  group: Layout
-  important: true
-  name: margin
-  type: margin
+- {description: The spacing (pixels) of the button., group: Layout, important: true, name: spacing, type: spacing}
 - {default_value: '', description: The font family to use for the Button, group: Text, important: false, name: button_font_family, type: string}
 - {default_value: '', description: The color of the background of the Menu, group: Look and Feel, important: false, name: menu_background_color, type: color}
 - {default_value: '', description: The border of the Menu. Can take any valid CSS border value., group: Look and Feel, important: false, name: menu_border, type: string}

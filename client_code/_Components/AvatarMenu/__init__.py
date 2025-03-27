@@ -2,7 +2,7 @@ from anvil import *
 from anvil import HtmlTemplate
 from anvil.js.window import document
 
-from ..._utils import fui, noop
+from ..._utils import noop
 from ..._utils.properties import (
   ComponentTag,
   anvil_prop,
@@ -12,7 +12,8 @@ from ..._utils.properties import (
   get_unset_value,
   get_unset_margin,
 )
-from ..MenuItem import MenuItem
+)
+from ..MenuMixin import MenuMixin
 from ._anvil_designer import AvatarMenuTemplate
 
 
