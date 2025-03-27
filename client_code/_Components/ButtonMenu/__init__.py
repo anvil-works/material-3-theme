@@ -20,16 +20,15 @@ from ._anvil_designer import ButtonMenuTemplate
 
 class ButtonMenu(ButtonMenuTemplate, MenuMixin):
     def __init__(self, **properties):
+        super().__init__()
         self.tag = ComponentTag()
         self._props = properties
         self._design_name = ""
         self._cleanup = noop
         self._menuNode = self.dom_nodes['anvil-m3-buttonMenu-items-container']
         self._btnNode = get_dom_node(self.menu_button).querySelector("button")
-        self._open = False
-        self._hoverIndex = None
-        self._itemIndices = set()
-        self._children = None
+
+
         self._shown = False
 
         self.init_components(**properties)
@@ -39,10 +38,10 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
 
     def _on_mount(self, **event_args):
         self._shown = True
-        document.addEventListener('keydown', self._handle_keyboard_events)
+        document.addEventListener('keydown', self._call_handle_keyboard_events)
         self._btnNode.addEventListener('click', self._handle_click)
         self._menuNode.addEventListener('click', self._handle_child_clicked)
-        document.addEventListener('click', self._body_click)
+        document.addEventListener('click', self._handle_body_click)
         
         # We still have a reference to the dom node but we've moved it to the body
         # This gets around the fact that Anvil containers set their overflow to hidden
@@ -51,10 +50,10 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
 
     def _on_cleanup(self, **event_args):
         self._shown = False
-        document.removeEventListener('keydown', self._handle_keyboard_events)
+        document.removeEventListener('keydown', self._call_handle_keyboard_events)
         self._menuNode.removeEventListener('click', self._child_clicked)
         self._btnNode.removeEventListener('click', self._handle_click)
-        document.removeEventListener('click', self._body_click)
+        document.removeEventListener('click', self._handle_body_click)
         self._cleanup()
         # Remove the menu node we put on the body
         self._menuNode.remove()
@@ -93,7 +92,9 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
                 "meta": event.metaKey,
                 },
             )
-
+            
+    def _handle_body_click(self, event):
+        self._body_click(event, self._btnNode, self._menuNode)
 
     visible = HtmlTemplate.visible
 
@@ -221,82 +222,41 @@ class ButtonMenu(ButtonMenuTemplate, MenuMixin):
         self.menu_button.dom_nodes['anvil-m3-button'].classList.toggle(
             'anvil-m3-full-width', False
         )
-    self.menu_button.dom_nodes['anvil-m3-button-component'].style.removeProperty(
-      'justify-content'
-    )
-    if value == 'full':
-      self.menu_button.dom_nodes['anvil-m3-button'].classList.toggle(
-        'anvil-m3-full-width', True
-      )
-    else:
-      self.menu_button.dom_nodes[
-        'anvil-m3-button-component'
-      ].style.justifyContent = value
-    self._setup_fui(self._btnNode, self._menuNode)
-
-  @anvil_prop
-  @property
-  def button_font_family(self, value) -> str:
-    """The font family to use for the Button"""
-    self.menu_button.font_family = value
-
-  @anvil_prop
-  @property
-  def role(self, value) -> str:
-    """A style for this component defined in CSS and added to Roles"""
-    self.menu_button.role = value
-
-  @anvil_prop
-  @property
-  def menu_items(self, value=[]) -> list:
-    """A list of components to be added to the menu."""
-    for i in value:
-      self.add_component(i, slot='anvil-m3-buttonMenu-slot')
-
-  def _body_click(self, event):
-    if self._btnNode.contains(event.target) or self._menuNode.contains(event.target):
-      return
-    self._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode, value=False)
-
-  def _get_hover_index_information(self):
-    self._children = self.get_components()[:-1]
-    for i in range(0, len(self._children)):
-      if isinstance(self._children[i], MenuItem):
-        self._itemIndices.add(i)
-
-  def _handle_keyboard_events(self, event):
-    if not self._open:
-      return
-    action_keys = set(["ArrowUp", "ArrowDown", "Tab", "Escape", " ", "Enter"])
-    if event.key not in action_keys:
-      return
-    if event.key in ["ArrowUp", "ArrowDown"]:
-      self._iterate_hover(event.key == "ArrowDown")
-      event.preventDefault()
-      return
-    hover = (
-      self._hoverIndex
-    )  # holding value for situations like alerts, where it awaits
-    self._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode, value=False)
-
-    def attemptSelect():
-      event.preventDefault()
-      if hover is not None:
-        self._children[hover].raise_event(
-          "click",
-          event=event,
-          keys={
-            "shift": event.shiftKey,
-            "alt": event.altKey,
-            "ctrl": event.ctrlKey,
-            "meta": event.metaKey,
-          },
+        self.menu_button.dom_nodes['anvil-m3-button-component'].style.removeProperty(
+            'justify-content'
         )
+        if value == 'full':
+            self.menu_button.dom_nodes['anvil-m3-button'].classList.toggle(
+                'anvil-m3-full-width', True
+            )
+        else:
+            self.menu_button.dom_nodes[
+                'anvil-m3-button-component'
+            ].style.justifyContent = value
+        self._setup_fui(self._btnNode, self._menuNode)
 
-    if event.key == " ":  # " " indicates the space key
-      attemptSelect()
-    if event.key == "Enter":
-      attemptSelect()
+    @anvil_prop
+    @property
+    def button_font_family(self, value) -> str:
+        """The font family to use for the Button"""
+        self.menu_button.font_family = value
+
+    @anvil_prop
+    @property
+    def role(self, value) -> str:
+        """A style for this component defined in CSS and added to Roles"""
+        self.menu_button.role = value
+
+    @anvil_prop
+    @property
+    def menu_items(self, value=[]) -> list:
+        """A list of components to be added to the menu."""
+        for i in value:
+            self.add_component(i, slot='anvil-m3-buttonMenu-slot')
+
+
+    def _call_handle_keyboard_events(self, event):
+        self._handle_keyboard_events
 
   def _iterate_hover(self, inc=True):
     if inc:

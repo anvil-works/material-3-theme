@@ -6,6 +6,8 @@ class MenuMixin():
     def __init__(self, **properties):
         self._open = False
         self._hoverIndex = None
+        self._children = None
+        self._itemIndices = set()
 
     def _setup_fui(self, component_node, menu_node):
         if self._shown:
@@ -46,7 +48,7 @@ class MenuMixin():
             self._hoverIndex = None
             self._clear_hover_styles()
 
-    def _handle_keyboard_events(self, event):
+    def _handle_keyboard_events(self, event, component_node, menu_node):
         if not self._open:
             return
         action_keys = set(["ArrowUp", "ArrowDown", "Tab", "Escape", " ", "Enter"])
@@ -59,7 +61,7 @@ class MenuMixin():
         hover = (
             self._hoverIndex
         )  # holding value for situations like alerts, where it awaits
-        self._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode, value=False)
+        self._toggle_visibility(component_node=component_node, menu_node=menu_node, value=False)
 
         def attemptSelect():
             event.preventDefault()
@@ -106,3 +108,14 @@ class MenuMixin():
             for child in self._children:
                 if isinstance(child, MenuItem):
                     child.dom_nodes['anvil-m3-menuItem-container'].classList.toggle('anvil-m3-menuItem-container-keyboardHover', False)
+
+    def _body_click(self, event, component_node, menu_node):
+        if component_node.contains(event.target) or menu_node.contains(event.target):
+            return
+        self._toggle_visibility(component_node=component_node, menu_node=menu_node, value=False)
+        
+    def _get_hover_index_information(self):
+        self._children = self.get_components()[:-1]
+        for i in range(0, len(self._children)):
+            if isinstance(self._children[i], MenuItem):
+                self._itemIndices.add(i)
