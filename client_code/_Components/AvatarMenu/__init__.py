@@ -205,5 +205,32 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
     def _on_select_other(self):
         super()._toggle_visibility(component_node=self._buttonNode, menu_node=self._menuNode, value=False)
 
+  #!componentProp(m3.AvatarMenu)!1: {name:"align",type:"enum",options:["left", "right", "center"],description:"The position of this component in the available space."}
+  #!componentProp(m3.AvatarMenu)!1: {name:"appearance",type:"enum",options:["filled", "elevated", "tonal", "outlined", "text"],description:"A predefined style for this component."}
+  #!componentProp(m3.AvatarMenu)!1: {name:"visible",type:"boolean",description:"If True, the component will be displayed."}
+  #!componentProp(m3.AvatarMenu)!1: {name:"enabled",type:"boolean",description:"If True, this component allows user interaction."}
+  #!componentProp(m3.AvatarMenu)!1: {name:"role",type:"themeRole",description:"A style for this component defined in CSS and added to Roles"}
+  #!componentProp(m3.AvatarMenu)!1: {name:"avatar_text_color",type:"color",description:"Color of the initials displayed on the Avatar if no image is provided"}
+  #!componentProp(m3.AvatarMenu)!1: {name:"avatar_font_family",type:"string",description:"The font family to use for the initials on the Avatar"}
+  #!componentProp(m3.AvatarMenu)!1: {name:"fallback_icon",type:"enum",description:"The icon to display on the Avatar if no image or user_name is provided."}
+  #!componentProp(m3.AvatarMenu)!1: {name:"avatar_font_size",type:"number",description:"The font size of the initials displayed on the Avatar"}
+  #!componentProp(m3.AvatarMenu)!1: {name:"fallback_icon_color",type:"color",description:"The color of the icon displayed on the Avatar"}
+  #!componentProp(m3.AvatarMenu)!1: {name:"menu_background_color",type:"color",description:"The color of the menu."}
+  #!componentProp(m3.AvatarMenu)!1: {name:"menu_border",type:"color",description:"The border of the menu. Can take any valid CSS border value."}
+  #!componentProp(m3.AvatarMenu)!1: {name:"fallback_icon_size",type:"number",description:"The size (pixels) of the icon on the Avatar"}
+  #!componentProp(m3.AvatarMenu)!1: {name:"avatar_background_color",type:"color",description:"Background color of the Avatar in this component if no image is provided"}
+  #!componentProp(m3.AvatarMenu)!1: {name:"margin",type:"margin",description:"The margin (pixels) of the component."}
+  #!componentProp(m3.AvatarMenu)!1: {name:"avatar_border",type:"string",description:"The border of the Avatar in this component. Can take any valid CSS border value."}
+  #!componentProp(m3.AvatarMenu)!1: {name:"tooltip",type:"string",description:"The text to display when the mouse is hovered over this component."}
+  #!componentProp(m3.AvatarMenu)!1: {name:"menu_items",type:"object",description:"A list of components to be added to the menu."}
+  #!componentProp(m3.AvatarMenu)!1: {name:"tag",type:"object",description:"Use this property to store any extra data for the component."}
+  #!componentProp(m3.AvatarMenu)!1: {name:"image",type:"uri",description:"The image to display on the component."}
+  #!componentProp(m3.AvatarMenu)!1: {name:"user_name",type:"string",description:"The name of the associated user. If no image is provided, the avatar will display initials generated from the user_name."}
+
+
+  #!componentEvent(m3.AvatarMenu)!1: {name: "click", description: "When the Avatar is clicked.", parameters:[]}
+
+
+#!defClass(m3, AvatarMenu, anvil.Component)!:
 
 
