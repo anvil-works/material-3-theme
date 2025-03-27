@@ -14,213 +14,213 @@ from ..._utils.properties import (
   get_unset_value,
 )
 from ..MenuItem import MenuItem
-from ._anvil_designer import ButtonMenuTemplate
 from ..MenuMixin import MenuMixin
+from ._anvil_designer import ButtonMenuTemplate
 
 
 class ButtonMenu(ButtonMenuTemplate, MenuMixin):
-  def __init__(self, **properties):
-    self.tag = ComponentTag()
-    self._props = properties
-    self._design_name = ""
-    self._cleanup = noop
-    self._menuNode = self.dom_nodes['anvil-m3-buttonMenu-items-container']
-    self._btnNode = get_dom_node(self.menu_button).querySelector("button")
-    self._open = False
-    self._hoverIndex = None
-    self._itemIndices = set()
-    self._children = None
-    self._shown = False
+    def __init__(self, **properties):
+        self.tag = ComponentTag()
+        self._props = properties
+        self._design_name = ""
+        self._cleanup = noop
+        self._menuNode = self.dom_nodes['anvil-m3-buttonMenu-items-container']
+        self._btnNode = get_dom_node(self.menu_button).querySelector("button")
+        self._open = False
+        self._hoverIndex = None
+        self._itemIndices = set()
+        self._children = None
+        self._shown = False
 
-    self.init_components(**properties)
-
-    self.add_event_handler("x-anvil-page-added", self._on_mount)
-    self.add_event_handler("x-anvil-page-removed", self._on_cleanup)
-
-  def _on_mount(self, **event_args):
-    self._shown = True
-    document.addEventListener('keydown', self._handle_keyboard_events)
-    self._btnNode.addEventListener('click', self._handle_click)
-    self._menuNode.addEventListener('click', self._handle_child_clicked)
-    document.addEventListener('click', self._body_click)
+        self.init_components(**properties)
     
-    # We still have a reference to the dom node but we've moved it to the body
-    # This gets around the fact that Anvil containers set their overflow to hidden
-    document.body.append(self._menuNode)
-    self._setup_fui(self._btnNode, self._menuNode)
+        self.add_event_handler("x-anvil-page-added", self._on_mount)
+        self.add_event_handler("x-anvil-page-removed", self._on_cleanup)
 
-  def _on_cleanup(self, **event_args):
-    self._shown = False
-    document.removeEventListener('keydown', self._handle_keyboard_events)
-    self._menuNode.removeEventListener('click', self._child_clicked)
-    self._btnNode.removeEventListener('click', self._handle_click)
-    document.removeEventListener('click', self._body_click)
-    self._cleanup()
-    # Remove the menu node we put on the body
-    self._menuNode.remove()
+    def _on_mount(self, **event_args):
+        self._shown = True
+        document.addEventListener('keydown', self._handle_keyboard_events)
+        self._btnNode.addEventListener('click', self._handle_click)
+        self._menuNode.addEventListener('click', self._handle_child_clicked)
+        document.addEventListener('click', self._body_click)
+        
+        # We still have a reference to the dom node but we've moved it to the body
+        # This gets around the fact that Anvil containers set their overflow to hidden
+        document.body.append(self._menuNode)
+        self._setup_fui(self._btnNode, self._menuNode)
 
-  def _handle_child_clicked(self, event):
-    self._child_clicked(event, self.enabled)
+    def _on_cleanup(self, **event_args):
+        self._shown = False
+        document.removeEventListener('keydown', self._handle_keyboard_events)
+        self._menuNode.removeEventListener('click', self._child_clicked)
+        self._btnNode.removeEventListener('click', self._handle_click)
+        document.removeEventListener('click', self._body_click)
+        self._cleanup()
+        # Remove the menu node we put on the body
+        self._menuNode.remove()
 
-  def _toggle_menu_visibility(self, **event_args):
-      """This method is called when the component is clicked."""
-      self._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode)
+    def _handle_child_clicked(self, event):
+        self._child_clicked(event, self.enabled)
     
-  def _anvil_get_unset_property_values_(self):
-    el = self.menu_button.dom_nodes["anvil-m3-button"]
-    sp = get_unset_spacing(el, el, self.spacing)
-    tfs = get_unset_value(
-      self.menu_button.dom_nodes['anvil-m3-button-text'],
-      "fontSize",
-      self.button_font_size,
-    )
-    ifs = tfs = get_unset_value(
-      self.menu_button.dom_nodes['anvil-m3-button-icon'],
-      "fontSize",
-      self.button_font_size,
-    )
-    return {"button_font_size": tfs, "icon_size": ifs, "spacing": sp}
+    def _toggle_menu_visibility(self, **event_args):
+        """This method is called when the component is clicked."""
+        self._toggle_visibility(component_node=self._btnNode, menu_node=self._menuNode)
+    
+    def _anvil_get_unset_property_values_(self):
+        el = self.menu_button.dom_nodes["anvil-m3-button"]
+        sp = get_unset_spacing(el, el, self.spacing)
+        tfs = get_unset_value(
+        self.menu_button.dom_nodes['anvil-m3-button-text'],
+            "fontSize",
+            self.button_font_size,
+        )
+        ifs = tfs = get_unset_value(
+        self.menu_button.dom_nodes['anvil-m3-button-icon'],
+            "fontSize",
+            self.button_font_size,
+        )
+        return {"button_font_size": tfs, "icon_size": ifs, "spacing": sp}
 
-  def _handle_click(self, event):
-    if self.enabled:
-      self.raise_event(
-        "click",
-        event=event,
-        keys={
-          "shift": event.shiftKey,
-          "alt": event.altKey,
-          "ctrl": event.ctrlKey,
-          "meta": event.metaKey,
-        },
-      )
+    def _handle_click(self, event):
+        if self.enabled:
+            self.raise_event(
+                "click",
+                event=event,
+                keys={
+                "shift": event.shiftKey,
+                "alt": event.altKey,
+                "ctrl": event.ctrlKey,
+                "meta": event.metaKey,
+                },
+            )
 
 
-  visible = HtmlTemplate.visible
+    visible = HtmlTemplate.visible
 
-  @anvil_prop
-  @property
-  def text(self, value) -> str:
-    """The text displayed on the Button"""
-    v = value
-    self.menu_button.dom_nodes['anvil-m3-button-text'].classList.toggle(
-      'anvil-m3-textlessComponentText', False
-    )
-    if anvil.designer.in_designer and not value:
-      v = self._design_name
-      self.menu_button.dom_nodes['anvil-m3-button-text'].classList.toggle(
-        'anvil-m3-textlessComponentText', True
-      )
-    self.menu_button.text = v
+    @anvil_prop
+    @property
+    def text(self, value) -> str:
+        """The text displayed on the Button"""
+        v = value
+        self.menu_button.dom_nodes['anvil-m3-button-text'].classList.toggle(
+            'anvil-m3-textlessComponentText', False
+        )
+        if anvil.designer.in_designer and not value:
+            v = self._design_name
+            self.menu_button.dom_nodes['anvil-m3-button-text'].classList.toggle(
+                'anvil-m3-textlessComponentText', True
+            )
+        self.menu_button.text = v
 
-  @anvil_prop
-  @property
-  def menu_background_color(self, value) -> str:
-    """Background color of the menu."""
-    self.menu_container_1.background_color = value
+    @anvil_prop
+    @property
+    def menu_background_color(self, value) -> str:
+        """Background color of the menu."""
+        self.menu_container_1.background_color = value
 
-  @anvil_prop
-  @property
-  def menu_border(self, value) -> str:
-    """The border of the menu."""
-    self.menu_container_1.border = value
+    @anvil_prop
+    @property
+    def menu_border(self, value) -> str:
+        """The border of the menu."""
+        self.menu_container_1.border = value
 
-  @anvil_prop
-  @property
-  def appearance(self, value) -> str:
-    """A predefined style for the Button."""
-    self.menu_button.appearance = value
+    @anvil_prop
+    @property
+    def appearance(self, value) -> str:
+        """A predefined style for the Button."""
+        self.menu_button.appearance = value
 
-  @anvil_prop
-  @property
-  def tooltip(self, value) -> str:
-    """The text to display when the mouse is hovered over this component."""
-    self.menu_button.tooltip = value
+    @anvil_prop
+    @property
+    def tooltip(self, value) -> str:
+        """The text to display when the mouse is hovered over this component."""
+        self.menu_button.tooltip = value
 
-  @anvil_prop
-  @property
-  def enabled(self, value) -> bool:
-    """If True, this component allows user interaction."""
-    self.menu_button.enabled = value
+    @anvil_prop
+    @property
+    def enabled(self, value) -> bool:
+        """If True, this component allows user interaction."""
+        self.menu_button.enabled = value
 
-  @anvil_prop
-  @property
-  def bold(self, value) -> bool:
-    """If True, the Button’s text will be bold."""
-    self.menu_button.bold = value
+    @anvil_prop
+    @property
+    def bold(self, value) -> bool:
+        """If True, the Button’s text will be bold."""
+        self.menu_button.bold = value
+    
+    @anvil_prop
+    @property
+    def italic(self, value) -> bool:
+        """If True, the Button’s text will be italic."""
+        self.menu_button.italic = value
 
-  @anvil_prop
-  @property
-  def italic(self, value) -> bool:
-    """If True, the Button’s text will be italic."""
-    self.menu_button.italic = value
+    @anvil_prop
+    @property
+    def underline(self, value) -> bool:
+        """If True, the Button’s text will be underlined."""
+        self.menu_button.underline = value
+    
+    @anvil_prop
+    @property
+    def button_border(self, value) -> str:
+        """The border of the Button. Can take any valid CSS border value."""
+        self.menu_button.border = value
+    
+    @anvil_prop
+    @property
+    def button_background_color(self, value) -> str:
+        """The colour of the background of the Button."""
+        self.menu_button.background_color = value
 
-  @anvil_prop
-  @property
-  def underline(self, value) -> bool:
-    """If True, the Button’s text will be underlined."""
-    self.menu_button.underline = value
+    @anvil_prop
+    @property
+    def button_text_color(self, value) -> str:
+        """The colour of the text on the Button."""
+        self.menu_button.text_color = value
+    
+    @anvil_prop
+    @property
+    def button_font_size(self, value) -> int:
+        """The font size of the text displayed on the Button."""
+        self.menu_button.font_size = value
+    
+    @anvil_prop
+    @property
+    def icon(self, value) -> str:
+        """The icon to display on the Button."""
+        self.menu_button.icon = value
 
-  @anvil_prop
-  @property
-  def button_border(self, value) -> str:
-    """The border of the Button. Can take any valid CSS border value."""
-    self.menu_button.border = value
+    @anvil_prop
+    @property
+    def icon_color(self, value) -> str:
+        """The colour of the icon displayed on the Button."""
+        self.menu_button.icon_color = value
+    
+    @anvil_prop
+    @property
+    def icon_size(self, value) -> int:
+        """The size (pixels) of the icon displayed on this component."""
+        self.menu_button.icon_size = value
+    
+    @anvil_prop
+    @property
+    def icon_position(self, value) -> str:
+        """The alignment of the icon on this component."""
+        self.menu_button.icon_position = value
 
-  @anvil_prop
-  @property
-  def button_background_color(self, value) -> str:
-    """The colour of the background of the Button."""
-    self.menu_button.background_color = value
+    @anvil_prop
+    @property
+    def spacing(self, value) -> list:
+        """The margin and padding (pixels) of the component."""
+        self.menu_button.spacing = value
 
-  @anvil_prop
-  @property
-  def button_text_color(self, value) -> str:
-    """The colour of the text on the Button."""
-    self.menu_button.text_color = value
-
-  @anvil_prop
-  @property
-  def button_font_size(self, value) -> int:
-    """The font size of the text displayed on the Button."""
-    self.menu_button.font_size = value
-
-  @anvil_prop
-  @property
-  def icon(self, value) -> str:
-    """The icon to display on the Button."""
-    self.menu_button.icon = value
-
-  @anvil_prop
-  @property
-  def icon_color(self, value) -> str:
-    """The colour of the icon displayed on the Button."""
-    self.menu_button.icon_color = value
-
-  @anvil_prop
-  @property
-  def icon_size(self, value) -> int:
-    """The size (pixels) of the icon displayed on this component."""
-    self.menu_button.icon_size = value
-
-  @anvil_prop
-  @property
-  def icon_position(self, value) -> str:
-    """The alignment of the icon on this component."""
-    self.menu_button.icon_position = value
-
-  @anvil_prop
-  @property
-  def spacing(self, value) -> list:
-    """The margin and padding (pixels) of the component."""
-    self.menu_button.spacing = value
-
-  @anvil_prop
-  @property
-  def align(self, value) -> str:
-    """The position of this component in the available space."""
-    self.menu_button.dom_nodes['anvil-m3-button'].classList.toggle(
-      'anvil-m3-full-width', False
-    )
+    @anvil_prop
+    @property
+    def align(self, value) -> str:
+        """The position of this component in the available space."""
+        self.menu_button.dom_nodes['anvil-m3-button'].classList.toggle(
+            'anvil-m3-full-width', False
+        )
     self.menu_button.dom_nodes['anvil-m3-button-component'].style.removeProperty(
       'justify-content'
     )
