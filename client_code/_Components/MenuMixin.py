@@ -72,7 +72,6 @@ class MenuMixin():
 
         self._open = not classes.contains('anvil-m3-buttonMenu-items-hidden')
         if self._open:
-            print('yes')
             self._setup_fui()
             self._get_hover_index_information()
         else:
