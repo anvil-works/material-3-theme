@@ -21,19 +21,13 @@ class ButtonMenu(MenuMixin, ButtonMenuTemplate):
     def __init__(self, **properties):
         self.tag = ComponentTag()
         self._props = properties
-
+        
         self._menu_node = self.dom_nodes['anvil-m3-buttonMenu-items-container']
         self._btn_node = get_dom_node(self.menu_button).querySelector("button")
 
-        MenuMixin.__init__(self._btn_node, self._menu_node)
+        MenuMixin.__init__(self, self._btn_node, self._menu_node)
+        
         self._design_name = ""
-        self._cleanup = noop
-        self._open = False
-        self._hoverIndex = None
-        self._children = None
-        self._shown = False
-        self._itemIndices = set()
-
 
         self.init_components(**properties)
     
@@ -41,33 +35,10 @@ class ButtonMenu(MenuMixin, ButtonMenuTemplate):
         self.add_event_handler("x-anvil-page-removed", self._on_cleanup)
 
     def _on_mount(self, **event_args):
-        self._shown = True
-        document.addEventListener('keydown', self._call_handle_keyboard_events)
-        self._btnNode.addEventListener('click', self._handle_click)
-        self._menu_node.addEventListener('click', self._handle_child_clicked)
-        document.addEventListener('click', self._handle_body_click)
-        
-        # We still have a reference to the dom node but we've moved it to the body
-        # This gets around the fact that Anvil containers set their overflow to hidden
-        document.body.append(self._menu_node)
-        super()._setup_fui(self._btnNode, self._menu_node)
+        self._btn_node.addEventListener('click', self._handle_click)
 
     def _on_cleanup(self, **event_args):
-        self._shown = False
-        document.removeEventListener('keydown', self._call_handle_keyboard_events)
-        self._menu_node.removeEventListener('click', self._handle_child_clicked)
-        self._btnNode.removeEventListener('click', self._handle_click)
-        document.removeEventListener('click', self._handle_body_click)
-        self._cleanup()
-        # Remove the menu node we put on the body
-        self._menu_node.remove()
-
-    def _handle_child_clicked(self, event):
-        super()._child_clicked(event, self.enabled)
-    
-    def _toggle_menu_visibility(self, **event_args):
-        """This method is called when the component is clicked."""
-        super()._toggle_visibility()
+        self._btn_node.removeEventListener('click', self._handle_click)
     
     def _anvil_get_unset_property_values_(self):
         el = self.menu_button.dom_nodes["anvil-m3-button"]
@@ -84,6 +55,10 @@ class ButtonMenu(MenuMixin, ButtonMenuTemplate):
         )
         return {"button_font_size": tfs, "icon_size": ifs, "spacing": sp}
 
+    def _toggle_menu_visibility(self, **event_args):
+        """This method is called when the component is clicked."""
+        self._toggle_visibility()
+
     def _handle_click(self, event):
         if self.enabled:
             self.raise_event(
@@ -97,9 +72,6 @@ class ButtonMenu(MenuMixin, ButtonMenuTemplate):
                 },
             )
             
-    def _handle_body_click(self, event):
-        super()._body_click(event)
-
     visible = HtmlTemplate.visible
     menu_border = border_property('anvil-m3-buttonMenu-items-container', 'border')
     menu_background_color = color_property(
@@ -250,8 +222,6 @@ class ButtonMenu(MenuMixin, ButtonMenuTemplate):
         for i in value:
             self.add_component(i, slot='anvil-m3-buttonMenu-slot')
 
-    def _call_handle_keyboard_events(self, event):
-        super()._handle_keyboard_events(event, self._btnNode, self._menu_node)
 
     def _anvil_get_interactions_(self):
         return [

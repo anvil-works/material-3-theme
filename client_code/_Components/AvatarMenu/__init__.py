@@ -20,6 +20,7 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
     def __init__(self, **properties):
         self.tag = ComponentTag()
         self._props = properties
+        
         self._menu_node = self.dom_nodes['anvil-m3-avatarMenu-items-container']
         self._button_node = self.dom_nodes['anvil-m3-avatarMenu-button']
         
@@ -34,11 +35,9 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
 
     def _on_mount(self, **event_args):
         self._button_node.addEventListener('click', self._handle_click)
-        document.body.append(self._menu_node)
-
+        
     def _on_cleanup(self, **event_args):
         self._button_node.removeEventListener('click', self._handle_click)
-        self._menu_node.remove()
 
     def _anvil_get_unset_property_values_(self):
         el = self.avatar.dom_nodes["anvil-m3-avatar"]
@@ -54,9 +53,6 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
             self.fallback_icon_size,
             )
         return {"button_font_size": tfs, "icon_size": ifs, "margin": m}
-
-    def _call_handle_keyboard_events(self, event):
-        self._handle_keyboard_events(event)
 
     def _handle_click(self, event):
         if self.enabled:
