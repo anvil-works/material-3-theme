@@ -11,6 +11,10 @@ class MenuMixin():
         self._component_node = component_node
         self._menu_node = menu_node
         self._open = False
+        self._cleanup = noop
+        self._hover_index = None
+        self._item_indices = set()
+        self._children = None
         self.add_event_handler("x-page-added", self._menu_mixin_mount)
         self.add_event_handler("x-page-removed", self._menu_mixin_cleanup)
 
@@ -19,13 +23,19 @@ class MenuMixin():
         self._menu_node.addEventListener('click', self._handle_child_click)
         document.addEventListener('click', self._body_click)
         document.addEventListener('keydown', self._call_handle_keyboard_events)
+        # We still have a reference to the dom node but we've moved it to the body
+        # This gets around the fact that Anvil containers set their overflow to hidden
+        document.body.append(self._menu_node)
         self._setup_fui()
 
     def _menu_mixin_cleanup(self, **event_args):
         self._shown = False
+        self._menu_node.removeEventListener('click', self._handle_child_click)
         document.removeEventListener('click', self._body_click)
         document.removeEventListener('keydown', self._call_handle_keyboard_events)
-        self._menu_node.removeEventListener('click', self._handle_child_click)
+        # Remove the menu node we put on the body
+        self._menu_node.remove()
+        self._cleanup()
         
     def _setup_fui(self):
         if self._shown:
@@ -66,7 +76,7 @@ class MenuMixin():
             self._get_hover_index_information()
         else:
             self._cleanup()
-            self._hoverIndex = None
+            self._hover_index = None
             self._clear_hover_styles()
 
     def _handle_keyboard_events(self, event):
@@ -80,7 +90,7 @@ class MenuMixin():
             event.preventDefault()
             return
         hover = (
-            self._hoverIndex
+            self._hover_index
         )  # holding value for situations like alerts, where it awaits
         self._toggle_visibility(value=False)
 
@@ -104,25 +114,25 @@ class MenuMixin():
 
     def _iterate_hover(self, inc=True):
         if inc:
-            if self._hoverIndex is None or self._hoverIndex is (len(self._children) - 1):
-                self._hoverIndex = -1
+            if self._hover_index is None or self._hover_index is (len(self._children) - 1):
+                self._hover_index = -1
             while True:
-                self._hoverIndex += 1
-                if self._hoverIndex in self._itemIndices:
+                self._hover_index += 1
+                if self._hover_index in self._item_indicies:
                     break
         else:
-            if self._hoverIndex is None or self._hoverIndex == 0:
-                self._hoverIndex = len(self._children)
+            if self._hover_index is None or self._hover_index == 0:
+                self._hover_index = len(self._children)
             while True:
-                self._hoverIndex -= 1
-                if self._hoverIndex in self._itemIndices:
+                self._hover_index -= 1
+                if self._hover_index in self._item_indicies:
                     break
-        self._children[self._hoverIndex].dom_nodes['anvil-m3-menuItem-container'].scrollIntoView({'block': 'nearest'})
+        self._children[self._hover_index].dom_nodes['anvil-m3-menuItem-container'].scrollIntoView({'block': 'nearest'})
         self._update_hover_styles()
 
     def _update_hover_styles(self):
         self._clear_hover_styles()
-        self._children[self._hoverIndex].dom_nodes['anvil-m3-menuItem-container'].classList.toggle('anvil-m3-menuItem-container-keyboardHover', True)
+        self._children[self._hover_index].dom_nodes['anvil-m3-menuItem-container'].classList.toggle('anvil-m3-menuItem-container-keyboardHover', True)
 
     def _clear_hover_styles(self):
         if self._children is not None:
@@ -139,4 +149,4 @@ class MenuMixin():
         self._children = self.get_components()[:-1]
         for i in range(0, len(self._children)):
             if isinstance(self._children[i], MenuItem):
-                self._itemIndices.add(i)
+                self._item_indicies.add(i)

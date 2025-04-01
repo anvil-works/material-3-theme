@@ -22,14 +22,10 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
         self._props = properties
         self._menu_node = self.dom_nodes['anvil-m3-avatarMenu-items-container']
         self._button_node = self.dom_nodes['anvil-m3-avatarMenu-button']
+        
         MenuMixin.__init__(self._button_node, self._menu_node)
         
         self._design_name = ""
-        self._cleanup = noop
-        
-        self._hoverIndex = None
-        self._itemIndices = set()
-        self._children = None
         
         self.init_components(**properties)
     
@@ -37,19 +33,10 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
         self.add_event_handler("x-anvil-page-removed", self._on_cleanup)
 
     def _on_mount(self, **event_args):
-        
         self._button_node.addEventListener('click', self._handle_click)
-        
-        # We still have a reference to the dom node but we've moved it to the body
-        # This gets around the fact that Anvil containers set their overflow to hidden
-        document.body.append(self._menu_node)
 
     def _on_cleanup(self, **event_args):
-        
-        
-        self._cleanup()
-        # Remove the menu node we put on the body
-        self._menu_node.remove()
+        self._button_node.removeEventListener('click', self._handle_click)
 
     def _anvil_get_unset_property_values_(self):
         el = self.avatar.dom_nodes["anvil-m3-avatar"]
