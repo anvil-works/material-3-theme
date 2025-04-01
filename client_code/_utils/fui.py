@@ -55,6 +55,7 @@ def auto_update(
         'middleware': middleware,
       },
     )
+    print(f"{rv.x}px")
     floating_el.style.left = f"{rv.x}px"
     floating_el.style.top = f"{rv.y}px"
 
