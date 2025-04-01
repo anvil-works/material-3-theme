@@ -1,6 +1,6 @@
 from anvil.js.window import document
 
-from .._utils import fui
+from .._utils import fui, noop
 from .MenuItem import MenuItem
 
 
@@ -72,7 +72,7 @@ class MenuMixin():
 
         self._open = not classes.contains('anvil-m3-buttonMenu-items-hidden')
         if self._open:
-            self._setup_fui(self._component_node, self._menu_node)
+            self._setup_fui()
             self._get_hover_index_information()
         else:
             self._cleanup()
@@ -118,14 +118,14 @@ class MenuMixin():
                 self._hover_index = -1
             while True:
                 self._hover_index += 1
-                if self._hover_index in self._item_indicies:
+                if self._hover_index in self._item_indices:
                     break
         else:
             if self._hover_index is None or self._hover_index == 0:
                 self._hover_index = len(self._children)
             while True:
                 self._hover_index -= 1
-                if self._hover_index in self._item_indicies:
+                if self._hover_index in self._item_indices:
                     break
         self._children[self._hover_index].dom_nodes['anvil-m3-menuItem-container'].scrollIntoView({'block': 'nearest'})
         self._update_hover_styles()
@@ -149,4 +149,4 @@ class MenuMixin():
         self._children = self.get_components()[:-1]
         for i in range(0, len(self._children)):
             if isinstance(self._children[i], MenuItem):
-                self._item_indicies.add(i)
+                self._item_indices.add(i)

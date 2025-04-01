@@ -23,7 +23,7 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
         self._menu_node = self.dom_nodes['anvil-m3-avatarMenu-items-container']
         self._button_node = self.dom_nodes['anvil-m3-avatarMenu-button']
         
-        MenuMixin.__init__(self._button_node, self._menu_node)
+        MenuMixin.__init__(self, self._button_node, self._menu_node)
         
         self._design_name = ""
         
