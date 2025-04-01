@@ -20,6 +20,7 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
     def __init__(self, **properties):
         self.tag = ComponentTag()
         self._props = properties
+        self.MenuMixin.init()
         self._design_name = ""
         self._cleanup = noop
         self._menuNode = self.dom_nodes['anvil-m3-avatarMenu-items-container']
@@ -28,7 +29,7 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
         self._hoverIndex = None
         self._itemIndices = set()
         self._children = None
-        self._shown = False
+
     
         self.init_components(**properties)
     
@@ -36,7 +37,6 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
         self.add_event_handler("x-anvil-page-removed", self._on_cleanup)
 
     def _on_mount(self, **event_args):
-        self._shown = True
         document.addEventListener('keydown', self._call_handle_keyboard_events)
         self._menuNode.addEventListener('click', self._handle_child_clicked)
         self._buttonNode.addEventListener('click', self._handle_click)
@@ -47,7 +47,6 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
         self._setup_fui(self._buttonNode, self._menuNode)
 
     def _on_cleanup(self, **event_args):
-        self._shown = False
         document.removeEventListener('keydown', self._call_handle_keyboard_events)
         self._menuNode.removeEventListener('click', self._handle_child_clicked)
         document.removeEventListener('click', self._handle_body_click)
