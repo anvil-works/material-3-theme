@@ -15,8 +15,8 @@ class MenuMixin():
         self._hover_index = None
         self._item_indices = set()
         self._children = None
-        self.add_event_handler("x-page-added", self._menu_mixin_mount)
-        self.add_event_handler("x-page-removed", self._menu_mixin_cleanup)
+        self.add_event_handler("x-anvil-page-added", self._menu_mixin_mount)
+        self.add_event_handler("x-anvil-page-removed", self._menu_mixin_cleanup)
 
     def _menu_mixin_mount(self, **event_args):
         self._shown = True
@@ -25,7 +25,6 @@ class MenuMixin():
         document.addEventListener('keydown', self._call_handle_keyboard_events)
         # We still have a reference to the dom node but we've moved it to the body
         # This gets around the fact that Anvil containers set their overflow to hidden
-        
         self._setup_fui()
 
     def _menu_mixin_cleanup(self, **event_args):

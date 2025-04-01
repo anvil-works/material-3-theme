@@ -55,16 +55,12 @@ def auto_update(
         'middleware': middleware,
       },
     )
-    print(floating_el)
-    print(f"{rv.x}px")
-    print(f"{rv.y}px")
     floating_el.style.left = f"{rv.x}px"
     floating_el.style.top = f"{rv.y}px"
 
     middlewareData = rv.middlewareData
 
     if "hide" in middlewareData:
-      print('hide')
       hidden = middlewareData.hide.referenceHidden
       floating_el.style.visibility = "hidden" if hidden else "visible"
 
