@@ -4,6 +4,13 @@ from .MenuItem import MenuItem
 
 class MenuMixin():
 
+    def __init__(self, component_node, menu_node):
+        self._shown = False
+        self._component_node = component_node
+        self._menu_node = menu_node
+        self.add_event_handler("x-page-added", self._menu_mixin_mount)
+        self.add_event_handler("x-page-removed", self._menu_mixin_cleanup)
+
     def _setup_fui(self, component_node, menu_node):
         if self._shown:
             self._cleanup()
