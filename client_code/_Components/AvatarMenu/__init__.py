@@ -38,7 +38,6 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
 
     def _on_mount(self, **event_args):
         document.addEventListener('keydown', self._call_handle_keyboard_events)
-        self._menu_node.addEventListener('click', self._handle_child_clicked)
         self._button_node.addEventListener('click', self._handle_click)
         document.addEventListener('click', self._handle_body_click)
         # We still have a reference to the dom node but we've moved it to the body
@@ -47,7 +46,6 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
 
     def _on_cleanup(self, **event_args):
         document.removeEventListener('keydown', self._call_handle_keyboard_events)
-        self._menu_node.removeEventListener('click', self._handle_child_clicked)
         document.removeEventListener('click', self._handle_body_click)
         self._cleanup()
         # Remove the menu node we put on the body
@@ -69,7 +67,7 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
         return {"button_font_size": tfs, "icon_size": ifs, "margin": m}
 
     def _call_handle_keyboard_events(self, event):
-        self._handle_keyboard_events(event, self._button_node, self._menu_node)
+        self._handle_keyboard_events(event)
 
     def _handle_click(self, event):
         if self.enabled:

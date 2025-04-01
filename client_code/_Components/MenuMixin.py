@@ -14,6 +14,8 @@ class MenuMixin():
 
     def _menu_mixin_mount(self, **event_args):
         self._shown = True
+        self._menu_node.removeEventListener('click', self._handle_child_clicked)
+        self._menu_node.addEventListener('click', self._handle_child_clicked)
         self._setup_fui()
 
     def _menu_mixin_cleanup(self, **event_args):
