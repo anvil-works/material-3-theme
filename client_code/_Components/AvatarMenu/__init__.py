@@ -20,17 +20,17 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
     def __init__(self, **properties):
         self.tag = ComponentTag()
         self._props = properties
-        self.MenuMixin.init()
+        self._menu_node = self.dom_nodes['anvil-m3-avatarMenu-items-container']
+        self._button_node = self.dom_nodes['anvil-m3-avatarMenu-button']
+        MenuMixin.__init__(self._button_node, self._menu_node)
+        
         self._design_name = ""
         self._cleanup = noop
-        self._menuNode = self.dom_nodes['anvil-m3-avatarMenu-items-container']
-        self._buttonNode = self.dom_nodes['anvil-m3-avatarMenu-button']
-        self._open = False
+        
         self._hoverIndex = None
         self._itemIndices = set()
         self._children = None
-
-    
+        
         self.init_components(**properties)
     
         self.add_event_handler("x-anvil-page-added", self._on_mount)
@@ -38,21 +38,20 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
 
     def _on_mount(self, **event_args):
         document.addEventListener('keydown', self._call_handle_keyboard_events)
-        self._menuNode.addEventListener('click', self._handle_child_clicked)
-        self._buttonNode.addEventListener('click', self._handle_click)
+        self._menu_node.addEventListener('click', self._handle_child_clicked)
+        self._button_node.addEventListener('click', self._handle_click)
         document.addEventListener('click', self._handle_body_click)
         # We still have a reference to the dom node but we've moved it to the body
         # This gets around the fact that Anvil containers set their overflow to hidden
-        document.body.append(self._menuNode)
-        self._setup_fui(self._buttonNode, self._menuNode)
+        document.body.append(self._menu_node)
 
     def _on_cleanup(self, **event_args):
         document.removeEventListener('keydown', self._call_handle_keyboard_events)
-        self._menuNode.removeEventListener('click', self._handle_child_clicked)
+        self._menu_node.removeEventListener('click', self._handle_child_clicked)
         document.removeEventListener('click', self._handle_body_click)
         self._cleanup()
         # Remove the menu node we put on the body
-        self._menuNode.remove()
+        self._menu_node.remove()
 
     def _anvil_get_unset_property_values_(self):
         el = self.avatar.dom_nodes["anvil-m3-avatar"]
@@ -70,11 +69,11 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
         return {"button_font_size": tfs, "icon_size": ifs, "margin": m}
 
     def _call_handle_keyboard_events(self, event):
-        self._handle_keyboard_events(event, self._buttonNode, self._menuNode)
+        self._handle_keyboard_events(event, self._button_node, self._menu_node)
 
     def _handle_click(self, event):
         if self.enabled:
-            self._toggle_visibility(component_node=self._buttonNode, menu_node=self._menuNode)
+            self._toggle_visibility()
 
     menu_background_color = color_property(
         'anvil-m3-avatarMenu-items-container', 'background', 'menu_background_color'
@@ -159,7 +158,7 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
     @property
     def align(self, value) -> str:
         self.dom_nodes['anvil-m3-avatarMenu-container'].style.justifyContent = value
-        self._setup_fui(self._buttonNode, self._menuNode)
+        self._setup_fui()
     
     @anvil_prop
     @property
@@ -182,10 +181,10 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
 
     def _handle_child_clicked(self, event):
         # do the click action. The child should handle this
-        self._child_clicked(event, self.enabled, self._buttonNode, self._menuNode)
+        self._child_clicked(event, self.enabled)
 
     def _handle_body_click(self, event):
-        self._body_click(event, self._buttonNode, self._menuNode)
+        self._body_click(event)
 
     def _anvil_get_interactions_(self):
         return [
@@ -199,10 +198,10 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
         ]
 
     def _on_select_descendent(self):
-        self._toggle_visibility(component_node=self._buttonNode, menu_node=self._menuNode, value=True)
+        self._toggle_visibility(value=True)
     
     def _on_select_other(self):
-        self._toggle_visibility(component_node=self._buttonNode, menu_node=self._menuNode, value=False)
+        self._toggle_visibility(value=False)
 
   #!componentProp(m3.AvatarMenu)!1: {name:"align",type:"enum",options:["left", "right", "center"],description:"The position of this component in the available space."}
   #!componentProp(m3.AvatarMenu)!1: {name:"appearance",type:"enum",options:["filled", "elevated", "tonal", "outlined", "text"],description:"A predefined style for this component."}
