@@ -11,6 +11,12 @@ class MenuMixin():
         self.add_event_handler("x-page-added", self._menu_mixin_mount)
         self.add_event_handler("x-page-removed", self._menu_mixin_cleanup)
 
+    def _menu_mixin_mount(self, **event_args):
+        pass
+
+    def _menu_mixin_cleanup(self, **event_args):
+        pass
+        
     def _setup_fui(self, component_node, menu_node):
         if self._shown:
             self._cleanup()
