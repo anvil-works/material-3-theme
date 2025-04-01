@@ -34,9 +34,11 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
 
     def _on_mount(self, **event_args):
         self._button_node.addEventListener('click', self._handle_click)
+        document.body.append(self._menu_node)
 
     def _on_cleanup(self, **event_args):
         self._button_node.removeEventListener('click', self._handle_click)
+        self._menu_node.remove()
 
     def _anvil_get_unset_property_values_(self):
         el = self.avatar.dom_nodes["anvil-m3-avatar"]

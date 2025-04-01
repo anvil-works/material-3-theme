@@ -25,7 +25,7 @@ class MenuMixin():
         document.addEventListener('keydown', self._call_handle_keyboard_events)
         # We still have a reference to the dom node but we've moved it to the body
         # This gets around the fact that Anvil containers set their overflow to hidden
-        document.body.append(self._menu_node)
+        
         self._setup_fui()
 
     def _menu_mixin_cleanup(self, **event_args):
@@ -34,7 +34,7 @@ class MenuMixin():
         document.removeEventListener('click', self._body_click)
         document.removeEventListener('keydown', self._call_handle_keyboard_events)
         # Remove the menu node we put on the body
-        self._menu_node.remove()
+        
         self._cleanup()
         
     def _setup_fui(self):
