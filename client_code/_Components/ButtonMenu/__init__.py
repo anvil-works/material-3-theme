@@ -2,9 +2,7 @@ import anvil.designer
 from anvil import *
 from anvil import HtmlTemplate
 from anvil.js import get_dom_node
-from anvil.js.window import document
 
-from ..._utils import noop
 from ..._utils.properties import (
   ComponentTag,
   anvil_prop,
@@ -257,32 +255,32 @@ class ButtonMenu(MenuMixin, ButtonMenuTemplate):
             if not self.text:
                 self.menu_button.text = self._design_name
 
-  #!componentProp(m3.ButtonMenu)!1: {name:"align",type:"enum",options:["left", "right", "center"],description:"The position of this component in the available space."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"appearance",type:"enum",options:["filled", "elevated", "tonal", "outlined", "text"],description:"A predefined style for the Button."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"visible",type:"boolean",description:"If True, the component will be displayed."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"enabled",type:"boolean",description:"If True, this component allows user interaction."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"role",type:"themeRole",description:"A style for this component defined in CSS and added to Roles"}
-  #!componentProp(m3.ButtonMenu)!1: {name:"button_text_color",type:"color",description:"The colour of the text on the Button."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"button_font_family",type:"string",description:"The font family to use for the Button"}
-  #!componentProp(m3.ButtonMenu)!1: {name:"icon",type:"enum",description:"The icon to display on the Button."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"text",type:"string",description:"The text displayed on the Button"}
-  #!componentProp(m3.ButtonMenu)!1: {name:"button_font_size",type:"number",description:"The font size of the text displayed on the Button."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"underline",type:"boolean",description:"If True, the Button’s text will be underlined."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"italic",type:"boolean",description:"If True, the Button’s text will be italic."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"bold",type:"boolean",description:"If True, the Button’s text will be bold."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"icon_color",type:"color",description:"The colour of the icon displayed on the Button."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"menu_background_color",type:"color",description:"The colour of the menu."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"menu_border",type:"color",description:"The border of the menu. Can take any valid CSS border value."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"icon_size",type:"number",description:"The size (pixels) of the icon displayed on this component."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"button_background_color",type:"color",description:"The colour of the background of the Button."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"spacing",type:"spacing",description:"The margin and padding (pixels) of the component."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"button_border",type:"string",description:"The border of the Button. Can take any valid CSS border value."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"tooltip",type:"string",description:"The text to display when the mouse is hovered over this component."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"icon_align",type:"enum",options:["left", "right"],description:"The alignment of the icon on this component."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"menu_items",type:"object",description:"A list of components to be added to the menu."}
-  #!componentProp(m3.ButtonMenu)!1: {name:"tag",type:"object",description:"Use this property to store any extra data for the component."}
-
-  #!componentEvent(m3.ButtonMenu)!1: {name: "click", description: "When the Button is clicked.", parameters:[]}
+    #!componentProp(m3.ButtonMenu)!1: {name:"align",type:"enum",options:["left", "right", "center"],description:"The position of this component in the available space."}
+    #!componentProp(m3.ButtonMenu)!1: {name:"appearance",type:"enum",options:["filled", "elevated", "tonal", "outlined", "text"],description:"A predefined style for the Button."}
+    #!componentProp(m3.ButtonMenu)!1: {name:"visible",type:"boolean",description:"If True, the component will be displayed."}
+    #!componentProp(m3.ButtonMenu)!1: {name:"enabled",type:"boolean",description:"If True, this component allows user interaction."}
+    #!componentProp(m3.ButtonMenu)!1: {name:"role",type:"themeRole",description:"A style for this component defined in CSS and added to Roles"}
+    #!componentProp(m3.ButtonMenu)!1: {name:"button_text_color",type:"color",description:"The colour of the text on the Button."}
+    #!componentProp(m3.ButtonMenu)!1: {name:"button_font_family",type:"string",description:"The font family to use for the Button"}
+    #!componentProp(m3.ButtonMenu)!1: {name:"icon",type:"enum",description:"The icon to display on the Button."}
+    #!componentProp(m3.ButtonMenu)!1: {name:"text",type:"string",description:"The text displayed on the Button"}
+    #!componentProp(m3.ButtonMenu)!1: {name:"button_font_size",type:"number",description:"The font size of the text displayed on the Button."}
+    #!componentProp(m3.ButtonMenu)!1: {name:"underline",type:"boolean",description:"If True, the Button’s text will be underlined."}
+    #!componentProp(m3.ButtonMenu)!1: {name:"italic",type:"boolean",description:"If True, the Button’s text will be italic."}
+    #!componentProp(m3.ButtonMenu)!1: {name:"bold",type:"boolean",description:"If True, the Button’s text will be bold."}
+    #!componentProp(m3.ButtonMenu)!1: {name:"icon_color",type:"color",description:"The colour of the icon displayed on the Button."}
+    #!componentProp(m3.ButtonMenu)!1: {name:"menu_background_color",type:"color",description:"The colour of the menu."}
+    #!componentProp(m3.ButtonMenu)!1: {name:"menu_border",type:"color",description:"The border of the menu. Can take any valid CSS border value."}
+    #!componentProp(m3.ButtonMenu)!1: {name:"icon_size",type:"number",description:"The size (pixels) of the icon displayed on this component."}
+    #!componentProp(m3.ButtonMenu)!1: {name:"button_background_color",type:"color",description:"The colour of the background of the Button."}
+    #!componentProp(m3.ButtonMenu)!1: {name:"spacing",type:"spacing",description:"The margin and padding (pixels) of the component."}
+    #!componentProp(m3.ButtonMenu)!1: {name:"button_border",type:"string",description:"The border of the Button. Can take any valid CSS border value."}
+    #!componentProp(m3.ButtonMenu)!1: {name:"tooltip",type:"string",description:"The text to display when the mouse is hovered over this component."}
+    #!componentProp(m3.ButtonMenu)!1: {name:"icon_align",type:"enum",options:["left", "right"],description:"The alignment of the icon on this component."}
+    #!componentProp(m3.ButtonMenu)!1: {name:"menu_items",type:"object",description:"A list of components to be added to the menu."}
+    #!componentProp(m3.ButtonMenu)!1: {name:"tag",type:"object",description:"Use this property to store any extra data for the component."}
+    
+    #!componentEvent(m3.ButtonMenu)!1: {name: "click", description: "When the Button is clicked.", parameters:[]}
 
 
 #!defClass(m3, ButtonMenu, anvil.Component)!:
