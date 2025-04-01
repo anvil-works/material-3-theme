@@ -16,7 +16,7 @@ from ..MenuMixin import MenuMixin
 from ._anvil_designer import AvatarMenuTemplate
 
 
-class AvatarMenu(AvatarMenuTemplate, MenuMixin):
+class AvatarMenu(MenuMixin, AvatarMenuTemplate):
     def __init__(self, **properties):
         self.tag = ComponentTag()
         self._props = properties
@@ -37,16 +37,16 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
         self.add_event_handler("x-anvil-page-removed", self._on_cleanup)
 
     def _on_mount(self, **event_args):
-        document.addEventListener('keydown', self._call_handle_keyboard_events)
+        
         self._button_node.addEventListener('click', self._handle_click)
-        document.addEventListener('click', self._handle_body_click)
+        
         # We still have a reference to the dom node but we've moved it to the body
         # This gets around the fact that Anvil containers set their overflow to hidden
         document.body.append(self._menu_node)
 
     def _on_cleanup(self, **event_args):
-        document.removeEventListener('keydown', self._call_handle_keyboard_events)
-        document.removeEventListener('click', self._handle_body_click)
+        
+        
         self._cleanup()
         # Remove the menu node we put on the body
         self._menu_node.remove()
@@ -177,12 +177,6 @@ class AvatarMenu(AvatarMenuTemplate, MenuMixin):
         for i in value:
             self.add_component(i, slot='anvil-m3-avatarMenu-slot')
 
-    def _handle_child_clicked(self, event):
-        # do the click action. The child should handle this
-        self._child_clicked(event, self.enabled)
-
-    def _handle_body_click(self, event):
-        self._body_click(event)
 
     def _anvil_get_interactions_(self):
         return [

@@ -1,3 +1,5 @@
+from anvil.js.window import document
+
 from .._utils import fui
 from .MenuItem import MenuItem
 
@@ -14,12 +16,16 @@ class MenuMixin():
 
     def _menu_mixin_mount(self, **event_args):
         self._shown = True
-        self._menu_node.removeEventListener('click', self._handle_child_clicked)
-        self._menu_node.addEventListener('click', self._handle_child_clicked)
+        self._menu_node.addEventListener('click', self._handle_child_click)
+        document.addEventListener('click', self._body_click)
+        document.addEventListener('keydown', self._call_handle_keyboard_events)
         self._setup_fui()
 
     def _menu_mixin_cleanup(self, **event_args):
         self._shown = False
+        document.removeEventListener('click', self._body_click)
+        document.removeEventListener('keydown', self._call_handle_keyboard_events)
+        self._menu_node.removeEventListener('click', self._handle_child_click)
         
     def _setup_fui(self):
         if self._shown:
@@ -28,7 +34,11 @@ class MenuMixin():
                 self._component_node, self._menu_node, placement="bottom-start"
             )
 
-    def _child_clicked(self, event, enabled):
+    def _handle_child_click(self, event):
+        # do the click action. The child should handle this
+        self._child_click(event, self.enabled)
+
+    def _child_click(self, event, enabled):
         # do the click action. The child should handle this
         self._toggle_visibility( value=False)
         if enabled:
