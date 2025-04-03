@@ -18,24 +18,16 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
     def __init__(self, **properties):
         self.tag = ComponentTag()
         self._props = properties
-        
+
         self._menu_node = self.dom_nodes['anvil-m3-avatarMenu-items-container']
         self._button_node = self.dom_nodes['anvil-m3-avatarMenu-button']
-        
-        MenuMixin.__init__(self, self._button_node, self._menu_node)
-        
-        self._design_name = ""
-        
-        self.init_components(**properties)
-    
-        self.add_event_handler("x-anvil-page-added", self._on_mount)
-        self.add_event_handler("x-anvil-page-removed", self._on_cleanup)
-
-    def _on_mount(self, **event_args):
         self._button_node.addEventListener('click', self._handle_click)
-        
-    def _on_cleanup(self, **event_args):
-        self._button_node.removeEventListener('click', self._handle_click)
+
+        MenuMixin.__init__(self, self._button_node, self._menu_node)
+
+        self._design_name = ""
+
+        self.init_components(**properties)
 
     def _anvil_get_unset_property_values_(self):
         el = self.avatar.dom_nodes["anvil-m3-avatar"]
@@ -44,12 +36,12 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
             self.avatar.dom_nodes['anvil-m3-avatar-initials'],
             "fontSize",
             self.avatar_font_size,
-            )
+        )
         ifs = get_unset_value(
             self.avatar.dom_nodes['anvil-m3-avatar-icon'],
             "fontSize",
             self.fallback_icon_size,
-            )
+        )
         return {"button_font_size": tfs, "icon_size": ifs, "margin": m}
 
     def _handle_click(self, event):
@@ -62,19 +54,19 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
     menu_border = border_property('anvil-m3-avatarMenu-items-container', 'menu_border')
     visible = HtmlTemplate.visible
     enabled = enabled_property('anvil-m3-avatarMenu-button')
-  
+
     @anvil_prop
     @property
     def image(self, value) -> str:
         """The name of the avatar component"""
         self.avatar.image = value
-    
+
     @anvil_prop
     @property
     def user_name(self, value) -> str:
         """The name of the avatar component"""
         self.avatar.user_name = value
-    
+
     @anvil_prop
     @property
     def appearance(self, value) -> str:
@@ -86,13 +78,13 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
     def tooltip(self, value) -> str:
         """The text to display when the mouse is hovered over this component."""
         self.avatar.tooltip = value
-    
+
     @anvil_prop
     @property
     def avatar_border(self, value) -> str:
         """The border of the avatar. Can take any valid CSS border value."""
         self.avatar.border = value
-    
+
     @anvil_prop
     @property
     def avatar_background_color(self, value) -> str:
@@ -104,13 +96,13 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
     def avatar_text_color(self, value) -> str:
         """The colour of the text on the Button."""
         self.avatar.text_color = value
-    
+
     @anvil_prop
     @property
     def avatar_font_size(self, value) -> int:
         """The font size of the text displayed on the Button."""
         self.avatar.font_size = value
-    
+
     @anvil_prop
     @property
     def fallback_icon(self, value) -> str:
@@ -122,13 +114,13 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
     def fallback_icon_color(self, value) -> str:
         """The colour of the icon displayed on the Button."""
         self.avatar.fallback_icon_color = value
-    
+
     @anvil_prop
     @property
     def fallback_icon_size(self, value) -> int:
         """The size (pixels) of the icon displayed on this component."""
         self.avatar.fallback_icon_size = value
-    
+
     @anvil_prop
     @property
     def margin(self, value) -> list:
@@ -140,7 +132,7 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
     def align(self, value) -> str:
         self.dom_nodes['anvil-m3-avatarMenu-container'].style.justifyContent = value
         self._setup_fui()
-    
+
     @anvil_prop
     @property
     def avatar_font_family(self, value) -> str:
@@ -160,21 +152,20 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
         for i in value:
             self.add_component(i, slot='anvil-m3-avatarMenu-slot')
 
-
     def _anvil_get_interactions_(self):
         return [
             {
                 "type": "designer_events",
                 "callbacks": {
-                "onSelectDescendent": self._on_select_descendent,
-                "onSelectOther": self._on_select_other,
-            },
+                    "onSelectDescendent": self._on_select_descendent,
+                    "onSelectOther": self._on_select_other,
+                },
             },
         ]
 
     def _on_select_descendent(self):
         self._toggle_visibility(value=True)
-    
+
     def _on_select_other(self):
         self._toggle_visibility(value=False)
 
@@ -199,9 +190,8 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
     #!componentProp(m3.AvatarMenu)!1: {name:"tag",type:"object",description:"Use this property to store any extra data for the component."}
     #!componentProp(m3.AvatarMenu)!1: {name:"image",type:"uri",description:"The image to display on the component."}
     #!componentProp(m3.AvatarMenu)!1: {name:"user_name",type:"string",description:"The name of the associated user. If no image is provided, the avatar will display initials generated from the user_name."}
-    
+
     #!componentEvent(m3.AvatarMenu)!1: {name: "click", description: "When the Avatar is clicked.", parameters:[]}
-    
+
+
 #!defClass(m3, AvatarMenu, anvil.Component)!:
-
-

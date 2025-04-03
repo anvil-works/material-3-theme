@@ -4,12 +4,12 @@ from anvil import HtmlTemplate
 from anvil.js import get_dom_node
 
 from ..._utils.properties import (
-  ComponentTag,
-  anvil_prop,
-  border_property,
-  color_property,
-  get_unset_spacing,
-  get_unset_value,
+    ComponentTag,
+    anvil_prop,
+    border_property,
+    color_property,
+    get_unset_spacing,
+    get_unset_value,
 )
 from ..MenuMixin import MenuMixin
 from ._anvil_designer import ButtonMenuTemplate
@@ -19,35 +19,27 @@ class ButtonMenu(MenuMixin, ButtonMenuTemplate):
     def __init__(self, **properties):
         self.tag = ComponentTag()
         self._props = properties
-        
+
         self._menu_node = self.dom_nodes['anvil-m3-buttonMenu-items-container']
         self._btn_node = get_dom_node(self.menu_button).querySelector("button")
+        self._btn_node.addEventListener('click', self._handle_click)
 
         MenuMixin.__init__(self, self._btn_node, self._menu_node)
-        
+
         self._design_name = ""
 
         self.init_components(**properties)
-    
-        self.add_event_handler("x-anvil-page-added", self._on_mount)
-        self.add_event_handler("x-anvil-page-removed", self._on_cleanup)
 
-    def _on_mount(self, **event_args):
-        self._btn_node.addEventListener('click', self._handle_click)
-
-    def _on_cleanup(self, **event_args):
-        self._btn_node.removeEventListener('click', self._handle_click)
-    
     def _anvil_get_unset_property_values_(self):
         el = self.menu_button.dom_nodes["anvil-m3-button"]
         sp = get_unset_spacing(el, el, self.spacing)
         tfs = get_unset_value(
-        self.menu_button.dom_nodes['anvil-m3-button-text'],
+            self.menu_button.dom_nodes['anvil-m3-button-text'],
             "fontSize",
             self.button_font_size,
         )
         ifs = tfs = get_unset_value(
-        self.menu_button.dom_nodes['anvil-m3-button-icon'],
+            self.menu_button.dom_nodes['anvil-m3-button-icon'],
             "fontSize",
             self.button_font_size,
         )
@@ -63,13 +55,13 @@ class ButtonMenu(MenuMixin, ButtonMenuTemplate):
                 "click",
                 event=event,
                 keys={
-                "shift": event.shiftKey,
-                "alt": event.altKey,
-                "ctrl": event.ctrlKey,
-                "meta": event.metaKey,
+                    "shift": event.shiftKey,
+                    "alt": event.altKey,
+                    "ctrl": event.ctrlKey,
+                    "meta": event.metaKey,
                 },
             )
-            
+
     visible = HtmlTemplate.visible
     menu_border = border_property('anvil-m3-buttonMenu-items-container', 'border')
     menu_background_color = color_property(
@@ -114,7 +106,7 @@ class ButtonMenu(MenuMixin, ButtonMenuTemplate):
     def bold(self, value) -> bool:
         """If True, the Button’s text will be bold."""
         self.menu_button.bold = value
-    
+
     @anvil_prop
     @property
     def italic(self, value) -> bool:
@@ -126,13 +118,13 @@ class ButtonMenu(MenuMixin, ButtonMenuTemplate):
     def underline(self, value) -> bool:
         """If True, the Button’s text will be underlined."""
         self.menu_button.underline = value
-    
+
     @anvil_prop
     @property
     def button_border(self, value) -> str:
         """The border of the Button. Can take any valid CSS border value."""
         self.menu_button.border = value
-    
+
     @anvil_prop
     @property
     def button_background_color(self, value) -> str:
@@ -144,13 +136,13 @@ class ButtonMenu(MenuMixin, ButtonMenuTemplate):
     def button_text_color(self, value) -> str:
         """The colour of the text on the Button."""
         self.menu_button.text_color = value
-    
+
     @anvil_prop
     @property
     def button_font_size(self, value) -> int:
         """The font size of the text displayed on the Button."""
         self.menu_button.font_size = value
-    
+
     @anvil_prop
     @property
     def icon(self, value) -> str:
@@ -162,13 +154,13 @@ class ButtonMenu(MenuMixin, ButtonMenuTemplate):
     def icon_color(self, value) -> str:
         """The colour of the icon displayed on the Button."""
         self.menu_button.icon_color = value
-    
+
     @anvil_prop
     @property
     def icon_size(self, value) -> int:
         """The size (pixels) of the icon displayed on this component."""
         self.menu_button.icon_size = value
-    
+
     @anvil_prop
     @property
     def icon_align(self, value) -> str:
@@ -220,32 +212,31 @@ class ButtonMenu(MenuMixin, ButtonMenuTemplate):
         for i in value:
             self.add_component(i, slot='anvil-m3-buttonMenu-slot')
 
-
     def _anvil_get_interactions_(self):
         return [
-        {
-            "type": "designer_events",
-            "callbacks": {
-            "onSelectDescendent": self._on_select_descendent,
-            "onSelectOther": self._on_select_other,
+            {
+                "type": "designer_events",
+                "callbacks": {
+                    "onSelectDescendent": self._on_select_descendent,
+                    "onSelectOther": self._on_select_other,
+                },
             },
-        },
-        {
-            "type": "whole_component",
-            "title": "Edit text",
-            "icon": "edit",
-            "default": True,
-            "callbacks": {
-            "execute": lambda: anvil.designer.start_inline_editing(
-                self, "text", self.menu_button.dom_nodes["anvil-m3-button-text"]
-            )
+            {
+                "type": "whole_component",
+                "title": "Edit text",
+                "icon": "edit",
+                "default": True,
+                "callbacks": {
+                    "execute": lambda: anvil.designer.start_inline_editing(
+                        self, "text", self.menu_button.dom_nodes["anvil-m3-button-text"]
+                    )
+                },
             },
-        },
         ]
 
     def _on_select_descendent(self):
         self._toggle_visibility(value=True)
-    
+
     def _on_select_other(self):
         self._toggle_visibility(value=False)
 
@@ -279,7 +270,7 @@ class ButtonMenu(MenuMixin, ButtonMenuTemplate):
     #!componentProp(m3.ButtonMenu)!1: {name:"icon_align",type:"enum",options:["left", "right"],description:"The alignment of the icon on this component."}
     #!componentProp(m3.ButtonMenu)!1: {name:"menu_items",type:"object",description:"A list of components to be added to the menu."}
     #!componentProp(m3.ButtonMenu)!1: {name:"tag",type:"object",description:"Use this property to store any extra data for the component."}
-    
+
     #!componentEvent(m3.ButtonMenu)!1: {name: "click", description: "When the Button is clicked.", parameters:[]}
 
 
