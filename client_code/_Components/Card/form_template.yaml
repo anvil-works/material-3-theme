@@ -47,7 +47,7 @@ properties:
   name: orientation
   options: [column, row]
   type: enum
-- {default_value: '', description: 'The height of the Card. By default, the card will take the height of its ', important: true, name: height, type: string}
+- {default_value: '', description: 'The height of the Card. By default, the card will take the height of its children.', group: Layout, important: false, name: height, type: string}
 toolbox_item:
   hidden: true
   icon: {dark: 'asset:designer_icons/card_dark.svg', light: 'asset:designer_icons/card.svg'}
