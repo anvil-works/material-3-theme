@@ -102,7 +102,7 @@ class Button(ButtonTemplate):
 
   def _set_text(self):
     if self.text:
-      self.dom_nodes['anvil-m3-button-text'].innerText = self.text
+      self.dom_nodes['anvil-m3-button-text'].innerText = str(self.text if self.text is not None else "")
     else:
       if not self.icon:
         if anvil.designer.in_designer:

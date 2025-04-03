@@ -32,7 +32,7 @@ class Text(TextTemplate):
     self.init_components(**properties)
 
   def _set_text(self, value):
-    self.dom_nodes['anvil-m3-text'].innerText = value
+    self.dom_nodes['anvil-m3-text'].innerText = str(value if value is not None else "")
 
   def _anvil_get_interactions_(self):
     return [
