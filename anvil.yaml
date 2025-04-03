@@ -57,6 +57,9 @@ toolbox_sections:
   title: Buttons
 - description: Display components help display content on the page
   items:
+  - component: {type: m3._Components.Avatar}
+    icon: {dark: 'asset:designer_icons/avatar_dark.svg', light: 'asset:designer_icons/avatar.svg'}
+    title: Avatar
   - component:
       components:
       - layout_properties: {slot: card-content-slot}

@@ -146,6 +146,7 @@ class Button(ButtonTemplate):
     else:
       self.dom_nodes['anvil-m3-button-component'].style.justifyContent = value
 
+
   @anvil_prop
   @property
   def icon_align(self, value) -> str:
