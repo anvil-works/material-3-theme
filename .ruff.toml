@@ -1,6 +1,6 @@
 src = ["client_code", "server_code"]
 
-indent-width = 2
+indent-width = 4
 
 [lint]
 select = ["E", "F", "I001"]
