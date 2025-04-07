@@ -1,4 +1,5 @@
 from anvil import *
+from anvil import media
 
 from ..._utils.properties import (
     anvil_prop,
@@ -61,9 +62,11 @@ class Avatar(AvatarTemplate):
     @anvil_prop
     @property
     def image(self, value):
+      
         if value:
-            print(type(value))
-            value = URLMedia()
+            if not isinstance(value, str):
+              tmp_url = media.TempUrl(value)
+              value = tmp_url.url
             self.image_div.style.display = "block"
             self.image_div.src = value
             self.initials_div.style.display = "none"
