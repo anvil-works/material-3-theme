@@ -62,8 +62,7 @@ class Avatar(AvatarTemplate):
     @property
     def image(self, value):
         if value:
-            print(value)
-            print(value.get_url())
+            print(type(value))
             self.image_div.style.display = "block"
             self.image_div.src = value
             self.initials_div.style.display = "none"
