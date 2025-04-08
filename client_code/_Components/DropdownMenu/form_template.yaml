@@ -29,6 +29,7 @@ properties:
 - {default_value: false, description: 'If True, the label text will be bold', group: Label Style, important: false, name: label_bold, type: boolean}
 - {description: Use this property to store any extra data for the component., group: Other, important: false, name: tag, type: object}
 - {default_value: true, description: 'If True, this component allows user interaction.', designerHint: enabled, designer_hint: enabled, group: Interaction, important: true, name: enabled, type: boolean}
+- {default_value: false, description: 'If True, this component won''t allow it''s value to be changed.', group: Interaction, important: true, name: read_only, type: boolean}
 - {default_value: '', description: The font family to use for this component's label, group: Label Style, important: false, name: label_font_family, type: string}
 - {description: The height of text displayed on this component's label in pixels, group: Label Style, important: false, name: label_font_size, type: number}
 - {default_value: '', description: The colour of the label text on the component., group: Label Style, important: false, name: label_color, type: color}

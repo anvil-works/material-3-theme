@@ -52,6 +52,7 @@ class TextArea(TextInput):
     self.label = self.label
     self.text = self.text
     self.enabled = self.enabled
+    self.read_only = self.read_only
     self.height = self.height
     self.character_limit = self.character_limit
 
@@ -172,6 +173,15 @@ class TextArea(TextInput):
     else:
       self.dom_nodes['anvil-m3-textarea'].setAttribute("disabled", " ")
       supporting_text.classList.add("anvil-m3-textinput-disabled")
+
+  @anvil_prop
+  @property
+  def read_only(self, value) -> bool:
+    """If True, this component won't allow it's value to be changed."""
+    if value:
+      self.dom_nodes['anvil-m3-textarea'].setAttribute("readonly", " ")
+    else:
+      self.dom_nodes['anvil-m3-textarea'].removeAttribute("readonly")
 
   @property
   def height(self):

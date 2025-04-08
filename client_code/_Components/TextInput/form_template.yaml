@@ -48,6 +48,7 @@ properties:
 - {default_value: '', description: The colour of the input text displayed on this component., group: Display Style, important: false, name: display_text_color, type: color}
 - {description: The font size of the input and placeholder text., group: Display Style, important: false, name: display_font_size, type: number}
 - {default_value: true, description: 'If True, this component allows user interaction.', designer_hint: enabled, group: Interaction, important: true, name: enabled, type: boolean}
+- {default_value: false, description: 'If True, this component won''t allow it''s value to be changed', group: Interaction, important: true, name: read_only, type: boolean}
 - {default_value: false, description: 'If True, this component is in an error state.', designer_hint: toggle, group: Interaction, important: false, name: error, type: boolean}
 - {description: The margin (pixels) of this component., group: Layout, important: true, name: margin, type: margin}
 - {default_value: '', description: The colour of the background of this component., group: Look and Feel, important: false, name: background_color, type: color}
