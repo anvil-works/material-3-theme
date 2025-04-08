@@ -26,6 +26,7 @@ class Avatar(AvatarTemplate):
         self.fallback_icon_div = self.dom_nodes['anvil-m3-avatar-icon']
         self.image_div = self.dom_nodes['anvil-m3-avatar-image']
         self.avatar_div = self.dom_nodes['anvil-m3-avatar']
+        self.temp_url = None
         self.init_components(**properties)
 
     margin = margin_property('anvil-m3-avatar')
