@@ -33,15 +33,25 @@ class Avatar(AvatarTemplate):
         self.add_event_handler("x-anvil-page-removed", self._on_cleanup)
 
     def _on_mount(self, **event_args):
-        pass
+        self._shown = True
+        self.handle_temp_url(self.image)
 
     def _on_cleanup(self, **event_args):
-        pass
-
-    def handle_temp_url():
-      if self._shown: 
-        
-
+        self._shown = False
+        self.handle_temp_url(self.image)
+      
+    def handle_temp_url(self, image_value):
+        print('handling temp url')
+        if self._shown and image_value and not self._temp_url:
+            print('showm and value and temp_url')  
+            if not isinstance(image_value, str):
+                self.temp_url = media.TempUrl(image_value)
+                self.image_div.src = self.temp_url
+            else:
+                self.image_div.src = image_value
+        elif not self._shown and self._temp_url:
+            self.temp_url.revoke()
+            
     margin = margin_property('anvil-m3-avatar')
     align = style_property('anvil-m3-avatar-container', 'justifyContent', 'align')
     visible = HtmlTemplate.visible
@@ -77,11 +87,8 @@ class Avatar(AvatarTemplate):
     @property
     def image(self, value):
         if value:
-            if not isinstance(value, str):
-                tmp_url = media.TempUrl(value)
-                value = tmp_url.url
+            self.handle_temp_url(value)
             self.image_div.style.display = "block"
-            self.image_div.src = value
             self.initials_div.style.display = "none"
             self.fallback_icon_div.style.display = "none"
         else:
