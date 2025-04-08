@@ -26,8 +26,21 @@ class Avatar(AvatarTemplate):
         self.fallback_icon_div = self.dom_nodes['anvil-m3-avatar-icon']
         self.image_div = self.dom_nodes['anvil-m3-avatar-image']
         self.avatar_div = self.dom_nodes['anvil-m3-avatar']
-        self.temp_url = None
+        self._temp_url = None
+        self._shown = False
         self.init_components(**properties)
+        self.add_event_handler("x-anvil-page-added", self._on_mount)
+        self.add_event_handler("x-anvil-page-removed", self._on_cleanup)
+
+    def _on_mount(self, **event_args):
+        pass
+
+    def _on_cleanup(self, **event_args):
+        pass
+
+    def handle_temp_url():
+      if self._shown: 
+        
 
     margin = margin_property('anvil-m3-avatar')
     align = style_property('anvil-m3-avatar-container', 'justifyContent', 'align')
@@ -63,12 +76,10 @@ class Avatar(AvatarTemplate):
     @anvil_prop
     @property
     def image(self, value):
-      
         if value:
             if not isinstance(value, str):
-              print(type(value))
-              tmp_url = media.TempUrl(value)
-              value = tmp_url.url
+                tmp_url = media.TempUrl(value)
+                value = tmp_url.url
             self.image_div.style.display = "block"
             self.image_div.src = value
             self.initials_div.style.display = "none"
