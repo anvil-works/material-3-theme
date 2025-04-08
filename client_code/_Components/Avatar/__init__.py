@@ -66,6 +66,7 @@ class Avatar(AvatarTemplate):
       
         if value:
             if not isinstance(value, str):
+              print(type(value))
               tmp_url = media.TempUrl(value)
               value = tmp_url.url
             self.image_div.style.display = "block"
