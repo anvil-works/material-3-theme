@@ -41,16 +41,16 @@ class Avatar(AvatarTemplate):
         self.handle_temp_url(self.image)
       
     def handle_temp_url(self, image_value):
-        print('handling temp url')
         if self._shown and image_value and not self._temp_url:
-            print('showm and value and temp_url')  
             if not isinstance(image_value, str):
                 self.temp_url = media.TempUrl(image_value)
-                self.image_div.src = self.temp_url
+                self.image_div.src = self.temp_url.url
             else:
+                print(type(image_value))
                 self.image_div.src = image_value
         elif not self._shown and self._temp_url:
             self.temp_url.revoke()
+            self.temp_url = None
             
     margin = margin_property('anvil-m3-avatar')
     align = style_property('anvil-m3-avatar-container', 'justifyContent', 'align')
