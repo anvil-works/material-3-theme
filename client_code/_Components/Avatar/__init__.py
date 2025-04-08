@@ -46,7 +46,6 @@ class Avatar(AvatarTemplate):
                 self.temp_url = media.TempUrl(image_value)
                 self.image_div.src = self.temp_url.url
             else:
-                print(type(image_value))
                 self.image_div.src = image_value
         elif not self._shown and self._temp_url:
             self.temp_url.revoke()
