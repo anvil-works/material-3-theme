@@ -26,7 +26,7 @@ properties:
 - {default_value: true, description: 'If True, this component allows user interaction.', designer_hint: enabled, group: Interaction, important: false, name: enabled, type: boolean}
 - {default_value: '', description: The border of the IconButton. Can take any valid CSS border value., group: Look and Feel, important: false, name: button_border, type: string}
 - {default_value: '', description: Color of the background of the IconButton., group: Look and Feel, important: false, name: button_background_color, type: color}
-- {default_value: '', description: The icon to display on the IconButton., group: Icon, important: true, name: icon, type: icon}
+- {default_value: '', description: The icon to display on the IconButton., group: Icon, iconsets: [material-icons], important: true, name: icon, type: icon}
 - {default_value: '', description: The color of the icon displayed on the IconButton., group: Look and Feel, important: false, name: icon_color, type: color}
 - {description: The margin (pixels) of the button., group: Layout, important: true, name: margin, type: margin}
 - default_value: left
