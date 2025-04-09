@@ -12,4 +12,5 @@ custom_component: true
 custom_component_container: true
 is_package: true
 properties:
-- {default_binding_prop: true, default_value: true, description: 'If True, the component will be displayed.', important: true, name: visible, type: boolean}
+- {default_binding_prop: true, default_value: true, description: 'If True, the component will be displayed.', designer_hint: visible, group: Look and Feel, important: false, name: visible, type: boolean}
+- {default_value: '', important: true, name: menu_border, type: string}
