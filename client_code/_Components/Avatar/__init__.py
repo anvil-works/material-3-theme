@@ -1,4 +1,5 @@
 from anvil import *
+from anvil import media
 
 from ..._utils.properties import (
     anvil_prop,
@@ -25,8 +26,31 @@ class Avatar(AvatarTemplate):
         self.fallback_icon_div = self.dom_nodes['anvil-m3-avatar-icon']
         self.image_div = self.dom_nodes['anvil-m3-avatar-image']
         self.avatar_div = self.dom_nodes['anvil-m3-avatar']
+        self._temp_url = None
+        self._shown = False
         self.init_components(**properties)
+        self.add_event_handler("x-anvil-page-added", self._on_mount)
+        self.add_event_handler("x-anvil-page-removed", self._on_cleanup)
 
+    def _on_mount(self, **event_args):
+        self._shown = True
+        self.handle_temp_url(self.image)
+
+    def _on_cleanup(self, **event_args):
+        self._shown = False
+        self.handle_temp_url(self.image)
+      
+    def handle_temp_url(self, image_value):
+        if self._temp_url:
+            self._temp_url.revoke()
+            self._temp_url = None
+        if self._shown and image_value:
+            if not isinstance(image_value, str):
+                self._temp_url = media.TempUrl(image_value)
+                self.image_div.src = self._temp_url.url
+            else:
+                self.image_div.src = image_value
+            
     margin = margin_property('anvil-m3-avatar')
     align = style_property('anvil-m3-avatar-container', 'justifyContent', 'align')
     visible = HtmlTemplate.visible
@@ -62,8 +86,8 @@ class Avatar(AvatarTemplate):
     @property
     def image(self, value):
         if value:
+            self.handle_temp_url(value)
             self.image_div.style.display = "block"
-            self.image_div.src = value
             self.initials_div.style.display = "none"
             self.fallback_icon_div.style.display = "none"
         else:
