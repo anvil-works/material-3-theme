@@ -39,7 +39,7 @@ class Avatar(AvatarTemplate):
     def _on_cleanup(self, **event_args):
         self._shown = False
         self.handle_temp_url(self.image)
-      
+
     def handle_temp_url(self, image_value):
         if self._temp_url:
             self._temp_url.revoke()
@@ -50,7 +50,7 @@ class Avatar(AvatarTemplate):
                 self.image_div.src = self._temp_url.url
             else:
                 self.image_div.src = image_value
-            
+
     margin = margin_property('anvil-m3-avatar')
     align = style_property('anvil-m3-avatar-container', 'justifyContent', 'align')
     visible = HtmlTemplate.visible
