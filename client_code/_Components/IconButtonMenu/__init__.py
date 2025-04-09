@@ -29,21 +29,12 @@ class IconButtonMenu(MenuMixin, IconButtonMenuTemplate):
                 },
             )
 
+
     def _anvil_get_unset_property_values_(self):
-        el = self.avatar.dom_nodes["anvil-m3-avatar"]
+        el = self.icon_button.dom_nodes["anvil-m3-iconbutton-container"]
         m = get_unset_margin(el, self.margin)
-        tfs = get_unset_value(
-            self.avatar.dom_nodes['anvil-m3-avatar-initials'],
-            "fontSize",
-            self.avatar_font_size,
-        )
-        ifs = get_unset_value(
-            self.avatar.dom_nodes['anvil-m3-avatar-icon'],
-            "fontSize",
-            self.fallback_icon_size,
-        )
-        return {"button_font_size": tfs, "icon_size": ifs, "margin": m}
-    
+        return {"margin": m}
+
     def _toggle_menu_visibility(self, **event_args):
         """This method is called when the component is clicked."""
         self._toggle_visibility()
