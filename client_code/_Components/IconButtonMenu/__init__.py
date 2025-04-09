@@ -108,7 +108,6 @@ class IconButtonMenu(MenuMixin, IconButtonMenuTemplate):
         self.dom_nodes['anvil-m3-iconButtonMenu-container'].style.justifyContent = value
         self._setup_fui()
 
-
     @anvil_prop
     @property
     def role(self, value) -> str:
