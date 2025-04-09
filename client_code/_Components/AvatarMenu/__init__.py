@@ -179,7 +179,7 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
     #!componentProp(m3.AvatarMenu)!1: {name:"fallback_icon",type:"enum",description:"The icon to display on the Avatar if no image or user_name is provided."}
     #!componentProp(m3.AvatarMenu)!1: {name:"avatar_font_size",type:"number",description:"The font size of the initials displayed on the Avatar"}
     #!componentProp(m3.AvatarMenu)!1: {name:"fallback_icon_color",type:"color",description:"The color of the icon displayed on the Avatar"}
-    #!componentProp(m3.AvatarMenu)!1: {name:"menu_background_color",type:"color",description:"The color of the menu."}
+    #!componentProp(m3.AvatarMenu)!1: {name:"menu_background_color",type:"color",description:"The color of the background of the menu"}
     #!componentProp(m3.AvatarMenu)!1: {name:"menu_border",type:"color",description:"The border of the menu. Can take any valid CSS border value."}
     #!componentProp(m3.AvatarMenu)!1: {name:"fallback_icon_size",type:"number",description:"The size (pixels) of the icon on the Avatar"}
     #!componentProp(m3.AvatarMenu)!1: {name:"avatar_background_color",type:"color",description:"Background color of the Avatar in this component if no image is provided"}

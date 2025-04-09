@@ -137,7 +137,7 @@ class IconIconButtonMenu(MenuMixin, IconIconButtonMenuTemplate):
     #!componentProp(m3.IconButtonMenu)!1: {name:"icon",type:"enum",description:"The icon to display on the Button."}
     #!componentProp(m3.IconButtonMenu)!1: {name:"text",type:"string",description:"The text displayed on the Button"}
     #!componentProp(m3.IconButtonMenu)!1: {name:"icon_color",type:"color",description:"The colour of the icon displayed on the Button."}
-    #!componentProp(m3.IconButtonMenu)!1: {name:"menu_background_color",type:"color",description:"The colour of the menu."}
+    #!componentProp(m3.IconButtonMenu)!1: {name:"menu_background_color",type:"color",description:"The color of the background of the menu."}
     #!componentProp(m3.IconButtonMenu)!1: {name:"menu_border",type:"color",description:"The border of the menu. Can take any valid CSS border value."}
     #!componentProp(m3.IconButtonMenu)!1: {name:"button_background_color",type:"color",description:"The colour of the background of the Button."}
     #!componentProp(m3.IconButtonMenu)!1: {name:"margin",type:"margin",description:"The margin (pixels) of the component."}
