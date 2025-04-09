@@ -57,7 +57,7 @@ class IconIconButtonMenu(MenuMixin, IconIconButtonMenuTemplate):
     @anvil_prop
     @property
     def appearance(self, value) -> str:
-        """A predefined style for the Button."""
+        """A predefined style for the IconButton."""
         self.icon_button.appearance = value
 
     @anvil_prop
@@ -75,25 +75,25 @@ class IconIconButtonMenu(MenuMixin, IconIconButtonMenuTemplate):
     @anvil_prop
     @property
     def button_border(self, value) -> str:
-        """The border of the Button. Can take any valid CSS border value."""
+        """The border of the IconButton. Can take any valid CSS border value."""
         self.icon_button.border = value
 
     @anvil_prop
     @property
     def button_background_color(self, value) -> str:
-        """The colour of the background of the Button."""
+        """The colour of the background of the IconButton."""
         self.icon_button.background_color = value
 
     @anvil_prop
     @property
     def icon(self, value) -> str:
-        """The icon to display on the Button."""
+        """The icon to display on the IconButton."""
         self.icon_button.icon = value
 
     @anvil_prop
     @property
     def icon_color(self, value) -> str:
-        """The colour of the icon displayed on the Button."""
+        """The colour of the icon displayed on the IconButton."""
         self.icon_button.icon_color = value
 
     @anvil_prop
@@ -130,23 +130,23 @@ class IconIconButtonMenu(MenuMixin, IconIconButtonMenuTemplate):
 
 
     #!componentProp(m3.IconButtonMenu)!1: {name:"align",type:"enum",options:["left", "right", "center"],description:"The position of this component in the available space."}
-    #!componentProp(m3.IconButtonMenu)!1: {name:"appearance",type:"enum",options:["filled", "elevated", "tonal", "outlined", "text"],description:"A predefined style for the Button."}
+    #!componentProp(m3.IconButtonMenu)!1: {name:"appearance",type:"enum",options:["filled", "elevated", "tonal", "outlined", "text"],description:"A predefined style for the IconButton."}
     #!componentProp(m3.IconButtonMenu)!1: {name:"visible",type:"boolean",description:"If True, the component will be displayed."}
     #!componentProp(m3.IconButtonMenu)!1: {name:"enabled",type:"boolean",description:"If True, this component allows user interaction."}
     #!componentProp(m3.IconButtonMenu)!1: {name:"role",type:"themeRole",description:"A style for this component defined in CSS and added to Roles"}
-    #!componentProp(m3.IconButtonMenu)!1: {name:"icon",type:"enum",description:"The icon to display on the Button."}
-    #!componentProp(m3.IconButtonMenu)!1: {name:"text",type:"string",description:"The text displayed on the Button"}
-    #!componentProp(m3.IconButtonMenu)!1: {name:"icon_color",type:"color",description:"The colour of the icon displayed on the Button."}
+    #!componentProp(m3.IconButtonMenu)!1: {name:"icon",type:"enum",description:"The icon to display on the IconButton."}
+    #!componentProp(m3.IconButtonMenu)!1: {name:"text",type:"string",description:"The text displayed on the IconButton"}
+    #!componentProp(m3.IconButtonMenu)!1: {name:"icon_color",type:"color",description:"The colour of the icon displayed on the IconButton."}
     #!componentProp(m3.IconButtonMenu)!1: {name:"menu_background_color",type:"color",description:"The color of the background of the menu."}
     #!componentProp(m3.IconButtonMenu)!1: {name:"menu_border",type:"color",description:"The border of the menu. Can take any valid CSS border value."}
-    #!componentProp(m3.IconButtonMenu)!1: {name:"button_background_color",type:"color",description:"The colour of the background of the Button."}
+    #!componentProp(m3.IconButtonMenu)!1: {name:"button_background_color",type:"color",description:"The colour of the background of the IconButton."}
     #!componentProp(m3.IconButtonMenu)!1: {name:"margin",type:"margin",description:"The margin (pixels) of the component."}
-    #!componentProp(m3.IconButtonMenu)!1: {name:"button_border",type:"string",description:"The border of the Button. Can take any valid CSS border value."}
+    #!componentProp(m3.IconButtonMenu)!1: {name:"button_border",type:"string",description:"The border of the IconButton. Can take any valid CSS border value."}
     #!componentProp(m3.IconButtonMenu)!1: {name:"tooltip",type:"string",description:"The text to display when the mouse is hovered over this component."}
     #!componentProp(m3.IconButtonMenu)!1: {name:"menu_items",type:"object",description:"A list of components to be added to the menu."}
     #!componentProp(m3.IconButtonMenu)!1: {name:"tag",type:"object",description:"Use this property to store any extra data for the component."}
 
-    #!componentEvent(m3.IconButtonMenu)!1: {name: "click", description: "When the Button is clicked.", parameters:[]}
+    #!componentEvent(m3.IconButtonMenu)!1: {name: "click", description: "When the IconButton is clicked.", parameters:[]}
 
 
 #!defClass(m3, IconButtonMenu, anvil.Component)!:
