@@ -121,6 +121,17 @@ class IconButtonMenu(MenuMixin, IconButtonMenuTemplate):
         """A list of components to be added to the menu."""
         for i in value:
             self.add_component(i, slot='anvil-m3-iconButtonMenu-slot')
+    
+    def _anvil_get_interactions_(self):
+        return [
+            {
+                "type": "designer_events",
+                "callbacks": {
+                    "onSelectDescendent": self._on_select_descendent,
+                    "onSelectOther": self._on_select_other,
+                },
+            },
+        ]
 
     def _on_select_descendent(self):
         self._toggle_visibility(value=True)
