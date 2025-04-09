@@ -162,7 +162,7 @@ class Link(LinkTemplate):
     self._set_designer_text_placeholder()
 
   def _set_text(self, value):
-    self.dom_nodes['anvil-m3-link-text'].innerText = value
+    self.dom_nodes['anvil-m3-link-text'].innerText = str(value if value is not None else "")
     if value or anvil.designer.in_designer:
       self.dom_nodes['anvil-m3-link-text'].style.display = 'block'
     else:

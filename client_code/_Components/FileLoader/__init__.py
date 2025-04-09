@@ -79,7 +79,7 @@ class FileLoader(FileLoaderTemplate):
   def clear(self):
     self.dom_nodes['anvil-m3-fileloader-input'].value = ''
     self.file = None
-    self.dom_nodes['anvil-m3-fileloader-label'].innerText = self.text
+    self.dom_nodes['anvil-m3-fileloader-label'].innerText = str(self.text if self.text is not None else "")
     # update show_state text if present
 
   #!defMethod(_)!2: "Set the keyboard focus to this FileLoader." ["focus"]

@@ -103,7 +103,7 @@ class RadioButton(RadioButtonTemplate):
   role = role_property('anvil-m3-radiobutton-container')
 
   def _set_text(self, value):
-    self.dom_nodes['anvil-m3-radiobutton-label'].innerText = value
+    self.dom_nodes['anvil-m3-radiobutton-label'].innerText = str(value if value is not None else "")
 
   @anvil_prop
   @property

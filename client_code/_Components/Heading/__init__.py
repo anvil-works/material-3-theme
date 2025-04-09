@@ -58,9 +58,9 @@ class Heading(HeadingTemplate):
     return {"spacing": sp, "font_size": fs, "icon_size": ifs}
 
   def _set_text(self, value):
-    self.dom_nodes['anvil-m3-heading-display'].innerText = value
-    self.dom_nodes['anvil-m3-heading-headline'].innerText = value
-    self.dom_nodes['anvil-m3-heading-title'].innerText = value
+    self.dom_nodes['anvil-m3-heading-display'].innerText = str(value if value is not None else "")
+    self.dom_nodes['anvil-m3-heading-headline'].innerText = str(value if value is not None else "")
+    self.dom_nodes['anvil-m3-heading-title'].innerText = str(value if value is not None else "")
 
   #!componentEvent(m3.Heading)!1: {name: "show", description: "When the Heading is shown on the screen."}
   #!componentEvent(m3.Heading)!1: {name: "hide", description: "When the Heading is removed from the screen."}
