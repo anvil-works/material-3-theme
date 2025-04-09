@@ -10,15 +10,15 @@ from ..._utils.properties import (
     get_unset_margin,
 )
 from ..MenuMixin import MenuMixin
-from ._anvil_designer import IconIconButtonMenuTemplate
+from ._anvil_designer import IconButtonMenuTemplate
 
 
-class IconIconButtonMenu(MenuMixin, IconIconButtonMenuTemplate):
+class IconButtonMenu(MenuMixin, IconButtonMenuTemplate):
     def __init__(self, **properties):
         self.tag = ComponentTag()
         self._props = properties
 
-        self._menu_node = self.dom_nodes['anvil-m3-iconIconButtonMenu-items-container']
+        self._menu_node = self.dom_nodes['anvil-m3-iconButtonMenu-items-container']
         self._btn_node = get_dom_node(self.icon_button).querySelector("button")
         self._btn_node.addEventListener('click', self._handle_click)
 
@@ -49,9 +49,9 @@ class IconIconButtonMenu(MenuMixin, IconIconButtonMenuTemplate):
         self._toggle_visibility()
 
     visible = HtmlTemplate.visible
-    menu_border = border_property('anvil-m3-iconIconButtonMenu-items-container', 'border')
+    menu_border = border_property('anvil-m3-iconButtonMenu-items-container', 'border')
     menu_background_color = color_property(
-        'anvil-m3-iconIconButtonMenu-items-container', 'background', 'background_color'
+        'anvil-m3-iconButtonMenu-items-container', 'background', 'background_color'
     )
 
     @anvil_prop
@@ -105,7 +105,7 @@ class IconIconButtonMenu(MenuMixin, IconIconButtonMenuTemplate):
     @anvil_prop
     @property
     def align(self, value) -> str:
-        self.dom_nodes['anvil-m3-iconIconButtonMenu-container'].style.justifyContent = value
+        self.dom_nodes['anvil-m3-iconButtonMenu-container'].style.justifyContent = value
         self._setup_fui()
 
 
@@ -120,7 +120,7 @@ class IconIconButtonMenu(MenuMixin, IconIconButtonMenuTemplate):
     def menu_items(self, value=[]) -> list:
         """A list of components to be added to the menu."""
         for i in value:
-            self.add_component(i, slot='anvil-m3-iconIconButtonMenu-slot')
+            self.add_component(i, slot='anvil-m3-iconButtonMenu-slot')
 
     def _on_select_descendent(self):
         self._toggle_visibility(value=True)
