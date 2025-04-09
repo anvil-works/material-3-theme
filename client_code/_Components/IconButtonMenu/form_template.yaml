@@ -10,6 +10,8 @@ container:
   type: HtmlTemplate
 custom_component: true
 custom_component_container: true
+events:
+- {default_event: true, name: click}
 is_package: true
 properties:
 - {default_binding_prop: true, default_value: true, description: 'If True, the component will be displayed.', designer_hint: visible, group: Look and Feel, important: false, name: visible, type: boolean}
@@ -26,7 +28,13 @@ properties:
 - {default_value: true, description: 'If True, this component allows user interaction.', designer_hint: enabled, group: Interaction, important: false, name: enabled, type: boolean}
 - {default_value: '', description: The border of the IconButton. Can take any valid CSS border value., group: Look and Feel, important: false, name: button_border, type: string}
 - {default_value: '', description: Color of the background of the IconButton., group: Look and Feel, important: false, name: button_background_color, type: color}
-- {default_value: '', description: The icon to display on the IconButton., group: Icon, iconsets: [material-icons], important: true, name: icon, type: icon}
+- default_value: mi:star
+  description: The icon to display on the IconButton.
+  group: Key Properties
+  iconsets: [material-icons]
+  important: true
+  name: icon
+  type: icon
 - {default_value: '', description: The color of the icon displayed on the IconButton., group: Look and Feel, important: false, name: icon_color, type: color}
 - {description: The margin (pixels) of the button., group: Layout, important: true, name: margin, type: margin}
 - default_value: left
@@ -39,3 +47,5 @@ properties:
   type: enum
 - {default_value: '', important: true, name: role, type: string}
 - {description: A list of components to be added to the menu, group: Other, important: true, name: menu_items, type: object}
+toolbox_item:
+  icon: {dark: 'asset:designer_icons/icon_button_menu_dark.svg', light: 'asset:designer_icons/icon_button_menu.svg'}
