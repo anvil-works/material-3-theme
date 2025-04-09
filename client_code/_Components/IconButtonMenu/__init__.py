@@ -105,7 +105,7 @@ class IconButtonMenu(MenuMixin, IconButtonMenuTemplate):
     @anvil_prop
     @property
     def align(self, value) -> str:
-        self.icon_button.dom_nodes[''].style.justifyContent = value
+        self.icon_button.dom_nodes['anvil-m3-iconbutton-component'].style.justifyContent = value
         self._setup_fui()
 
     @anvil_prop
