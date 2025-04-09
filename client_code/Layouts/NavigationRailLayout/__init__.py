@@ -31,7 +31,7 @@ class NavigationRailLayout(NavigationRailLayoutTemplate):
     self.nav_drawer_scrim.addEventListener('click', self.hide_nav_drawer)
 
   #!defMethod(_)!2: "Open the navigation drawer." ["open_nav_drawer"]
-  def open_nav_drawer(self, e):
+  def open_nav_drawer(self, e=None):
     window.clearTimeout(self.zero_width_timeout)
     window.clearTimeout(self.shown_timeout)
     self.nav_rail.style.width = '360px'
@@ -42,7 +42,7 @@ class NavigationRailLayout(NavigationRailLayoutTemplate):
     )
 
   #!defMethod(_)!2: "Hide the navigation drawer." ["hide_nav_drawer"]
-  def hide_nav_drawer(self, e):
+  def hide_nav_drawer(self, e=None):
     self.nav_rail.style.left = "-101%"
     self.nav_drawer_scrim.animate(
       [{'opacity': '1'}, {'opacity': '0'}], {'duration': 250, 'iterations': 1}
