@@ -1,0 +1,53 @@
+components:
+- event_bindings: {click: _toggle_menu_visibility}
+  layout_properties: {slot: button}
+  name: icon_button
+  properties: {}
+  type: form:_Components.IconButton
+container:
+  properties:
+    html: "<div anvil-name=\"anvil-m3-iconButtonMenu-container\" class=\"anvil-m3-buttonMenu-container\">\n  <!-- the following div needs marker where it prevents exposure of the slot when being used in a parent component -->\n  <div anvil-slot=\"button\" anvil-slot-internal style=\"width: 100%\"></div> \n  \n  <div anvil-slot=\"anvil-m3-iconButtonMenu-slot\" anvil-name=\"anvil-m3-iconButtonMenu-items-container\" \n    class=\"anvil-m3-buttonMenu-items-container anvil-m3-buttonMenu-items-hidden\">\n      <p anvil-if-slot-empty=\"anvil-m3-iconButtonMenu-slot\" style=\"color: #BBB;\"><i>Menu items go here</i></p>\n  </div>\n</div>"
+  type: HtmlTemplate
+custom_component: true
+custom_component_container: true
+events:
+- {default_event: true, name: click}
+is_package: true
+properties:
+- {default_binding_prop: true, default_value: true, description: 'If True, the component will be displayed.', designer_hint: visible, group: Look and Feel, important: false, name: visible, type: boolean}
+- {default_value: '', description: The border of the menu. Can take any valid CSS border value., group: Look and Feel, important: false, name: menu_border, type: string}
+- {default_value: '', description: The color of the background of the menu., group: Look and Feel, important: true, name: menu_background_color, type: color}
+- default_value: standard
+  description: A predefined style for this component.
+  group: Key Properties
+  important: true
+  name: appearance
+  options: [standard, filled, tonal, outlined]
+  type: enum
+- {default_value: '', description: The text to display when the mouse is hovered over this component., group: Other, important: true, name: tooltip, type: string}
+- {default_value: true, description: 'If True, this component allows user interaction.', designer_hint: enabled, group: Interaction, important: false, name: enabled, type: boolean}
+- {default_value: '', description: The border of the IconButton. Can take any valid CSS border value., group: Look and Feel, important: false, name: button_border, type: string}
+- {default_value: '', description: Color of the background of the IconButton., group: Look and Feel, important: false, name: button_background_color, type: color}
+- default_value: mi:star
+  description: The icon to display on the IconButton.
+  group: Key Properties
+  iconsets: [material-icons]
+  important: true
+  name: icon
+  type: icon
+- {default_value: '', description: The color of the icon displayed on the IconButton., group: Look and Feel, important: false, name: icon_color, type: color}
+- {description: The margin (pixels) of the button., group: Layout, important: true, name: margin, type: margin}
+- default_value: left
+  description: The position of this component in the available space.
+  designer_hint: align-horizontal
+  group: Layout
+  important: true
+  name: align
+  options: [left, center, right]
+  type: enum
+- {default_value: '', important: true, name: role, type: string}
+- {description: A list of components to be added to the menu, group: Other, important: true, name: menu_items, type: object}
+- {description: Use this property to store any extra data for the component., group: Other, important: false, name: tag, type: object}
+toolbox_item:
+  group: Menus
+  icon: {dark: 'asset:designer_icons/icon_button_menu_dark.svg', light: 'asset:designer_icons/icon_button_menu.svg'}

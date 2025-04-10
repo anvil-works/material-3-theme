@@ -45,6 +45,8 @@ unique_ids:
     designer_icons/heading_dark.svg: '1702400441046902759760157.3909'
     designer_icons/icon_button.svg: '1702400953813833209612144.3416'
     designer_icons/icon_button_dark.svg: '1702400976307470181675693.2682'
+    designer_icons/icon_button_menu.svg: '1744212998875959311243212.3811'
+    designer_icons/icon_button_menu_dark.svg: '1744213004855471436896404.02985'
     designer_icons/interactive_card.svg: E666PTXTTS7DPDUJJXVAX2NRZ7DLLCOO
     designer_icons/interactive_card_dark.svg: TJGZBM57QKQSU2A62NHCECY232HTPGVH
     designer_icons/linear_progress_indicator.svg: '170240004066150768354955.0475'
@@ -90,6 +92,7 @@ unique_ids:
     _Components.FileLoader: '1699022411615532112102446.622'
     _Components.Heading: '1691584734618253051882422.0236'
     _Components.IconButton: '1697644295380308163730017.08105'
+    _Components.IconButtonMenu: '1744204841486144204805125.58'
     _Components.LinearProgressIndicator: '169900965150797501169878.6904'
     _Components.Link: '169174463576231955159881.56439'
     _Components.Menu: '1691484055779239355188821.15225'
