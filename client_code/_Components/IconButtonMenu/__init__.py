@@ -146,7 +146,6 @@ class IconButtonMenu(MenuMixin, IconButtonMenuTemplate):
     #!componentProp(m3.IconButtonMenu)!1: {name:"enabled",type:"boolean",description:"If True, this component allows user interaction."}
     #!componentProp(m3.IconButtonMenu)!1: {name:"role",type:"themeRole",description:"A style for this component defined in CSS and added to Roles"}
     #!componentProp(m3.IconButtonMenu)!1: {name:"icon",type:"enum",description:"The icon to display on the IconButton."}
-    #!componentProp(m3.IconButtonMenu)!1: {name:"text",type:"string",description:"The text displayed on the IconButton"}
     #!componentProp(m3.IconButtonMenu)!1: {name:"icon_color",type:"color",description:"The colour of the icon displayed on the IconButton."}
     #!componentProp(m3.IconButtonMenu)!1: {name:"menu_background_color",type:"color",description:"The color of the background of the menu."}
     #!componentProp(m3.IconButtonMenu)!1: {name:"menu_border",type:"color",description:"The border of the menu. Can take any valid CSS border value."}
