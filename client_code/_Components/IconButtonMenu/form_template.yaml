@@ -48,4 +48,5 @@ properties:
 - {default_value: '', important: true, name: role, type: string}
 - {description: A list of components to be added to the menu, group: Other, important: true, name: menu_items, type: object}
 toolbox_item:
+  group: Menus
   icon: {dark: 'asset:designer_icons/icon_button_menu_dark.svg', light: 'asset:designer_icons/icon_button_menu.svg'}

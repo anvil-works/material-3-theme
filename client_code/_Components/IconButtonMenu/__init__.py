@@ -1,5 +1,5 @@
-from anvil import *
 import anvil.designer
+from anvil import *
 from anvil.js import get_dom_node
 
 from ..._utils.properties import (
@@ -106,6 +106,7 @@ class IconButtonMenu(MenuMixin, IconButtonMenuTemplate):
     @property
     def align(self, value) -> str:
         self.icon_button.dom_nodes['anvil-m3-iconbutton-component'].style.justifyContent = value
+        self.dom_nodes['anvil-m3-iconButtonMenu-container'].style.justifyContent = value
         self._setup_fui()
 
     @anvil_prop

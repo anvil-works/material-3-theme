@@ -70,7 +70,7 @@ class IconButton(IconButtonTemplate):
     )
     margin = margin_property('anvil-m3-iconbutton-container')
     role = role_property('anvil-m3-iconbutton-container')
-    tooltip = tooltip_property('anvil-m3-iconbutton-component')
+    tooltip = tooltip_property('anvil-m3-iconbutton-container')
 
     @anvil_prop
     @property
