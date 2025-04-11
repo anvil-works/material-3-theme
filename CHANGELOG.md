@@ -1,3 +1,27 @@
+## Version 1.2.3
+_Release date: 11 April 2025_
+
+**New Components**
+* Avatar: The Avatar component is for displaying a user's avatar. It has the following key properties:
+  * `image`: This is the image that will be displayed on the avatar 
+  * `name`: You can associate the user's name with the Avatar. If no image is provided, the Avatar will display the user's initials, generated from the name
+  * `fallback_icon`: By default, if no image or name is provided, the Avatar will display the person icon. You can change this icon by setting the fallback_icon property
+* AvatarMenu: Like the ButtonMenu, the AvatarMenu component is an Avatar component that opens a popup menu when clicked. You can drag and drop components into this menu from the Anvil Editor, or add components via the `menu_items` property. MenuItem components are designed to be added to this menu (but you can add whatever you want!).
+* IconButtonMenu: Similarly, the IconButtonMenu component is an IconButton that opens a popup menu when clicked.
+
+**Updates**
+* Theme colors are now set to CSS variables. This means that if app.theme_colors is updated at runtime, colors set in component properties will update.
+
+**Fixes**
+* Fixed an extraneous import in theme.css
+* Fixed an issue where Buttons could be out of alignment in built-in Anvil modals (such as the Login Form)
+* Fixed an issue where canceling the FileLoader file selector window instead of selecting a file could raise an IndexError
+* The theme now accomodates the Free Banner, which previously overlayed the page content
+* For properties that set a JS element's innerText, the property is first set to a string. This stops Python booleans from being converted to JS booleans (e.g. `True` was previously displayed as `true`)
+* The `tooltip` property on IconButtons previously didn't appear under the component if the alignment was set to anything other than `left`
+* You can now set the `spacing` property of ButtonMenu components from the Anvil Editor
+* The `icon_position` property of ButtonMenu components is now called `icon_align`. This means it actually works and matches the name of the equivalent Button property
+  
 ## Version 1.2.2
 _Release date: 6 February 2025_
 
