@@ -305,6 +305,7 @@ class DropdownMenu(DropdownMenuTemplate):
         ]
 
     # properties
+    role = anvil.HtmlTemplate.role
     visible = anvil.HtmlTemplate.visible
     margin = margin_property('anvil-m3-dropdownMenu-textbox')
 
@@ -373,12 +374,6 @@ class DropdownMenu(DropdownMenuTemplate):
     def align(self, value) -> str:
         """The position of this component in the available space."""
         self.selection_field.align = value
-
-    @anvil_prop
-    @property
-    def role(self, value) -> str:
-        """A style for this component defined in CSS and added to Roles"""
-        self.selection_field.role = value
 
     @anvil_prop
     @property

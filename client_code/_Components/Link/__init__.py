@@ -9,7 +9,6 @@ from ..._utils.properties import (
     font_size_property,
     inline_editing,
     italic_property,
-    role_property,
     spacing_property,
     style_property,
     tooltip_property,
@@ -107,13 +106,13 @@ class Link(LinkTemplate):
     font_family = font_family_property('anvil-m3-link', 'font_family')
     font_size = font_size_property('anvil-m3-link')
     underline = underline_property('anvil-m3-link-text')
+    role = HtmlTemplate.role
     visible = anvil.HtmlTemplate.visible
     text_color = color_property('anvil-m3-link', 'color', 'text_color')
     icon_color = color_property('anvil-m3-link-icon', 'color', 'icon_color')
     border = style_property('anvil-m3-link', 'border', 'border')
     spacing = spacing_property('anvil-m3-link')
     tooltip = tooltip_property('anvil-m3-link')
-    role = role_property('anvil-m3-link')
     background_color = color_property(
         'anvil-m3-link', 'backgroundColor', 'background_color'
     )
