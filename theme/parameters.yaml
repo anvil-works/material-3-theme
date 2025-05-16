@@ -435,5 +435,5 @@ color_scheme:
       name: Manarola Dark
 roles:
 - components: [DataRowPanel]
-  display_in_toolbox: true
+  display_in_toolbox: false
   name: data-grid-header
