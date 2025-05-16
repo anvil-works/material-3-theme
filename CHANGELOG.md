@@ -1,3 +1,11 @@
+## Version 1.2.4
+_Release date: 16 May 2025_
+
+**Fixes**
+* The `role` property for TextInputs (TextBoxes and TextAreas) is now actually implemented. This means the DropdownMenu `role` property works as expected.
+* Fixed an issue where the Avatar image could be blurry if the aspect ratio wasn't 1:1
+* Reordered components in the Toolbox so Menus are not at the top
+
 ## Version 1.2.3
 _Release date: 11 April 2025_
 
