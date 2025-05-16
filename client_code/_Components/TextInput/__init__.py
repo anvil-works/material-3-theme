@@ -18,6 +18,7 @@ from ..._utils.properties import (
     theme_color_to_css,
     tooltip_property,
     underline_property,
+    role_property
 )
 from ._anvil_designer import TextInputTemplate
 
@@ -84,6 +85,7 @@ class TextInput(TextInputTemplate):
         ]
 
     visible = HtmlTemplate.visible
+    role = role_property('anvil-m3-textinput')
     label_italic = italic_property('anvil-m3-label-text', 'label_italic')
     label_bold = bold_property('anvil-m3-label-text', 'label_bold')
     label_underline = underline_property('anvil-m3-label-text', 'label_underline')
