@@ -92,7 +92,7 @@ toolbox_sections:
     title: Divider
   packageName: m3
   title: Display
-  - description: Use Form Input containers to get data from the user
+- description: Use Form Input containers to get data from the user
   items:
   - component: {type: m3._Components.Checkbox}
     icon: {dark: 'asset:designer_icons/checkbox_dark.svg', light: 'asset:designer_icons/checkbox.svg'}
