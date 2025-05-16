@@ -49,5 +49,5 @@ properties:
 - {description: A list of components to be added to the menu, group: Other, important: true, name: menu_items, type: object}
 - {description: Use this property to store any extra data for the component., group: Other, important: false, name: tag, type: object}
 toolbox_item:
-  group: Menus
+  hidden: true
   icon: {dark: 'asset:designer_icons/icon_button_menu_dark.svg', light: 'asset:designer_icons/icon_button_menu.svg'}

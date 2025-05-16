@@ -92,24 +92,7 @@ toolbox_sections:
     title: Divider
   packageName: m3
   title: Display
-- description: Use navigation components to navigate between parts of your app
-  items:
-  - component: {type: m3._Components.NavigationLink}
-    icon: {dark: 'asset:designer_icons/navigation_link_dark.svg', light: 'asset:designer_icons/navigation_link.svg'}
-    title: NavigationLink
-  packageName: m3
-  title: Navigation
-- description: Use menus to hold other components and display them as a list of options
-  items:
-  - component: {type: m3._Components.ButtonMenu}
-    icon: {dark: 'asset:designer_icons/button_menu_dark.svg', light: 'asset:designer_icons/button_menu.svg'}
-    title: ButtonMenu
-  - component: {type: m3._Components.MenuItem}
-    icon: {dark: 'asset:designer_icons/menu_item_dark.svg', light: 'asset:designer_icons/menu_item.svg'}
-    title: MenuItem
-  packageName: m3
-  title: Menus
-- description: Use Form Input containers to get data from the user
+  - description: Use Form Input containers to get data from the user
   items:
   - component: {type: m3._Components.Checkbox}
     icon: {dark: 'asset:designer_icons/checkbox_dark.svg', light: 'asset:designer_icons/checkbox.svg'}
@@ -145,6 +128,29 @@ toolbox_sections:
     title: RadioGroupPanel
   packageName: m3
   title: Form Input
+- description: Use navigation components to navigate between parts of your app
+  items:
+  - component: {type: m3._Components.NavigationLink}
+    icon: {dark: 'asset:designer_icons/navigation_link_dark.svg', light: 'asset:designer_icons/navigation_link.svg'}
+    title: NavigationLink
+  packageName: m3
+  title: Navigation
+- description: Use menus to hold other components and display them as a list of options
+  items:
+  - component: {type: m3._Components.ButtonMenu}
+    icon: {dark: 'asset:designer_icons/button_menu_dark.svg', light: 'asset:designer_icons/button_menu.svg'}
+    title: ButtonMenu
+  - component: {type: m3._Components.IconButtonMenu}
+    icon: {dark: 'asset:designer_icons/icon_button_menu_dark.svg', light: 'asset:designer_icons/icon_button_menu.svg'}
+    title: IconButtonMenu
+  - component: {type: m3._Components.AvatarMenu}
+    icon: {dark: 'asset:designer_icons/avatar_menu_dark.svg', light: 'asset:designer_icons/avatar_menu.svg'}
+    title: AvatarMenu
+  - component: {type: m3._Components.MenuItem}
+    icon: {dark: 'asset:designer_icons/menu_item_dark.svg', light: 'asset:designer_icons/menu_item.svg'}
+    title: MenuItem
+  packageName: m3
+  title: Menus
 - description: Use Feedback componentes to show the status of a process
   items:
   - component: {type: m3._Components.LinearProgressIndicator}

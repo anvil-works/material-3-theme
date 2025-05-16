@@ -55,5 +55,5 @@ properties:
 - {accept: image/*, description: The image to display on the component., group: Key Properties, important: true, name: image, type: uri}
 - {description: Use this property to store any extra data for the component., group: Other, important: true, name: tag, type: object}
 toolbox_item:
-  group: Menus
+  hidden: true
   icon: {dark: 'asset:designer_icons/avatar_menu_dark.svg', light: 'asset:designer_icons/avatar_menu.svg'}
