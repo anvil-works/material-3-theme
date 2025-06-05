@@ -121,10 +121,13 @@
 .anvil-m3-buttonMenu-items-hidden {
   pointer-events: none;
   opacity: 0;
-  overflow: hidden;
-  display: none;  
+  overflow: hidden;  
 }
 
+.anvil-m3-buttonMenu-items-hidden.anvil-m3-menu-out-designer {
+    display: none;
+}
+  
 /***** DropdownMenu *****/
 .anvil-m3-dropdownMenu-container {
   display: inline-block;

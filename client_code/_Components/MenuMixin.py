@@ -2,6 +2,7 @@ from anvil.js.window import document
 
 from .._utils import fui, noop
 from .MenuItem import MenuItem
+import anvil.designer
 
 
 class MenuMixin:
@@ -66,8 +67,12 @@ class MenuMixin:
         classes = self._menu_node.classList
         if value is not None:
             classes.toggle('anvil-m3-buttonMenu-items-hidden', not value)
+            if not anvil.designer.in_designer:
+                classes.toggle('anvil-m3-menu-out-designer', not value)
         else:
             classes.toggle('anvil-m3-buttonMenu-items-hidden')
+            if not anvil.designer.in_designer:
+                classes.toggle('anvil-m3-menu-out-designer')
 
         self._open = not classes.contains('anvil-m3-buttonMenu-items-hidden')
         if self._open:
