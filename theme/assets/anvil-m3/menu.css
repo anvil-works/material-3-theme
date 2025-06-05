@@ -122,6 +122,7 @@
   pointer-events: none;
   opacity: 0;
   overflow: hidden;
+  display: none;  
 }
 
 /***** DropdownMenu *****/
