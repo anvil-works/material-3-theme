@@ -53,7 +53,7 @@
   line-height: 40px;
 } 
 
-.anvil-m3-fileloader-form.anvil-m3-full-width {
+.anvil-m3-fileloader-form.anvil-m3-full-width .anvil-m3-fileloader-container {
     flex-grow: 1;
     display: flex;
     justify-content: center;

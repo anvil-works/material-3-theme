@@ -8,6 +8,7 @@ container:
   type: HtmlTemplate
 custom_component: true
 custom_component_container: true
+events: []
 is_package: true
 properties:
 - default_binding_prop: true

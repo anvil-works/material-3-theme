@@ -156,7 +156,6 @@ class FileLoader(FileLoaderTemplate):
     font_family = font_family_property('anvil-m3-fileloader-label', 'font')
     icon_size = font_size_property('anvil-m3-fileloader-icon', 'icon_size')
     font_size = font_size_property('anvil-m3-fileloader-label', 'font_size')
-    # align = style_property('anvil-m3-fileloader-form', 'justifyContent', 'align')
     border = style_property('anvil-m3-fileloader-container', 'border', 'border')
     spacing = spacing_property('anvil-m3-fileloader-container')
     tooltip = tooltip_property('anvil-m3-fileloader-container')
