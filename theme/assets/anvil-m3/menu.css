@@ -105,6 +105,7 @@
 .anvil-m3-buttonMenu-items-container {
   box-sizing: border-box;
   position: absolute;
+  display: block;
   inset: 0 0 auto auto;
   width: max-content;
   min-width: 112px;
@@ -121,9 +122,13 @@
 .anvil-m3-buttonMenu-items-hidden {
   pointer-events: none;
   opacity: 0;
-  overflow: hidden;
+  overflow: hidden;  
 }
 
+.anvil-m3-buttonMenu-items-hidden.anvil-m3-menu-out-designer {
+    display: none;
+}
+  
 /***** DropdownMenu *****/
 .anvil-m3-dropdownMenu-container {
   display: inline-block;
