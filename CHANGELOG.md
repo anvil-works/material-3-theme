@@ -1,3 +1,17 @@
+## Version 1.2.5
+_Release date: 6 June 2025_
+
+## What's Changed
+* The DropdownMenu's `error` property now actually works by @bcm628 in https://github.com/anvil-works/material-3-theme/pull/286
+* Add show and hide events to CardContentContainer by @bcm628 in https://github.com/anvil-works/material-3-theme/pull/288
+* Add "full" as an option for the FileLoader's `align` property by @bcm628 in https://github.com/anvil-works/material-3-theme/pull/287
+* You can now import all components using the components package, e.g. `from m3.components import Avatar` by @bcm628 in https://github.com/anvil-works/material-3-theme/pull/289
+* The `margin` property of the AvatarMenu is applied to the correct element, which means that adding margin no longer messes with the placement of the menu by @bcm628 in https://github.com/anvil-works/material-3-theme/pull/291
+* FileLoader's default spacing now targets correct element. This means that the default margin and padding are properly displayed in the Properties Panel and can be overridden by @bcm628 in https://github.com/anvil-works/material-3-theme/pull/294
+* The Menu in Menu components (e.g. ButtonMenu) is now `display:none` when closed by @bcm628 in https://github.com/anvil-works/material-3-theme/pull/292
+* Fix theme still not working well with Free Plan banner by @bcm628 in https://github.com/anvil-works/material-3-theme/pull/295
+* `.anvil-panel-row` divs no longer center align their children. This stops the ColumnPanel from center aligning components. by @bcm628 in https://github.com/anvil-works/material-3-theme/pull/296
+
 ## Version 1.2.4
 _Release date: 16 May 2025_
 
