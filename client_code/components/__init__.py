@@ -1,3 +1,5 @@
+from .._Components.Avatar import Avatar
+from .._Components.AvatarMenu import AvatarMenu
 from .._Components.Button import Button
 from .._Components.ButtonMenu import ButtonMenu
 from .._Components.Card import Card
@@ -9,6 +11,7 @@ from .._Components.DropdownMenu import DropdownMenu
 from .._Components.FileLoader import FileLoader
 from .._Components.Heading import Heading
 from .._Components.IconButton import IconButton
+from .._Components.IconButtonMenu import IconButtonMenu
 from .._Components.InteractiveCard import InteractiveCard
 from .._Components.LinearProgressIndicator import LinearProgressIndicator
 from .._Components.Link import Link
