@@ -49,7 +49,7 @@ properties:
   group: Layout
   important: true
   name: align
-  options: [left, center, right]
+  options: [left, center, right, full]
   type: enum
 - {default_value: '', description: The border of this component. Can take any valid CSS border value., group: Look and Feel, important: false, name: border, type: string}
 - {description: The margin and padding (pixels) of the component., group: Layout, important: true, name: spacing, type: spacing}

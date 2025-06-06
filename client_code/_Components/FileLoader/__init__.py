@@ -156,7 +156,6 @@ class FileLoader(FileLoaderTemplate):
     font_family = font_family_property('anvil-m3-fileloader-label', 'font')
     icon_size = font_size_property('anvil-m3-fileloader-icon', 'icon_size')
     font_size = font_size_property('anvil-m3-fileloader-label', 'font_size')
-    align = style_property('anvil-m3-fileloader-form', 'justifyContent', 'align')
     border = style_property('anvil-m3-fileloader-container', 'border', 'border')
     spacing = spacing_property('anvil-m3-fileloader-container')
     tooltip = tooltip_property('anvil-m3-fileloader-container')
@@ -164,6 +163,19 @@ class FileLoader(FileLoaderTemplate):
     show_state = simple_prop("show_state")
     file = simple_prop("file")
     files = simple_prop("files")
+
+
+    @anvil_prop
+    @property
+    def align(self, value) -> str:
+        """The position of this component in the available space."""
+        self.dom_nodes['anvil-m3-fileloader-form'].classList.toggle('anvil-m3-full-width', False)
+        if value == 'full':
+            self.dom_nodes['anvil-m3-fileloader-form'].classList.toggle(
+                'anvil-m3-full-width', True
+            )
+        else:
+            self.dom_nodes['anvil-m3-fileloader-form'].style.justifyContent = value
 
     @anvil_prop
     @property

@@ -53,6 +53,14 @@
   line-height: 40px;
 } 
 
+.anvil-m3-fileloader-form.anvil-m3-full-width .anvil-m3-fileloader-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 
 /* Elevated */
 .anvil-m3-fileloader-container.anvil-m3-elevated { background-color: var(--anvil-m3-surface-container-low); box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30); 
