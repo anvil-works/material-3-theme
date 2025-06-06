@@ -20,7 +20,7 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
         self._props = properties
 
         self._menu_node = self.dom_nodes['anvil-m3-avatarMenu-items-container']
-        self._button_node = self.dom_nodes['anvil-m3-avatarMenu-button']
+        self._button_node = self.avatar.dom_nodes['anvil-m3-avatar']
         self._button_node.addEventListener('click', self._handle_click)
 
         MenuMixin.__init__(self, self._button_node, self._menu_node)
