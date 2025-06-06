@@ -189,6 +189,10 @@ element {
 .anvil-m3-textinput.outlined.anvil-m3-textinput-error .anvil-m3-textinput-input:focus + .anvil-m3-textinput-border > .anvil-m3-textinput-border-container-cell-t,
 .anvil-m3-textinput.outlined.anvil-m3-textinput-error :not(.anvil-m3-textinput-input:placeholder-shown) + .anvil-m3-textinput-border > .anvil-m3-textinput-border-container-cell-t { border-color: transparent; }
 
+.anvil-m3-dropdownMenu-textfield .anvil-m3-textinput-error .material-symbols-outlined.anvil-m3-textinput-trailing-icon  {
+    font-variation-settings: unset
+}
+
 .anvil-m3-textinput-error .material-symbols-outlined.anvil-m3-textinput-trailing-icon  {
   font-variation-settings:
   'FILL' 1,

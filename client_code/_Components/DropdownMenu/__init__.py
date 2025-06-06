@@ -472,12 +472,12 @@ class DropdownMenu(DropdownMenuTemplate):
     def error(self, value) -> bool:
         """If True, this component is in an error state."""
         if value:
-            self.dom_nodes['anvil-m3-dropdownMenu-textbox'].classList.add(
-                'anvil-m3-dropdown-error'
+            self.selection_field.dom_nodes['anvil-m3-textinput'].classList.add(
+                'anvil-m3-textinput-error'
             )
         else:
-            self.dom_nodes['anvil-m3-dropdownMenu-textbox'].classList.remove(
-                'anvil-m3-dropdown-error'
+            self.selection_field.dom_nodes['anvil-m3-textinput'].classList.remove(
+                'anvil-m3-textinput-error'
             )
 
     def _set_label(self, value):
