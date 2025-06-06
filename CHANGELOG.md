@@ -1,7 +1,7 @@
 ## Version 1.2.5
 _Release date: 6 June 2025_
 
-## What's Changed
+**Fixes**
 * The DropdownMenu's `error` property now actually works by @bcm628 in https://github.com/anvil-works/material-3-theme/pull/286
 * Add show and hide events to CardContentContainer by @bcm628 in https://github.com/anvil-works/material-3-theme/pull/288
 * Add "full" as an option for the FileLoader's `align` property by @bcm628 in https://github.com/anvil-works/material-3-theme/pull/287
