@@ -11,7 +11,6 @@
 
 .anvil-m3-fileloader-form {
   display: flex;
-  margin: 8px 4px;
 }
 
 .anvil-m3-fileloader-container {
@@ -20,6 +19,7 @@
   color: var(--anvil-m3-primary);
   cursor: pointer;
   text-decoration: none;
+  margin: 8px 4px;
 }
 
 .anvil-m3-fileloader-container .anvil-m3-fileloader-label {

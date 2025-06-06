@@ -65,7 +65,7 @@ class FileLoader(FileLoaderTemplate):
         ]
 
     def _anvil_get_unset_property_values_(self):
-        el = self.dom_nodes["anvil-m3-fileloader-form"]
+        el = self.dom_nodes["anvil-m3-fileloader-container"]
         sp = get_unset_spacing(el, el, self.spacing)
         tfs = get_unset_value(
             self.dom_nodes['anvil-m3-fileloader-label'], "fontSize", self.font_size
