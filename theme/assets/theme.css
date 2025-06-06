@@ -209,7 +209,6 @@ body {
   }
 }
 
-
 @media(max-width: 600px) {
   .anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer {
     display: block;
