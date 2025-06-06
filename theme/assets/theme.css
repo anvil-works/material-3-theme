@@ -1022,8 +1022,4 @@ th.month select.monthselect::after {
   border-right: 0;
 }
 
-.anvil-panel-row {
-  align-items:center
-}
-
 .anvil-data-grid .anvil-data-row-col[data-grid-col-id="null"] {padding: 0 !important;}
