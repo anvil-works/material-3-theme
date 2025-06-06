@@ -105,6 +105,7 @@
 .anvil-m3-buttonMenu-items-container {
   box-sizing: border-box;
   position: absolute;
+  display: block;
   inset: 0 0 auto auto;
   width: max-content;
   min-width: 112px;
