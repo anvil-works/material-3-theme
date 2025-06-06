@@ -75,9 +75,8 @@ body {
 
 .anvil-m3-structure {
   min-height: 100vh;
-  min-height: calc(100vh - %anvil-banner-height%);
   position: relative;
-  top: calc(0px + %anvil-banner-height%);
+  top: 0px;
 }
 
 /*NAVIGATION: RAIL, DRAWER, APP BAR*/
@@ -644,7 +643,7 @@ body {
   transition: right 250ms;
   bottom: 0;
   right: -301px; 
-  top: 0;
+  top: calc(0px + %anvil-banner-height%);
   overflow-y: auto;
   padding: 24px 24px 24px 16px;
   display: none !important; 
