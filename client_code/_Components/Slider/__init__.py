@@ -9,7 +9,6 @@ from ..._utils.properties import (
     color_property,
     get_unset_margin,
     margin_property,
-    role_property,
     simple_prop,
     theme_color_to_css,
     tooltip_property,
@@ -175,8 +174,8 @@ class Slider(SliderTemplate):
     )
     margin = margin_property("anvil-m3-slider")
     tooltip = tooltip_property('anvil-m3-slider')
+    role = HtmlTemplate.role
     visible = HtmlTemplate.visible
-    role = role_property('anvil-m3-slider')
     show_label = simple_prop("show_label")
 
     @anvil_prop

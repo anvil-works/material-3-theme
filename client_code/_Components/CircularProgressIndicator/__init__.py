@@ -7,7 +7,6 @@ from ..._utils.properties import (
     anvil_prop,
     get_unset_margin,
     margin_property,
-    role_property,
     style_property,
     theme_color_to_css,
     tooltip_property,
@@ -27,13 +26,13 @@ class CircularProgressIndicator(CircularProgressIndicatorTemplate):
         m = get_unset_margin(el, self.margin)
         return {"margin": m}
 
+    role = HtmlTemplate.role
     visible = HtmlTemplate.visible
     align = style_property(
         'anvil-m3-progressindicator-component', 'justifyContent', 'align'
     )
     margin = margin_property('anvil-m3-progressindicator-component')
     tooltip = tooltip_property('anvil-m3-progressindicator')
-    role = role_property('anvil-m3-progressindicator')
 
     @anvil_prop
     @property
