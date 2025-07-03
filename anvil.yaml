@@ -1,5 +1,6 @@
 allow_embedding: false
 client_init_module: InitModule
+code_prelude: {client: "import m3.components as m3"}
 db_schema: {}
 name: Material 3 Theme
 native_deps:
