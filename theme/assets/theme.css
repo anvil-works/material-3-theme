@@ -636,7 +636,7 @@ body {
 }
 
 .anvil-m3-button.anvil-m3-filled .anvil-m3-textlessComponentText {
-    
+    color: #dfdfdf !important;
 }
 
 .anvil-m3-sidesheet {
