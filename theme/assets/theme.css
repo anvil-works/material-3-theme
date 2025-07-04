@@ -635,6 +635,10 @@ body {
   font-weight: 400;
 }
 
+.anvil-m3-button.anvil-m3-filled .anvil-m3-textlessComponentText {
+    
+}
+
 .anvil-m3-sidesheet {
   height: 100%;
   width: 300px;
