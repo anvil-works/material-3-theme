@@ -90,11 +90,11 @@ class TextArea(TextInput):
         return common_props
 
     def _expand_to_fit_content(self, event):
-        if event.target.scrollHeight > event.target.clientHeight:
-            self.dom_nodes[
-                'anvil-m3-textarea'
-            ].style.height = '56px'  # Min-height based off M3 specs
-            self._set_height(event.target.scrollHeight)
+        # if event.target.scrollHeight > event.target.clientHeight:
+        # self.dom_nodes[
+        #     'anvil-m3-textarea'
+        # ].style.height = '56px'  # Min-height based off M3 specs
+        self._set_height(event.target.scrollHeight)
 
     def _on_resize(self, entries, observer):
         for entry in entries:
