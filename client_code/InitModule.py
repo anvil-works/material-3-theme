@@ -23,3 +23,25 @@ pluggable_ui.provide(
         "anvil.alerts.FooterButton": make_footer_button,
     },
 )
+
+
+def is_using_legacy_classes():
+    # TODO expose this in a public API
+    # Probably shouldn't merge this
+    from anvil.js import window
+    runtime_options = window.debugAnvilData.app.runtime_options
+    print(runtime_options)
+
+    version = runtime_options.version
+    if version < 3:
+        return True
+
+    return runtime_options.get("legacy_features", {}).get("class_names")
+
+
+def init_runtime_backwards_compatibility():
+    if is_using_legacy_classes():
+        ...
+        
+
+init_runtime_backwards_compatibility()
