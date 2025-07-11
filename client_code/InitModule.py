@@ -31,7 +31,6 @@ def is_using_legacy_classes():
     from anvil.js import window
 
     runtime_options = window.debugAnvilData.app.runtime_options
-    print(runtime_options)
 
     version = runtime_options.version
     if version < 3:
@@ -43,8 +42,6 @@ def is_using_legacy_classes():
 def init_runtime_backwards_compatibility():
     if not is_using_legacy_classes():
         return
-
-    print("Loading legacy CSS")
 
     from anvil.js.window import document
 
