@@ -44,6 +44,8 @@ def init_runtime_backwards_compatibility():
     if not is_using_legacy_classes():
         return
 
+    print("Loading legacy CSS")
+
     from anvil.js.window import document
 
     link = document.createElement("link")
