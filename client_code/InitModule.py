@@ -29,6 +29,7 @@ def is_using_legacy_classes():
     # TODO expose this in a public API
     # Probably shouldn't merge this
     from anvil.js import window
+
     runtime_options = window.debugAnvilData.app.runtime_options
     print(runtime_options)
 
@@ -40,8 +41,15 @@ def is_using_legacy_classes():
 
 
 def init_runtime_backwards_compatibility():
-    if is_using_legacy_classes():
-        ...
-        
+    if not is_using_legacy_classes():
+        return
+
+    from anvil.js.window import document
+
+    link = document.createElement("link")
+    link.rel = "stylesheet"
+    link.href = "_/theme/anvil-m3/legacy.css"
+    document.head.append(link)
+
 
 init_runtime_backwards_compatibility()

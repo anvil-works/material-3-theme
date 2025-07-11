@@ -1,0 +1,52 @@
+
+
+/*DIALOGS: ALERTS AND NOTIFICATIONS*/
+/*Default Anvil alert*/
+.modal-content {
+  background: linear-gradient(0deg, %color:Primary Overlay 3%, %color:Primary Overlay 3%), %color:Background%;
+  box-shadow: none;
+  border: none;
+  border-radius: 28px;
+  padding: 24px;
+}
+
+.modal-dialog:focus-visible {
+  border-radius: 28px
+}
+
+.modal-header {
+  padding: 0;
+  padding-bottom: 16px;
+  border-bottom: none;
+}
+
+.close {
+  border:none;
+  background: transparent;
+  font-family: "Material Icons";
+  text-shadow: none;
+  color: %color:Inverse On Surface%;
+  opacity: 1;
+  /* content: "\e5cd" */
+}
+
+.modal-header .close {
+  color: %color:On Surface%;
+}
+
+.modal-title {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 400;
+  color: %color:On Surface%;
+}
+
+.modal-body {
+  padding: 0;
+}
+
+.modal-footer {
+  padding: 0;
+  padding-top: 24px;
+  border-top: none;
+}
