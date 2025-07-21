@@ -140,7 +140,7 @@ class TextArea(TextInput):
             input.placeholder = value
             input.classList.add('anvil-m3-has-placeholder')
         else:
-            input.placeholder = " "
+            input.placeholder = ""
             input.classList.remove('anvil-m3-has-placeholder')
 
     @anvil_prop
