@@ -75,8 +75,6 @@
   border: 1px solid var(--anvil-m3-disabled-container)
 }
 
-
-
 .anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-avatar-filled:hover {
   background: linear-gradient(0deg, var(--anvil-m3-light-overlay-1), var(--anvil-m3-light-overlay-1)),  var(--anvil-m3-primary)
 }
