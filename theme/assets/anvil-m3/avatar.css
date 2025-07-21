@@ -75,8 +75,8 @@
   border: 1px solid var(--anvil-m3-disabled-container)
 }
 
-.anvil-m3-avatarMenu-button:disabled .anvil-m3-avatar img.anvil-m3-avatar-image:after {
-  background: linear-gradient(0deg, var(--anvil-m3-on-surface-variant-overlay-2), var(--anvil-m3-on-surface-variant-overlay-2)),  transparent !important 
+.anvil-m3-avatarMenu-button:disabled .anvil-m3-avatar img.anvil-m3-avatar-image {
+    opacity: 0.6;
 }
 
 .anvil-m3-avatarMenu-button .anvil-m3-avatar.anvil-m3-avatar-filled:hover {
