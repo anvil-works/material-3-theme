@@ -203,17 +203,17 @@ class Heading(HeadingTemplate):
             f'anvil-m3-heading-{value}'
         )
         if value == 'display':
-            display.style.display = 'block'
+            display.style.display = 'inline-block'
             headline.style.display = 'none'
             title.style.display = 'none'
         elif value == 'headline':
             display.style.display = 'none'
-            headline.style.display = 'block'
+            headline.style.display = 'inline-block'
             title.style.display = 'none'
         elif value == 'title':
             display.style.display = 'none'
             headline.style.display = 'none'
-            title.style.display = 'block'
+            title.style.display = 'inline-block'
 
     @anvil_prop
     @property
