@@ -1034,7 +1034,9 @@ th.month select.monthselect::after {
     vertical-align: middle;
 }
 
-.anvil-always-inline-container > div > .anvil-m3-heading-container, .anvil-m3-text-container {
+.anvil-always-inline-container > div > .anvil-m3-heading-container, .anvil-m3-text-container, .anvil-m3-link, .anvil-m3-avatar-container {
     display: inline-flex;
     vertical-align: middle;
 }
+
+.anvil-always-inline-container > div > .anvil-m3-iconbutton-component { vertical-align: middle }
