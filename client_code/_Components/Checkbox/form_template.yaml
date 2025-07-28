@@ -3,7 +3,7 @@ container:
   event_bindings: {show: form_show}
   properties:
     html: |
-      <div anvil-name="anvil-m3-checkbox-component" style="display:flex">
+      <div anvil-name="anvil-m3-checkbox-component" class="anvil-m3-checkbox-component" style="display:flex">
         <div anvil-name="anvil-m3-checkbox-container" class="anvil-m3-checkbox-container">
           <input class="anvil-m3-checkbox" anvil-name="anvil-m3-checkbox" type="checkbox">
             <div class="anvil-m3-checkbox-hover" anvil-name="anvil-m3-checkbox-hover">
