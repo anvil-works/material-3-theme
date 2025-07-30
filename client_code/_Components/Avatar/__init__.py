@@ -10,6 +10,7 @@ from ..._utils.properties import (
     get_unset_margin,
     get_unset_value,
     margin_property,
+    role_property,
     style_property,
     tooltip_property,
 )
@@ -68,6 +69,7 @@ class Avatar(AvatarTemplate):
         'anvil-m3-avatar-icon', 'fallback_icon_size'
     )
     font_family = font_family_property('anvil-m3-avatar-initials')
+    role = role_property('anvil-m3-avatar')
 
     @anvil_prop
     @property
