@@ -101,7 +101,14 @@ class TextInput(TextInputTemplate):
 
     @anvil_prop
     @property
-    def supporti
+    def supporting_text(self, value):
+        input_container = self.dom_nodes['anvil-m3-textinput']
+        if value is not None:
+            input_container.classList.remove('has-supporting-text')
+            self.dom_nodes["anvil-m3-supporting-text"].innerText = str(value)
+        else:
+            input_container.classList.add('has-supporting-text')
+            self.dom_nodes["anvil-m3-supporting-text"].innerText = ""
     
     
     @anvil_prop
