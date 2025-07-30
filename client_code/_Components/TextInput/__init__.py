@@ -94,15 +94,9 @@ class TextInput(TextInputTemplate):
     label_color = color_property('anvil-m3-label-text', 'color', 'label_color')
     margin = margin_property('anvil-m3-textinput')
     tooltip = tooltip_property('anvil-m3-textinput')
-    subcontent_color = color_property(
-        'anvil-m3-subcontent', 'color', 'subcontent_color'
-    )
-    subcontent_font_family = font_family_property(
-        'anvil-m3-subcontent', 'subcontent_font_family'
-    )
-    subcontent_font_size = font_size_property(
-        'anvil-m3-subcontent', 'subcontent_font_size'
-    )
+    subcontent_color = color_property('anvil-m3-subcontent', 'color', 'subcontent_color')
+    subcontent_font_family = font_family_property('anvil-m3-subcontent', 'subcontent_font_family')
+    subcontent_font_size = font_size_property('anvil-m3-subcontent', 'subcontent_font_size')
     supporting_text = innerText_property('anvil-m3-supporting-text', 'supporting_text')
 
     @anvil_prop
