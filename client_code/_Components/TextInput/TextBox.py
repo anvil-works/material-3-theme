@@ -312,12 +312,17 @@ class TextBox(TextInput):
     @property
     def character_limit(self, value) -> float:
         """The max number of characters a user can enter into this component. The limit is displayed below the component."""
+        input_container = TextInput().dom_nodes['anvil-m3-textinput']
         if value is None or value < 1:
             text_box_input = self.dom_nodes['anvil-m3-textbox'].removeAttribute(
                 "maxlength"
             )
             self.dom_nodes['anvil-m3-character-counter'].style = "display: none"
         else:
+            if "has-subcontent" not in input_container.classList:
+                input_container.classList.toggle(
+                    'has-subcontent', True
+                )
             text_box_input = self.dom_nodes['anvil-m3-textbox'].setAttribute(
                 "maxlength", value
             )
