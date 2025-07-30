@@ -1023,3 +1023,34 @@ th.month select.monthselect::after {
 }
 
 .anvil-data-grid .anvil-data-row-col[data-grid-col-id="null"] {padding: 0 !important;}
+
+.anvil-always-inline-container > div > .anvil-m3-textinput {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.anvil-always-inline-container > div > .anvil-m3-textinput.has-char-count,
+.anvil-always-inline-container > div > .anvil-m3-textinput.has-supporting-text {
+    margin-top: 20px;
+}
+
+.anvil-always-inline-container > div > .anvil-m3-checkbox-component,
+.anvil-always-inline-container > div > .anvil-m3-avatar-container, 
+.anvil-always-inline-container > div > .anvil-m3-avatarMenu-container,
+.anvil-always-inline-container > div > .anvil-m3-iconButtonMenu-container,
+.anvil-always-inline-container > div > .anvil-m3-switch-container,
+.anvil-always-inline-container > div > .anvil-m3-fileloader-form,
+.anvil-always-inline-container > div > .anvil-m3-heading-container, 
+.anvil-always-inline-container > div > .anvil-m3-text-container, 
+.anvil-always-inline-container > div > .anvil-m3-link, 
+.anvil-always-inline-container > div > .anvil-m3-avatar-container,
+.anvil-always-inline-container > div > .anvil-m3-slider {
+    display: inline-flex !important;
+    vertical-align: middle;
+}
+
+.anvil-always-inline-container > div > .anvil-m3-iconbutton-component,
+.anvil-always-inline-container > div > .anvil-m3-radiobutton-component,
+.anvil-always-inline-container > div > .anvil-m3-dropdownMenu-container { 
+    vertical-align: middle
+}

@@ -2,7 +2,7 @@ components: []
 container:
   event_bindings: {}
   properties:
-    html: "<!-- <div anvil-name=\"anvil-m3-link-container\" class=\"anvil-m3-link-container\" rel=\"noopener noreferer\"> -->\n  <a href=\"javascript:void(0)\" onclick=\"\" anvil-name=\"anvil-m3-link\" target=\"_blank\" class=\"anvil-m3-link\" rel=\"noopener noreferer\">\n    <div anvil-name=\"anvil-m3-link-icon-container\" class=\"anvil-m3-link-icon-container\">    \n      <span anvil-name=\"anvil-m3-link-icon\" class=\"material-symbols-outlined anvil-m3-link-icon\"></span>\n      <span anvil-name=\"anvil-m3-link-text\" class=\"anvil-m3-link-text\"></span>\n    </div>\n    <div anvil-slot=\"anvil-m3-link-slot\"></div>\n  </a>\n<!-- </div> -->"
+    html: "<a href=\"javascript:void(0)\" onclick=\"\" anvil-name=\"anvil-m3-link\" target=\"_blank\" class=\"anvil-m3-link\" rel=\"noopener noreferer\">\n<div anvil-name=\"anvil-m3-link-icon-container\" class=\"anvil-m3-link-icon-container\">    \n    <span anvil-name=\"anvil-m3-link-icon\" class=\"material-symbols-outlined anvil-m3-link-icon\"></span>\n    <span anvil-name=\"anvil-m3-link-text\" class=\"anvil-m3-link-text\"></span>\n</div>\n<div anvil-slot=\"anvil-m3-link-slot\"></div>\n</a>\n"
   type: HtmlTemplate
 custom_component: true
 custom_component_container: true
