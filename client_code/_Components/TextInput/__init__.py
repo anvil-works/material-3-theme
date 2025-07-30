@@ -97,8 +97,13 @@ class TextInput(TextInputTemplate):
     subcontent_color = color_property('anvil-m3-subcontent', 'color', 'subcontent_color')
     subcontent_font_family = font_family_property('anvil-m3-subcontent', 'subcontent_font_family')
     subcontent_font_size = font_size_property('anvil-m3-subcontent', 'subcontent_font_size')
-    supporting_text = innerText_property('anvil-m3-supporting-text', 'supporting_text')
+    # supporting_text = innerText_property('anvil-m3-supporting-text', 'supporting_text')
 
+    @anvil_prop
+    @property
+    def supporti
+    
+    
     @anvil_prop
     @property
     def appearance(self, value):
