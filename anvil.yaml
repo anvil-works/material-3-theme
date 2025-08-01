@@ -26,6 +26,32 @@ startup: {module: _TestForms.ButtonMenuFUI, type: form}
 startup_form: null
 toolbox: {hide_classic_components: true}
 toolbox_sections:
+- description: Commonly used components
+  items:
+  - component: {type: m3._Components.Button}
+    icon: {dark: 'asset:designer_icons/button_dark.svg', light: 'asset:designer_icons/button.svg'}
+    title: Button
+  - component: {type: m3._Components.Text}
+    icon: {dark: 'asset:designer_icons/text_dark.svg', light: 'asset:designer_icons/text.svg'}
+    title: Text
+  - component: {type: m3._Components.Link}
+    icon: {dark: 'asset:designer_icons/link_dark.svg', light: 'asset:designer_icons/link.svg'}
+    title: Link
+  - component: {type: m3._Components.Checkbox}
+    icon: {dark: 'asset:designer_icons/checkbox_dark.svg', light: 'asset:designer_icons/checkbox.svg'}
+    title: Checkbox
+  - component: {type: m3._Components.TextInput.TextBox}
+    icon: {dark: 'asset:designer_icons/textfield_dark.svg', light: 'asset:designer_icons/textfield.svg'}
+    title: TextBox
+  - component:
+      components:
+      - layout_properties: {slot: card-content-slot}
+        type: m3._Components.Card.CardContentContainer
+      type: m3._Components.Card
+    icon: {dark: 'asset:designer_icons/card_dark.svg', light: 'asset:designer_icons/card.svg'}
+    title: Card
+  packageName: m3
+  title: Common Components
 - description: Use Typography components to display text
   items:
   - component: {type: m3._Components.Text}
