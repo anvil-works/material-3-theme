@@ -4,7 +4,7 @@ container:
   properties:
     background: ''
     html: |-
-      <div anvil-name="anvil-m3-radiobutton-component" style="display:flex">
+      <div anvil-name="anvil-m3-radiobutton-component" class="anvil-m3-radiobutton-component" style="display:inline-flex">
         <div anvil-name="anvil-m3-radiobutton-container" class="anvil-m3-radiobutton-container">
           <input class="anvil-m3-radiobutton-input" anvil-name="anvil-m3-radiobutton-input" type="radio">
           <div class="anvil-m3-radiobutton-hover" anvil-name="anvil-m3-radiobutton-hover">

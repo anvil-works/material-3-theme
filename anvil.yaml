@@ -1,5 +1,6 @@
 allow_embedding: false
 client_init_module: InitModule
+code_prelude: {form: "import m3.components as m3"}
 db_schema: {}
 name: Material 3 Theme
 native_deps:
@@ -166,6 +167,7 @@ toolbox_sections:
   - component: {type: anvil.Plot}
     icon: {dark: /ide/img/toolbox/Plot.dark.svg, light: /ide/img/toolbox/Plot.svg}
     title: Plot
+    codePrelude: "import plotly.graph_objects as go"
     url: /docs/client/components/plot
   - component: {type: anvil.YouTubeVideo}
     icon: {dark: /ide/img/toolbox/YouTubeVideo.dark.svg, light: /ide/img/toolbox/YouTubeVideo.svg}
