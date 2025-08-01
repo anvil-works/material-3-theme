@@ -28,10 +28,14 @@ input.anvil-m3-checkbox {
 }
 
 .anvil-m3-checkbox-checked, 
+.anvil-m3-checkbox-indeterminate {
+  color: var(--anvil-m3-primary);  
+}
+
+.anvil-m3-checkbox-checked, 
 .anvil-m3-checkbox-unchecked, 
 .anvil-m3-checkbox-indeterminate {
   font-size: 20px;
-  color: var(--anvil-m3-primary);
   -webkit-user-select: none; 
   -ms-user-select: none; 
   user-select: none;
@@ -93,9 +97,14 @@ input.anvil-m3-checkbox:disabled ~ label.anvil-m3-checkbox-label {
   cursor: pointer;
 }
 
-.anvil-m3-checkbox-hover:hover{
+.anvil-m3-checkbox-hover:hover {
   background-color: var(--anvil-m3-dark-overlay-1);
 }
+
+.anvil-m3-checkbox-hover:hover .anvil-m3-checkbox-unchecked {
+    color: var(--anvil-m3-on-surface);
+}
+
 input.anvil-m3-checkbox:checked + .anvil-m3-checkbox-hover:hover{
   background-color: var(--anvil-m3-primary-overlay-2);
 }
