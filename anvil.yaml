@@ -145,6 +145,10 @@ toolbox_sections:
   - component: {type: m3._Components.Slider}
     icon: {dark: 'asset:designer_icons/slider_dark.svg', light: 'asset:designer_icons/slider.svg'}
     title: Slider
+  - component: {type: anvil.DatePicker}
+    icon: {dark: /ide/img/toolbox/DatePicker.dark.svg, light: /ide/img/toolbox/DatePicker.svg}
+    title: DatePicker
+    url: /docs/client/components/basic#datepicker
   - component:
       components:
       - {type: m3._Components.RadioButton}
@@ -269,10 +273,6 @@ toolbox_sections:
     icon: {dark: /ide/img/toolbox/Spacer.dark.svg, light: /ide/img/toolbox/Spacer.svg}
     title: Spacer
     url: /docs/client/components/basic#spacer
-  - component: {type: anvil.DatePicker}
-    icon: {dark: /ide/img/toolbox/DatePicker.dark.svg, light: /ide/img/toolbox/DatePicker.svg}
-    title: DatePicker
-    url: /docs/client/components/basic#datepicker
   - component: {type: anvil.Timer}
     icon: {dark: /ide/img/toolbox/Timer.dark.svg, light: /ide/img/toolbox/Timer.svg}
     title: Timer
