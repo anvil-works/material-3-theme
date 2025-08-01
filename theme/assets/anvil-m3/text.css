@@ -13,6 +13,7 @@
 
 .anvil-m3-text-icon {
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 /*HEADING*/
