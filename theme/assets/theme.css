@@ -155,7 +155,7 @@ body {
     justify-content: center;
     overflow-y: hidden;
     background: linear-gradient(0deg, %color:Primary Overlay 2%, %color:Primary Overlay 2%), %color:Background%;
-    z-index:8;
+    z-index:9;
     display: block;
     height: 100vh;
     height: calc(100vh - %anvil-banner-height%);
