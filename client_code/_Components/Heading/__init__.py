@@ -11,7 +11,6 @@ from ..._utils.properties import (
     get_unset_value,
     inline_editing,
     italic_property,
-    role_property,
     tooltip_property,
 )
 from ._anvil_designer import HeadingTemplate
@@ -95,6 +94,7 @@ class Heading(HeadingTemplate):
     #!componentProp(m3.Heading)!1: {name:"tag",type:"object",description:"Use this property to store any extra data for the component."}
     #!componentProp(m3.Heading)!1: {name:"line_height",type:"string",description:"The line height of this component."}
 
+    role = anvil.HtmlTemplate.role
     visible = anvil.HtmlTemplate.visible
     italic = italic_property('anvil-m3-heading-container')
     border = border_property('anvil-m3-heading-container')
@@ -105,7 +105,6 @@ class Heading(HeadingTemplate):
         'anvil-m3-heading-container', 'backgroundColor', 'background_color'
     )
     tooltip = tooltip_property('anvil-m3-heading-container')
-    role = role_property('anvil-m3-heading-container')
 
     @anvil_prop
     @property

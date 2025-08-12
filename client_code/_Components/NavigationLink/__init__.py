@@ -12,7 +12,6 @@ from ..._utils.properties import (
     get_unset_value,
     innerText_property,
     italic_property,
-    role_property,
     simple_prop,
     spacing_property,
     tooltip_property,
@@ -109,9 +108,9 @@ class NavigationLink(NavigationLinkTemplate):
     #!componentProp(m3.NavigationLink)!1: {name:"tag",type:"object",description:"Use this property to store any extra data for the component."}
     #!componentProp(m3.NavigationLink)!1: {name:"background_color",type:"color",description:"The color of the background of this component."}
 
+    role = HtmlTemplate.role
     visible = HtmlTemplate.visible
     text = innerText_property('anvil-m3-navigation-link-text')
-    role = role_property('anvil-m3-navigation-link')
     italic = italic_property('anvil-m3-navigation-link-text')
     bold = bold_property('anvil-m3-navigation-link-text')
     underline = underline_property('anvil-m3-navigation-link-text')

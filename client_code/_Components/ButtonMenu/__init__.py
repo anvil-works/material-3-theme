@@ -62,6 +62,7 @@ class ButtonMenu(MenuMixin, ButtonMenuTemplate):
                 },
             )
 
+    role = HtmlTemplate.role
     visible = HtmlTemplate.visible
     menu_border = border_property('anvil-m3-buttonMenu-items-container', 'border')
     menu_background_color = color_property(
@@ -198,12 +199,6 @@ class ButtonMenu(MenuMixin, ButtonMenuTemplate):
     def button_font_family(self, value) -> str:
         """The font family to use for the Button"""
         self.menu_button.font_family = value
-
-    @anvil_prop
-    @property
-    def role(self, value) -> str:
-        """A style for this component defined in CSS and added to Roles"""
-        self.menu_button.role = value
 
     @anvil_prop
     @property
