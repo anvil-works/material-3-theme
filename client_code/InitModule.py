@@ -5,9 +5,7 @@ from ._Components.Checkbox import Checkbox
 from ._Components.TextInput.TextBox import TextBox
 
 
-def make_button(align=None, **kwargs):
-    if align is None:
-        align = "center"
+def make_button(align="center", **kwargs):
     return Button(align=align, **kwargs)
 
 
