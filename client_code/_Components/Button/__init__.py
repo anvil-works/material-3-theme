@@ -13,6 +13,7 @@ from ..._utils.properties import (
     get_unset_spacing,
     get_unset_value,
     italic_property,
+    make_icon_element,
     property_with_callback,
     role_property,
     spacing_property,
@@ -97,8 +98,14 @@ class Button(ButtonTemplate):
             else:
                 self.dom_nodes['anvil-m3-button'].classList.add('anvil-m3-no-text')
         else:
-            self.dom_nodes['anvil-m3-button-icon'].innerText = ""
-            self.dom_nodes['anvil-m3-button-icon'].style.display = "none"
+            icon_element = make_icon_element(self.icon)
+            if icon_element:
+                self.dom_nodes['anvil-m3-button-icon'].style.display = "flex"
+                self.dom_nodes['anvil-m3-button-icon'].style.alignItems = "center"
+                self.dom_nodes['anvil-m3-button-icon'].replaceChildren(icon_element)
+            else:
+                self.dom_nodes['anvil-m3-button-icon'].innerText = ""
+                self.dom_nodes['anvil-m3-button-icon'].style.display = "none"
 
     def _set_text(self):
         if self.text:

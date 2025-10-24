@@ -6,7 +6,9 @@ from ._Components.TextInput.TextBox import TextBox
 
 
 def make_button(align=None, **kwargs):
-    return Button(align='center', **kwargs)
+    if align is None:
+        align = "center"
+    return Button(align=align, **kwargs)
 
 
 def make_footer_button(button_type, **kwargs):
