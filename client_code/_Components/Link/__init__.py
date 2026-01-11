@@ -48,6 +48,9 @@ class Link(LinkTemplate):
         component.add_event_handler("x-anvil-page-removed", on_removed)
         return super().add_component(component, **layout_props)
 
+    def focus(self):
+        self.dom_nodes['anvil-m3-link-text'].focus()
+
     def _on_cleanup(self, **event_args):
         self._revoke_tmp_url()
 

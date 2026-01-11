@@ -16,6 +16,10 @@ components:
     name: icon_button_menu_1
     properties: {}
     type: form:_Components.IconButtonMenu
+  - layout_properties: {grid_position: 'KIFKPQ,KVTRGI'}
+    name: link_1
+    properties: {text: Test}
+    type: form:_Components.Link
   layout_properties: {slot: default}
   name: content_panel
   properties: {}
