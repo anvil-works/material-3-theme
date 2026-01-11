@@ -1319,4 +1319,5 @@ th.month select.monthselect::after {
 }
 .anvil-m3-link-text {
   padding-left: 10px;
+  overflow-wrap: break-word;
 }

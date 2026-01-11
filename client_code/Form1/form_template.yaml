@@ -16,9 +16,14 @@ components:
     name: icon_button_menu_1
     properties: {}
     type: form:_Components.IconButtonMenu
-  - layout_properties: {grid_position: 'KIFKPQ,KVTRGI'}
+  - components:
+    - layout_properties: {slot: anvil-m3-link-slot}
+      name: navigation_link_1
+      properties: {}
+      type: form:_Components.NavigationLink
+    layout_properties: {grid_position: 'KIFKPQ,KVTRGI'}
     name: link_1
-    properties: {text: TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest, url: 'https://www.google.com'}
+    properties: {text: TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest Test, url: 'https://www.google.com'}
     type: form:_Components.Link
   layout_properties: {slot: default}
   name: content_panel
