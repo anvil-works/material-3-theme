@@ -1,35 +1,47 @@
-@import '_/theme/anvil-m3/button.css';
-@import '_/theme/anvil-m3/checkbox.css';
-@import '_/theme/anvil-m3/switch.css';
-@import '_/theme/anvil-m3/navigation-link.css';
-@import '_/theme/anvil-m3/card.css';
-@import '_/theme/anvil-m3/slider.css';
-@import '_/theme/anvil-m3/text-inputs.css';
-@import '_/theme/anvil-m3/radiobutton.css';
-@import '_/theme/anvil-m3/iconbutton.css';
-@import '_/theme/anvil-m3/menu.css';
-@import '_/theme/anvil-m3/text.css';
-@import '_/theme/anvil-m3/progress-indicator.css';
-@import '_/theme/anvil-m3/fileloader.css';
-@import '_/theme/anvil-m3/avatar.css';
+@import "_/theme/anvil-m3/button.css";
+@import "_/theme/anvil-m3/checkbox.css";
+@import "_/theme/anvil-m3/switch.css";
+@import "_/theme/anvil-m3/navigation-link.css";
+@import "_/theme/anvil-m3/card.css";
+@import "_/theme/anvil-m3/slider.css";
+@import "_/theme/anvil-m3/text-inputs.css";
+@import "_/theme/anvil-m3/radiobutton.css";
+@import "_/theme/anvil-m3/iconbutton.css";
+@import "_/theme/anvil-m3/menu.css";
+@import "_/theme/anvil-m3/text.css";
+@import "_/theme/anvil-m3/progress-indicator.css";
+@import "_/theme/anvil-m3/fileloader.css";
+@import "_/theme/anvil-m3/avatar.css";
 
 :root {
   --anvil-m3-primary: %color:Primary%;
   --anvil-m3-primary-container: %color:Primary Container%;
   --anvil-m3-on-primary: %color:On Primary%;
-  --anvil-m3-on-primary-container: %color:On Primary Container%;
+  --anvil-m3-on-primary-container: var(
+    --anvil-inline-color-On Primary Container
+  );
   --anvil-m3-secondary: %color:Secondary%;
   --anvil-m3-secondary-container: %color:Secondary Container%;
   --anvil-m3-on-secondary: %color:On Secondary%;
-  --anvil-m3-on-secondary-container: %color:On Secondary Container%;
+  --anvil-m3-on-secondary-container: var(
+    --anvil-inline-color-On Secondary Container
+  );
   --anvil-m3-tertiary: %color:Tertiary%;
   --anvil-m3-tertiary-container: %color:Tertiary Container%;
   --anvil-m3-on-tertiary: %color:On Tertiary%;
-  --anvil-m3-on-tertiary-container: %color:On Tertiary Container%;
+  --anvil-m3-on-tertiary-container: var(
+    --anvil-inline-color-On Tertiary Container
+  );
   --anvil-m3-surface-container: %color:Surface Container%;
-  --anvil-m3-surface-container-highest: %color:Surface Container Highest%;
-  --anvil-m3-surface-container-high: %color:Surface Container High%;
-  --anvil-m3-surface-container-low: %color:Surface Container Low%;
+  --anvil-m3-surface-container-highest: var(
+    --anvil-inline-color-Surface Container Highest
+  );
+  --anvil-m3-surface-container-high: var(
+    --anvil-inline-color-Surface Container High
+  );
+  --anvil-m3-surface-container-low: var(
+    --anvil-inline-color-Surface Container Low
+  );
   --anvil-m3-surface: %color:Surface%;
   --anvil-m3-on-surface: %color:On Surface%;
   --anvil-m3-surface-variant: %color:Surface Variant%;
@@ -41,7 +53,9 @@
   --anvil-m3-primary-overlay-3: %color:Primary Overlay 3%;
   --anvil-m3-on-disabled: %color:On Disabled%;
   --anvil-m3-disabled-container: %color:Disabled Container%;
-  --anvil-m3-disabled-container-2: %color:Disabled Container 2%;
+  --anvil-m3-disabled-container-2: var(
+    --anvil-inline-color-Disabled Container 2
+  );
   --anvil-m3-light-overlay-1: %color:Light Overlay 1%;
   --anvil-m3-light-overlay-2: %color:Light Overlay 2%;
   --anvil-m3-dark-overlay-1: %color:Dark Overlay 1%;
@@ -55,11 +69,18 @@
   --anvil-m3-error-overlay-2: %color:Error Overlay 2%;
   --anvil-m3-inverse-surface: %color:Inverse Surface%;
   --anvil-m3-inverse-on-surface: %color:Inverse On Surface%;
-  --anvil-m3-on-surface-variant-overlay-1: %color:On Surface Variant Overlay 1%;
-  --anvil-m3-on-surface-variant-overlay-2: %color:On Surface Variant Overlay 2%;
-  --anvil-m3-inverse-on-surface-overlay-1: %color:Inverse On Surface Overlay 1%;
-  --anvil-m3-inverse-on-surface-overlay-2: %color:Inverse On Surface Overlay 2%;
-
+  --anvil-m3-on-surface-variant-overlay-1: var(
+    --anvil-inline-color-On Surface Variant Overlay 1
+  );
+  --anvil-m3-on-surface-variant-overlay-2: var(
+    --anvil-inline-color-On Surface Variant Overlay 2
+  );
+  --anvil-m3-inverse-on-surface-overlay-1: var(
+    --anvil-inline-color-Inverse On Surface Overlay 1
+  );
+  --anvil-m3-inverse-on-surface-overlay-2: var(
+    --anvil-inline-color-Inverse On Surface Overlay 2
+  );
 }
 
 body {
@@ -70,7 +91,7 @@ body {
 }
 
 *:focus-visible {
-    outline-color: var(--anvil-m3-primary);
+  outline-color: var(--anvil-m3-primary);
 }
 
 .anvil-m3-structure {
@@ -80,7 +101,7 @@ body {
 }
 
 /*NAVIGATION: RAIL, DRAWER, APP BAR*/
-@media(min-width: 980px) {
+@media (min-width: 980px) {
   .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-out-designer {
     width: 360px !important;
     height: 100%;
@@ -90,13 +111,13 @@ body {
     justify-content: space-between;
     position: fixed;
     overflow-y: auto;
-    z-index:8;
+    z-index: 8;
     /* top: 0; */
     left: 0px !important;
   }
 }
 
-@media(min-width: 780px) {
+@media (min-width: 780px) {
   .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-in-designer {
     width: 360px !important;
     height: 100%;
@@ -106,61 +127,75 @@ body {
     justify-content: space-between;
     position: fixed;
     overflow-y: auto;
-    z-index:8;
+    z-index: 8;
     top: 0;
     left: 0px !important;
   }
 }
 
-@media(min-width: 600px) {
- .anvil-m3-navigation-rail {
+@media (min-width: 600px) {
+  .anvil-m3-navigation-rail {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: fixed;
     overflow-y: auto;
-    z-index:8;
+    z-index: 8;
     /* top: 0; */
     left: 0px !important;
-    background: linear-gradient(0deg, %color:Primary Overlay 2%, %color:Primary Overlay 2%), %color:Background%; 
+    background:
+      linear-gradient(
+        0deg,
+        %color:Primary Overlay 2%,
+        %color:Primary Overlay 2%
+      ),
+      %color:Background%;
     width: 80px !important;
     height: 100%;
-    height: calc(100% - %anvil-banner-height%)
+    height: calc(100% - %anvil-banner-height%);
   }
 }
 
-@media(min-width: 600px) {
+@media (min-width: 600px) {
   .anvil-m3-navigation-rail.anvil-m3-align-top {
     justify-content: flex-start;
   }
 }
 
-@media(min-width: 600px) {
+@media (min-width: 600px) {
   .anvil-m3-navigation-rail.anvil-m3-align-center {
     justify-content: center;
   }
 }
 
-@media(min-width: 600px) {
+@media (min-width: 600px) {
   .anvil-m3-navigation-rail.anvil-m3-align-bottom {
     justify-content: flex-end;
   }
 }
 
-@media(max-width: 980px) {
+@media (max-width: 980px) {
   .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-out-designer {
     width: 100%;
     max-width: 90vw;
     flex-direction: row;
     justify-content: center;
     overflow-y: hidden;
-    background: linear-gradient(0deg, %color:Primary Overlay 2%, %color:Primary Overlay 2%), %color:Background%;
-    z-index:9;
+    background:
+      linear-gradient(
+        0deg,
+        %color:Primary Overlay 2%,
+        %color:Primary Overlay 2%
+      ),
+      %color:Background%;
+    z-index: 9;
     display: block;
     height: 100vh;
     height: calc(100vh - %anvil-banner-height%);
     padding: 28px;
-    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+    box-shadow:
+      0px 1px 3px 1px rgba(0, 0, 0, 0.15),
+      0px 1px 2px 0px rgba(0, 0, 0, 0.3);
     margin: 0;
     top: 0;
     top: calc(0px + %anvil-banner-height%);
@@ -171,18 +206,26 @@ body {
   }
 }
 
-@media(max-width: 780px) {
-  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-in-designer  {
+@media (max-width: 780px) {
+  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-in-designer {
     width: 100%;
     flex-direction: row;
     justify-content: center;
     overflow-y: hidden;
-    background: linear-gradient(0deg, %color:Primary Overlay 2%, %color:Primary Overlay 2%), %color:Background%;
-    z-index:8;
+    background:
+      linear-gradient(
+        0deg,
+        %color:Primary Overlay 2%,
+        %color:Primary Overlay 2%
+      ),
+      %color:Background%;
+    z-index: 8;
     display: block;
     height: 100vh;
     padding: 28px;
-    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+    box-shadow:
+      0px 1px 3px 1px rgba(0, 0, 0, 0.15),
+      0px 1px 2px 0px rgba(0, 0, 0, 0.3);
     margin: 0;
     top: 0;
     left: -101%;
@@ -192,31 +235,39 @@ body {
   }
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   .anvil-m3-navigation-rail.anvil-m3-bottom-app-bar {
     width: 100%;
     padding: 12px 8px 16px 8px;
     flex-direction: row;
     justify-content: center;
     overflow-y: hidden;
-    background: linear-gradient(0deg, %color:Primary Overlay 2%, %color:Primary Overlay 2%), %color:Background%;
+    background:
+      linear-gradient(
+        0deg,
+        %color:Primary Overlay 2%,
+        %color:Primary Overlay 2%
+      ),
+      %color:Background%;
     bottom: 0;
     top: unset;
     height: 80px;
     display: flex;
     position: fixed;
-    z-index:8;
+    z-index: 8;
   }
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   .anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer {
     display: block;
-    z-index:8;
+    z-index: 8;
     height: 100vh;
     height: calc(100vh - %anvil-banner-height%);
     padding: 28px;
-    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+    box-shadow:
+      0px 1px 3px 1px rgba(0, 0, 0, 0.15),
+      0px 1px 2px 0px rgba(0, 0, 0, 0.3);
     margin: 0;
     top: 0;
     top: calc(0px + %anvil-banner-height%);
@@ -225,39 +276,51 @@ body {
     border-radius: 0 20px 20px 0;
     position: fixed;
     overflow-y: hidden;
-    background: linear-gradient(0deg, %color:Primary Overlay 2%, %color:Primary Overlay 2%), %color:Background%;
+    background:
+      linear-gradient(
+        0deg,
+        %color:Primary Overlay 2%,
+        %color:Primary Overlay 2%
+      ),
+      %color:Background%;
   }
 }
 
-
 @property --PrimaryOverlay2 {
-  syntax: '<color>';
+  syntax: "<color>";
   initial-value: %color:Primary Overlay 2%;
   inherits: false;
 }
 
-
 .anvil-m3-top-app-bar.anvil-m3-scrolled {
-  transition: background-color .25s; 
-  background: linear-gradient(0deg, %color:Primary Overlay 2%, %color:Primary Overlay 2%), %color:Background%;
+  transition: background-color 0.25s;
+  background:
+    linear-gradient(
+      0deg,
+      %color:Primary Overlay 2%,
+      %color:Primary Overlay 2%
+    ),
+    %color:Background%;
 }
 
-
-.anvil-m3-top-app-bar  {
-  display:none;
+.anvil-m3-top-app-bar {
+  display: none;
 }
 
-.anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer + .anvil-m3-top-app-bar, .anvil-m3-navigation-drawer + .anvil-m3-top-app-bar {
-    z-index: 1;
-    position: fixed;
-    transition: background-color .25s;
-    -webkit-transition: background-color .25s;
-    -moz-transition: background-color .25s;
-    -o-transition: background-color .25s;
-  }
+.anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer
+  + .anvil-m3-top-app-bar,
+.anvil-m3-navigation-drawer + .anvil-m3-top-app-bar {
+  z-index: 1;
+  position: fixed;
+  transition: background-color 0.25s;
+  -webkit-transition: background-color 0.25s;
+  -moz-transition: background-color 0.25s;
+  -o-transition: background-color 0.25s;
+}
 
-@media(max-width: 980px) {
-  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-out-designer + .anvil-m3-top-app-bar {
+@media (max-width: 980px) {
+  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-out-designer
+    + .anvil-m3-top-app-bar {
     padding: 20px 16px 24px;
     justify-content: space-between;
     align-items: start;
@@ -268,8 +331,9 @@ body {
   }
 }
 
-@media(max-width: 780px) {
-  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-in-designer + .anvil-m3-top-app-bar {
+@media (max-width: 780px) {
+  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-in-designer
+    + .anvil-m3-top-app-bar {
     padding: 20px 16px 24px;
     justify-content: space-between;
     align-items: start;
@@ -280,9 +344,10 @@ body {
   }
 }
 
-
-@media(max-width: 600px) {
-  .anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer + .anvil-m3-top-app-bar, .anvil-m3-navigation-drawer + .anvil-m3-top-app-bar {
+@media (max-width: 600px) {
+  .anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer
+    + .anvil-m3-top-app-bar,
+  .anvil-m3-navigation-drawer + .anvil-m3-top-app-bar {
     padding: 20px 16px 24px;
     justify-content: space-between;
     align-items: start;
@@ -292,7 +357,6 @@ body {
     position: relative;
   }
 }
-
 
 .anvil-m3-title-container {
   display: flex;
@@ -301,8 +365,10 @@ body {
   align-items: center;
 }
 
-@media(max-width: 980px) {
-  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-out-designer + .anvil-m3-top-app-bar .anvil-m3-app-bar-links {
+@media (max-width: 980px) {
+  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-out-designer
+    + .anvil-m3-top-app-bar
+    .anvil-m3-app-bar-links {
     display: flex;
     padding-right: 16px;
     column-gap: 24px;
@@ -311,8 +377,10 @@ body {
   }
 }
 
-@media(max-width: 780px) {
-  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-in-designer + .anvil-m3-top-app-bar .anvil-m3-app-bar-links {
+@media (max-width: 780px) {
+  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-in-designer
+    + .anvil-m3-top-app-bar
+    .anvil-m3-app-bar-links {
     display: flex;
     padding-right: 16px;
     column-gap: 24px;
@@ -321,8 +389,10 @@ body {
   }
 }
 
-@media(max-width: 600px) {
-  .anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer + .anvil-m3-top-app-bar .anvil-m3-app-bar-links {
+@media (max-width: 600px) {
+  .anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer
+    + .anvil-m3-top-app-bar
+    .anvil-m3-app-bar-links {
     display: flex;
     padding-right: 16px;
     column-gap: 24px;
@@ -331,82 +401,104 @@ body {
   }
 }
 
-@media(max-width: 980px) {
+@media (max-width: 980px) {
   .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-out-designer.anvil-m3-shown {
     width: 360px;
     left: 0px;
-    transition: left .25s;
+    transition: left 0.25s;
   }
 }
 
-@media(max-width: 780px) {
+@media (max-width: 780px) {
   .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-in-designer.anvil-m3-shown {
     width: 360px;
     left: 0px;
-    transition: left .25s;
+    transition: left 0.25s;
   }
 }
 
-
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   .anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer.anvil-m3-shown {
     width: 360px;
     max-width: 90vw;
     left: 0px;
-    transition: left .25s;
+    transition: left 0.25s;
   }
 }
 
-@media(max-width: 980px) {
-  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-out-designer.anvil-m3-shown .anvil-m3-drawer-close-btn {
+@media (max-width: 980px) {
+  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-out-designer.anvil-m3-shown
+    .anvil-m3-drawer-close-btn {
     display: block;
   }
 }
 
-@media(max-width: 780px) {
-  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-in-designer.anvil-m3-shown .anvil-m3-drawer-close-btn {
+@media (max-width: 780px) {
+  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-in-designer.anvil-m3-shown
+    .anvil-m3-drawer-close-btn {
     display: block;
   }
 }
 
-@media(max-width: 600px) {
-  .anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer.anvil-m3-shown .anvil-m3-drawer-close-btn {
+@media (max-width: 600px) {
+  .anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer.anvil-m3-shown
+    .anvil-m3-drawer-close-btn {
     display: block;
   }
 }
 
-@media(max-width: 980px) {
-.anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-out-designer + .anvil-m3-top-app-bar .anvil-m3-drawer-open-btn span, 
-.anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-out-designer .anvil-m3-drawer-close-btn span {
-  font-size: 24px;
+@media (max-width: 980px) {
+  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-out-designer
+    + .anvil-m3-top-app-bar
+    .anvil-m3-drawer-open-btn
+    span,
+  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-out-designer
+    .anvil-m3-drawer-close-btn
+    span {
+    font-size: 24px;
   }
 }
 
-@media(max-width: 780px) {
-.anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-in-designer + .anvil-m3-top-app-bar .anvil-m3-drawer-open-btn span, 
-.anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-in-designer .anvil-m3-drawer-close-btn span {
-  font-size: 24px;
+@media (max-width: 780px) {
+  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-in-designer
+    + .anvil-m3-top-app-bar
+    .anvil-m3-drawer-open-btn
+    span,
+  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-in-designer
+    .anvil-m3-drawer-close-btn
+    span {
+    font-size: 24px;
   }
 }
 
-@media(max-width: 600px) {
-.anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer + .anvil-m3-top-app-bar .anvil-m3-drawer-open-btn span, 
-.anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer .anvil-m3-drawer-close-btn span {
-  font-size: 24px;
+@media (max-width: 600px) {
+  .anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer
+    + .anvil-m3-top-app-bar
+    .anvil-m3-drawer-open-btn
+    span,
+  .anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer
+    .anvil-m3-drawer-close-btn
+    span {
+    font-size: 24px;
   }
 }
 
-.anvil-m3-drawer-open-btn, .anvil-m3-drawer-close-btn {
+.anvil-m3-drawer-open-btn,
+.anvil-m3-drawer-close-btn {
   display: none;
   cursor: pointer;
 }
 
-.anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer + .anvil-m3-top-app-bar .anvil-m3-drawer-open-btn, .anvil-m3-navigation-drawer + .anvil-m3-top-app-bar .anvil-m3-drawer-open-btn {
+.anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer
+  + .anvil-m3-top-app-bar
+  .anvil-m3-drawer-open-btn,
+.anvil-m3-navigation-drawer + .anvil-m3-top-app-bar .anvil-m3-drawer-open-btn {
   display: flex;
 }
 
-@media(max-width: 980px) {
-  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-out-designer ~ .anvil-m3-navigation-drawer-scrim{
+@media (max-width: 980px) {
+  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-out-designer
+    ~ .anvil-m3-navigation-drawer-scrim {
     background-color: rgba(0, 0, 0, 0.32);
     position: fixed;
     top: 0px;
@@ -417,8 +509,9 @@ body {
   }
 }
 
-@media(max-width: 780px) {
-  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-in-designer ~ .anvil-m3-navigation-drawer-scrim{
+@media (max-width: 780px) {
+  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-in-designer
+    ~ .anvil-m3-navigation-drawer-scrim {
     background-color: rgba(0, 0, 0, 0.32);
     position: fixed;
     top: 0px;
@@ -429,8 +522,9 @@ body {
   }
 }
 
-@media(max-width: 600px) {
-  .anvil-m3-navigation-rail ~ .anvil-m3-navigation-drawer-scrim, .anvil-m3-sidesheet-scrim {
+@media (max-width: 600px) {
+  .anvil-m3-navigation-rail ~ .anvil-m3-navigation-drawer-scrim,
+  .anvil-m3-sidesheet-scrim {
     background-color: rgba(0, 0, 0, 0.32);
     position: fixed;
     top: 0px;
@@ -441,26 +535,32 @@ body {
   }
 }
 
-@media(max-width: 980px) {
-  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-out-designer.anvil-m3-shown ~ .anvil-m3-navigation-drawer-scrim {
+@media (max-width: 980px) {
+  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-out-designer.anvil-m3-shown
+    ~ .anvil-m3-navigation-drawer-scrim {
     display: block;
   }
 }
 
-@media(max-width: 780px) {
-  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-in-designer.anvil-m3-shown ~ .anvil-m3-navigation-drawer-scrim {
+@media (max-width: 780px) {
+  .anvil-m3-navigation-drawer.anvil-m3-navigation-drawer-in-designer.anvil-m3-shown
+    ~ .anvil-m3-navigation-drawer-scrim {
     display: block;
   }
 }
 
-@media(max-width: 600px) {
-  .anvil-m3-modal-navigation-drawer.anvil-m3-shown ~ .anvil-m3-navigation-drawer-scrim,   .anvil-m3-navigation-drawer.anvil-m3-shown ~ .anvil-m3-navigation-drawer-scrim {
+@media (max-width: 600px) {
+  .anvil-m3-modal-navigation-drawer.anvil-m3-shown
+    ~ .anvil-m3-navigation-drawer-scrim,
+  .anvil-m3-navigation-drawer.anvil-m3-shown
+    ~ .anvil-m3-navigation-drawer-scrim {
     display: block;
   }
 }
 
-.anvil-m3-navigation-drawer-scrim, .anvil-m3-sidesheet-scrim {
-  display:none;
+.anvil-m3-navigation-drawer-scrim,
+.anvil-m3-sidesheet-scrim {
+  display: none;
 }
 
 .anvil-m3-navigation-rail-content {
@@ -470,29 +570,29 @@ body {
   flex-direction: column;
 }
 
-
-@media(max-width: 600px) {
-  .anvil-m3-navigation-rail.anvil-m3-bottom-app-bar .anvil-m3-navigation-rail-content {
+@media (max-width: 600px) {
+  .anvil-m3-navigation-rail.anvil-m3-bottom-app-bar
+    .anvil-m3-navigation-rail-content {
     margin-top: 0px;
     flex-direction: row;
     width: 100%;
     height: 80px;
     justify-content: center;
-    column-gap: 8px
-    }
+    column-gap: 8px;
+  }
 }
 
-@media(max-width: 600px) {
-  .anvil-m3-content.anvil-m3-content-navigation-rail.anvil-m3-bottom-app-bar  {
+@media (max-width: 600px) {
+  .anvil-m3-content.anvil-m3-content-navigation-rail.anvil-m3-bottom-app-bar {
     margin-bottom: 80px;
-    }
   }
+}
 
-
-@media(max-width: 600px) {
-  .anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer .anvil-m3-navigation-rail-content {
+@media (max-width: 600px) {
+  .anvil-m3-navigation-rail.anvil-m3-modal-navigation-drawer
+    .anvil-m3-navigation-rail-content {
     width: 100%;
-    }
+  }
 }
 
 .anvil-m3-navigation-rail [anvil-dropzone] {
@@ -503,35 +603,42 @@ body {
 .anvil-m3-content {
   top: 0;
   padding: 8px;
-  position:relative;
+  position: relative;
 }
 
-@media(min-width: 600px) {
+@media (min-width: 600px) {
   .anvil-m3-content.anvil-m3-content-navigation-rail {
     left: 80px;
     width: calc(100% - 80px);
-    }
+  }
 }
 
-@media(min-width: 980px) {
-  .anvil-m3-navigation-drawer-out-designer ~.anvil-m3-content.anvil-m3-content-navigation-drawer {
+@media (min-width: 980px) {
+  .anvil-m3-navigation-drawer-out-designer
+    ~ .anvil-m3-content.anvil-m3-content-navigation-drawer {
     left: 360px;
     width: calc(100% - 360px);
-    }
+  }
 }
 
-@media(min-width: 780px) {
-  .anvil-m3-navigation-drawer-in-designer ~ .anvil-m3-content.anvil-m3-content-navigation-drawer {
+@media (min-width: 780px) {
+  .anvil-m3-navigation-drawer-in-designer
+    ~ .anvil-m3-content.anvil-m3-content-navigation-drawer {
     left: 360px;
     width: calc(100% - 360px);
-    }
+  }
 }
-
 
 /*DIALOGS: ALERTS AND NOTIFICATIONS*/
 /*Default Anvil alert*/
 .anvil-modal-content {
-  background: linear-gradient(0deg, %color:Primary Overlay 3%, %color:Primary Overlay 3%), %color:Background%;
+  background:
+    linear-gradient(
+      0deg,
+      %color:Primary Overlay 3%,
+      %color:Primary Overlay 3%
+    ),
+    %color:Background%;
   box-shadow: none;
   border: none;
   border-radius: 28px;
@@ -539,7 +646,7 @@ body {
 }
 
 .anvil-modal-dialog:focus-visible {
-  border-radius: 28px
+  border-radius: 28px;
 }
 
 .anvil-modal-header {
@@ -549,7 +656,7 @@ body {
 }
 
 .anvil-close {
-  border:none;
+  border: none;
   background: transparent;
   font-family: "Material Icons";
   text-shadow: none;
@@ -579,7 +686,6 @@ body {
   border-top: none;
 }
 
-
 /*Notifications*/
 .anvil-alert {
   background-color: %color:Inverse Surface%;
@@ -593,30 +699,28 @@ body {
 
 .anvil-alert.anvil-alert-danger {
   background-color: %color:Error%;
-  color: %color:On Error%
+  color: %color:On Error%;
 }
-
 
 .anvil-alert.anvil-alert-success {
   background-color: %color:Primary%;
-  color: %color:On Primary%
+  color: %color:On Primary%;
 }
 
-
 .anvil-alert.anvil-alert-warning {
-  background-color:#f7edb6;
+  background-color: #f7edb6;
   color: #2b2b2b;
 }
 
 .anvil-alert.anvil-alert-warning .anvil-close {
   color: #2b2b2b;
 }
-  
+
 /*DIVIDER*/
 .anvil-m3-divider {
   border-top: solid 1px %color:Outline Variant%;
   margin-top: 8px;
-  margin-bottom: 8px
+  margin-bottom: 8px;
 }
 
 .anvil-m3-divider.inset {
@@ -636,7 +740,7 @@ body {
 }
 
 .anvil-m3-button.anvil-m3-filled .anvil-m3-textlessComponentText {
-    color: #dfdfdf !important;
+  color: #dfdfdf !important;
 }
 
 .anvil-m3-sidesheet {
@@ -645,22 +749,22 @@ body {
   position: fixed;
   transition: right 250ms;
   bottom: 0;
-  right: -301px; 
+  right: -301px;
   top: calc(0px + %anvil-banner-height%);
   overflow-y: auto;
   padding: 24px 24px 24px 16px;
-  display: none !important; 
-
+  display: none !important;
 }
 .anvil-m3-sidesheet-title-container {
   display: flex;
   justify-content: space-between;
   column-gap: 12px;
   padding-bottom: 24px;
-
 }
 
-.anvil-m3-sidesheet-title-container h1, .anvil-m3-sidesheet-title-container h2, .anvil-m3-sidesheet-title-container h3 {
+.anvil-m3-sidesheet-title-container h1,
+.anvil-m3-sidesheet-title-container h2,
+.anvil-m3-sidesheet-title-container h3 {
   margin: 0;
 }
 
@@ -671,13 +775,12 @@ body {
   height: 100%;
 }
 
-
-@media(min-width:600px) {
+@media (min-width: 600px) {
   .anvil-m3-sidesheet.anvil-m3-open {
     right: 0px;
   }
 }
-@media(min-width:600px) {
+@media (min-width: 600px) {
   .anvil-m3-sidesheet {
     border-left: 1px solid var(--anvil-m3-outline-variant);
   }
@@ -687,59 +790,69 @@ body {
   display: block !important;
 }
 
-@media(min-width:600px) {
+@media (min-width: 600px) {
   .anvil-m3-content-navigation-rail.anvil-m3-content.anvil-m3-sidesheet-open {
     width: calc(100% - 380px);
   }
 }
 
-@media(min-width:600px) {
+@media (min-width: 600px) {
   .anvil-m3-content-navigation-drawer.anvil-m3-content.anvil-m3-sidesheet-open {
     width: calc(100% - 300px);
   }
 }
 
-@media(min-width:980px) {
+@media (min-width: 980px) {
   .anvil-m3-content-navigation-drawer.anvil-m3-content.anvil-m3-sidesheet-open {
     width: calc(100% - 660px);
   }
 }
 
-@media(min-width:600px) {
+@media (min-width: 600px) {
   .anvil-m3-content.anvil-m3-transition-width {
     transition: width 250ms;
   }
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   .anvil-m3-sidesheet {
     right: -301px;
     top: 0;
     transition: right 0.25s;
-    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+    box-shadow:
+      0px 1px 3px 1px rgba(0, 0, 0, 0.15),
+      0px 1px 2px 0px rgba(0, 0, 0, 0.3);
     margin: 0;
     border-right: none;
     border-radius: 20px 0px 0px 20px;
     position: absolute;
-    background: linear-gradient(0deg, %color:Primary Overlay 2%, %color:Primary Overlay 2%), %color:Background%;
-    z-index:10;
+    background:
+      linear-gradient(
+        0deg,
+        %color:Primary Overlay 2%,
+        %color:Primary Overlay 2%
+      ),
+      %color:Background%;
+    z-index: 10;
   }
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   .anvil-m3-sidesheet.anvil-m3-open {
     right: 0px;
   }
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   .anvil-m3-sidesheet-scrim.anvil-m3-sidesheet-open {
-    display:block;
+    display: block;
   }
 }
 
 /* Modals */
-a.anvil-inlinable { color: %color:Primary%%; }
+a.anvil-inlinable {
+  color: %color:Primary% %;
+}
 
 /*TOOLTIP PROPERTY*/
 
@@ -754,7 +867,7 @@ a.anvil-inlinable { color: %color:Primary%%; }
   opacity: 0;
   transition: opacity 0.2s;
   transition-delay: 0.5s;
-  position:absolute;
+  position: absolute;
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -786,11 +899,35 @@ a.anvil-inlinable { color: %color:Primary%%; }
   color: %color:On Surface Variant%;
   padding: 6px 8px;
   border-radius: 24px;
-} 
+}
 
-.anvil-datepicker input + i.fa-calendar:hover::before { background: linear-gradient(0deg, var(--anvil-m3-light-overlay-1), var(--anvil-m3-light-overlay-1)),  var(--anvil-m3-dark-overlay-1) }
-.anvil-datepicker input + i.fa-calendar:focus::before { background: linear-gradient(0deg, var(--anvil-m3-light-overlay-2), var(--anvil-m3-light-overlay-2)),  var(--anvil-m3-dark-overlay-2) }
-.anvil-datepicker input + i.fa-calendar:active::before { background: linear-gradient(0deg, var(--anvil-m3-light-overlay-2), var(--anvil-m3-light-overlay-2)),  var(--anvil-m3-dark-overlay-2) }
+.anvil-datepicker input + i.fa-calendar:hover::before {
+  background:
+    linear-gradient(
+      0deg,
+      var(--anvil-m3-light-overlay-1),
+      var(--anvil-m3-light-overlay-1)
+    ),
+    var(--anvil-m3-dark-overlay-1);
+}
+.anvil-datepicker input + i.fa-calendar:focus::before {
+  background:
+    linear-gradient(
+      0deg,
+      var(--anvil-m3-light-overlay-2),
+      var(--anvil-m3-light-overlay-2)
+    ),
+    var(--anvil-m3-dark-overlay-2);
+}
+.anvil-datepicker input + i.fa-calendar:active::before {
+  background:
+    linear-gradient(
+      0deg,
+      var(--anvil-m3-light-overlay-2),
+      var(--anvil-m3-light-overlay-2)
+    ),
+    var(--anvil-m3-dark-overlay-2);
+}
 
 .anvil-datepicker input + i.fa-calendar {
   bottom: 15px;
@@ -802,7 +939,7 @@ a.anvil-inlinable { color: %color:Primary%%; }
 
 .anvil-datepicker input:focus {
   border-color: var(--anvil-m3-primary);
-  border-width: 2px; 
+  border-width: 2px;
   padding: 7px 15px;
 }
 
@@ -818,24 +955,35 @@ a.anvil-inlinable { color: %color:Primary%%; }
   background-color: var(--anvil-m3-surface-container-high);
 }
 
-.daterangepicker:after, .daterangepicker:before {
-  display:none;
+.daterangepicker:after,
+.daterangepicker:before {
+  display: none;
 }
 
-.daterangepicker td.off, .daterangepicker td.off.in-range, .daterangepicker td.off.start-date, .daterangepicker td.off.end-date {
+.daterangepicker td.off,
+.daterangepicker td.off.in-range,
+.daterangepicker td.off.start-date,
+.daterangepicker td.off.end-date {
   background-color: var(--anvil-m3-surface-container-high);
   color: var(--anvil-m3-on-surface-variant);
 }
 
 .daterangepicker td.active {
-  background-color: var(--anvil-m3-primary)
+  background-color: var(--anvil-m3-primary);
 }
 
 .daterangepicker td.active:hover {
-  background: linear-gradient(0deg, var(--anvil-m3-light-overlay-1), var(--anvil-m3-light-overlay-1)),  var(--anvil-m3-primary) !important;
+  background:
+    linear-gradient(
+      0deg,
+      var(--anvil-m3-light-overlay-1),
+      var(--anvil-m3-light-overlay-1)
+    ),
+    var(--anvil-m3-primary) !important;
 }
 
-.daterangepicker .calendar-table th, .daterangepicker .calendar-table td {
+.daterangepicker .calendar-table th,
+.daterangepicker .calendar-table td {
   font-weight: normal;
   font-size: 16px;
   height: 40px;
@@ -849,9 +997,14 @@ a.anvil-inlinable { color: %color:Primary%%; }
 }
 
 .daterangepicker td.available:hover {
-  background: linear-gradient(0deg, var(--anvil-m3-on-surface-variant-overlay-1), var(--anvil-m3-on-surface-variant-overlay-1)),  var(--anvil-m3-surface-container-high)
+  background:
+    linear-gradient(
+      0deg,
+      var(--anvil-m3-on-surface-variant-overlay-1),
+      var(--anvil-m3-on-surface-variant-overlay-1)
+    ),
+    var(--anvil-m3-surface-container-high);
 }
-
 
 .daterangepicker .calendar-table table {
   border-spacing: 4px;
@@ -862,7 +1015,10 @@ a.anvil-inlinable { color: %color:Primary%%; }
   max-width: fit-content;
 }
 
-.daterangepicker select.monthselect, .daterangepicker select.yearselect, .daterangepicker select.hourselect, .daterangepicker select.minuteselect {
+.daterangepicker select.monthselect,
+.daterangepicker select.yearselect,
+.daterangepicker select.hourselect,
+.daterangepicker select.minuteselect {
   border: none;
   background-color: transparent;
   color: var(--anvil-m3-on-surface);
@@ -870,7 +1026,8 @@ a.anvil-inlinable { color: %color:Primary%%; }
   font-weight: 500;
 }
 
-.daterangepicker select.monthselect, .daterangepicker select.yearselect {
+.daterangepicker select.monthselect,
+.daterangepicker select.yearselect {
   width: 70px;
 }
 
@@ -879,7 +1036,6 @@ th.month select.monthselect {
 }
 
 th.month select.monthselect::after {
-  
 }
 
 .daterangepicker .drp-buttons button.btn {
@@ -906,21 +1062,38 @@ th.month select.monthselect::after {
 
 .daterangepicker .drp-calendar.right .calendar-table {
   border: none;
-  }
+}
 
 /* Data Grids */
-.anvil-data-grid>.anvil-data-grid-child-panel>div.anvil-auto-grid-header, .anvil-data-grid>.anvil-data-grid-child-panel div.anvil-role-data-grid-header {
+.anvil-data-grid > .anvil-data-grid-child-panel > div.anvil-auto-grid-header,
+.anvil-data-grid
+  > .anvil-data-grid-child-panel
+  div.anvil-role-data-grid-header {
   background: %color:Surface Container Low%;
   border-bottom: 1px solid %color:Outline Variant%;
   color: %color:On Surface Variant%;
   border-radius: 24px 24px 0 0;
 }
 
-.anvil-data-grid>.anvil-data-grid-child-panel>div.anvil-auto-grid-header div.anvil-data-row-col:last-child:not(.anvil-extra-column), .anvil-data-grid>.anvil-data-grid-child-panel div.anvil-role-data-grid-header div.anvil-data-row-col:last-child:not(.anvil-extra-column) {
+.anvil-data-grid
+  > .anvil-data-grid-child-panel
+  > div.anvil-auto-grid-header
+  div.anvil-data-row-col:last-child:not(.anvil-extra-column),
+.anvil-data-grid
+  > .anvil-data-grid-child-panel
+  div.anvil-role-data-grid-header
+  div.anvil-data-row-col:last-child:not(.anvil-extra-column) {
   border-right: 0;
 }
 
-.anvil-data-grid>.anvil-data-grid-child-panel>div.anvil-auto-grid-header div.anvil-data-row-col:not(.anvil-extra-column), .anvil-data-grid>.anvil-data-grid-child-panel div.anvil-role-data-grid-header div.anvil-data-row-col:not(.anvil-extra-column){
+.anvil-data-grid
+  > .anvil-data-grid-child-panel
+  > div.anvil-auto-grid-header
+  div.anvil-data-row-col:not(.anvil-extra-column),
+.anvil-data-grid
+  > .anvil-data-grid-child-panel
+  div.anvil-role-data-grid-header
+  div.anvil-data-row-col:not(.anvil-extra-column) {
   padding: 12px;
   margin: 0;
   border-right: 1px solid %color:Outline Variant%;
@@ -929,13 +1102,21 @@ th.month select.monthselect::after {
   justify-content: center;
 }
 
-.anvil-data-grid > .anvil-data-grid-child-panel>div.anvil-auto-grid-header div.anvil-data-row-col:not(.anvil-extra-column) div {
+.anvil-data-grid
+  > .anvil-data-grid-child-panel
+  > div.anvil-auto-grid-header
+  div.anvil-data-row-col:not(.anvil-extra-column)
+  div {
   font-size: 16px;
   color: %color:On Surface Variant%;
   font-weight: 500;
 }
 
-.anvil-data-grid > .anvil-data-grid-child-panel>div.anvil-auto-grid-header div.anvil-data-row-col:not(.anvil-extra-column) span.anvil-label-text {
+.anvil-data-grid
+  > .anvil-data-grid-child-panel
+  > div.anvil-auto-grid-header
+  div.anvil-data-row-col:not(.anvil-extra-column)
+  span.anvil-label-text {
   padding: 0;
 }
 
@@ -944,7 +1125,10 @@ th.month select.monthselect::after {
   border: 1px solid %color:Outline Variant%;
 }
 
-.anvil-data-grid .anvil-data-grid-child-panel .anvil-repeating-panel div.anvil-data-row-col:not(.anvil-extra-column) {
+.anvil-data-grid
+  .anvil-data-grid-child-panel
+  .anvil-repeating-panel
+  div.anvil-data-row-col:not(.anvil-extra-column) {
   border-right: 1px solid %color:Outline Variant%;
   border-bottom: 1px solid %color:Outline Variant%;
   display: flex;
@@ -952,7 +1136,10 @@ th.month select.monthselect::after {
   padding: 16px 24px;
 }
 
-.anvil-data-grid .anvil-data-grid-child-panel .anvil-design-repeating-panel div.anvil-data-row-col:not(.anvil-extra-column) {
+.anvil-data-grid
+  .anvil-data-grid-child-panel
+  .anvil-design-repeating-panel
+  div.anvil-data-row-col:not(.anvil-extra-column) {
   border-right: 1px solid %color:Outline Variant%;
   border-bottom: 1px solid %color:Outline Variant%;
   display: flex;
@@ -960,19 +1147,33 @@ th.month select.monthselect::after {
   padding: 16px 24px;
 }
 
-.anvil-data-grid .anvil-data-grid-child-panel .anvil-repeating-panel div.anvil-data-row-col:not(.anvil-extra-column) > * {
+.anvil-data-grid
+  .anvil-data-grid-child-panel
+  .anvil-repeating-panel
+  div.anvil-data-row-col:not(.anvil-extra-column)
+  > * {
   flex-grow: 1;
 }
 
-.anvil-data-grid .anvil-data-grid-child-panel .anvil-design-repeating-panel div.anvil-data-row-col:not(.anvil-extra-column) > * {
+.anvil-data-grid
+  .anvil-data-grid-child-panel
+  .anvil-design-repeating-panel
+  div.anvil-data-row-col:not(.anvil-extra-column)
+  > * {
   flex-grow: 1;
 }
 
-.anvil-data-grid .anvil-data-grid-child-panel .anvil-repeating-panel div.anvil-data-row-col:last-child:not(.anvil-extra-column) {
+.anvil-data-grid
+  .anvil-data-grid-child-panel
+  .anvil-repeating-panel
+  div.anvil-data-row-col:last-child:not(.anvil-extra-column) {
   border-right: 0;
 }
 
-.anvil-data-grid .anvil-data-grid-child-panel .anvil-design-repeating-panel div.anvil-data-row-col:last-child:not(.anvil-extra-column) {
+.anvil-data-grid
+  .anvil-data-grid-child-panel
+  .anvil-design-repeating-panel
+  div.anvil-data-row-col:last-child:not(.anvil-extra-column) {
   border-right: 0;
 }
 
@@ -984,31 +1185,51 @@ th.month select.monthselect::after {
   margin: 0;
 }
 
-.anvil-data-grid .anvil-data-grid-child-panel .anvil-data-row-panel div.anvil-data-row-col:not(.anvil-extra-column) {
+.anvil-data-grid
+  .anvil-data-grid-child-panel
+  .anvil-data-row-panel
+  div.anvil-data-row-col:not(.anvil-extra-column) {
   border-right: 1px solid %color:Outline Variant%;
   border-bottom: 1px solid %color:Outline Variant%;
   padding: 16px 24px;
 }
 
-.anvil-data-grid .anvil-data-grid-child-panel .anvil-design-data-row-panel div.anvil-data-row-col:not(.anvil-extra-column) {
+.anvil-data-grid
+  .anvil-data-grid-child-panel
+  .anvil-design-data-row-panel
+  div.anvil-data-row-col:not(.anvil-extra-column) {
   border-right: 1px solid %color:Outline Variant%;
   border-bottom: 1px solid %color:Outline Variant%;
   padding: 16px 24px;
 }
 
-.anvil-data-grid .anvil-data-grid-child-panel .anvil-data-row-panel div.anvil-data-row-col:not(.anvil-extra-column) > * {
+.anvil-data-grid
+  .anvil-data-grid-child-panel
+  .anvil-data-row-panel
+  div.anvil-data-row-col:not(.anvil-extra-column)
+  > * {
   flex-grow: 1;
 }
 
-.anvil-data-grid .anvil-data-grid-child-panel .anvil-design-data-row-panel div.anvil-data-row-col:not(.anvil-extra-column) > * {
+.anvil-data-grid
+  .anvil-data-grid-child-panel
+  .anvil-design-data-row-panel
+  div.anvil-data-row-col:not(.anvil-extra-column)
+  > * {
   flex-grow: 1;
 }
 
-.anvil-data-grid .anvil-data-grid-child-panel .anvil-data-row-panel div.anvil-data-row-col:last-child:not(.anvil-extra-column) {
+.anvil-data-grid
+  .anvil-data-grid-child-panel
+  .anvil-data-row-panel
+  div.anvil-data-row-col:last-child:not(.anvil-extra-column) {
   border-right: 0;
 }
 
-.anvil-data-grid .anvil-data-grid-child-panel .anvil-design-data-row-panel div.anvil-data-row-col:last-child:not(.anvil-extra-column) {
+.anvil-data-grid
+  .anvil-data-grid-child-panel
+  .anvil-design-data-row-panel
+  div.anvil-data-row-col:last-child:not(.anvil-extra-column) {
   border-right: 0;
 }
 
@@ -1020,41 +1241,82 @@ th.month select.monthselect::after {
   margin: 0;
 }
 
-.anvil-data-grid > .data-grid-child-panel>div.auto-grid-header div.data-row-col, .anvil-data-grid > .data-grid-child-panel div.anvil-role-data-grid-header div.data-row-col{
+.anvil-data-grid
+  > .data-grid-child-panel
+  > div.auto-grid-header
+  div.data-row-col,
+.anvil-data-grid
+  > .data-grid-child-panel
+  div.anvil-role-data-grid-header
+  div.data-row-col {
   border-top: 0;
   border-bottom: 0;
   border-right: 0;
 }
 
-.anvil-data-grid .anvil-data-row-col[data-grid-col-id="null"] {padding: 0 !important;}
+.anvil-data-grid .anvil-data-row-col[data-grid-col-id="null"] {
+  padding: 0 !important;
+}
 
 .anvil-always-inline-container > div > .anvil-m3-textinput {
-    display: inline-block;
-    vertical-align: middle;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .anvil-always-inline-container > div > .anvil-m3-textinput.has-char-count,
 .anvil-always-inline-container > div > .anvil-m3-textinput.has-supporting-text {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .anvil-always-inline-container > div > .anvil-m3-checkbox-component,
-.anvil-always-inline-container > div > .anvil-m3-avatar-container, 
+.anvil-always-inline-container > div > .anvil-m3-avatar-container,
 .anvil-always-inline-container > div > .anvil-m3-avatarMenu-container,
 .anvil-always-inline-container > div > .anvil-m3-iconButtonMenu-container,
 .anvil-always-inline-container > div > .anvil-m3-switch-container,
 .anvil-always-inline-container > div > .anvil-m3-fileloader-form,
-.anvil-always-inline-container > div > .anvil-m3-heading-container, 
-.anvil-always-inline-container > div > .anvil-m3-text-container, 
-.anvil-always-inline-container > div > .anvil-m3-link, 
+.anvil-always-inline-container > div > .anvil-m3-heading-container,
+.anvil-always-inline-container > div > .anvil-m3-text-container,
+.anvil-always-inline-container > div > .anvil-m3-link,
 .anvil-always-inline-container > div > .anvil-m3-avatar-container,
 .anvil-always-inline-container > div > .anvil-m3-slider {
-    display: inline-flex !important;
-    vertical-align: middle;
+  display: inline-flex !important;
+  vertical-align: middle;
 }
 
 .anvil-always-inline-container > div > .anvil-m3-iconbutton-component,
 .anvil-always-inline-container > div > .anvil-m3-radiobutton-component,
-.anvil-always-inline-container > div > .anvil-m3-dropdownMenu-container { 
-    vertical-align: middle
+.anvil-always-inline-container > div > .anvil-m3-dropdownMenu-container {
+  vertical-align: middle;
+}
+
+/* Anchor provides geometry */
+.anvil-m3-link {
+  position: relative;
+}
+
+/* Kill UA focus artifacts */
+.anvil-m3-link:focus-visible {
+  outline: none;
+}
+
+/* Focus ring drawn OUTSIDE the visual box */
+.anvil-m3-link:focus-visible::after {
+  content: "";
+  position: absolute;
+
+  /* Expand outward so text is never clipped */
+  top: -2px;
+  bottom: 2px;
+  left: 2px;
+  right: 2px;
+
+  outline: 2px solid var(--anvil-m3-primary, #6750a4);
+  outline-offset: 0;
+  border-radius: 8px;
+
+  pointer-events: none;
+  box-sizing: border-box;
+}
+.anvil-m3-link-text {
+  padding-left: 10px;
 }
