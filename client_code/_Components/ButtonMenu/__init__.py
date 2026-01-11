@@ -30,6 +30,9 @@ class ButtonMenu(MenuMixin, ButtonMenuTemplate):
 
         self.init_components(**properties)
 
+    def focus(self):
+        self.menu_button.focus()
+
     def _anvil_get_unset_property_values_(self):
         el = self.menu_button.dom_nodes["anvil-m3-button"]
         sp = get_unset_spacing(el, el, self.spacing)

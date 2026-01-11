@@ -34,8 +34,8 @@ class NavigationLink(NavigationLinkTemplate):
         self.add_event_handler("x-anvil-page-removed", self._on_cleanup)
 
     def focus(self):
-      self.dom_nodes
-  
+        self.dom_nodes['anvil-m3-navigation-link'].focus()
+
     def _on_cleanup(self, **event_args):
         if anvil.designer.in_designer:
             anvil.designer.register_interaction(

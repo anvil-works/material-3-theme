@@ -1305,7 +1305,7 @@ th.month select.monthselect::after {
   position: absolute;
 
   /* Expand outward so text is never clipped */
-  top: -2px;
+  top: 2px;
   bottom: 2px;
   left: 2px;
   right: 2px;
@@ -1319,5 +1319,4 @@ th.month select.monthselect::after {
 }
 .anvil-m3-link-text {
   padding-left: 10px;
-  overflow-wrap: break-word;
 }

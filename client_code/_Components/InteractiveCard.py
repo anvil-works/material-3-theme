@@ -28,6 +28,9 @@ class InteractiveCard(Card):
         self.dom_nodes['anvil-m3-card'].classList.toggle('anvil-m3-interactive', True)
         self.dom_nodes['anvil-m3-card'].addEventListener("click", self._handle_click)
 
+    def focus(self):
+        self.dom_nodes['anvil-m3-card'].focus()
+
     @anvil_prop
     @property
     def enabled(self, value) -> bool:

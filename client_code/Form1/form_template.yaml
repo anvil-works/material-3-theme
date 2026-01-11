@@ -4,6 +4,32 @@ components:
     name: dropdown_menu_1
     properties: {}
     type: form:_Components.DropdownMenu
+  - components:
+    - layout_properties: {slot: card-content-slot}
+      name: card_content_container_1
+      properties: {}
+      type: form:_Components.Card.CardContentContainer
+    event_bindings: {}
+    layout_properties: {grid_position: 'MCVZRB,NILEPO'}
+    name: interactive_card_1
+    properties: {}
+    type: form:_Components.InteractiveCard
+  - layout_properties: {grid_position: 'PXIYPK,HJWSYB'}
+    name: file_loader_1
+    properties: {}
+    type: form:_Components.FileLoader
+  - layout_properties: {grid_position: 'FNWKLJ,SRWZZZ'}
+    name: checkbox_1
+    properties: {}
+    type: form:_Components.Checkbox
+  - layout_properties: {grid_position: 'YURHHC,DEIMIC'}
+    name: button_menu_1
+    properties: {}
+    type: form:_Components.ButtonMenu
+  - layout_properties: {grid_position: 'NPHVMC,BSSCNT'}
+    name: navigation_link_1
+    properties: {navigate_to: _Components.IconButton}
+    type: form:_Components.NavigationLink
   - layout_properties: {grid_position: 'VHCZDL,XAEIQM'}
     name: button_1
     properties: {}
@@ -16,11 +42,7 @@ components:
     name: icon_button_menu_1
     properties: {}
     type: form:_Components.IconButtonMenu
-  - components:
-    - layout_properties: {slot: anvil-m3-link-slot}
-      name: navigation_link_1
-      properties: {}
-      type: form:_Components.NavigationLink
+  - components: []
     layout_properties: {grid_position: 'KIFKPQ,KVTRGI'}
     name: link_1
     properties: {text: TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest Test, url: 'https://www.google.com'}
