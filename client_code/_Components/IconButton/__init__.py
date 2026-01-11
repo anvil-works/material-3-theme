@@ -27,6 +27,9 @@ class IconButton(IconButtonTemplate):
             'click', self._handle_click
         )
 
+    def focus(self):
+        self.dom_nodes["anvil-m3-iconbutton-container"].focus()
+
     def _anvil_get_unset_property_values_(self):
         el = self.dom_nodes["anvil-m3-iconbutton-container"]
         m = get_unset_margin(el, self.margin)

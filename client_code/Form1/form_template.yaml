@@ -1,0 +1,26 @@
+components:
+- components:
+  - layout_properties: {grid_position: 'YZJREJ,NFDCCB'}
+    name: dropdown_menu_1
+    properties: {}
+    type: form:_Components.DropdownMenu
+  - layout_properties: {grid_position: 'VHCZDL,XAEIQM'}
+    name: button_1
+    properties: {}
+    type: form:_Components.Button
+  - layout_properties: {grid_position: 'IXRJCY,GFPGCS'}
+    name: icon_button_1
+    properties: {}
+    type: form:_Components.IconButton
+  - layout_properties: {grid_position: 'UHUMWL,CXMBFQ'}
+    name: icon_button_menu_1
+    properties: {}
+    type: form:_Components.IconButtonMenu
+  layout_properties: {slot: default}
+  name: content_panel
+  properties: {}
+  type: ColumnPanel
+container:
+  properties: {html: '@theme:standard-page.html'}
+  type: HtmlTemplate
+is_package: true

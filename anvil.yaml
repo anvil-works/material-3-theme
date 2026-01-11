@@ -22,7 +22,7 @@ services:
 - client_config: {}
   server_config: {}
   source: /runtime/services/tables.yml
-startup: {module: _TestForms.ButtonMenuFUI, type: form}
+startup: {module: Form1, type: form}
 startup_form: null
 toolbox: {hide_classic_components: true}
 toolbox_sections:
@@ -194,10 +194,10 @@ toolbox_sections:
   title: Feedback
 - description: Integrations allow you to connect to other platforms and services
   items:
-  - component: {type: anvil.Plot}
+  - codePrelude: import plotly.graph_objects as go
+    component: {type: anvil.Plot}
     icon: {dark: /ide/img/toolbox/Plot.dark.svg, light: /ide/img/toolbox/Plot.svg}
     title: Plot
-    codePrelude: "import plotly.graph_objects as go"
     url: /docs/client/components/plot
   - component: {type: anvil.YouTubeVideo}
     icon: {dark: /ide/img/toolbox/YouTubeVideo.dark.svg, light: /ide/img/toolbox/YouTubeVideo.svg}
