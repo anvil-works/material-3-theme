@@ -8,6 +8,7 @@ class Form1(Form1Template):
         self.init_components(**properties)
         self.icon_button_menu_1.menu_items = [Button(text=n) for n in ["1", "2", "3"]]
         self.button_menu_1.menu_items = [Button(text=n) for n in ["1", "2", "3"]]
+        self.avatar_menu_1.menu_items = [Button(text=n) for n in ["1", "2", "3"]]
 
     @anvil.handle("interactive_card_1", "click")
     def interactive_card_1_click(self, **event_args):
