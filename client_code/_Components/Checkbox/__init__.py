@@ -41,7 +41,6 @@ class Checkbox(CheckboxTemplate):
             lambda event: (
                 event.key == " "
                 and (event.preventDefault() or True)
-                and anvil.alert(event.key)
                 and self._handle_change(event)
             ),
         )
