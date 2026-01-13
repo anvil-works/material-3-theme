@@ -4,7 +4,23 @@ components:
     name: avatar_menu_1
     properties: {}
     type: form:_Components.AvatarMenu
+  - layout_properties: {grid_position: 'UUSYGM,WKBDNH'}
+    name: switch_1
+    properties: {selected: false, selected_icon: 'mi:check', unselected_icon: 'mi:close'}
+    type: form:_Components.Switch
+  - layout_properties: {grid_position: 'ZVUHOG,YUAHKC'}
+    name: toggle_icon_button_1
+    properties: {}
+    type: form:_Components.ToggleIconButton
+  - layout_properties: {grid_position: 'OMEZZW,SKBMWJ'}
+    name: text_box_1
+    properties: {label: Box 1}
+    type: form:_Components.TextInput.TextBox
   - components:
+    - layout_properties: {slot: default}
+      name: text_area_1
+      properties: {label: Area 1}
+      type: form:_Components.TextInput.TextArea
     - layout_properties: {slot: default}
       name: slider_1
       properties: {}
