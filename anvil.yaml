@@ -22,7 +22,7 @@ services:
 - client_config: {}
   server_config: {}
   source: /runtime/services/tables.yml
-startup: {module: Form1, type: form}
+startup: {module: FocusMethodTesting, type: form}
 startup_form: null
 toolbox: {hide_classic_components: true}
 toolbox_sections:

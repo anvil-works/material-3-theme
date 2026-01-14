@@ -49,7 +49,7 @@ class Link(LinkTemplate):
         return super().add_component(component, **layout_props)
 
     def focus(self):
-        self.dom_nodes['anvil-m3-link'].parentElement.focus()
+        self.dom_nodes['anvil-m3-link'].focus()
 
     def _on_cleanup(self, **event_args):
         self._revoke_tmp_url()

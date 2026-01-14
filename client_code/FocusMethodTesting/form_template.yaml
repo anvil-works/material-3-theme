@@ -1,5 +1,14 @@
 components:
 - components:
+  - event_bindings: {}
+    layout_properties: {grid_position: 'SFGLDN,CUQUPB'}
+    name: focus_button
+    properties: {appearance: tonal, text: Focus This Element}
+    type: form:_Components.Button
+  - layout_properties: {grid_position: 'SFGLDN,UYTODP'}
+    name: focused_element
+    properties: {placeholder: Enter Element Name}
+    type: form:_Components.TextInput.TextBox
   - layout_properties: {grid_position: 'ILBLCW,RRHPZM'}
     name: avatar_menu_1
     properties: {}
@@ -50,7 +59,12 @@ components:
     properties: {}
     type: form:_Components.RadioButton
   - components:
-    - layout_properties: {slot: card-content-slot}
+    - components:
+      - layout_properties: {slot: card-content-container-slot}
+        name: date_picker_1
+        properties: {}
+        type: DatePicker
+      layout_properties: {slot: card-content-slot}
       name: card_content_container_1
       properties: {}
       type: form:_Components.Card.CardContentContainer
@@ -94,7 +108,7 @@ components:
     type: form:_Components.Link
   layout_properties: {slot: default}
   name: content_panel
-  properties: {}
+  properties: {col_widths: '{"CUQUPB":15,"UYTODP":45}'}
   type: ColumnPanel
 container:
   properties: {html: '@theme:standard-page.html'}
