@@ -1,10 +1,12 @@
 from .._utils.properties import anvil_prop
 from .Card import Card
+from .._utils.properties import anvil_prop
 import anvil
 
 enabled_property = {
     "name": "enabled",
     "type": "boolean",
+    # "default_value": True,
     "important": True,
     "designerHint": "enabled",
     "group": "Interaction",
@@ -25,7 +27,7 @@ class InteractiveCard(Card):
         super().__init__(**properties)
         self.init_components(**properties)
         # Module component props don't get their default values initialized by default. This makes sure the enabled setter has run.
-        self.enabled = True
+        self.enabled = self.enabled
         self.dom_nodes['anvil-m3-card'].classList.toggle('anvil-m3-interactive', True)
         self.dom_nodes['anvil-m3-card'].addEventListener("click", self._handle_click)
         self.dom_nodes['anvil-m3-card'].addEventListener(
@@ -40,7 +42,7 @@ class InteractiveCard(Card):
     def focus(self):
         self.dom_nodes['anvil-m3-card'].focus()
 
-    @anvil_prop
+    @anvil_prop(default_value=True)
     @property
     def enabled(self, value) -> bool:
         """If True, this component allows user interaction."""
