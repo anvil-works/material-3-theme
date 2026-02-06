@@ -1,0 +1,116 @@
+components:
+- components:
+  - event_bindings: {}
+    layout_properties: {grid_position: 'SFGLDN,CUQUPB'}
+    name: focus_button
+    properties: {appearance: tonal, text: Focus This Element}
+    type: form:_Components.Button
+  - layout_properties: {grid_position: 'SFGLDN,UYTODP'}
+    name: focused_element
+    properties: {placeholder: Enter Element Name}
+    type: form:_Components.TextInput.TextBox
+  - layout_properties: {grid_position: 'ILBLCW,RRHPZM'}
+    name: avatar_menu_1
+    properties: {}
+    type: form:_Components.AvatarMenu
+  - layout_properties: {grid_position: 'UUSYGM,WKBDNH'}
+    name: switch_1
+    properties: {selected: false, selected_icon: 'mi:check', unselected_icon: 'mi:close'}
+    type: form:_Components.Switch
+  - layout_properties: {grid_position: 'ZVUHOG,YUAHKC'}
+    name: toggle_icon_button_1
+    properties: {}
+    type: form:_Components.ToggleIconButton
+  - layout_properties: {grid_position: 'OMEZZW,SKBMWJ'}
+    name: text_box_1
+    properties: {label: Box 1}
+    type: form:_Components.TextInput.TextBox
+  - components:
+    - layout_properties: {slot: default}
+      name: text_area_1
+      properties: {label: Area 1}
+      type: form:_Components.TextInput.TextArea
+    - layout_properties: {slot: default}
+      name: slider_1
+      properties: {}
+      type: form:_Components.Slider
+    - layout_properties: {}
+      name: radio_button_2
+      properties: {text: First}
+      type: form:_Components.RadioButton
+    - layout_properties: {}
+      name: radio_button_3
+      properties: {text: Second}
+      type: form:_Components.RadioButton
+    - layout_properties: {}
+      name: radio_button_4
+      properties: {text: Third}
+      type: form:_Components.RadioButton
+    layout_properties: {grid_position: 'HLYYVO,MDAGQK'}
+    name: radio_group_panel_1
+    properties: {}
+    type: form:_Components.RadioGroupPanel
+  - layout_properties: {grid_position: 'YZJREJ,NFDCCB'}
+    name: dropdown_menu_1
+    properties: {}
+    type: form:_Components.DropdownMenu
+  - layout_properties: {grid_position: 'LDOLIM,SSWAAG'}
+    name: radio_button_1
+    properties: {}
+    type: form:_Components.RadioButton
+  - components:
+    - components:
+      - layout_properties: {slot: card-content-container-slot}
+        name: date_picker_1
+        properties: {}
+        type: DatePicker
+      layout_properties: {slot: card-content-slot}
+      name: card_content_container_1
+      properties: {}
+      type: form:_Components.Card.CardContentContainer
+    event_bindings: {}
+    layout_properties: {grid_position: 'MCVZRB,NILEPO'}
+    name: interactive_card_1
+    properties: {}
+    type: form:_Components.InteractiveCard
+  - layout_properties: {grid_position: 'PXIYPK,HJWSYB'}
+    name: file_loader_1
+    properties: {}
+    type: form:_Components.FileLoader
+  - layout_properties: {grid_position: 'FNWKLJ,SRWZZZ'}
+    name: checkbox_1
+    properties: {}
+    type: form:_Components.Checkbox
+  - layout_properties: {grid_position: 'YURHHC,DEIMIC'}
+    name: button_menu_1
+    properties: {}
+    type: form:_Components.ButtonMenu
+  - layout_properties: {grid_position: 'NPHVMC,BSSCNT'}
+    name: navigation_link_1
+    properties: {navigate_to: _Components.IconButton}
+    type: form:_Components.NavigationLink
+  - layout_properties: {grid_position: 'VHCZDL,XAEIQM'}
+    name: button_1
+    properties: {}
+    type: form:_Components.Button
+  - layout_properties: {grid_position: 'IXRJCY,GFPGCS'}
+    name: icon_button_1
+    properties: {}
+    type: form:_Components.IconButton
+  - layout_properties: {grid_position: 'UHUMWL,CXMBFQ'}
+    name: icon_button_menu_1
+    properties: {}
+    type: form:_Components.IconButtonMenu
+  - components: []
+    layout_properties: {grid_position: 'KIFKPQ,KVTRGI'}
+    name: link_1
+    properties: {text: TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest Test, url: 'https://www.google.com'}
+    type: form:_Components.Link
+  layout_properties: {slot: default}
+  name: content_panel
+  properties: {col_widths: '{"CUQUPB":15,"UYTODP":45}'}
+  type: ColumnPanel
+container:
+  properties: {html: '@theme:standard-page.html'}
+  type: HtmlTemplate
+is_package: true

@@ -164,3 +164,7 @@
 
 .anvil-m3-slider-disabled .anvil-m3-slider-marker-bg { background: var(--anvil-m3-on-disabled); }
 .anvil-m3-slider-disabled .anvil-m3-slider-marker-progress { background: var(--anvil-m3-inverse-on-surface); }
+.anvil-m3-slider:focus-within {
+  outline: 2px solid var(--anvil-m3-primary, #6750a4);
+  outline-offset: -2px;
+}

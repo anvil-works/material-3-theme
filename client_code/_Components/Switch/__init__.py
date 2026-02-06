@@ -28,6 +28,9 @@ class Switch(SwitchTemplate):
             "change", self._handle_change
         )
 
+    def focus(self):
+        self.dom_nodes['anvil-m3-switch-input'].focus()
+
     def _anvil_get_unset_property_values_(self):
         el = self.dom_nodes["anvil-m3-switch-container"]
         m = get_unset_margin(el, self.margin)
