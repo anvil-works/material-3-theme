@@ -5,8 +5,8 @@ from ._Components.Checkbox import Checkbox
 from ._Components.TextInput.TextBox import TextBox
 
 
-def make_button(align=None, **kwargs):
-    return Button(align='center', **kwargs)
+def make_button(align="center", **kwargs):
+    return Button(align=align, **kwargs)
 
 
 def make_footer_button(button_type, **kwargs):

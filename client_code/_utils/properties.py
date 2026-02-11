@@ -346,3 +346,28 @@ def inline_editing(
     )
 
     return set_designer_text_placeholder, start_inline_editing
+
+
+def make_icon_element(icon_name):
+    """temporary function until added to anvil core"""
+    if not isinstance(icon_name, str):
+        return None
+    
+    if not icon_name:
+        return None
+    
+    icon_parts = icon_name.split(":")
+    if len(icon_parts) != 2:
+        return None
+    
+    icon_set, icon_name = icon_parts
+    if not icon_set.startswith("fa"):
+        return None
+    
+    icon_element = document.createElement('i')
+    icon_element.classList.add(icon_set)
+    icon_element.classList.add(f"fa-{icon_name}")
+
+    return icon_element
+
+    
