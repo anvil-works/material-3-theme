@@ -52,6 +52,7 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
         'anvil-m3-avatarMenu-items-container', 'background', 'menu_background_color'
     )
     menu_border = border_property('anvil-m3-avatarMenu-items-container', 'menu_border')
+    role = HtmlTemplate.role
     visible = HtmlTemplate.visible
     enabled = enabled_property('anvil-m3-avatarMenu-button')
 
@@ -138,12 +139,6 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
     def avatar_font_family(self, value) -> str:
         """The font family to use for the Button"""
         self.avatar.font_family = value
-
-    @anvil_prop
-    @property
-    def role(self, value) -> str:
-        """A style for this component defined in CSS and added to Roles"""
-        self.avatar.role = value
 
     @anvil_prop
     @property

@@ -12,7 +12,6 @@ from ..._utils.properties import (
     get_unset_value,
     inline_editing,
     italic_property,
-    role_property,
     spacing_property,
     tooltip_property,
     underline_property,
@@ -84,6 +83,7 @@ class Text(TextTemplate):
     #!componentProp(m3.Text)!1: {name:"scale",type:"enum",options:['small', 'medium', 'large'],description:"The size of the text component."}
     #!componentProp(m3.Text)!1: {name:"tag",type:"object",description:"Use this property to store any extra data for the component."}
 
+    role = anvil.HtmlTemplate.role
     visible = anvil.HtmlTemplate.visible
     underline = underline_property('anvil-m3-text')
     italic = italic_property('anvil-m3-text')
@@ -98,7 +98,6 @@ class Text(TextTemplate):
     icon_size = font_size_property('anvil-m3-text-icon', 'icon_size')
     spacing = spacing_property('anvil-m3-text-container')
     tooltip = tooltip_property('anvil-m3-text-container')
-    role = role_property('anvil-m3-text-container')
 
     @anvil_prop
     @property

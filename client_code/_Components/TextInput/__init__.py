@@ -84,6 +84,7 @@ class TextInput(TextInputTemplate):
             }
         ]
 
+    role = HtmlTemplate.role
     visible = HtmlTemplate.visible
     role = role_property('anvil-m3-textinput')
     label_italic = italic_property('anvil-m3-label-text', 'label_italic')

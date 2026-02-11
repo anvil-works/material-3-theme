@@ -5,7 +5,6 @@ from ..._utils.properties import (
     anvil_prop,
     color_property,
     get_unset_spacing,
-    role_property,
     spacing_property,
     style_property,
     tooltip_property,
@@ -54,9 +53,9 @@ class Card(CardTemplate):
     spacing = spacing_property('anvil-m3-card')
     tooltip = tooltip_property('anvil-m3-card')
     border = style_property('anvil-m3-card', 'border', 'border')
-    role = role_property('anvil-m3-card')
     align = style_property('anvil-m3-card', 'justifyContent', 'align')
     visible = HtmlTemplate.visible
+    role = HtmlTemplate.role
     background_color = color_property(
         'anvil-m3-card', 'backgroundColor', 'background_color'
     )

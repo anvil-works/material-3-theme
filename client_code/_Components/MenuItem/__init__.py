@@ -50,6 +50,7 @@ class MenuItem(MenuItemTemplate):
     background_color = color_property(
         'anvil-m3-menuItem-container', 'backgroundColor', 'background'
     )
+    role = HtmlTemplate.role
     visible = HtmlTemplate.visible
     spacing = spacing_property('anvil-m3-menuItem-container')
     tooltip = tooltip_property('anvil-m3-menuItem-container')
