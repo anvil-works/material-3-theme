@@ -29,6 +29,9 @@ class AvatarMenu(MenuMixin, AvatarMenuTemplate):
 
         self.init_components(**properties)
 
+    def focus(self):
+        self.dom_nodes["anvil-m3-avatarMenu-button"].focus()
+
     def _anvil_get_unset_property_values_(self):
         el = self.avatar.dom_nodes["anvil-m3-avatar"]
         m = get_unset_margin(el, self.margin)
