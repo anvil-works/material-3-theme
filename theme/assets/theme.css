@@ -1076,3 +1076,14 @@ th.month select.monthselect::after {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
 }
+
+.anvil-m3-app-title .anvil-designer-only.anvil-m3-slot-placeholder {
+    margin-block: 16px;
+}
+
+@media (max-width: 600px) {
+    .anvil-m3-navigation-rail-content .anvil-designer-only.anvil-m3-slot-placeholder {
+        writing-mode: horizontal-tb;
+        transform: rotate(0);
+    }
+}
