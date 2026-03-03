@@ -1058,3 +1058,21 @@ th.month select.monthselect::after {
 .anvil-always-inline-container > div > .anvil-m3-dropdownMenu-container { 
     vertical-align: middle
 }
+
+
+.anvil-designer-only.anvil-m3-slot-placeholder {
+    margin: 0.5rem;
+    padding: 1rem;
+    border: 1px dashed purple;
+    color: #800080;
+    border-radius: 0.2rem;
+    font-size: 13px;
+    align-self: center;
+    background-color: #80008020;
+}
+
+.anvil-m3-navigation-rail-content .anvil-designer-only.anvil-m3-slot-placeholder {
+    text-orientation: sideways;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
