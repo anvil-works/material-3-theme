@@ -37,6 +37,15 @@ class Checkbox(CheckboxTemplate):
             "click", self._handle_change
         )
 
+        self.dom_nodes['anvil-m3-checkbox-component'].addEventListener(
+            "keydown",
+            lambda event: (
+                event.key == " "
+                and (event.preventDefault() or True)
+                and self._handle_change(event)
+            ),
+        )
+
         if not anvil.designer.in_designer:
             id = gen_id()
             self.dom_nodes["anvil-m3-checkbox"].id = id
