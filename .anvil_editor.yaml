@@ -5,6 +5,7 @@ unique_ids:
     anvil-m3/button.css: '1689852840093884237320513.6318'
     anvil-m3/card.css: '1700072176102883618663397.0227'
     anvil-m3/checkbox.css: '1689947587450398517756099.98175'
+    anvil-m3/datepicker.css: 3SGNZHUHVKW2JKVS2SZSRXHCIQB6JKI3
     anvil-m3/fileloader.css: '1699026052050532507046407.12885'
     anvil-m3/floating-ui/.gitkeep: '1727859508280419247875190.8084'
     anvil-m3/floating-ui/core@1.6.7.js: '1727797016359922181874191.5599'
@@ -18,6 +19,7 @@ unique_ids:
     anvil-m3/switch.css: '1690201930961944613537214.6923'
     anvil-m3/text-inputs.css: '1704273625879558438128090.6605'
     anvil-m3/text.css: '1691587464344929257845739.1733'
+    anvil-m3/virtualize/core@3.13.12.js: DEI2LKYKJLEYTOSUFLRQBQ6OKBVKJAIE
     designer_icons/.gitkeep: '1702399955422687289669130.4792'
     designer_icons/avatar.svg: TNJW3TIPNCEUH67WYOW446TFCH6IH5RB
     designer_icons/avatar_dark.svg: YTZJWG6FCKGUTPAWM3OVRCYO4CRJU57N
@@ -87,6 +89,7 @@ unique_ids:
     _Components.Card.CardContentContainer: '1700075961119309945930609.30084'
     _Components.Checkbox: '1689946549679795138453587.0414'
     _Components.CircularProgressIndicator: '1699018314168927111586741.3076'
+    _Components.DatePicker: AV6HWH6IJIAPTACTTCQNLYT2H5EMFDII
     _Components.Divider: '1688573262607740872083563.6951'
     _Components.DropdownMenu: '1704966695378970651888987.607'
     _Components.FileLoader: '1699022411615532112102446.622'
@@ -117,6 +120,7 @@ unique_ids:
     _utils: NG7DBGUUSPXECPDER2G65KMIKCVG4GRL
     _utils.fui: '1701404784306666394613830.7113'
     _utils.properties: Y3NC6AD7NRD45BWEUOKRSS7YEKY553LE
+    _utils.virtualize: LGEUVYZSND4M3FMAN44M2AIYVYEO3MMN
     components: '172372848777778606650063.94086'
   scripts: {}
   server_modules: {}

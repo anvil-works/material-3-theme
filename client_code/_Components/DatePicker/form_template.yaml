@@ -30,7 +30,7 @@ events:
 is_package: true
 properties:
 - {default_value: '', description: The label text of the component., group: Key Properties, important: true, name: label, type: string}
-- {default_value: 'MM/DD/YYYY', description: The text to be displayed when no date is selected., group: Key Properties, important: true, name: placeholder, type: string}
+- {default_value: MM/DD/YYYY, description: The text to be displayed when no date is selected., group: Key Properties, important: true, name: placeholder, type: string}
 - allow_binding_writeback: true
   binding_writeback_events: [change]
   description: The selected date as a Python datetime.date object.
