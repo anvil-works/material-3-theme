@@ -12,7 +12,7 @@ container:
         <div anvil-name="anvil-m3-datepicker-panel" class="anvil-m3-datepicker-panel anvil-m3-datepicker-hidden">
           <div class="anvil-m3-datepicker-header">
             <button anvil-name="anvil-m3-datepicker-prev" class="anvil-m3-datepicker-nav-btn" type="button"><span class="material-symbols-outlined">chevron_left</span></button>
-            <button anvil-name="anvil-m3-datepicker-month-year-btn" class="anvil-m3-datepicker-month-year-btn" type="button"><span anvil-name="anvil-m3-datepicker-header-label" class="anvil-m3-datepicker-header-label-text"></span><span class="material-symbols-outlined anvil-m3-datepicker-header-arrow">arrow_drop_down</span></button>
+            <button anvil-name="anvil-m3-datepicker-month-year-btn" class="anvil-m3-datepicker-month-year-btn" type="button"><span anvil-name="anvil-m3-datepicker-header-label" class="anvil-m3-datepicker-header-label-text"></span><span anvil-name="anvil-m3-datepicker-header-arrow" class="material-symbols-outlined anvil-m3-datepicker-header-arrow">arrow_drop_down</span></button>
             <button anvil-name="anvil-m3-datepicker-next" class="anvil-m3-datepicker-nav-btn" type="button"><span class="material-symbols-outlined">chevron_right</span></button>
           </div>
           <div class="anvil-m3-datepicker-weekdays"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div>
@@ -49,7 +49,7 @@ properties:
 - {description: The maximum selectable date., group: Key Properties, important: false, name: max_date, type: object}
 - {default_value: true, description: 'If True, this component allows user interaction.', designer_hint: enabled, group: Interaction, important: true, name: enabled, type: boolean}
 - {default_value: false, description: 'If True, this component is in an error state.', designer_hint: toggle, group: Interaction, important: false, name: error, type: boolean}
-- {default_value: '', description: The supporting text displayed underneath this component., group: Interaction, important: false, name: supporting_text, type: string}
+- {default_value: '', description: The supporting text displayed underneath this component., group: Key Properties, important: false, name: supporting_text, type: string}
 - {default_value: true, description: 'If True, the component will be displayed.', designer_hint: visible, group: Look and Feel, important: true, name: visible, type: boolean}
 - default_value: left
   description: The position of this component in the available space.
