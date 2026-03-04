@@ -208,25 +208,6 @@ def padding_property(dom_node_name, prop_name="padding"):
     return property_with_callback(prop_name, set_padding)
 
 
-def role_property(dom_node_name, prop_name="role"):
-    def set_role(self, value):
-        element = self.dom_nodes[dom_node_name]
-        class_list = element.classList
-        for c in class_list:
-            if c.startswith('anvil-role'):
-                element.classList.remove(c)
-        if value:
-            element.setAttribute('anvil-role', value)
-            if type(value) is str:
-                element.classList.add(f'anvil-role-{value}')
-                element.setAttribute('anvil-role', value)
-            elif type(value) is list:
-                for role in value:
-                    element.classList.add(f'anvil-role-{role}')
-
-    return property_with_callback(prop_name, set_role)
-
-
 def tooltip_property(dom_node_name, prop_name="tooltip"):
     # To use this property, add self._tooltip_node = None to the init of your component
     def set_tooltip(self, value):
