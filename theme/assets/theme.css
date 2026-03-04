@@ -1068,7 +1068,7 @@ th.month select.monthselect::after {
     border-radius: 0.2rem;
     font-size: 13px;
     align-self: center;
-    background-color: color-mix(in srgb, %color:Primary% 20%, transparent);
+    background-color: color-mix(in srgb, %color:Primary%, transparent 80%);
 }
 
 .anvil-m3-navigation-rail-content .anvil-designer-only.anvil-m3-slot-placeholder {
