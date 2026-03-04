@@ -10,7 +10,7 @@ container:
           <!-- <span class="material-symbols-outlined">menu_open</span>
         </div> -->
         <div class="anvil-m3-navigation-rail-content" anvil-slot="anvil-m3-navigation-rail-content">
-            <p anvil-if-slot-empty="anvil-m3-navigation-rail-content" class="anvil-designer-only" style="font-style: italic;">Add navigation links here</p>
+            <p anvil-if-slot-empty="anvil-m3-navigation-rail-content" class="anvil-designer-only anvil-m3-slot-placeholder">Add navigation links here</p>
         </div>
       </div>
 
@@ -20,19 +20,19 @@ container:
           <div anvil-name="anvil-m3-drawer-open-btn" class="anvil-m3-drawer-open-btn">
             <span class="material-symbols-outlined">menu</span>
           </div>
-          <div anvil-slot="anvil-m3-app-title" class="anvil-m3-app-title"><span anvil-if-slot-empty="anvil-m3-app-title" class="anvil-designer-only" style="font-style: italic;">Drop optional title here</span></div>
+          <div anvil-slot="anvil-m3-app-title" class="anvil-m3-app-title"><span anvil-if-slot-empty="anvil-m3-app-title" class="anvil-designer-only anvil-m3-slot-placeholder">Drop optional title here</span></div>
         </div>
-        <div class="anvil-m3-app-bar-links" anvil-slot="anvil-m3-app-bar-links"><span anvil-if-slot-empty="anvil-m3-app-bar-links" class="anvil-designer-only"  style="font-style: italic; font-size:14px;">Drop optional icon buttons here</span></div>
+        <div class="anvil-m3-app-bar-links" anvil-slot="anvil-m3-app-bar-links"><span anvil-if-slot-empty="anvil-m3-app-bar-links" class="anvil-designer-only anvil-m3-slot-placeholder" >Drop optional icon buttons here</span></div>
       </div>
 
       <div anvil-name="anvil-m3-navigation-drawer-scrim" class="anvil-m3-navigation-drawer-scrim"></div>
       <div anvil-name="anvil-m3-sidesheet-scrim" class="anvil-m3-sidesheet-scrim"></div>
 
       <div class="anvil-m3-content anvil-m3-content-navigation-rail" anvil-slot="anvil-m3-content" anvil-name="anvil-m3-content">
-        <p anvil-if-slot-empty="anvil-m3-content" class="anvil-designer-only" style="font-style: italic;">Add content here</p>
+        <p anvil-if-slot-empty="anvil-m3-content" class="anvil-designer-only anvil-m3-slot-placeholder">Add content here</p>
       </div>
       <div class="anvil-m3-sidesheet anvil-m3-open" anvil-slot="anvil-m3-sidesheet" anvil-name="anvil-m3-sidesheet">
-        <p anvil-if-slot-empty="anvil-m3-sidesheet" class="anvil-designer-only" style="font-style: italic;">Add optional sidesheet content here</p>
+        <p anvil-if-slot-empty="anvil-m3-sidesheet" class="anvil-designer-only anvil-m3-slot-placeholder">Add optional sidesheet content here</p>
       </div>
 
       </div>
