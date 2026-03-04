@@ -1,99 +1,185 @@
 .anvil-m3-button {
-  display: inline-flex;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.1px;
-  line-height: 40px;
-  text-align: center;
-  background: none;
-  border: none;
-  color: var(--anvil-m3-primary);
-  padding: 0 12px;
-  margin: 8px 4px 8px 4px;
-  cursor: pointer;
-  border-radius: 100px;
+    display: inline-flex;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    line-height: 40px;
+    text-align: center;
+    background: none;
+    border: none;
+    color: var(--anvil-m3-primary);
+    padding: 0 12px;
+    margin: 8px 4px 8px 4px;
+    cursor: pointer;
+    border-radius: 100px;
 }
 
 .anvil-m3-button.anvil-m3-right-icon {
-  flex-direction: row-reverse;
+    flex-direction: row-reverse;
 }
 
-.anvil-m3-icon-padding:not(.anvil-m3-right-icon) { 
-  padding-left: 16px !important; 
-  }
+.anvil-m3-icon-padding:not(.anvil-m3-right-icon) {
+    padding-left: 16px !important;
+}
 .anvil-m3-icon-padding.anvil-m3-right-icon {
-  padding-right: 16px !important; 
+    padding-right: 16px !important;
 }
 
 .anvil-m3-button.anvil-m3-icon-padding.noText {
-  padding: 0 24px !important; 
+    padding: 0 24px !important;
 }
 
 .anvil-m3-no-text > i {
-  padding: 0 !important;
+    padding: 0 !important;
 }
 
 .anvil-m3-button > i {
-  padding-right: 8px;
-  font-size: 18px; 
-  line-height: 40px;
+    padding-right: 8px;
+    font-size: 18px;
+    line-height: 40px;
 }
 
 .anvil-m3-right-icon > i {
-  padding-left: 8px;
-  padding-right: 0px;
+    padding-left: 8px;
+    padding-right: 0px;
 }
 
-.anvil-m3-button:hover { background: var(--anvil-m3-primary-overlay-2); }
-.anvil-m3-button:focus { background: var(--anvil-m3-primary-overlay-3); }
-.anvil-m3-button:active { background: var(--anvil-m3-primary-overlay-3); }
-.anvil-m3-button:disabled { cursor: not-allowed; color: var(--anvil-m3-on-disabled); background: none; }
+.anvil-m3-button:hover {
+    background: var(--anvil-m3-primary-overlay-2);
+}
+.anvil-m3-button:focus {
+    background: var(--anvil-m3-primary-overlay-3);
+}
+.anvil-m3-button:active {
+    background: var(--anvil-m3-primary-overlay-3);
+}
+.anvil-m3-button:disabled {
+    cursor: not-allowed;
+    color: var(--anvil-m3-on-disabled);
+    background: none;
+}
 
 /* Elevated */
-.anvil-m3-button.anvil-m3-elevated { background-color: var(--anvil-m3-surface-container-low); box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30); 
-                                    padding: 0 24px; 
-                                   }
-.anvil-m3-button.anvil-m3-elevated:hover { background-color: var(--anvil-m3-primary-overlay-2); box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30); }
-.anvil-m3-button.anvil-m3-elevated:focus { background-color: var(--anvil-m3-primary-overlay-3); box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30); }
-.anvil-m3-button.anvil-m3-elevated:active { background-color: var(--anvil-m3-primary-overlay-3); box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30); }
-.anvil-m3-button.anvil-m3-elevated:disabled { background-color: var(--anvil-m3-disabled-container); color: var(--anvil-m3-on-disabled); box-shadow: none; }
+.anvil-m3-button.anvil-m3-elevated {
+    background-color: var(--anvil-m3-surface-container-low);
+    box-shadow:
+        0px 1px 3px 1px rgba(0, 0, 0, 0.15),
+        0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+    padding: 0 24px;
+}
+.anvil-m3-button.anvil-m3-elevated:hover {
+    background-color: var(--anvil-m3-primary-overlay-2);
+    box-shadow:
+        0px 2px 6px 2px rgba(0, 0, 0, 0.15),
+        0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+}
+.anvil-m3-button.anvil-m3-elevated:focus {
+    background-color: var(--anvil-m3-primary-overlay-3);
+    box-shadow:
+        0px 1px 3px 1px rgba(0, 0, 0, 0.15),
+        0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+}
+.anvil-m3-button.anvil-m3-elevated:active {
+    background-color: var(--anvil-m3-primary-overlay-3);
+    box-shadow:
+        0px 1px 3px 1px rgba(0, 0, 0, 0.15),
+        0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+}
+.anvil-m3-button.anvil-m3-elevated:disabled {
+    background-color: var(--anvil-m3-disabled-container);
+    color: var(--anvil-m3-on-disabled);
+    box-shadow: none;
+}
 
 /* Filled */
-.anvil-m3-button.anvil-m3-filled { background-color: var(--anvil-m3-primary); color: var(--anvil-m3-on-primary); 
-                                  padding: 0 24px; 
-                                 }
-.anvil-m3-button.anvil-m3-filled:hover { 
-    background: color-mix(in srgb, var(--anvil-m3-primary), #ffffff 8%);
-    /* background: linear-gradient(0deg, var(--anvil-m3-light-overlay-1), var(--anvil-m3-light-overlay-1)), var(--anvil-m3-primary);  */
-    box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+.anvil-m3-button.anvil-m3-filled {
+    background-color: var(--anvil-m3-primary);
+    color: var(--anvil-m3-on-primary);
+    padding: 0 24px;
 }
-.anvil-m3-button.anvil-m3-filled:focus { background: linear-gradient(0deg, var(--anvil-m3-light-overlay-2), var(--anvil-m3-light-overlay-2)), var(--anvil-m3-primary);}
-.anvil-m3-button.anvil-m3-filled:active { background: linear-gradient(0deg, var(--anvil-m3-light-overlay-2), var(--anvil-m3-light-overlay-2)), var(--anvil-m3-primary);}
-.anvil-m3-button.anvil-m3-filled:disabled { background: var(--anvil-m3-disabled-container); color: var(--anvil-m3-on-disabled); box-shadow: none; }
+.anvil-m3-button.anvil-m3-filled:hover {
+    background-color: color-mix(in srgb, var(--anvil-m3-primary), #ffffff 8%);
+    box-shadow:
+        0px 2px 6px 2px rgba(0, 0, 0, 0.15),
+        0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+}
+.anvil-m3-button.anvil-m3-filled:focus {
+    background: color-mix(in srgb, var(--anvil-m3-primary), #ffffff 12%);
+}
+.anvil-m3-button.anvil-m3-filled:active {
+    background: color-mix(in srgb, var(--anvil-m3-primary), #ffffff 12%);
+}
+.anvil-m3-button.anvil-m3-filled:disabled {
+    background: var(--anvil-m3-disabled-container);
+    color: var(--anvil-m3-on-disabled);
+    box-shadow: none;
+}
 
 /* Tonal */
-.anvil-m3-button.anvil-m3-tonal { background-color: var(--anvil-m3-secondary-container); color: var(--anvil-m3-on-secondary-container); 
-                                 padding: 0 24px; 
-                                }
-.anvil-m3-button.anvil-m3-tonal:hover { background: linear-gradient(0deg, var(--anvil-m3-dark-overlay-1), var(--anvil-m3-dark-overlay-1)), var(--anvil-m3-secondary-container); box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30); }
-.anvil-m3-button.anvil-m3-tonal:focus { background: linear-gradient(0deg, var(--anvil-m3-dark-overlay-2), var(--anvil-m3-dark-overlay-2)), var(--anvil-m3-secondary-container); }
-.anvil-m3-button.anvil-m3-tonal:active { background: linear-gradient(0deg, var(--anvil-m3-dark-overlay-2), var(--anvil-m3-dark-overlay-2)), var(--anvil-m3-secondary-container); }
-.anvil-m3-button.anvil-m3-tonal:disabled { background: var(--anvil-m3-disabled-container); color: var(--anvil-m3-on-disabled); box-shadow: none; }
-
-/* Outlined */
-.anvil-m3-button.anvil-m3-outlined { border: 1px solid var(--anvil-m3-outline); 
-                                    padding: 0 24px; 
-                                   }
-.anvil-m3-button.anvil-m3-outlined:hover { background-color: var(--anvil-m3-primary-overlay-2); }
-.anvil-m3-button.anvil-m3-outlined:focus { background-color: var(--anvil-m3-primary-overlay-3); }
-.anvil-m3-button.anvil-m3-outlined:active { background-color: var(--anvil-m3-primary-overlay-3); }
-.anvil-m3-button.anvil-m3-outlined:disabled { background: none; border: 1px solid var(--anvil-m3-on-disabled); }
-
-
-.anvil-m3-button.anvil-m3-full-width, .anvil-m3-buttonMenu-container .anvil-m3-full-width {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.anvil-m3-button.anvil-m3-tonal {
+    background-color: var(--anvil-m3-secondary-container);
+    color: var(--anvil-m3-on-secondary-container);
+    padding: 0 24px;
+}
+.anvil-m3-button.anvil-m3-tonal:hover {
+    background:
+        linear-gradient(
+            0deg,
+            var(--anvil-m3-dark-overlay-1),
+            var(--anvil-m3-dark-overlay-1)
+        ),
+        var(--anvil-m3-secondary-container);
+    box-shadow:
+        0px 2px 6px 2px rgba(0, 0, 0, 0.15),
+        0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+}
+.anvil-m3-button.anvil-m3-tonal:focus {
+    background:
+        linear-gradient(
+            0deg,
+            var(--anvil-m3-dark-overlay-2),
+            var(--anvil-m3-dark-overlay-2)
+        ),
+        var(--anvil-m3-secondary-container);
+}
+.anvil-m3-button.anvil-m3-tonal:active {
+    background:
+        linear-gradient(
+            0deg,
+            var(--anvil-m3-dark-overlay-2),
+            var(--anvil-m3-dark-overlay-2)
+        ),
+        var(--anvil-m3-secondary-container);
+}
+.anvil-m3-button.anvil-m3-tonal:disabled {
+    background: var(--anvil-m3-disabled-container);
+    color: var(--anvil-m3-on-disabled);
+    box-shadow: none;
 }
 
+/* Outlined */
+.anvil-m3-button.anvil-m3-outlined {
+    border: 1px solid var(--anvil-m3-outline);
+    padding: 0 24px;
+}
+.anvil-m3-button.anvil-m3-outlined:hover {
+    background-color: var(--anvil-m3-primary-overlay-2);
+}
+.anvil-m3-button.anvil-m3-outlined:focus {
+    background-color: var(--anvil-m3-primary-overlay-3);
+}
+.anvil-m3-button.anvil-m3-outlined:active {
+    background-color: var(--anvil-m3-primary-overlay-3);
+}
+.anvil-m3-button.anvil-m3-outlined:disabled {
+    background: none;
+    border: 1px solid var(--anvil-m3-on-disabled);
+}
+
+.anvil-m3-button.anvil-m3-full-width,
+.anvil-m3-buttonMenu-container .anvil-m3-full-width {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
