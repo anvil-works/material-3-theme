@@ -36,13 +36,13 @@
   --anvil-m3-background: %color:Background%;
   --anvil-m3-outline: %color:Outline%;
   --anvil-m3-outline-variant: %color:Outline Variant%;
-  --anvil-m3-primary-overlay-1: color-mix(in srgb, %color:Primary% 5%, transparent);
-  --anvil-m3-primary-overlay-2: color-mix(in srgb, %color:Primary% 8%, transparent);
+  --anvil-m3-primary-overlay-1: color-mix(in srgb, %color:Primary%, transparent 95%);
+  --anvil-m3-primary-overlay-2: color-mix(in srgb, %color:Primary%, transparent 92%);
   --anvil-m3-primary-overlay-3: color-mix(in srgb, %color:Primary% 12%, transparent);
   --anvil-m3-on-disabled: color-mix(in srgb, #1d1b20 38%, transparent);
   --anvil-m3-disabled-container: color-mix(in srgb, #1d1b20 12%, transparent);
   --anvil-m3-disabled-container-2: color-mix(in srgb, #1d1b20 4%, transparent);
-  --anvil-m3-light-overlay-1: color-mix(in srgb, #ffffff 8%, transparent);
+  --anvil-m3-light-overlay-1: color-mix(in srgb, #ffffff, transparent 92%);
   --anvil-m3-light-overlay-2: color-mix(in srgb, #ffffff 12%, transparent);
   --anvil-m3-dark-overlay-1: color-mix(in srgb, %color:On Secondary Container% 8%, transparent);
   --anvil-m3-dark-overlay-2: color-mix(in srgb, %color:On Secondary Container% 12%, transparent);
