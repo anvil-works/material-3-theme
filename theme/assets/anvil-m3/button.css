@@ -45,7 +45,7 @@
 }
 
 .anvil-m3-button:hover {
-    background: color-mix(in srgb, var(--anvil-m3-primary) 8%, transparent;
+    background: var(--anvil-m3-primary-overlay-2);
 }
 .anvil-m3-button:focus {
     background: var(--anvil-m3-primary-overlay-3);
