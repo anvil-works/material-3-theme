@@ -1,0 +1,85 @@
+components:
+- layout_properties: {slot: anvil-m3-datepicker-textfield}
+  name: selection_field
+  properties: {trailing_icon: 'mi:calendar_today'}
+  type: form:_Components.TextInput.TextBox
+container:
+  event_bindings: {show: form_show}
+  properties:
+    html: |-
+      <div anvil-name="anvil-m3-datepicker-container" class="anvil-m3-datepicker-container">
+        <div anvil-slot="anvil-m3-datepicker-textfield" anvil-name="anvil-m3-datepicker-textfield" class="anvil-m3-datepicker-textfield" anvil-slot-internal></div>
+        <div anvil-name="anvil-m3-datepicker-panel" class="anvil-m3-datepicker-panel anvil-m3-datepicker-hidden">
+          <div class="anvil-m3-datepicker-header">
+            <button anvil-name="anvil-m3-datepicker-prev" class="anvil-m3-datepicker-nav-btn" type="button"><span class="material-symbols-outlined">chevron_left</span></button>
+            <button anvil-name="anvil-m3-datepicker-month-year-btn" class="anvil-m3-datepicker-month-year-btn" type="button"><span anvil-name="anvil-m3-datepicker-header-label" class="anvil-m3-datepicker-header-label-text"></span><span class="material-symbols-outlined anvil-m3-datepicker-header-arrow">arrow_drop_down</span></button>
+            <button anvil-name="anvil-m3-datepicker-next" class="anvil-m3-datepicker-nav-btn" type="button"><span class="material-symbols-outlined">chevron_right</span></button>
+          </div>
+          <div class="anvil-m3-datepicker-weekdays"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div>
+          <div anvil-name="anvil-m3-datepicker-grid" class="anvil-m3-datepicker-grid"></div>
+          <div anvil-name="anvil-m3-datepicker-year-grid" class="anvil-m3-datepicker-year-grid anvil-m3-datepicker-hidden"></div>
+        </div>
+      </div>
+    visible: true
+  type: HtmlTemplate
+custom_component: true
+events:
+- {default_event: true, description: When a date is selected., name: change}
+- {description: When the component is shown on the screen., name: show}
+- {description: When the component is removed from the screen., name: hide}
+is_package: true
+properties:
+- {default_value: '', description: The label text of the component., group: Key Properties, important: true, name: label, type: string}
+- {default_value: 'MM/DD/YYYY', description: The text to be displayed when no date is selected., group: Key Properties, important: true, name: placeholder, type: string}
+- allow_binding_writeback: true
+  binding_writeback_events: [change]
+  description: The selected date as a Python datetime.date object.
+  group: Key Properties
+  important: true
+  name: date
+  type: object
+- default_value: filled
+  description: A predefined style for this component.
+  group: Key Properties
+  important: true
+  name: appearance
+  options: [filled, outlined]
+  type: enum
+- {description: The minimum selectable date., group: Key Properties, important: false, name: min_date, type: object}
+- {description: The maximum selectable date., group: Key Properties, important: false, name: max_date, type: object}
+- {default_value: true, description: 'If True, this component allows user interaction.', designer_hint: enabled, group: Interaction, important: true, name: enabled, type: boolean}
+- {default_value: false, description: 'If True, this component is in an error state.', designer_hint: toggle, group: Interaction, important: false, name: error, type: boolean}
+- {default_value: '', description: The supporting text displayed underneath this component., group: Interaction, important: false, name: supporting_text, type: string}
+- {default_value: true, description: 'If True, the component will be displayed.', designer_hint: visible, group: Look and Feel, important: true, name: visible, type: boolean}
+- default_value: left
+  description: The position of this component in the available space.
+  designer_hint: align-horizontal
+  group: Layout
+  important: true
+  name: align
+  options: [left, center, right, full]
+  type: enum
+- {default_value: '', description: A style for this component defined in CSS and added to Roles., group: Look and Feel, name: role, type: themeRole}
+- {default_value: '', description: The colour of the background of this component., group: Look and Feel, important: false, name: background_color, type: color}
+- {default_value: '', description: The colour of the border of this component., group: Look and Feel, important: false, name: border_color, type: color}
+- {default_value: '', description: The colour of the label text on the component., group: Label Style, important: false, name: label_color, type: color}
+- {default_value: false, description: 'If True, the label text will be bold.', group: Label Style, important: false, name: label_bold, type: boolean}
+- {default_value: false, description: 'If True, the label text will be italic.', group: Label Style, important: false, name: label_italic, type: boolean}
+- {default_value: false, description: 'If True, the label text will be underlined.', group: Label Style, important: false, name: label_underline, type: boolean}
+- {description: The font size of the label text on this component., group: Label Style, important: false, name: label_font_size, type: number}
+- {default_value: '', description: The font family to use for the label on this component., group: Label Style, important: false, name: label_font_family, type: string}
+- {default_value: false, description: 'If True, the displayed date text will be bold.', group: Display Style, important: false, name: display_bold, type: boolean}
+- {default_value: false, description: 'If True, the displayed date text will be italic.', group: Display Style, important: false, name: display_italic, type: boolean}
+- {default_value: false, description: 'If True, the displayed date text will be underlined.', group: Display Style, important: false, name: display_underline, type: boolean}
+- {default_value: '', description: The font family to use for the displayed date text., group: Display Style, important: false, name: display_font_family, type: string}
+- {default_value: '', description: The colour of the displayed date text., group: Display Style, important: false, name: display_text_color, type: color}
+- {description: The font size of the displayed date text., group: Display Style, important: false, name: display_font_size, type: number}
+- {default_value: '', description: The colour of the supporting text underneath this component., group: Supporting Text Style, important: false, name: supporting_text_color, type: color}
+- {description: The font size of the supporting text., group: Supporting Text Style, important: false, name: supporting_text_font_size, type: number}
+- {default_value: '', description: The font family to use for the supporting text., group: Supporting Text Style, important: false, name: supporting_text_font_family, type: string}
+- {description: The margin (pixels) of this component., group: Layout, important: true, name: margin, type: margin}
+- {description: Use this property to store any extra data for the component., group: Other, important: false, name: tag, type: object}
+- {default_value: '', description: The text to display when the mouse is hovered over this component., group: Other, important: false, name: tooltip, type: string}
+toolbox_item:
+  hidden: true
+  icon: {dark: /ide/img/toolbox/DatePicker.dark.svg, light: /ide/img/toolbox/DatePicker.svg}

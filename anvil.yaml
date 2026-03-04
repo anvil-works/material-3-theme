@@ -145,10 +145,9 @@ toolbox_sections:
   - component: {type: m3._Components.Slider}
     icon: {dark: 'asset:designer_icons/slider_dark.svg', light: 'asset:designer_icons/slider.svg'}
     title: Slider
-  - component: {type: anvil.DatePicker}
+  - component: {type: m3._Components.DatePicker}
     icon: {dark: /ide/img/toolbox/DatePicker.dark.svg, light: /ide/img/toolbox/DatePicker.svg}
     title: DatePicker
-    url: /docs/client/components/basic#datepicker
   - component:
       components:
       - {type: m3._Components.RadioButton}

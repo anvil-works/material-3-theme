@@ -12,6 +12,7 @@
 @import '_/theme/anvil-m3/progress-indicator.css';
 @import '_/theme/anvil-m3/fileloader.css';
 @import '_/theme/anvil-m3/avatar.css';
+@import '_/theme/anvil-m3/datepicker.css';
 
 :root {
   --anvil-m3-primary: %color:Primary%;
