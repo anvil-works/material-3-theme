@@ -1055,8 +1055,6 @@ th.month select.monthselect::after {
     vertical-align: middle;
 }
 
-.anvil-always-inline-container > div > .anvil-m3-iconbutton-component,
-.anvil-always-inline-container > div > .anvil-m3-radiobutton-component,
 .anvil-always-inline-container > div > .anvil-m3-dropdownMenu-container { 
     vertical-align: middle
 }
