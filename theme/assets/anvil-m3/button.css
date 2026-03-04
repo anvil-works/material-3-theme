@@ -14,24 +14,14 @@
   border-radius: 100px;
 }
 
-.anvil-m3-button.anvil-m3-right-icon {
-  flex-direction: row-reverse;
-}
+.anvil-m3-button.anvil-m3-right-icon { flex-direction: row-reverse; }
 
-.anvil-m3-icon-padding:not(.anvil-m3-right-icon) { 
-  padding-left: 16px !important; 
-  }
-.anvil-m3-icon-padding.anvil-m3-right-icon {
-  padding-right: 16px !important; 
-}
+.anvil-m3-icon-padding:not(.anvil-m3-right-icon) { padding-left: 16px !important; }
+.anvil-m3-icon-padding.anvil-m3-right-icon { padding-right: 16px !important; }
 
-.anvil-m3-button.anvil-m3-icon-padding.noText {
-  padding: 0 24px !important; 
-}
+.anvil-m3-button.anvil-m3-icon-padding.noText { padding: 0 24px !important; }
 
-.anvil-m3-no-text > i {
-  padding: 0 !important;
-}
+.anvil-m3-no-text > i { padding: 0 !important; }
 
 .anvil-m3-button > i {
   padding-right: 8px;
@@ -44,15 +34,13 @@
   padding-right: 0px;
 }
 
-.anvil-m3-button:hover { background: var(--anvil-m3-primary-overlay-2); }
-.anvil-m3-button:focus { background: var(--anvil-m3-primary-overlay-3); }
-.anvil-m3-button:active { background: var(--anvil-m3-primary-overlay-3); }
+.anvil-m3-button:hover { background-color: color-mix(in srgb, var(--anvil-m3-primary) 8%, transparent); }
+.anvil-m3-button:focus { background-color: color-mix(in srgb, var(--anvil-m3-primary) 12%, transparent); }
+.anvil-m3-button:active { background-color: color-mix(in srgb, var(--anvil-m3-primary) 12%, transparent); }
 .anvil-m3-button:disabled { cursor: not-allowed; color: var(--anvil-m3-on-disabled); background: none; }
 
 /* Elevated */
-.anvil-m3-button.anvil-m3-elevated { background-color: var(--anvil-m3-surface-container-low); box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30); 
-                                    padding: 0 24px; 
-                                   }
+.anvil-m3-button.anvil-m3-elevated { background-color: var(--anvil-m3-surface-container-low); box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30); padding: 0 24px; }
 .anvil-m3-button.anvil-m3-elevated:hover { background-color: var(--anvil-m3-primary-overlay-2); box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30); }
 .anvil-m3-button.anvil-m3-elevated:focus { background-color: var(--anvil-m3-primary-overlay-3); box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30); }
 .anvil-m3-button.anvil-m3-elevated:active { background-color: var(--anvil-m3-primary-overlay-3); box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30); }
@@ -66,9 +54,7 @@
 .anvil-m3-button.anvil-m3-filled:disabled { background: var(--anvil-m3-disabled-container); color: var(--anvil-m3-on-disabled); box-shadow: none; }
 
 /* Tonal */
-.anvil-m3-button.anvil-m3-tonal { background-color: var(--anvil-m3-secondary-container); color: var(--anvil-m3-on-secondary-container); 
-                                 padding: 0 24px; 
-                                }
+.anvil-m3-button.anvil-m3-tonal { background-color: var(--anvil-m3-secondary-container); color: var(--anvil-m3-on-secondary-container); padding: 0 24px; }
 .anvil-m3-button.anvil-m3-tonal:hover { background: linear-gradient(0deg, var(--anvil-m3-dark-overlay-1), var(--anvil-m3-dark-overlay-1)), var(--anvil-m3-secondary-container); box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30); }
 .anvil-m3-button.anvil-m3-tonal:focus { background: linear-gradient(0deg, var(--anvil-m3-dark-overlay-2), var(--anvil-m3-dark-overlay-2)), var(--anvil-m3-secondary-container); }
 .anvil-m3-button.anvil-m3-tonal:active { background: linear-gradient(0deg, var(--anvil-m3-dark-overlay-2), var(--anvil-m3-dark-overlay-2)), var(--anvil-m3-secondary-container); }
