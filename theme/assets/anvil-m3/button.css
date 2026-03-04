@@ -59,12 +59,10 @@
 .anvil-m3-button.anvil-m3-elevated:disabled { background-color: var(--anvil-m3-disabled-container); color: var(--anvil-m3-on-disabled); box-shadow: none; }
 
 /* Filled */
-.anvil-m3-button.anvil-m3-filled { background-color: var(--anvil-m3-primary); color: var(--anvil-m3-on-primary); 
-                                  padding: 0 24px; 
-                                 }
-.anvil-m3-button.anvil-m3-filled:hover { background: linear-gradient(0deg, var(--anvil-m3-light-overlay-1), var(--anvil-m3-light-overlay-1)), var(--anvil-m3-primary); box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30); }
-.anvil-m3-button.anvil-m3-filled:focus { background: linear-gradient(0deg, var(--anvil-m3-light-overlay-2), var(--anvil-m3-light-overlay-2)), var(--anvil-m3-primary);}
-.anvil-m3-button.anvil-m3-filled:active { background: linear-gradient(0deg, var(--anvil-m3-light-overlay-2), var(--anvil-m3-light-overlay-2)), var(--anvil-m3-primary);}
+.anvil-m3-button.anvil-m3-filled { background-color: var(--anvil-m3-primary); color: var(--anvil-m3-on-primary); padding: 0 24px; }
+.anvil-m3-button.anvil-m3-filled:hover { background-color: color-mix(in srgb, var(--anvil-m3-primary), #ffffff 8%); box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30); }
+.anvil-m3-button.anvil-m3-filled:focus { background-color: color-mix(in srgb, var(--anvil-m3-primary), #ffffff 12%);}
+.anvil-m3-button.anvil-m3-filled:active { background: color-mix(in srgb, var(--anvil-m3-primary), #ffffff 12%);}
 .anvil-m3-button.anvil-m3-filled:disabled { background: var(--anvil-m3-disabled-container); color: var(--anvil-m3-on-disabled); box-shadow: none; }
 
 /* Tonal */
