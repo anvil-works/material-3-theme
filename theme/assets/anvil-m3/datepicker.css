@@ -19,7 +19,6 @@
   border-radius: 28px;
   /* Elevation level 2 */
   box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
-  padding: 16px;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -36,6 +35,7 @@
   justify-content: space-between;
   margin-bottom: 8px;
   height: 48px;
+  border-bottom: 1px solid var(--anvil-m3-outline-variant);
 }
 
 .anvil-m3-datepicker-nav-btn {
@@ -237,7 +237,7 @@
   color: var(--anvil-m3-on-surface);
   transition: background-color 0.2s;
   padding: 0 16px;
-  text-align: center;
+  text-align: left;
   flex-shrink: 0;
 }
 
@@ -246,9 +246,7 @@
 }
 
 .anvil-m3-datepicker-month-selected {
-  background-color: var(--anvil-m3-primary-container) !important;
-  color: var(--anvil-m3-on-primary-container) !important;
-  font-weight: 600;
+  background-color: var(--anvil-m3-surface-variant) !important;
 }
 
 /* ── Footer (Cancel / OK) ───────────────────────────────────────────────── */
