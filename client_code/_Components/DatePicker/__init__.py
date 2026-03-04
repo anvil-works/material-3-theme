@@ -31,6 +31,7 @@ class DatePicker(DatePickerTemplate):
         self.tag = ComponentTag()
         self._props = properties
         self._date = None
+        self._pending_date = None
         self._view_year = None
         self._view_month = None
         self._is_open = False
@@ -69,6 +70,14 @@ class DatePicker(DatePickerTemplate):
         )
         self.dom_nodes['anvil-m3-datepicker-next'].addEventListener(
             'click', self._next_month
+        )
+
+        # Cancel / OK action buttons
+        self.dom_nodes['anvil-m3-datepicker-cancel'].addEventListener(
+            'click', self._handle_cancel
+        )
+        self.dom_nodes['anvil-m3-datepicker-ok'].addEventListener(
+            'click', self._handle_ok
         )
 
         # Toggle panel on trigger click
@@ -141,12 +150,15 @@ class DatePicker(DatePickerTemplate):
         self.dom_nodes['anvil-m3-datepicker-year-arrow'].classList.toggle(
             'anvil-m3-datepicker-arrow-up', mode == 'year'
         )
-        # Prev/next only make sense in day view
+        # Prev/next and weekdays only make sense in day view
         nav_hidden = mode != 'day'
         self.dom_nodes['anvil-m3-datepicker-prev'].classList.toggle(
             'anvil-m3-datepicker-hidden', nav_hidden
         )
         self.dom_nodes['anvil-m3-datepicker-next'].classList.toggle(
+            'anvil-m3-datepicker-hidden', nav_hidden
+        )
+        self.dom_nodes['anvil-m3-datepicker-weekdays'].classList.toggle(
             'anvil-m3-datepicker-hidden', nav_hidden
         )
 
@@ -204,7 +216,7 @@ class DatePicker(DatePickerTemplate):
 
                 if d == today:
                     cell.classList.add('anvil-m3-datepicker-day-today')
-                if self._date and d == self._date:
+                if self._pending_date and d == self._pending_date:
                     cell.classList.add('anvil-m3-datepicker-day-selected')
 
                 if (min_date and d < min_date) or (max_date and d > max_date):
@@ -221,9 +233,8 @@ class DatePicker(DatePickerTemplate):
     def _make_day_handler(self, d):
         def handler(event):
             event.stopPropagation()
-            self.date = d
-            self._close_panel()
-            self.raise_event('change')
+            self._pending_date = d
+            self._render_calendar()
         return handler
 
     def _render_month_grid(self):
@@ -294,10 +305,22 @@ class DatePicker(DatePickerTemplate):
             self._view_month += 1
         self._render_calendar()
 
+    def _handle_ok(self, event):
+        event.stopPropagation()
+        if self._pending_date != self._date:
+            self.date = self._pending_date
+            self.raise_event('change')
+        self._close_panel()
+
+    def _handle_cancel(self, event):
+        event.stopPropagation()
+        self._close_panel()
+
     def _open_panel(self):
         ref = self._date or datetime.date.today()
         self._view_year = ref.year
         self._view_month = ref.month
+        self._pending_date = self._date
         self._set_view_mode('day')
         self._render_calendar()
         self._panelNode.classList.remove('anvil-m3-datepicker-hidden')
