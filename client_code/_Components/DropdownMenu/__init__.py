@@ -78,6 +78,9 @@ class DropdownMenu(DropdownMenuTemplate):
         self._init = True
         self.selected_value = self.selected_value
 
+    def focus(self):
+        self.selection_field.focus()
+
     def _anvil_get_unset_property_values_(self):
         el = self.dom_nodes['anvil-m3-dropdownMenu-textbox']
         m = get_unset_margin(el, self.margin)

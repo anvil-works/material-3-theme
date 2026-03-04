@@ -16,6 +16,9 @@ class RadioGroup(Component):
 
     #!componentProp(m3.RadioGroupPanel)!1: {name:"selected_value",type:"object",description:"Value property of the selected RadioButton."}
 
+    def focus(self):
+        (self.selected_button or self.buttons[0]).focus()
+
     @property
     def buttons(self):
         return self._buttons

@@ -42,6 +42,9 @@ class Slider(SliderTemplate):
         self.add_event_handler("x-anvil-page-added", self._on_mount)
         self.add_event_handler("x-anvil-page-removed", self._on_cleanup)
 
+    def focus(self):
+        self.dom_nodes["anvil-m3-slider-input"].focus()
+
     def _on_mount(self, **event_args):
         self.resize_observer = ResizeObserver(self._on_window_resize)
         self.resize_observer.observe(self.dom_nodes['anvil-m3-slider'])

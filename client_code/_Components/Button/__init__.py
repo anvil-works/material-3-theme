@@ -88,6 +88,9 @@ class Button(ButtonTemplate):
     def form_show(self, **event_args):
         self._update_button_look()
 
+    def focus(self):
+        self.dom_nodes['anvil-m3-button'].focus()
+
     def _set_icon(self):
         if self.icon and self.icon.startswith('mi:'):
             self.dom_nodes['anvil-m3-button-icon'].innerText = self.icon[3:]

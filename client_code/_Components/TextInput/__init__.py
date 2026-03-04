@@ -18,7 +18,7 @@ from ..._utils.properties import (
     theme_color_to_css,
     tooltip_property,
     underline_property,
-    role_property
+    role_property,
 )
 from ._anvil_designer import TextInputTemplate
 
@@ -31,6 +31,9 @@ class TextInput(TextInputTemplate):
         self.init_components(**properties)
 
         self._on_input = self._on_input
+
+    def focus(self):
+        self.dom_nodes['anvil-m3-input-container'].focus()
 
     def _get_common_unset_property_values_(self):
         el = self.dom_nodes['anvil-m3-textinput']
@@ -94,9 +97,15 @@ class TextInput(TextInputTemplate):
     label_color = color_property('anvil-m3-label-text', 'color', 'label_color')
     margin = margin_property('anvil-m3-textinput')
     tooltip = tooltip_property('anvil-m3-textinput')
-    subcontent_color = color_property('anvil-m3-subcontent', 'color', 'subcontent_color')
-    subcontent_font_family = font_family_property('anvil-m3-subcontent', 'subcontent_font_family')
-    subcontent_font_size = font_size_property('anvil-m3-subcontent', 'subcontent_font_size')
+    subcontent_color = color_property(
+        'anvil-m3-subcontent', 'color', 'subcontent_color'
+    )
+    subcontent_font_family = font_family_property(
+        'anvil-m3-subcontent', 'subcontent_font_family'
+    )
+    subcontent_font_size = font_size_property(
+        'anvil-m3-subcontent', 'subcontent_font_size'
+    )
     # supporting_text = innerText_property('anvil-m3-supporting-text', 'supporting_text')
 
     @anvil_prop
@@ -109,8 +118,7 @@ class TextInput(TextInputTemplate):
         else:
             input_container.classList.remove('has-supporting-text')
             self.dom_nodes["anvil-m3-supporting-text"].innerText = ""
-    
-    
+
     @anvil_prop
     @property
     def appearance(self, value):

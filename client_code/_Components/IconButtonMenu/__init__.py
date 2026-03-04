@@ -25,7 +25,10 @@ class IconButtonMenu(MenuMixin, IconButtonMenuTemplate):
         MenuMixin.__init__(self, self._btn_node, self._menu_node)
 
         self.init_components(**properties)
-    
+
+    def focus(self):
+        self.icon_button.focus()
+
     def _handle_click(self, event):
         if self.enabled:
             self.raise_event(
@@ -105,7 +108,9 @@ class IconButtonMenu(MenuMixin, IconButtonMenuTemplate):
     @anvil_prop
     @property
     def align(self, value) -> str:
-        self.icon_button.dom_nodes['anvil-m3-iconbutton-component'].style.justifyContent = value
+        self.icon_button.dom_nodes[
+            'anvil-m3-iconbutton-component'
+        ].style.justifyContent = value
         self.dom_nodes['anvil-m3-iconButtonMenu-container'].style.justifyContent = value
         self._setup_fui()
 
@@ -121,7 +126,7 @@ class IconButtonMenu(MenuMixin, IconButtonMenuTemplate):
         """A list of components to be added to the menu."""
         for i in value:
             self.add_component(i, slot='anvil-m3-iconButtonMenu-slot')
-    
+
     def _anvil_get_interactions_(self):
         return [
             {
@@ -138,7 +143,6 @@ class IconButtonMenu(MenuMixin, IconButtonMenuTemplate):
 
     def _on_select_other(self):
         self._toggle_visibility(value=False)
-
 
     #!componentProp(m3.IconButtonMenu)!1: {name:"align",type:"enum",options:["left", "right", "center"],description:"The position of this component in the available space."}
     #!componentProp(m3.IconButtonMenu)!1: {name:"appearance",type:"enum",options:["filled", "elevated", "tonal", "outlined", "text"],description:"A predefined style for the IconButton."}

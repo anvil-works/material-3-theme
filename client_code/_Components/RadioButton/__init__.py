@@ -54,6 +54,9 @@ class RadioButton(RadioButtonTemplate):
             self.dom_nodes["anvil-m3-radiobutton-input"].id = id
             self.dom_nodes["anvil-m3-radiobutton-label"].setAttribute("for", id)
 
+    def focus(self):
+        self.dom_nodes['anvil-m3-radiobutton-input'].focus()
+
     def _on_mount(self, **event_args):
         if not self._group_set_from_code:
             self._set_group(RadioGroup.enclosing(self))
