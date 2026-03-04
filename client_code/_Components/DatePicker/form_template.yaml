@@ -19,7 +19,7 @@ container:
           <div anvil-name="anvil-m3-datepicker-grid" class="anvil-m3-datepicker-grid"></div>
           <div anvil-name="anvil-m3-datepicker-month-grid" class="anvil-m3-datepicker-month-grid anvil-m3-datepicker-hidden"></div>
           <div anvil-name="anvil-m3-datepicker-year-grid" class="anvil-m3-datepicker-year-grid anvil-m3-datepicker-hidden"></div>
-          <div class="anvil-m3-datepicker-footer"><button anvil-name="anvil-m3-datepicker-cancel" class="anvil-m3-datepicker-footer-btn" type="button">Cancel</button><button anvil-name="anvil-m3-datepicker-ok" class="anvil-m3-datepicker-footer-btn anvil-m3-datepicker-footer-ok" type="button">OK</button></div>
+          <div anvil-name="anvil-m3-datepicker-footer" class="anvil-m3-datepicker-footer"><button anvil-name="anvil-m3-datepicker-cancel" class="anvil-m3-datepicker-footer-btn" type="button">Cancel</button><button anvil-name="anvil-m3-datepicker-ok" class="anvil-m3-datepicker-footer-btn anvil-m3-datepicker-footer-ok" type="button">OK</button></div>
         </div>
       </div>
     visible: true

@@ -161,6 +161,9 @@ class DatePicker(DatePickerTemplate):
         self.dom_nodes['anvil-m3-datepicker-weekdays'].classList.toggle(
             'anvil-m3-datepicker-hidden', nav_hidden
         )
+        self.dom_nodes['anvil-m3-datepicker-footer'].classList.toggle(
+            'anvil-m3-datepicker-hidden', nav_hidden
+        )
 
     def _toggle_month_view(self, event):
         event.stopPropagation()
