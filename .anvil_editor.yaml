@@ -18,6 +18,7 @@ unique_ids:
     anvil-m3/switch.css: '1690201930961944613537214.6923'
     anvil-m3/text-inputs.css: '1704273625879558438128090.6605'
     anvil-m3/text.css: '1691587464344929257845739.1733'
+    anvil-m3/virtualize/core@3.13.12.js: KKHE4VIS2HGARWPKLCMCVPR43AJGYWY6
     designer_icons/.gitkeep: '1702399955422687289669130.4792'
     designer_icons/avatar.svg: TNJW3TIPNCEUH67WYOW446TFCH6IH5RB
     designer_icons/avatar_dark.svg: YTZJWG6FCKGUTPAWM3OVRCYO4CRJU57N
@@ -117,6 +118,7 @@ unique_ids:
     _utils: NG7DBGUUSPXECPDER2G65KMIKCVG4GRL
     _utils.fui: '1701404784306666394613830.7113'
     _utils.properties: Y3NC6AD7NRD45BWEUOKRSS7YEKY553LE
+    _utils.virtualize: M65INKGTPLMW7MSQ2WZTZGPTNYMARIE7
     components: '172372848777778606650063.94086'
   scripts: {}
   server_modules: {}
