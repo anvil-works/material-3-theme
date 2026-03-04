@@ -12,11 +12,12 @@ container:
         <div anvil-name="anvil-m3-datepicker-panel" class="anvil-m3-datepicker-panel anvil-m3-datepicker-hidden">
           <div class="anvil-m3-datepicker-header">
             <button anvil-name="anvil-m3-datepicker-prev" class="anvil-m3-datepicker-nav-btn" type="button"><span class="material-symbols-outlined">chevron_left</span></button>
-            <button anvil-name="anvil-m3-datepicker-month-year-btn" class="anvil-m3-datepicker-month-year-btn" type="button"><span anvil-name="anvil-m3-datepicker-header-label" class="anvil-m3-datepicker-header-label-text"></span><span anvil-name="anvil-m3-datepicker-header-arrow" class="material-symbols-outlined anvil-m3-datepicker-header-arrow">arrow_drop_down</span></button>
+            <div class="anvil-m3-datepicker-header-selectors"><button anvil-name="anvil-m3-datepicker-month-btn" class="anvil-m3-datepicker-selector-btn" type="button"><span anvil-name="anvil-m3-datepicker-month-label"></span><span anvil-name="anvil-m3-datepicker-month-arrow" class="material-symbols-outlined anvil-m3-datepicker-header-arrow">arrow_drop_down</span></button><button anvil-name="anvil-m3-datepicker-year-btn" class="anvil-m3-datepicker-selector-btn" type="button"><span anvil-name="anvil-m3-datepicker-year-label"></span><span anvil-name="anvil-m3-datepicker-year-arrow" class="material-symbols-outlined anvil-m3-datepicker-header-arrow">arrow_drop_down</span></button></div>
             <button anvil-name="anvil-m3-datepicker-next" class="anvil-m3-datepicker-nav-btn" type="button"><span class="material-symbols-outlined">chevron_right</span></button>
           </div>
           <div class="anvil-m3-datepicker-weekdays"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div>
           <div anvil-name="anvil-m3-datepicker-grid" class="anvil-m3-datepicker-grid"></div>
+          <div anvil-name="anvil-m3-datepicker-month-grid" class="anvil-m3-datepicker-month-grid anvil-m3-datepicker-hidden"></div>
           <div anvil-name="anvil-m3-datepicker-year-grid" class="anvil-m3-datepicker-year-grid anvil-m3-datepicker-hidden"></div>
         </div>
       </div>
@@ -47,6 +48,7 @@ properties:
   type: enum
 - {description: The minimum selectable date., group: Key Properties, important: false, name: min_date, type: object}
 - {description: The maximum selectable date., group: Key Properties, important: false, name: max_date, type: object}
+- {default_value: '', description: 'A strftime format string for displaying the selected date (e.g. "%d/%m/%Y"). Leave blank for the default "Jan 4, 2026" format.', group: Key Properties, important: false, name: format, type: string}
 - {default_value: true, description: 'If True, this component allows user interaction.', designer_hint: enabled, group: Interaction, important: true, name: enabled, type: boolean}
 - {default_value: false, description: 'If True, this component is in an error state.', designer_hint: toggle, group: Interaction, important: false, name: error, type: boolean}
 - {default_value: '', description: The supporting text displayed underneath this component., group: Key Properties, important: false, name: supporting_text, type: string}

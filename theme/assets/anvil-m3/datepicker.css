@@ -61,14 +61,20 @@
   background-color: var(--anvil-m3-on-surface-variant-overlay-1);
 }
 
-.anvil-m3-datepicker-month-year-btn {
+.anvil-m3-datepicker-header-selectors {
+  display: flex;
+  flex: 1;
+  gap: 4px;
+  justify-content: center;
+}
+
+.anvil-m3-datepicker-selector-btn {
   background: transparent;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 4px;
+  gap: 2px;
   padding: 4px 8px;
   border-radius: 20px;
   color: var(--anvil-m3-on-surface);
@@ -76,18 +82,10 @@
   font-weight: 500;
   letter-spacing: 0.1px;
   transition: background-color 0.2s;
-  flex: 1;
-  min-width: 0;
 }
 
-.anvil-m3-datepicker-month-year-btn:hover {
+.anvil-m3-datepicker-selector-btn:hover {
   background-color: var(--anvil-m3-on-surface-variant-overlay-1);
-}
-
-.anvil-m3-datepicker-header-label-text {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .anvil-m3-datepicker-header-arrow {
@@ -212,6 +210,42 @@
 }
 
 .anvil-m3-datepicker-year-selected {
+  background-color: var(--anvil-m3-primary-container) !important;
+  color: var(--anvil-m3-on-primary-container) !important;
+  font-weight: 600;
+}
+
+/* ── Month Grid ─────────────────────────────────────────────────────────── */
+
+.anvil-m3-datepicker-month-grid {
+  max-height: 280px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px 0;
+  scrollbar-width: thin;
+}
+
+.anvil-m3-datepicker-month-cell {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: var(--anvil-m3-on-surface);
+  transition: background-color 0.2s;
+  padding: 0 16px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.anvil-m3-datepicker-month-cell:not(.anvil-m3-datepicker-month-selected):hover {
+  background-color: var(--anvil-m3-primary-overlay-1);
+}
+
+.anvil-m3-datepicker-month-selected {
   background-color: var(--anvil-m3-primary-container) !important;
   color: var(--anvil-m3-on-primary-container) !important;
   font-weight: 600;

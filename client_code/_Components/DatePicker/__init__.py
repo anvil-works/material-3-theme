@@ -34,7 +34,7 @@ class DatePicker(DatePickerTemplate):
         self._view_year = None
         self._view_month = None
         self._is_open = False
-        self._year_view = False
+        self._view_mode = 'day'   # 'day' | 'month' | 'year'
         self._cleanup = noop
         self._tooltip_node = None
 
@@ -55,15 +55,20 @@ class DatePicker(DatePickerTemplate):
         field.style.caretColor = 'transparent'
         field.style.cursor = 'pointer'
 
-        # Panel navigation
+        # Month and year selector buttons
+        self.dom_nodes['anvil-m3-datepicker-month-btn'].addEventListener(
+            'click', self._toggle_month_view
+        )
+        self.dom_nodes['anvil-m3-datepicker-year-btn'].addEventListener(
+            'click', self._toggle_year_view
+        )
+
+        # Prev / next month navigation
         self.dom_nodes['anvil-m3-datepicker-prev'].addEventListener(
             'click', self._prev_month
         )
         self.dom_nodes['anvil-m3-datepicker-next'].addEventListener(
             'click', self._next_month
-        )
-        self.dom_nodes['anvil-m3-datepicker-month-year-btn'].addEventListener(
-            'click', self._toggle_year_view
         )
 
         # Toggle panel on trigger click
@@ -117,6 +122,48 @@ class DatePicker(DatePickerTemplate):
         self._panelNode.remove()
         self._cleanup = noop
 
+    # ── View mode ────────────────────────────────────────────────────────────
+
+    def _set_view_mode(self, mode):
+        self._view_mode = mode
+        self.dom_nodes['anvil-m3-datepicker-grid'].classList.toggle(
+            'anvil-m3-datepicker-hidden', mode != 'day'
+        )
+        self.dom_nodes['anvil-m3-datepicker-month-grid'].classList.toggle(
+            'anvil-m3-datepicker-hidden', mode != 'month'
+        )
+        self.dom_nodes['anvil-m3-datepicker-year-grid'].classList.toggle(
+            'anvil-m3-datepicker-hidden', mode != 'year'
+        )
+        self.dom_nodes['anvil-m3-datepicker-month-arrow'].classList.toggle(
+            'anvil-m3-datepicker-arrow-up', mode == 'month'
+        )
+        self.dom_nodes['anvil-m3-datepicker-year-arrow'].classList.toggle(
+            'anvil-m3-datepicker-arrow-up', mode == 'year'
+        )
+        # Prev/next only make sense in day view
+        nav_hidden = mode != 'day'
+        self.dom_nodes['anvil-m3-datepicker-prev'].classList.toggle(
+            'anvil-m3-datepicker-hidden', nav_hidden
+        )
+        self.dom_nodes['anvil-m3-datepicker-next'].classList.toggle(
+            'anvil-m3-datepicker-hidden', nav_hidden
+        )
+
+    def _toggle_month_view(self, event):
+        event.stopPropagation()
+        new_mode = 'day' if self._view_mode == 'month' else 'month'
+        self._set_view_mode(new_mode)
+        if new_mode == 'month':
+            self._render_month_grid()
+
+    def _toggle_year_view(self, event):
+        event.stopPropagation()
+        new_mode = 'day' if self._view_mode == 'year' else 'year'
+        self._set_view_mode(new_mode)
+        if new_mode == 'year':
+            self._render_year_grid()
+
     # ── Calendar Rendering ──────────────────────────────────────────────────
 
     def _days_in_month(self, year, month):
@@ -127,8 +174,12 @@ class DatePicker(DatePickerTemplate):
         return (next_month - datetime.date(year, month, 1)).days
 
     def _render_calendar(self):
-        header = f"{_MONTH_NAMES[self._view_month - 1]} {self._view_year}"
-        self.dom_nodes['anvil-m3-datepicker-header-label'].textContent = header
+        self.dom_nodes['anvil-m3-datepicker-month-label'].textContent = (
+            _MONTH_NAMES[self._view_month - 1]
+        )
+        self.dom_nodes['anvil-m3-datepicker-year-label'].textContent = (
+            str(self._view_year)
+        )
 
         grid = self.dom_nodes['anvil-m3-datepicker-grid']
         grid.innerHTML = ''
@@ -175,6 +226,32 @@ class DatePicker(DatePickerTemplate):
             self.raise_event('change')
         return handler
 
+    def _render_month_grid(self):
+        grid = self.dom_nodes['anvil-m3-datepicker-month-grid']
+        grid.innerHTML = ''
+        for i, name in enumerate(_MONTH_NAMES):
+            month_num = i + 1
+            cell = document.createElement('button')
+            cell.setAttribute('type', 'button')
+            cell.className = 'anvil-m3-datepicker-month-cell'
+            cell.textContent = name
+            if month_num == self._view_month:
+                cell.classList.add('anvil-m3-datepicker-month-selected')
+            cell.addEventListener('click', self._make_month_handler(month_num))
+            grid.appendChild(cell)
+
+        selected = grid.querySelector('.anvil-m3-datepicker-month-selected')
+        if selected:
+            selected.scrollIntoView({'block': 'center'})
+
+    def _make_month_handler(self, month_num):
+        def handler(event):
+            event.stopPropagation()
+            self._view_month = month_num
+            self._set_view_mode('day')
+            self._render_calendar()
+        return handler
+
     def _render_year_grid(self):
         grid = self.dom_nodes['anvil-m3-datepicker-year-grid']
         grid.innerHTML = ''
@@ -197,9 +274,8 @@ class DatePicker(DatePickerTemplate):
         def handler(event):
             event.stopPropagation()
             self._view_year = year
-            self._year_view = False
+            self._set_view_mode('day')
             self._render_calendar()
-            self._set_year_view_visible(False)
         return handler
 
     def _prev_month(self, event):
@@ -218,30 +294,11 @@ class DatePicker(DatePickerTemplate):
             self._view_month += 1
         self._render_calendar()
 
-    def _toggle_year_view(self, event):
-        event.stopPropagation()
-        self._year_view = not self._year_view
-        self._set_year_view_visible(self._year_view)
-        if self._year_view:
-            self._render_year_grid()
-
-    def _set_year_view_visible(self, show):
-        self.dom_nodes['anvil-m3-datepicker-grid'].classList.toggle(
-            'anvil-m3-datepicker-hidden', show
-        )
-        self.dom_nodes['anvil-m3-datepicker-year-grid'].classList.toggle(
-            'anvil-m3-datepicker-hidden', not show
-        )
-        self.dom_nodes['anvil-m3-datepicker-header-arrow'].classList.toggle(
-            'anvil-m3-datepicker-arrow-up', show
-        )
-
     def _open_panel(self):
         ref = self._date or datetime.date.today()
         self._view_year = ref.year
         self._view_month = ref.month
-        self._year_view = False
-        self._set_year_view_visible(False)
+        self._set_view_mode('day')
         self._render_calendar()
         self._panelNode.classList.remove('anvil-m3-datepicker-hidden')
         self._is_open = True
@@ -281,6 +338,14 @@ class DatePicker(DatePickerTemplate):
             }
         ]
 
+    # ── Date formatting ──────────────────────────────────────────────────────
+
+    def _format_date(self, value):
+        fmt = self._props.get('format')
+        if fmt:
+            return value.strftime(fmt)
+        return f"{_MONTH_ABBR[value.month - 1]} {value.day}, {value.year}"
+
     # ── Properties ──────────────────────────────────────────────────────────
 
     visible = HtmlTemplate.visible
@@ -292,10 +357,16 @@ class DatePicker(DatePickerTemplate):
         """The selected date as a Python datetime.date object."""
         self._date = value
         if value is not None:
-            formatted = f"{_MONTH_ABBR[value.month - 1]} {value.day}, {value.year}"
-            self.selection_field.text = formatted
+            self.selection_field.text = self._format_date(value)
         else:
             self.selection_field.text = ''
+
+    @anvil_prop
+    @property
+    def format(self, value) -> str:
+        """A strftime format string for displaying the selected date (e.g. "%d/%m/%Y"). Leave blank for the default "Jan 4, 2026" format."""
+        if self._date is not None:
+            self.selection_field.text = self._format_date(self._date)
 
     @anvil_prop
     @property
@@ -487,6 +558,7 @@ class DatePicker(DatePickerTemplate):
     #!componentProp(m3.DatePicker)!1: {name:"label",type:"string",description:"The label text of the component."}
     #!componentProp(m3.DatePicker)!1: {name:"placeholder",type:"string",description:"The text to be displayed when no date is selected."}
     #!componentProp(m3.DatePicker)!1: {name:"date",type:"object",description:"The selected date as a Python datetime.date object."}
+    #!componentProp(m3.DatePicker)!1: {name:"format",type:"string",description:"A strftime format string for displaying the selected date."}
     #!componentProp(m3.DatePicker)!1: {name:"min_date",type:"object",description:"The minimum selectable date."}
     #!componentProp(m3.DatePicker)!1: {name:"max_date",type:"object",description:"The maximum selectable date."}
     #!componentProp(m3.DatePicker)!1: {name:"supporting_text",type:"string",description:"The supporting text displayed underneath this component."}
