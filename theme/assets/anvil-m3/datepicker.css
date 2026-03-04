@@ -33,9 +33,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 8px;
-  height: 48px;
-  border-bottom: 1px solid var(--anvil-m3-outline-variant);
+  padding: 20px 12px 16px 12px;
+
+
 }
 
 .anvil-m3-datepicker-nav-btn {
@@ -104,7 +104,7 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   place-items: center;
-  margin-bottom: 4px;
+  padding: 16px 12px;
 }
 
 .anvil-m3-datepicker-weekdays span {
@@ -123,6 +123,7 @@
   grid-template-columns: repeat(7, 1fr);
   place-items: center;
   gap: 2px 0;
+  padding: 0 12px;
 }
 
 .anvil-m3-datepicker-day {
@@ -189,6 +190,7 @@
   gap: 2px;
   padding: 4px 0;
   scrollbar-width: thin;
+  border-top: 1px solid var(--anvil-m3-outline-variant);
 }
 
 .anvil-m3-datepicker-year-cell {
@@ -225,6 +227,7 @@
   gap: 2px;
   padding: 4px 0;
   scrollbar-width: thin;
+  border-top: 1px solid var(--anvil-m3-outline-variant);
 }
 
 .anvil-m3-datepicker-month-cell {
