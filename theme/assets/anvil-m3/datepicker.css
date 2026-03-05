@@ -178,11 +178,17 @@
   display: none;
 }
 
-/* Disabled / empty cells */
-.anvil-m3-datepicker-day-disabled,
-.anvil-m3-datepicker-day-empty {
+/* Disabled / out-of-range cells */
+.anvil-m3-datepicker-day-disabled {
   cursor: default;
   color: var(--anvil-m3-on-disabled);
+}
+
+/* Adjacent month filler days */
+.anvil-m3-datepicker-day-outside {
+  cursor: default;
+  color: var(--anvil-m3-on-surface-variant);
+  opacity: 0.38;
 }
 
 /* ── Year Grid ──────────────────────────────────────────────────────────── */
