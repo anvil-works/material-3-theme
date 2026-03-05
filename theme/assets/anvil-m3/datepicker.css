@@ -111,8 +111,8 @@
 }
 
 .anvil-m3-datepicker-weekdays span {
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 400;
   color: var(--anvil-m3-on-surface);
   padding: 4px 0;
   width: 40px;
@@ -141,7 +141,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 16px;
   color: var(--anvil-m3-on-surface);
   transition: background-color 0.2s;
   position: relative;
@@ -155,7 +155,6 @@
 /* Today: primary-coloured text with a subtle ring */
 .anvil-m3-datepicker-day-today {
   color: var(--anvil-m3-primary);
-  font-weight: 600;
 }
 
 .anvil-m3-datepicker-day-today::after {
