@@ -15,6 +15,9 @@
   position: absolute;
   z-index: 1050;
   width: 360px;
+  height: 440px;
+  display: flex;
+  flex-direction: column;
   background-color: var(--anvil-m3-surface-container-high);
   border-radius: 28px;
   /* Elevation level 2 */
