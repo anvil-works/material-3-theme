@@ -148,7 +148,8 @@
   box-sizing: border-box;
 }
 
-.anvil-m3-datepicker-day:not(:disabled):not(.anvil-m3-datepicker-day-selected):hover {
+.anvil-m3-datepicker-day:not(:disabled):not(.anvil-m3-datepicker-day-selected):hover,
+.anvil-m3-datepicker-day:not(:disabled):not(.anvil-m3-datepicker-day-selected):focus  {
   background-color: var(--anvil-m3-primary-overlay-1);
 }
 
