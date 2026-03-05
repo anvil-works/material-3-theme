@@ -207,7 +207,8 @@ class DatePicker(DatePickerTemplate):
         min_date = self._props.get('min_date')
         max_date = self._props.get('max_date')
 
-        for i in range(42):  # 6 weeks × 7 days
+        total_cells = ((start_offset + days + 6) // 7) * 7  # minimum rows × 7
+        for i in range(total_cells):
             day_num = i - start_offset + 1
             cell = document.createElement('button')
             cell.setAttribute('type', 'button')
