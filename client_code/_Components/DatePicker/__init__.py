@@ -213,7 +213,21 @@ class DatePicker(DatePickerTemplate):
             cell.setAttribute('type', 'button')
             cell.className = 'anvil-m3-datepicker-day'
 
-            if 1 <= day_num <= days:
+            if day_num < 1:
+                # Trailing days of previous month
+                if self._view_month == 1:
+                    prev_year, prev_month = self._view_year - 1, 12
+                else:
+                    prev_year, prev_month = self._view_year, self._view_month - 1
+                cell.textContent = str(self._days_in_month(prev_year, prev_month) + day_num)
+                cell.disabled = True
+                cell.classList.add('anvil-m3-datepicker-day-outside')
+            elif day_num > days:
+                # Leading days of next month
+                cell.textContent = str(day_num - days)
+                cell.disabled = True
+                cell.classList.add('anvil-m3-datepicker-day-outside')
+            else:
                 d = datetime.date(self._view_year, self._view_month, day_num)
                 cell.textContent = str(day_num)
 
@@ -227,9 +241,6 @@ class DatePicker(DatePickerTemplate):
                     cell.classList.add('anvil-m3-datepicker-day-disabled')
                 else:
                     cell.addEventListener('click', self._make_day_handler(d))
-            else:
-                cell.disabled = True
-                cell.classList.add('anvil-m3-datepicker-day-empty')
 
             grid.appendChild(cell)
 
