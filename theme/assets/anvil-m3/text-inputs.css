@@ -69,7 +69,7 @@ element {
 .anvil-m3-textinput-input:disabled {
   background: var(--anvil-m3-disabled-container-2);
   box-shadow: inset 0 -1px 0 var(--anvil-m3-on-disabled);
-  cursor: not-allowed;
+  cursor: not-allowed !important;
   color: var(--anvil-m3-on-disabled) !important;
 }
 
