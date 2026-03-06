@@ -597,7 +597,7 @@ class DatePicker(DatePickerTemplate):
         """The text to display when the mouse is hovered over this component."""
         self.selection_field.tooltip = value
 
-    #!componentProp(m3.DatePicker)!1: {name:"align",type:"enum",options:["left","center","right","full"],description:"The position of this component in the available space."}
+    #!componentProp(m3.DatePicker)!1: {name:"align",type:"enum",options:["left","center","right"],description:"The position of this component in the available space."}
     #!componentProp(m3.DatePicker)!1: {name:"appearance",type:"enum",options:["filled","outlined"],description:"A predefined style for this component."}
     #!componentProp(m3.DatePicker)!1: {name:"visible",type:"boolean",description:"If True, the component will be displayed."}
     #!componentProp(m3.DatePicker)!1: {name:"enabled",type:"boolean",description:"If True, this component allows user interaction."}

@@ -81,7 +81,7 @@ properties:
   group: Layout
   important: true
   name: align
-  options: [left, center, right, full]
+  options: [left, center, right]
   type: enum
 - {default_value: '', description: A style for this component defined in CSS and added to Roles., group: Look and Feel, name: role, type: themeRole}
 - {default_value: '', description: The colour of the background of this component., group: Look and Feel, important: false, name: background_color, type: color}
