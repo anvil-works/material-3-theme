@@ -280,7 +280,7 @@ class DatePicker(DatePickerTemplate):
 
         selected = grid.querySelector('.anvil-m3-datepicker-year-selected')
         if selected:
-            selected.scrollIntoView({'block': 'center'})
+            selected.scrollIntoView({'block': 'start'})
 
     def _make_year_handler(self, year):
         def handler(event):
