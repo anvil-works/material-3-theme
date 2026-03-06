@@ -1,4 +1,24 @@
 components:
+- event_bindings: {click: _prev_month}
+  layout_properties: {slot: month-prev}
+  name: month_prev_btn
+  properties: {icon: 'mi:chevron_left'}
+  type: form:_Components.IconButton
+- event_bindings: {click: _next_month}
+  layout_properties: {slot: month-next}
+  name: month_next_btn
+  properties: {icon: 'mi:chevron_right'}
+  type: form:_Components.IconButton
+- event_bindings: {click: _prev_year}
+  layout_properties: {slot: year-prev}
+  name: year_prev_btn
+  properties: {icon: 'mi:chevron_left'}
+  type: form:_Components.IconButton
+- event_bindings: {click: _next_year}
+  layout_properties: {slot: year-next}
+  name: year_next_btn
+  properties: {icon: 'mi:chevron_right'}
+  type: form:_Components.IconButton
 - layout_properties: {slot: anvil-m3-datepicker-textfield}
   name: selection_field
   properties: {trailing_icon: 'mi:calendar_today'}
@@ -11,9 +31,10 @@ container:
         <div anvil-slot="anvil-m3-datepicker-textfield" anvil-name="anvil-m3-datepicker-textfield" class="anvil-m3-datepicker-textfield" anvil-slot-internal></div>
         <div anvil-name="anvil-m3-datepicker-panel" class="anvil-m3-datepicker-panel anvil-m3-datepicker-hidden">
           <div class="anvil-m3-datepicker-header">
-            <button anvil-name="anvil-m3-datepicker-prev" class="anvil-m3-datepicker-nav-btn" type="button"><span class="material-symbols-outlined">chevron_left</span></button>
-            <div class="anvil-m3-datepicker-header-selectors"><button anvil-name="anvil-m3-datepicker-month-btn" class="anvil-m3-datepicker-selector-btn" type="button"><span anvil-name="anvil-m3-datepicker-month-label"></span><span anvil-name="anvil-m3-datepicker-month-arrow" class="material-symbols-outlined anvil-m3-datepicker-header-arrow">arrow_drop_down</span></button><button anvil-name="anvil-m3-datepicker-year-btn" class="anvil-m3-datepicker-selector-btn" type="button"><span anvil-name="anvil-m3-datepicker-year-label"></span><span anvil-name="anvil-m3-datepicker-year-arrow" class="material-symbols-outlined anvil-m3-datepicker-header-arrow">arrow_drop_down</span></button></div>
-            <button anvil-name="anvil-m3-datepicker-next" class="anvil-m3-datepicker-nav-btn" type="button"><span class="material-symbols-outlined">chevron_right</span></button>
+            <div class="anvil-m3-datepicker-header-selectors">
+              <div class="anvil-m3-datepicker-selector-group"><div anvil-slot="month-prev" anvil-slot-internal></div><button anvil-name="anvil-m3-datepicker-month-btn" class="anvil-m3-datepicker-selector-btn" type="button"><span anvil-name="anvil-m3-datepicker-month-label"></span><span anvil-name="anvil-m3-datepicker-month-arrow" class="material-symbols-outlined anvil-m3-datepicker-header-arrow">arrow_drop_down</span></button><div anvil-slot="month-next" anvil-slot-internal></div></div>
+              <div class="anvil-m3-datepicker-selector-group"><div anvil-slot="year-prev" anvil-slot-internal></div><button anvil-name="anvil-m3-datepicker-year-btn" class="anvil-m3-datepicker-selector-btn" type="button"><span anvil-name="anvil-m3-datepicker-year-label"></span><span anvil-name="anvil-m3-datepicker-year-arrow" class="material-symbols-outlined anvil-m3-datepicker-header-arrow">arrow_drop_down</span></button><div anvil-slot="year-next" anvil-slot-internal></div></div>
+            </div>
           </div>
           <div anvil-name="anvil-m3-datepicker-weekdays" class="anvil-m3-datepicker-weekdays"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
           <div anvil-name="anvil-m3-datepicker-grid" class="anvil-m3-datepicker-grid"></div>

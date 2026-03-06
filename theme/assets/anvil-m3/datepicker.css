@@ -15,7 +15,7 @@
   position: absolute;
   z-index: 1050;
   width: 360px;
-  height: 440px;
+  min-height: 440px;
   display: flex;
   flex-direction: column;
   background-color: var(--anvil-m3-surface-container-high);
@@ -35,8 +35,7 @@
 .anvil-m3-datepicker-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 20px 12px 16px 12px;
+  padding: 12px 4px 8px 4px;
   flex-shrink: 0;
 }
 
@@ -67,6 +66,13 @@
   display: flex;
   flex: 1;
   gap: 4px;
+  justify-content: space-between;
+}
+
+.anvil-m3-datepicker-selector-group {
+  display: flex;
+  align-items: center;
+  flex: 1;
   justify-content: center;
 }
 

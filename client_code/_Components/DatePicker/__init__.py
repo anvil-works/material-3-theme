@@ -64,14 +64,6 @@ class DatePicker(DatePickerTemplate):
             'click', self._toggle_year_view
         )
 
-        # Prev / next month navigation
-        self.dom_nodes['anvil-m3-datepicker-prev'].addEventListener(
-            'click', self._prev_month
-        )
-        self.dom_nodes['anvil-m3-datepicker-next'].addEventListener(
-            'click', self._next_month
-        )
-
         # Cancel / OK action buttons
         self.dom_nodes['anvil-m3-datepicker-cancel'].addEventListener(
             'click', self._handle_cancel
@@ -150,14 +142,8 @@ class DatePicker(DatePickerTemplate):
         self.dom_nodes['anvil-m3-datepicker-year-arrow'].classList.toggle(
             'anvil-m3-datepicker-arrow-up', mode == 'year'
         )
-        # Prev/next and weekdays only make sense in day view
+        # Weekdays only make sense in day view
         nav_hidden = mode != 'day'
-        self.dom_nodes['anvil-m3-datepicker-prev'].classList.toggle(
-            'anvil-m3-datepicker-hidden', nav_hidden
-        )
-        self.dom_nodes['anvil-m3-datepicker-next'].classList.toggle(
-            'anvil-m3-datepicker-hidden', nav_hidden
-        )
         self.dom_nodes['anvil-m3-datepicker-weekdays'].classList.toggle(
             'anvil-m3-datepicker-hidden', nav_hidden
         )
@@ -304,20 +290,30 @@ class DatePicker(DatePickerTemplate):
             self._render_calendar()
         return handler
 
-    def _prev_month(self, event):
-        event.stopPropagation()
+    def _prev_month(self, **event_args):
         if self._view_month == 1:
             self._view_month, self._view_year = 12, self._view_year - 1
         else:
             self._view_month -= 1
+        self._set_view_mode('day')
         self._render_calendar()
 
-    def _next_month(self, event):
-        event.stopPropagation()
+    def _next_month(self, **event_args):
         if self._view_month == 12:
             self._view_month, self._view_year = 1, self._view_year + 1
         else:
             self._view_month += 1
+        self._set_view_mode('day')
+        self._render_calendar()
+
+    def _prev_year(self, **event_args):
+        self._view_year -= 1
+        self._set_view_mode('day')
+        self._render_calendar()
+
+    def _next_year(self, **event_args):
+        self._view_year += 1
+        self._set_view_mode('day')
         self._render_calendar()
 
     def _handle_ok(self, event):
