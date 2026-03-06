@@ -266,9 +266,31 @@
   background-color: var(--anvil-m3-primary-overlay-1);
 }
 
-.anvil-m3-datepicker-month-selected, 
+.anvil-m3-datepicker-month-selected,
 .anvil-m3-datepicker-year-selected {
   background-color: var(--anvil-m3-surface-variant) !important;
+}
+
+/* Transparent scrollbar track */
+.anvil-m3-datepicker-month-grid,
+.anvil-m3-datepicker-year-grid {
+  scrollbar-color: var(--anvil-m3-on-surface-variant) transparent;
+}
+
+.anvil-m3-datepicker-month-grid::-webkit-scrollbar,
+.anvil-m3-datepicker-year-grid::-webkit-scrollbar {
+  width: 4px;
+}
+
+.anvil-m3-datepicker-month-grid::-webkit-scrollbar-track,
+.anvil-m3-datepicker-year-grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.anvil-m3-datepicker-month-grid::-webkit-scrollbar-thumb,
+.anvil-m3-datepicker-year-grid::-webkit-scrollbar-thumb {
+  background-color: var(--anvil-m3-on-surface-variant);
+  border-radius: 4px;
 }
 
 /* ── Footer (Cancel / OK) ───────────────────────────────────────────────── */
