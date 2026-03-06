@@ -15,7 +15,7 @@
   position: absolute;
   z-index: 1050;
   width: 360px;
-  min-height: 440px;
+  max-height: 440px;
   display: flex;
   flex-direction: column;
   background-color: var(--anvil-m3-surface-container-high);
