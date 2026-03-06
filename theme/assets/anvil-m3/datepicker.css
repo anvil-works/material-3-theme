@@ -244,7 +244,7 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  padding: 0 16px 20px 16px;
+  padding: 16px 0 20px 0;
   scrollbar-width: thin;
   border-top: 1px solid var(--anvil-m3-outline-variant);
 }
@@ -254,11 +254,10 @@
   border: none;
   cursor: pointer;
   height: 40px;
-  border-radius: 20px;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--anvil-m3-on-surface);
   transition: background-color 0.2s;
-  padding: 0 16px;
+  padding: 8px 16px;
   text-align: left;
   flex-shrink: 0;
 }
