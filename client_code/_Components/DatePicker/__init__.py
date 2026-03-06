@@ -246,9 +246,16 @@ class DatePicker(DatePickerTemplate):
             cell = document.createElement('button')
             cell.setAttribute('type', 'button')
             cell.className = 'anvil-m3-datepicker-month-cell'
-            cell.textContent = name
             if month_num == self._view_month:
                 cell.classList.add('anvil-m3-datepicker-month-selected')
+            icon = document.createElement('span')
+            icon.className = 'material-symbols-outlined anvil-m3-datepicker-list-icon'
+            if month_num == self._view_month:
+                icon.textContent = 'check'
+            cell.appendChild(icon)
+            label = document.createElement('span')
+            label.textContent = name
+            cell.appendChild(label)
             cell.addEventListener('click', self._make_month_handler(month_num))
             grid.appendChild(cell)
 
@@ -272,9 +279,16 @@ class DatePicker(DatePickerTemplate):
             cell = document.createElement('button')
             cell.setAttribute('type', 'button')
             cell.className = 'anvil-m3-datepicker-year-cell'
-            cell.textContent = str(yr)
             if yr == base:
                 cell.classList.add('anvil-m3-datepicker-year-selected')
+            icon = document.createElement('span')
+            icon.className = 'material-symbols-outlined anvil-m3-datepicker-list-icon'
+            if yr == base:
+                icon.textContent = 'check'
+            cell.appendChild(icon)
+            label = document.createElement('span')
+            label.textContent = str(yr)
+            cell.appendChild(label)
             cell.addEventListener('click', self._make_year_handler(yr))
             grid.appendChild(cell)
 
