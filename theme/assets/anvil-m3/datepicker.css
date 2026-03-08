@@ -312,20 +312,3 @@
   flex-shrink: 0;
 }
 
-.anvil-m3-datepicker-footer-btn {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  height: 40px;
-  padding: 0 12px;
-  border-radius: 20px;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0.1px;
-  color: var(--anvil-m3-primary);
-  transition: background-color 0.2s;
-}
-
-.anvil-m3-datepicker-footer-btn:hover {
-  background-color: var(--anvil-m3-primary-overlay-1);
-}

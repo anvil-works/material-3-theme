@@ -14,7 +14,6 @@
 .anvil-m3-timepicker-panel {
   position: absolute;
   z-index: 1050;
-  width: 280px;
   display: flex;
   flex-direction: column;
   background-color: var(--anvil-m3-surface-container-high);

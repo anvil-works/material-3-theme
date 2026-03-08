@@ -64,14 +64,6 @@ class DatePicker(DatePickerTemplate):
             'click', self._toggle_year_view
         )
 
-        # Cancel / OK action buttons
-        self.dom_nodes['anvil-m3-datepicker-cancel'].addEventListener(
-            'click', self._handle_cancel
-        )
-        self.dom_nodes['anvil-m3-datepicker-ok'].addEventListener(
-            'click', self._handle_ok
-        )
-
         # Toggle panel on trigger click
         self.dom_nodes['anvil-m3-datepicker-container'].addEventListener(
             'click', self._handle_trigger_click
@@ -330,15 +322,13 @@ class DatePicker(DatePickerTemplate):
         self._set_view_mode('day')
         self._render_calendar()
 
-    def _handle_ok(self, event):
-        event.stopPropagation()
+    def _handle_ok(self, **event_args):
         if self._pending_date != self._date:
             self.date = self._pending_date
             self.raise_event('change')
         self._close_panel()
 
-    def _handle_cancel(self, event):
-        event.stopPropagation()
+    def _handle_cancel(self, **event_args):
         self._close_panel()
 
     def _open_panel(self):

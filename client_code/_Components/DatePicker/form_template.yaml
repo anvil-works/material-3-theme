@@ -1,4 +1,14 @@
 components:
+- event_bindings: {click: _handle_cancel}
+  layout_properties: {slot: datepicker-cancel}
+  name: cancel_btn
+  properties: {appearance: text, text: Cancel}
+  type: form:_Components.Button
+- event_bindings: {click: _handle_ok}
+  layout_properties: {slot: datepicker-ok}
+  name: ok_btn
+  properties: {appearance: text, text: OK}
+  type: form:_Components.Button
 - event_bindings: {click: _prev_month}
   layout_properties: {slot: month-prev}
   name: month_prev_btn
@@ -40,7 +50,7 @@ container:
           <div anvil-name="anvil-m3-datepicker-grid" class="anvil-m3-datepicker-grid"></div>
           <div anvil-name="anvil-m3-datepicker-month-grid" class="anvil-m3-datepicker-month-grid anvil-m3-datepicker-hidden"></div>
           <div anvil-name="anvil-m3-datepicker-year-grid" class="anvil-m3-datepicker-year-grid anvil-m3-datepicker-hidden"></div>
-          <div anvil-name="anvil-m3-datepicker-footer" class="anvil-m3-datepicker-footer"><button anvil-name="anvil-m3-datepicker-cancel" class="anvil-m3-datepicker-footer-btn" type="button">Cancel</button><button anvil-name="anvil-m3-datepicker-ok" class="anvil-m3-datepicker-footer-btn anvil-m3-datepicker-footer-ok" type="button">OK</button></div>
+          <div anvil-name="anvil-m3-datepicker-footer" class="anvil-m3-datepicker-footer"><div anvil-slot="datepicker-cancel" anvil-slot-internal></div><div anvil-slot="datepicker-ok" anvil-slot-internal></div></div>
         </div>
       </div>
     visible: true
