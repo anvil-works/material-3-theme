@@ -26,9 +26,9 @@ container:
         <div anvil-slot="anvil-m3-timepicker-textfield" anvil-name="anvil-m3-timepicker-textfield" class="anvil-m3-timepicker-textfield" anvil-slot-internal></div>
         <div anvil-name="anvil-m3-timepicker-panel" class="anvil-m3-timepicker-panel anvil-m3-timepicker-hidden">
           <div class="anvil-m3-timepicker-display">
-            <button anvil-name="anvil-m3-timepicker-hour-chip" class="anvil-m3-timepicker-time-chip" type="button">12</button>
+            <input anvil-name="anvil-m3-timepicker-hour-chip" class="anvil-m3-timepicker-time-chip" type="text" maxlength="2" inputmode="numeric">
             <span class="anvil-m3-timepicker-colon">:</span>
-            <button anvil-name="anvil-m3-timepicker-minute-chip" class="anvil-m3-timepicker-time-chip" type="button">00</button>
+            <input anvil-name="anvil-m3-timepicker-minute-chip" class="anvil-m3-timepicker-time-chip" type="text" maxlength="2" inputmode="numeric">
             <div anvil-name="anvil-m3-timepicker-ampm" class="anvil-m3-timepicker-ampm">
               <button anvil-name="anvil-m3-timepicker-am-btn" class="anvil-m3-timepicker-ampm-btn" type="button">AM</button>
               <button anvil-name="anvil-m3-timepicker-pm-btn" class="anvil-m3-timepicker-ampm-btn" type="button">PM</button>
@@ -36,11 +36,6 @@ container:
           </div>
           <div anvil-name="anvil-m3-timepicker-dial" class="anvil-m3-timepicker-dial-wrap">
             <svg anvil-name="anvil-m3-timepicker-svg" class="anvil-m3-timepicker-svg" viewBox="0 0 240 240"></svg>
-          </div>
-          <div anvil-name="anvil-m3-timepicker-input-mode" class="anvil-m3-timepicker-input-mode anvil-m3-timepicker-hidden">
-            <input anvil-name="anvil-m3-timepicker-hour-input" class="anvil-m3-timepicker-number-input" type="text" maxlength="2" placeholder="--">
-            <span class="anvil-m3-timepicker-colon">:</span>
-            <input anvil-name="anvil-m3-timepicker-minute-input" class="anvil-m3-timepicker-number-input" type="text" maxlength="2" placeholder="--">
           </div>
           <div class="anvil-m3-timepicker-footer">
             <div anvil-slot="timepicker-mode-toggle" anvil-slot-internal></div>

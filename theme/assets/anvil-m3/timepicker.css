@@ -51,10 +51,18 @@
   color: var(--anvil-m3-on-surface);
   transition: background-color 0.2s;
   line-height: 1;
+  text-align: center;
+  outline: none;
+  font-family: inherit;
 }
 
 .anvil-m3-timepicker-time-chip:hover {
   background-color: var(--anvil-m3-on-surface-variant-overlay-1);
+}
+
+.anvil-m3-timepicker-time-chip:focus {
+  background-color: var(--anvil-m3-primary-container);
+  color: var(--anvil-m3-on-primary-container);
 }
 
 .anvil-m3-timepicker-chip-active {
@@ -163,37 +171,6 @@
 
 .anvil-m3-timepicker-center-dot {
   fill: var(--anvil-m3-primary);
-}
-
-/* ── Input Mode ─────────────────────────────────────────────────────────── */
-
-.anvil-m3-timepicker-input-mode {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 32px 24px;
-  flex: 1;
-}
-
-.anvil-m3-timepicker-number-input {
-  width: 96px;
-  height: 80px;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 45px;
-  font-weight: 400;
-  border: none;
-  background-color: var(--anvil-m3-surface-container);
-  color: var(--anvil-m3-on-surface);
-  outline: none;
-  transition: background-color 0.2s;
-  font-family: inherit;
-}
-
-.anvil-m3-timepicker-number-input:focus {
-  background-color: var(--anvil-m3-primary-container);
-  color: var(--anvil-m3-on-primary-container);
 }
 
 /* ── Footer ─────────────────────────────────────────────────────────────── */
