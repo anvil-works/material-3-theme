@@ -8,6 +8,7 @@ from .._Components.Checkbox import Checkbox
 from .._Components.CircularProgressIndicator import CircularProgressIndicator
 from .._Components.Divider import Divider
 from .._Components.DatePicker import DatePicker
+from .._Components.TimePicker import TimePicker
 from .._Components.DropdownMenu import DropdownMenu
 from .._Components.FileLoader import FileLoader
 from .._Components.Heading import Heading

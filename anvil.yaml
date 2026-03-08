@@ -148,6 +148,9 @@ toolbox_sections:
   - component: {type: m3._Components.DatePicker}
     icon: {dark: /ide/img/toolbox/DatePicker.dark.svg, light: /ide/img/toolbox/DatePicker.svg}
     title: DatePicker
+  - component: {type: m3._Components.TimePicker}
+    icon: {dark: /ide/img/toolbox/TimePicker.dark.svg, light: /ide/img/toolbox/TimePicker.svg}
+    title: TimePicker
   - component:
       components:
       - {type: m3._Components.RadioButton}

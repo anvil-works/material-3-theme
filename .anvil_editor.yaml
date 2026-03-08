@@ -19,6 +19,7 @@ unique_ids:
     anvil-m3/switch.css: '1690201930961944613537214.6923'
     anvil-m3/text-inputs.css: '1704273625879558438128090.6605'
     anvil-m3/text.css: '1691587464344929257845739.1733'
+    anvil-m3/timepicker.css: '1772981424837.6364083086063871'
     anvil-m3/virtualize/core@3.13.12.js: DEI2LKYKJLEYTOSUFLRQBQ6OKBVKJAIE
     designer_icons/.gitkeep: '1702399955422687289669130.4792'
     designer_icons/avatar.svg: TNJW3TIPNCEUH67WYOW446TFCH6IH5RB
@@ -108,6 +109,7 @@ unique_ids:
     _Components.Switch: NX6RIMTQ7UKHD7G77KDTDIWQJZ7COLZ3
     _Components.Text: '1691572000604659329611163.5563'
     _Components.TextInput: '1704278444641904756062672.2582'
+    _Components.TimePicker: '1772981424836.2839219036175362'
   modules:
     InitModule: '1729773387629974098018934.2618'
     Layouts: '1729688261865957178219315.7664'

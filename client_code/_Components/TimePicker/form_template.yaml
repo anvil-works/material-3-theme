@@ -1,0 +1,115 @@
+components:
+- event_bindings: {click: _toggle_mode}
+  layout_properties: {slot: timepicker-mode-toggle}
+  name: mode_toggle_btn
+  properties: {icon: 'mi:keyboard'}
+  type: form:_Components.IconButton
+- event_bindings: {click: _handle_cancel}
+  layout_properties: {slot: timepicker-cancel}
+  name: cancel_btn
+  properties: {appearance: text, text: Cancel}
+  type: form:_Components.Button
+- event_bindings: {click: _handle_ok}
+  layout_properties: {slot: timepicker-ok}
+  name: ok_btn
+  properties: {appearance: text, text: OK}
+  type: form:_Components.Button
+- layout_properties: {slot: anvil-m3-timepicker-textfield}
+  name: selection_field
+  properties: {trailing_icon: 'mi:schedule'}
+  type: form:_Components.TextInput.TextBox
+container:
+  event_bindings: {show: form_show}
+  properties:
+    html: |-
+      <div anvil-name="anvil-m3-timepicker-container" class="anvil-m3-timepicker-container">
+        <div anvil-slot="anvil-m3-timepicker-textfield" anvil-name="anvil-m3-timepicker-textfield" class="anvil-m3-timepicker-textfield" anvil-slot-internal></div>
+        <div anvil-name="anvil-m3-timepicker-panel" class="anvil-m3-timepicker-panel anvil-m3-timepicker-hidden">
+          <div class="anvil-m3-timepicker-display">
+            <button anvil-name="anvil-m3-timepicker-hour-chip" class="anvil-m3-timepicker-time-chip" type="button">12</button>
+            <span class="anvil-m3-timepicker-colon">:</span>
+            <button anvil-name="anvil-m3-timepicker-minute-chip" class="anvil-m3-timepicker-time-chip" type="button">00</button>
+            <div anvil-name="anvil-m3-timepicker-ampm" class="anvil-m3-timepicker-ampm">
+              <button anvil-name="anvil-m3-timepicker-am-btn" class="anvil-m3-timepicker-ampm-btn" type="button">AM</button>
+              <button anvil-name="anvil-m3-timepicker-pm-btn" class="anvil-m3-timepicker-ampm-btn" type="button">PM</button>
+            </div>
+          </div>
+          <div anvil-name="anvil-m3-timepicker-dial" class="anvil-m3-timepicker-dial-wrap">
+            <svg anvil-name="anvil-m3-timepicker-svg" class="anvil-m3-timepicker-svg" viewBox="0 0 240 240"></svg>
+          </div>
+          <div anvil-name="anvil-m3-timepicker-input-mode" class="anvil-m3-timepicker-input-mode anvil-m3-timepicker-hidden">
+            <input anvil-name="anvil-m3-timepicker-hour-input" class="anvil-m3-timepicker-number-input" type="text" maxlength="2" placeholder="--">
+            <span class="anvil-m3-timepicker-colon">:</span>
+            <input anvil-name="anvil-m3-timepicker-minute-input" class="anvil-m3-timepicker-number-input" type="text" maxlength="2" placeholder="--">
+          </div>
+          <div class="anvil-m3-timepicker-footer">
+            <div anvil-slot="timepicker-mode-toggle" anvil-slot-internal></div>
+            <div class="anvil-m3-timepicker-footer-spacer"></div>
+            <div anvil-slot="timepicker-cancel" anvil-slot-internal></div>
+            <div anvil-slot="timepicker-ok" anvil-slot-internal></div>
+          </div>
+        </div>
+      </div>
+    visible: true
+  type: HtmlTemplate
+custom_component: true
+events:
+- {default_event: true, description: When a time is selected., name: change}
+- {description: When the component is shown on the screen., name: show}
+- {description: When the component is removed from the screen., name: hide}
+is_package: true
+properties:
+- {default_value: '', description: The label text of the component., group: Key Properties, important: true, name: label, type: string}
+- {default_value: 'HH:MM AM', description: The text to be displayed when no time is selected., group: Key Properties, important: true, name: placeholder, type: string}
+- allow_binding_writeback: true
+  binding_writeback_events: [change]
+  description: The selected time as a Python datetime.time object.
+  group: Key Properties
+  important: true
+  name: time
+  type: object
+- default_value: filled
+  description: A predefined style for this component.
+  group: Key Properties
+  important: true
+  name: appearance
+  options: [filled, outlined]
+  type: enum
+- {default_value: false, description: 'If True, the time picker uses 24-hour format.', group: Key Properties, important: true, name: hour_24, type: boolean}
+- {default_value: '', description: 'A strftime format string for displaying the selected time (e.g. "%H:%M"). Leave blank for the default format.', group: Key Properties, important: false, name: format, type: string}
+- {default_value: true, description: 'If True, this component allows user interaction.', designer_hint: enabled, group: Interaction, important: true, name: enabled, type: boolean}
+- {default_value: false, description: 'If True, this component is in an error state.', designer_hint: toggle, group: Interaction, important: false, name: error, type: boolean}
+- {default_value: '', description: The supporting text displayed underneath this component., group: Key Properties, important: false, name: supporting_text, type: string}
+- {default_value: true, description: 'If True, the component will be displayed.', designer_hint: visible, group: Look and Feel, important: true, name: visible, type: boolean}
+- default_value: left
+  description: The position of this component in the available space.
+  designer_hint: align-horizontal
+  group: Layout
+  important: true
+  name: align
+  options: [left, center, right, full]
+  type: enum
+- {default_value: '', description: A style for this component defined in CSS and added to Roles., group: Look and Feel, name: role, type: themeRole}
+- {default_value: '', description: The colour of the background of this component., group: Look and Feel, important: false, name: background_color, type: color}
+- {default_value: '', description: The colour of the border of this component., group: Look and Feel, important: false, name: border_color, type: color}
+- {default_value: '', description: The colour of the label text on the component., group: Label Style, important: false, name: label_color, type: color}
+- {default_value: false, description: 'If True, the label text will be bold.', group: Label Style, important: false, name: label_bold, type: boolean}
+- {default_value: false, description: 'If True, the label text will be italic.', group: Label Style, important: false, name: label_italic, type: boolean}
+- {default_value: false, description: 'If True, the label text will be underlined.', group: Label Style, important: false, name: label_underline, type: boolean}
+- {description: The font size of the label text on this component., group: Label Style, important: false, name: label_font_size, type: number}
+- {default_value: '', description: The font family to use for the label on this component., group: Label Style, important: false, name: label_font_family, type: string}
+- {default_value: false, description: 'If True, the displayed time text will be bold.', group: Display Style, important: false, name: display_bold, type: boolean}
+- {default_value: false, description: 'If True, the displayed time text will be italic.', group: Display Style, important: false, name: display_italic, type: boolean}
+- {default_value: false, description: 'If True, the displayed time text will be underlined.', group: Display Style, important: false, name: display_underline, type: boolean}
+- {default_value: '', description: The font family to use for the displayed time text., group: Display Style, important: false, name: display_font_family, type: string}
+- {default_value: '', description: The colour of the displayed time text., group: Display Style, important: false, name: display_text_color, type: color}
+- {description: The font size of the displayed time text., group: Display Style, important: false, name: display_font_size, type: number}
+- {default_value: '', description: The colour of the supporting text underneath this component., group: Supporting Text Style, important: false, name: supporting_text_color, type: color}
+- {description: The font size of the supporting text., group: Supporting Text Style, important: false, name: supporting_text_font_size, type: number}
+- {default_value: '', description: The font family to use for the supporting text., group: Supporting Text Style, important: false, name: supporting_text_font_family, type: string}
+- {description: The margin (pixels) of this component., group: Layout, important: true, name: margin, type: margin}
+- {description: Use this property to store any extra data for the component., group: Other, important: false, name: tag, type: object}
+- {default_value: '', description: The text to display when the mouse is hovered over this component., group: Other, important: false, name: tooltip, type: string}
+toolbox_item:
+  hidden: true
+  icon: {dark: /ide/img/toolbox/TimePicker.dark.svg, light: /ide/img/toolbox/TimePicker.svg}
