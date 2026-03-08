@@ -177,7 +177,7 @@
 .anvil-m3-timepicker-footer {
   display: flex;
   align-items: center;
-  padding: 24px;
+  padding: 16px 24px;
   flex-shrink: 0;
 }
 
