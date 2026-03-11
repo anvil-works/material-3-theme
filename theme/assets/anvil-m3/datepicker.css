@@ -26,6 +26,10 @@
   overflow: hidden;
 }
 
+.anvil-m3-datepicker-panel.anvil-m3-datepicker-time-mode {
+  max-height: 560px !important;
+}
+
 .anvil-m3-datepicker-hidden {
   display: none !important;
 }

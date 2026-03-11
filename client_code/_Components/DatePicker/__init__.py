@@ -132,6 +132,7 @@ class DatePicker(TimePickerMixin, DatePickerTemplate):
         self._view_mode = mode
         is_time = mode == 'time'
         is_day = mode == 'day'
+        self._panelNode.classList.toggle('anvil-m3-datepicker-time-mode', is_time)
         # Calendar header: hide in time mode
         self.dom_nodes['anvil-m3-datepicker-header'].classList.toggle(
             'anvil-m3-datepicker-hidden', is_time
