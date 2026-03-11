@@ -40,7 +40,7 @@ container:
       <div anvil-name="anvil-m3-datepicker-container" class="anvil-m3-datepicker-container">
         <div anvil-slot="anvil-m3-datepicker-textfield" anvil-name="anvil-m3-datepicker-textfield" class="anvil-m3-datepicker-textfield" anvil-slot-internal></div>
         <div anvil-name="anvil-m3-datepicker-panel" class="anvil-m3-datepicker-panel anvil-m3-datepicker-hidden">
-          <div class="anvil-m3-datepicker-header">
+          <div anvil-slot="anvil-m3-datepicker-header" class="anvil-m3-datepicker-header">
             <div class="anvil-m3-datepicker-header-selectors">
               <div class="anvil-m3-datepicker-selector-group"><div anvil-slot="month-prev" anvil-slot-internal></div><button anvil-name="anvil-m3-datepicker-month-btn" class="anvil-m3-datepicker-selector-btn" type="button"><span anvil-name="anvil-m3-datepicker-month-label"></span><span anvil-name="anvil-m3-datepicker-month-arrow" class="material-symbols-outlined anvil-m3-datepicker-header-arrow">arrow_drop_down</span></button><div anvil-slot="month-next" anvil-slot-internal></div></div>
               <div class="anvil-m3-datepicker-selector-group"><div anvil-slot="year-prev" anvil-slot-internal></div><button anvil-name="anvil-m3-datepicker-year-btn" class="anvil-m3-datepicker-selector-btn" type="button"><span anvil-name="anvil-m3-datepicker-year-label"></span><span anvil-name="anvil-m3-datepicker-year-arrow" class="material-symbols-outlined anvil-m3-datepicker-header-arrow">arrow_drop_down</span></button><div anvil-slot="year-next" anvil-slot-internal></div></div>
@@ -50,6 +50,11 @@ container:
           <div anvil-name="anvil-m3-datepicker-grid" class="anvil-m3-datepicker-grid"></div>
           <div anvil-name="anvil-m3-datepicker-month-grid" class="anvil-m3-datepicker-month-grid anvil-m3-datepicker-hidden"></div>
           <div anvil-name="anvil-m3-datepicker-year-grid" class="anvil-m3-datepicker-year-grid anvil-m3-datepicker-hidden"></div>
+          <div anvil-name="anvil-m3-datepicker-timepicker" class="anvil-m3-datepicker-timepicker anvil-m3-datepicker-hidden">
+            <div class="anvil-m3-datepicker-tp-header"><span anvil-name="anvil-m3-datepicker-tp-date-label" class="anvil-m3-datepicker-tp-date-label"></span></div>
+            <div class="anvil-m3-timepicker-display"><input anvil-name="anvil-m3-datepicker-hour-chip" class="anvil-m3-timepicker-time-chip" type="text" maxlength="2" inputmode="numeric"><span class="anvil-m3-timepicker-colon">:</span><input anvil-name="anvil-m3-datepicker-minute-chip" class="anvil-m3-timepicker-time-chip" type="text" maxlength="2" inputmode="numeric"><div anvil-name="anvil-m3-datepicker-tp-ampm" class="anvil-m3-timepicker-ampm"><button anvil-name="anvil-m3-datepicker-tp-am-btn" class="anvil-m3-timepicker-ampm-btn" type="button">AM</button><button anvil-name="anvil-m3-datepicker-tp-pm-btn" class="anvil-m3-timepicker-ampm-btn" type="button">PM</button></div></div>
+            <div class="anvil-m3-timepicker-dial-wrap"><svg anvil-name="anvil-m3-datepicker-tp-svg" class="anvil-m3-timepicker-svg" viewBox="0 0 240 240"></svg></div>
+          </div>
           <div anvil-name="anvil-m3-datepicker-footer" class="anvil-m3-datepicker-footer"><div anvil-slot="datepicker-cancel" anvil-slot-internal></div><div anvil-slot="datepicker-ok" anvil-slot-internal></div></div>
         </div>
       </div>
@@ -81,6 +86,8 @@ properties:
 - {description: The minimum selectable date., group: Key Properties, important: false, name: min_date, type: object}
 - {description: The maximum selectable date., group: Key Properties, important: false, name: max_date, type: object}
 - {default_value: '', description: 'A strftime format string for displaying the selected date (e.g. "%d/%m/%Y"). Leave blank for the default "Jan 4, 2026" format.', group: Key Properties, important: false, name: format, type: string}
+- {default_value: false, description: 'If True, after selecting a date the panel shows a time picker. The date property returns a datetime.datetime.', group: Key Properties, important: true, name: pick_time, type: boolean}
+- {default_value: false, description: 'If True, the embedded time picker uses 24-hour format.', group: Key Properties, important: false, name: hour_24, type: boolean}
 - {default_value: true, description: 'If True, this component allows user interaction.', designer_hint: enabled, group: Interaction, important: true, name: enabled, type: boolean}
 - {default_value: false, description: 'If True, this component is in an error state.', designer_hint: toggle, group: Interaction, important: false, name: error, type: boolean}
 - {default_value: '', description: The supporting text displayed underneath this component., group: Key Properties, important: false, name: supporting_text, type: string}

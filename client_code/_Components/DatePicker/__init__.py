@@ -14,6 +14,7 @@ from ..._utils.properties import (
     inline_editing,
     margin_property,
 )
+from ..._utils.timepicker_mixin import TimePickerMixin
 from ._anvil_designer import DatePickerTemplate
 
 _MONTH_NAMES = [
@@ -26,7 +27,7 @@ _MONTH_ABBR = [
 ]
 
 
-class DatePicker(DatePickerTemplate):
+class DatePicker(TimePickerMixin, DatePickerTemplate):
     def __init__(self, **properties):
         self.tag = ComponentTag()
         self._props = properties
@@ -35,7 +36,7 @@ class DatePicker(DatePickerTemplate):
         self._view_year = None
         self._view_month = None
         self._is_open = False
-        self._view_mode = 'day'   # 'day' | 'month' | 'year'
+        self._view_mode = 'day'   # 'day' | 'month' | 'year' | 'time'
         self._cleanup = noop
         self._tooltip_node = None
 
@@ -62,6 +63,16 @@ class DatePicker(DatePickerTemplate):
         )
         self.dom_nodes['anvil-m3-datepicker-year-btn'].addEventListener(
             'click', self._toggle_year_view
+        )
+
+        # Wire up the shared dial/chip logic via the mixin
+        self._tp_setup(
+            self.dom_nodes['anvil-m3-datepicker-tp-svg'],
+            self.dom_nodes['anvil-m3-datepicker-hour-chip'],
+            self.dom_nodes['anvil-m3-datepicker-minute-chip'],
+            self.dom_nodes['anvil-m3-datepicker-tp-am-btn'],
+            self.dom_nodes['anvil-m3-datepicker-tp-pm-btn'],
+            self.dom_nodes['anvil-m3-datepicker-tp-ampm'],
         )
 
         # Toggle panel on trigger click
@@ -119,8 +130,14 @@ class DatePicker(DatePickerTemplate):
 
     def _set_view_mode(self, mode):
         self._view_mode = mode
+        is_time = mode == 'time'
+        is_day = mode == 'day'
+        # Calendar header: hide in time mode
+        self.dom_nodes['anvil-m3-datepicker-header'].classList.toggle(
+            'anvil-m3-datepicker-hidden', is_time
+        )
         self.dom_nodes['anvil-m3-datepicker-grid'].classList.toggle(
-            'anvil-m3-datepicker-hidden', mode != 'day'
+            'anvil-m3-datepicker-hidden', not is_day
         )
         self.dom_nodes['anvil-m3-datepicker-month-grid'].classList.toggle(
             'anvil-m3-datepicker-hidden', mode != 'month'
@@ -128,19 +145,22 @@ class DatePicker(DatePickerTemplate):
         self.dom_nodes['anvil-m3-datepicker-year-grid'].classList.toggle(
             'anvil-m3-datepicker-hidden', mode != 'year'
         )
+        # Weekdays and time-picker section
+        self.dom_nodes['anvil-m3-datepicker-weekdays'].classList.toggle(
+            'anvil-m3-datepicker-hidden', not is_day
+        )
+        self.dom_nodes['anvil-m3-datepicker-timepicker'].classList.toggle(
+            'anvil-m3-datepicker-hidden', not is_time
+        )
+        # Footer: show in day and time, hide in month/year
+        self.dom_nodes['anvil-m3-datepicker-footer'].classList.toggle(
+            'anvil-m3-datepicker-hidden', mode in ('month', 'year')
+        )
         self.dom_nodes['anvil-m3-datepicker-month-arrow'].classList.toggle(
             'anvil-m3-datepicker-arrow-up', mode == 'month'
         )
         self.dom_nodes['anvil-m3-datepicker-year-arrow'].classList.toggle(
             'anvil-m3-datepicker-arrow-up', mode == 'year'
-        )
-        # Weekdays only make sense in day view
-        nav_hidden = mode != 'day'
-        self.dom_nodes['anvil-m3-datepicker-weekdays'].classList.toggle(
-            'anvil-m3-datepicker-hidden', nav_hidden
-        )
-        self.dom_nodes['anvil-m3-datepicker-footer'].classList.toggle(
-            'anvil-m3-datepicker-hidden', nav_hidden
         )
 
     def _toggle_month_view(self, event):
@@ -227,7 +247,18 @@ class DatePicker(DatePickerTemplate):
         def handler(event):
             event.stopPropagation()
             self._pending_date = d
-            self._render_calendar()
+            if self._props.get('pick_time', False):
+                t = self._date.time() if isinstance(self._date, datetime.datetime) else None
+                self._tp_init_pending(t)
+                self._tp_editing = 'hour'
+                self.dom_nodes['anvil-m3-datepicker-tp-date-label'].textContent = (
+                    f"{_MONTH_NAMES[d.month - 1]} {d.day}, {d.year}"
+                )
+                self._set_view_mode('time')
+                self._tp_update_display()
+                self._tp_render_dial()
+            else:
+                self._render_calendar()
         return handler
 
     def _render_month_grid(self):
@@ -323,19 +354,50 @@ class DatePicker(DatePickerTemplate):
         self._render_calendar()
 
     def _handle_ok(self, **event_args):
-        if self._pending_date != self._date:
-            self.date = self._pending_date
-            self.raise_event('change')
-        self._close_panel()
+        if self._view_mode == 'time':
+            is_24 = self._tp_is_24()
+            try:
+                h = int(self._tp_hour_chip.value)
+                self._tp_pending_hour = max(0, min(23, h)) if is_24 else max(1, min(12, h))
+            except (ValueError, TypeError):
+                pass
+            try:
+                m = int(self._tp_minute_chip.value)
+                self._tp_pending_minute = max(0, min(59, m))
+            except (ValueError, TypeError):
+                pass
+            hour = self._tp_pending_hour
+            if not is_24:
+                hour = hour % 12
+                if not self._tp_pending_is_am:
+                    hour += 12
+            dt = datetime.datetime(
+                self._pending_date.year, self._pending_date.month, self._pending_date.day,
+                hour, self._tp_pending_minute,
+            )
+            if dt != self._date:
+                self.date = dt
+                self.raise_event('change')
+            self._close_panel()
+        else:
+            if self._pending_date != self._date:
+                self.date = self._pending_date
+                self.raise_event('change')
+            self._close_panel()
 
     def _handle_cancel(self, **event_args):
-        self._close_panel()
+        if self._view_mode == 'time':
+            self._set_view_mode('day')
+            self._render_calendar()
+        else:
+            self._close_panel()
 
     def _open_panel(self):
         ref = self._date or datetime.date.today()
-        self._view_year = ref.year
-        self._view_month = ref.month
-        self._pending_date = self._date
+        ref_date = ref.date() if isinstance(ref, datetime.datetime) else ref
+        self._view_year = ref_date.year
+        self._view_month = ref_date.month
+        self._pending_date = ref_date
         self._set_view_mode('day')
         self._render_calendar()
         self._panelNode.classList.remove('anvil-m3-datepicker-hidden')
@@ -382,7 +444,17 @@ class DatePicker(DatePickerTemplate):
         fmt = self._props.get('format')
         if fmt:
             return value.strftime(fmt)
-        return f"{_MONTH_ABBR[value.month - 1]} {value.day}, {value.year}"
+        date_str = f"{_MONTH_ABBR[value.month - 1]} {value.day}, {value.year}"
+        if isinstance(value, datetime.datetime):
+            is_24 = self._tp_is_24()
+            if is_24:
+                time_str = f"{value.hour:02d}:{value.minute:02d}"
+            else:
+                h = value.hour % 12 or 12
+                ampm = 'AM' if value.hour < 12 else 'PM'
+                time_str = f"{h}:{value.minute:02d} {ampm}"
+            return f"{date_str}, {time_str}"
+        return date_str
 
     # ── Properties ──────────────────────────────────────────────────────────
 
@@ -392,7 +464,7 @@ class DatePicker(DatePickerTemplate):
     @anvil_prop
     @property
     def date(self, value) -> object:
-        """The selected date as a Python datetime.date object."""
+        """The selected date (or datetime if pick_time=True) as a Python datetime object."""
         self._date = value
         if value is not None:
             self.selection_field.text = self._format_date(value)
@@ -405,6 +477,18 @@ class DatePicker(DatePickerTemplate):
         """A strftime format string for displaying the selected date (e.g. "%d/%m/%Y"). Leave blank for the default "Jan 4, 2026" format."""
         if self._date is not None:
             self.selection_field.text = self._format_date(self._date)
+
+    @anvil_prop
+    @property
+    def pick_time(self, value) -> bool:
+        """If True, after selecting a date the panel shows a time picker. The date property returns a datetime.datetime."""
+        pass
+
+    @anvil_prop
+    @property
+    def hour_24(self, value) -> bool:
+        """If True, the embedded time picker uses 24-hour format."""
+        pass
 
     @anvil_prop
     @property
@@ -595,8 +679,10 @@ class DatePicker(DatePickerTemplate):
     #!componentProp(m3.DatePicker)!1: {name:"role",type:"themeRole",description:"A style for this component defined in CSS and added to Roles."}
     #!componentProp(m3.DatePicker)!1: {name:"label",type:"string",description:"The label text of the component."}
     #!componentProp(m3.DatePicker)!1: {name:"placeholder",type:"string",description:"The text to be displayed when no date is selected."}
-    #!componentProp(m3.DatePicker)!1: {name:"date",type:"object",description:"The selected date as a Python datetime.date object."}
+    #!componentProp(m3.DatePicker)!1: {name:"date",type:"object",description:"The selected date as a Python datetime object (datetime.date or datetime.datetime if pick_time=True)."}
     #!componentProp(m3.DatePicker)!1: {name:"format",type:"string",description:"A strftime format string for displaying the selected date."}
+    #!componentProp(m3.DatePicker)!1: {name:"pick_time",type:"boolean",description:"If True, after selecting a date the panel shows a time picker. The date property returns a datetime.datetime."}
+    #!componentProp(m3.DatePicker)!1: {name:"hour_24",type:"boolean",description:"If True, the embedded time picker uses 24-hour format."}
     #!componentProp(m3.DatePicker)!1: {name:"min_date",type:"object",description:"The minimum selectable date."}
     #!componentProp(m3.DatePicker)!1: {name:"max_date",type:"object",description:"The maximum selectable date."}
     #!componentProp(m3.DatePicker)!1: {name:"supporting_text",type:"string",description:"The supporting text displayed underneath this component."}

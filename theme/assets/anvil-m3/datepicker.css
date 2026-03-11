@@ -302,6 +302,24 @@
   border-radius: 4px;
 }
 
+/* ── Embedded Time Picker View ───────────────────────────────────────────── */
+
+.anvil-m3-datepicker-timepicker {
+  display: flex;
+  flex-direction: column;
+}
+
+.anvil-m3-datepicker-tp-header {
+  padding: 16px 24px 0;
+  flex-shrink: 0;
+}
+
+.anvil-m3-datepicker-tp-date-label {
+  font-size: 14px;
+  color: var(--anvil-m3-on-surface-variant);
+  font-weight: 500;
+}
+
 /* ── Footer (Cancel / OK) ───────────────────────────────────────────────── */
 
 .anvil-m3-datepicker-footer {

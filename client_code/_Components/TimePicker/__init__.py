@@ -1,7 +1,6 @@
 import anvil
 import anvil.designer
 import datetime
-import math
 from anvil import HtmlTemplate
 from anvil.js import get_dom_node
 from anvil.js.window import document
@@ -15,21 +14,16 @@ from ..._utils.properties import (
     inline_editing,
     margin_property,
 )
+from ..._utils.timepicker_mixin import TimePickerMixin
 from ._anvil_designer import TimePickerTemplate
 
-_SVG_NS = 'http://www.w3.org/2000/svg'
 
-
-class TimePicker(TimePickerTemplate):
+class TimePicker(TimePickerMixin, TimePickerTemplate):
     def __init__(self, **properties):
         self.tag = ComponentTag()
         self._props = properties
         self._time = None
-        self._pending_hour = 12     # 1-12 (12hr) or 0-23 (24hr)
-        self._pending_minute = 0    # 0-59
-        self._pending_is_am = True  # 12hr only
-        self._editing = 'hour'      # 'hour' | 'minute'
-        self._input_mode = False    # False = dial, True = text inputs
+        self._input_mode = False    # False = dial visible, True = dial hidden
         self._is_open = False
         self._cleanup = noop
         self._tooltip_node = None
@@ -51,31 +45,14 @@ class TimePicker(TimePickerTemplate):
         field.style.caretColor = 'transparent'
         field.style.cursor = 'pointer'
 
-        # Time chip focus/input — editing mode follows focused chip
-        self.dom_nodes['anvil-m3-timepicker-hour-chip'].addEventListener(
-            'focus', self._handle_hour_focus
-        )
-        self.dom_nodes['anvil-m3-timepicker-minute-chip'].addEventListener(
-            'focus', self._handle_minute_focus
-        )
-        self.dom_nodes['anvil-m3-timepicker-hour-chip'].addEventListener(
-            'input', self._handle_hour_input
-        )
-        self.dom_nodes['anvil-m3-timepicker-minute-chip'].addEventListener(
-            'input', self._handle_minute_input
-        )
-
-        # AM/PM buttons
-        self.dom_nodes['anvil-m3-timepicker-am-btn'].addEventListener(
-            'click', self._handle_am_click
-        )
-        self.dom_nodes['anvil-m3-timepicker-pm-btn'].addEventListener(
-            'click', self._handle_pm_click
-        )
-
-        # Clock dial click
-        self.dom_nodes['anvil-m3-timepicker-svg'].addEventListener(
-            'click', self._handle_dial_click
+        # Wire up the shared dial/chip logic via the mixin
+        self._tp_setup(
+            self.dom_nodes['anvil-m3-timepicker-svg'],
+            self.dom_nodes['anvil-m3-timepicker-hour-chip'],
+            self.dom_nodes['anvil-m3-timepicker-minute-chip'],
+            self.dom_nodes['anvil-m3-timepicker-am-btn'],
+            self.dom_nodes['anvil-m3-timepicker-pm-btn'],
+            self.dom_nodes['anvil-m3-timepicker-ampm'],
         )
 
         # Toggle panel on trigger click
@@ -134,13 +111,13 @@ class TimePicker(TimePickerTemplate):
     # ── Panel Control ────────────────────────────────────────────────────────
 
     def _open_panel(self):
-        self._init_pending()
-        self._editing = 'hour'
+        self._tp_init_pending(self._time)
+        self._tp_editing = 'hour'
         self._input_mode = False
         self.dom_nodes['anvil-m3-timepicker-dial'].classList.remove('anvil-m3-timepicker-hidden')
         self.mode_toggle_btn.icon = 'mi:keyboard'
-        self._update_display()
-        self._render_dial()
+        self._tp_update_display()
+        self._tp_render_dial()
         self._panelNode.classList.remove('anvil-m3-timepicker-hidden')
         self._is_open = True
 
@@ -163,227 +140,6 @@ class TimePicker(TimePickerTemplate):
         if not container.contains(event.target) and not self._panelNode.contains(event.target):
             self._close_panel()
 
-    # ── Pending State ────────────────────────────────────────────────────────
-
-    def _init_pending(self):
-        t = self._time or datetime.datetime.now().time()
-        is_24 = self._props.get('hour_24', False)
-        if is_24:
-            self._pending_hour = t.hour
-        else:
-            self._pending_is_am = t.hour < 12
-            self._pending_hour = t.hour % 12 or 12
-        self._pending_minute = t.minute
-
-    # ── Display ──────────────────────────────────────────────────────────────
-
-    def _update_display(self):
-        is_24 = self._props.get('hour_24', False)
-
-        hour_chip = self.dom_nodes['anvil-m3-timepicker-hour-chip']
-        minute_chip = self.dom_nodes['anvil-m3-timepicker-minute-chip']
-
-        # Only set value when the chip isn't actively being typed into
-        if document.activeElement != hour_chip:
-            hour_chip.value = f'{self._pending_hour:02d}' if is_24 else str(self._pending_hour)
-        if document.activeElement != minute_chip:
-            minute_chip.value = f'{self._pending_minute:02d}'
-
-        hour_chip.classList.toggle('anvil-m3-timepicker-chip-active', self._editing == 'hour')
-        minute_chip.classList.toggle('anvil-m3-timepicker-chip-active', self._editing == 'minute')
-
-        self.dom_nodes['anvil-m3-timepicker-am-btn'].classList.toggle(
-            'anvil-m3-timepicker-ampm-selected', self._pending_is_am
-        )
-        self.dom_nodes['anvil-m3-timepicker-pm-btn'].classList.toggle(
-            'anvil-m3-timepicker-ampm-selected', not self._pending_is_am
-        )
-        self.dom_nodes['anvil-m3-timepicker-ampm'].style.display = 'none' if is_24 else ''
-
-    # ── Clock Dial ───────────────────────────────────────────────────────────
-
-    def _svg_el(self, tag, **attrs):
-        el = document.createElementNS(_SVG_NS, tag)
-        for k, v in attrs.items():
-            el.setAttribute(k.replace('_', '-'), str(v))
-        return el
-
-    def _render_dial(self):
-        svg = self.dom_nodes['anvil-m3-timepicker-svg']
-        svg.innerHTML = ''
-
-        cx, cy = 120, 120
-        face_r = 120
-        num_r = 88        # outer ring radius
-        num_r_inner = 56  # inner ring radius (24hr)
-        num_cr = 20       # number circle radius
-        is_24 = self._props.get('hour_24', False)
-
-        # 1. Background circle
-        bg = self._svg_el('circle', cx=cx, cy=cy, r=face_r)
-        bg.setAttribute('class', 'anvil-m3-timepicker-clock-face')
-        svg.appendChild(bg)
-
-        # Calculate hand endpoint
-        if self._editing == 'hour':
-            h_angle = ((self._pending_hour % 12) * 30 - 90) * math.pi / 180
-            if is_24:
-                is_inner = (self._pending_hour == 0 or self._pending_hour >= 13)
-                hand_r = num_r_inner if is_inner else num_r
-            else:
-                hand_r = num_r
-            hand_angle = h_angle
-        else:
-            hand_angle = (self._pending_minute * 6 - 90) * math.pi / 180
-            hand_r = num_r
-
-        hand_x = cx + hand_r * math.cos(hand_angle)
-        hand_y = cy + hand_r * math.sin(hand_angle)
-
-        # 2. Hand line
-        line = self._svg_el('line', x1=cx, y1=cy, x2=hand_x, y2=hand_y)
-        line.setAttribute('class', 'anvil-m3-timepicker-hand')
-        svg.appendChild(line)
-
-        # 3. Handle circle at tip (covered by selected number circle for labeled values)
-        handle = self._svg_el('circle', cx=hand_x, cy=hand_y, r=num_cr)
-        handle.setAttribute('class', 'anvil-m3-timepicker-hand-tip')
-        svg.appendChild(handle)
-
-        # 4 & 5. Numbers
-        if self._editing == 'hour':
-            if is_24:
-                numbers_outer = [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-                numbers_inner = [0, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
-            else:
-                numbers_outer = [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-                numbers_inner = []
-            selected = self._pending_hour
-        else:
-            numbers_outer = [i * 5 for i in range(12)]  # 0, 5, 10, ..., 55
-            numbers_inner = []
-            selected = self._pending_minute
-
-        # Outer ring
-        for v in numbers_outer:
-            if self._editing == 'hour':
-                a = ((v % 12) * 30 - 90) * math.pi / 180
-            else:
-                a = (v * 6 - 90) * math.pi / 180
-            x = cx + num_r * math.cos(a)
-            y = cy + num_r * math.sin(a)
-            is_sel = (v == selected)
-
-            circ = self._svg_el('circle', cx=x, cy=y, r=num_cr)
-            circ.setAttribute(
-                'class',
-                'anvil-m3-timepicker-num-circle' +
-                (' anvil-m3-timepicker-num-selected' if is_sel else '')
-            )
-            svg.appendChild(circ)
-
-            txt = self._svg_el('text', x=x, y=y)
-            txt.setAttribute(
-                'class',
-                'anvil-m3-timepicker-num-text' +
-                (' anvil-m3-timepicker-num-text-selected' if is_sel else '')
-            )
-            txt.setAttribute('text-anchor', 'middle')
-            txt.setAttribute('dominant-baseline', 'central')
-            txt.textContent = f'{v:02d}' if self._editing == 'minute' else str(v)
-            svg.appendChild(txt)
-
-        # Inner ring (24hr hour mode only)
-        for v in numbers_inner:
-            a = ((v % 12) * 30 - 90) * math.pi / 180
-            x = cx + num_r_inner * math.cos(a)
-            y = cy + num_r_inner * math.sin(a)
-            is_sel = (v == selected)
-
-            circ = self._svg_el('circle', cx=x, cy=y, r=num_cr)
-            circ.setAttribute(
-                'class',
-                'anvil-m3-timepicker-num-circle' +
-                (' anvil-m3-timepicker-num-selected' if is_sel else '')
-            )
-            svg.appendChild(circ)
-
-            txt = self._svg_el('text', x=x, y=y)
-            txt.setAttribute(
-                'class',
-                'anvil-m3-timepicker-num-text anvil-m3-timepicker-num-text-inner' +
-                (' anvil-m3-timepicker-num-text-selected' if is_sel else '')
-            )
-            txt.setAttribute('text-anchor', 'middle')
-            txt.setAttribute('dominant-baseline', 'central')
-            txt.textContent = str(v)
-            svg.appendChild(txt)
-
-        # 6. Center dot (on top)
-        center = self._svg_el('circle', cx=cx, cy=cy, r=6)
-        center.setAttribute('class', 'anvil-m3-timepicker-center-dot')
-        svg.appendChild(center)
-
-    def _handle_dial_click(self, event):
-        event.stopPropagation()
-        svg = self.dom_nodes['anvil-m3-timepicker-svg']
-        rect = svg.getBoundingClientRect()
-        # Map click to viewBox coordinates
-        x = (event.clientX - rect.left) / rect.width * 240
-        y = (event.clientY - rect.top) / rect.height * 240
-        dx = x - 120
-        dy = y - 120
-        angle = (math.atan2(dy, dx) * 180 / math.pi + 90) % 360
-        dist = math.sqrt(dx * dx + dy * dy)
-
-        is_24 = self._props.get('hour_24', False)
-
-        if self._editing == 'hour':
-            hour_idx = round(angle / 30) % 12
-            if is_24:
-                threshold = (88 + 56) / 2  # 72
-                if dist > threshold:
-                    # Outer ring: 12, 1-11
-                    self._pending_hour = hour_idx or 12
-                else:
-                    # Inner ring: 0, 13-23
-                    self._pending_hour = 0 if hour_idx == 0 else hour_idx + 12
-            else:
-                self._pending_hour = hour_idx or 12
-            # Auto-switch to minute editing
-            self._editing = 'minute'
-        else:
-            self._pending_minute = round(angle / 6) % 60
-
-        self._update_display()
-        self._render_dial()
-
-    # ── Display Chip Focus ───────────────────────────────────────────────────
-
-    def _handle_hour_focus(self, event):
-        self._editing = 'hour'
-        self._update_display()
-        if not self._input_mode:
-            self._render_dial()
-
-    def _handle_minute_focus(self, event):
-        self._editing = 'minute'
-        self._update_display()
-        if not self._input_mode:
-            self._render_dial()
-
-    # ── AM/PM ────────────────────────────────────────────────────────────────
-
-    def _handle_am_click(self, event):
-        event.stopPropagation()
-        self._pending_is_am = True
-        self._update_display()
-
-    def _handle_pm_click(self, event):
-        event.stopPropagation()
-        self._pending_is_am = False
-        self._update_display()
-
     # ── Mode Toggle (show/hide dial) ─────────────────────────────────────────
 
     def _toggle_mode(self, **event_args):
@@ -391,49 +147,29 @@ class TimePicker(TimePickerTemplate):
         dial = self.dom_nodes['anvil-m3-timepicker-dial']
         dial.classList.toggle('anvil-m3-timepicker-hidden', self._input_mode)
         self.mode_toggle_btn.icon = 'mi:schedule' if self._input_mode else 'mi:keyboard'
-
-    # ── Time Chip Input Handlers ─────────────────────────────────────────────
-
-    def _handle_hour_input(self, event):
-        is_24 = self._props.get('hour_24', False)
-        try:
-            h = int(self.dom_nodes['anvil-m3-timepicker-hour-chip'].value)
-            self._pending_hour = max(0, min(23, h)) if is_24 else max(1, min(12, h))
-        except (ValueError, TypeError):
-            pass
         if not self._input_mode:
-            self._render_dial()
-
-    def _handle_minute_input(self, event):
-        try:
-            m = int(self.dom_nodes['anvil-m3-timepicker-minute-chip'].value)
-            self._pending_minute = max(0, min(59, m))
-        except (ValueError, TypeError):
-            pass
-        if not self._input_mode:
-            self._render_dial()
+            self._tp_render_dial()
 
     # ── OK / Cancel ──────────────────────────────────────────────────────────
 
     def _handle_ok(self, **event_args):
-        is_24 = self._props.get('hour_24', False)
-        # Sync chip input values into pending state (in case user typed without blurring)
+        is_24 = self._tp_is_24()
         try:
-            h = int(self.dom_nodes['anvil-m3-timepicker-hour-chip'].value)
-            self._pending_hour = max(0, min(23, h)) if is_24 else max(1, min(12, h))
+            h = int(self._tp_hour_chip.value)
+            self._tp_pending_hour = max(0, min(23, h)) if is_24 else max(1, min(12, h))
         except (ValueError, TypeError):
             pass
         try:
-            m = int(self.dom_nodes['anvil-m3-timepicker-minute-chip'].value)
-            self._pending_minute = max(0, min(59, m))
+            m = int(self._tp_minute_chip.value)
+            self._tp_pending_minute = max(0, min(59, m))
         except (ValueError, TypeError):
             pass
-        hour = self._pending_hour
+        hour = self._tp_pending_hour
         if not is_24:
-            hour = hour % 12          # 12 AM → 0
-            if not self._pending_is_am:
-                hour += 12            # 1 PM → 13, 12 PM → 12
-        self._time = datetime.time(hour, self._pending_minute)
+            hour = hour % 12
+            if not self._tp_pending_is_am:
+                hour += 12
+        self._time = datetime.time(hour, self._tp_pending_minute)
         self.selection_field.text = self._format_time(self._time)
         self._close_panel()
         self.raise_event('change')
@@ -498,9 +234,9 @@ class TimePicker(TimePickerTemplate):
         if self._time is not None:
             self.selection_field.text = self._format_time(self._time)
         if self._is_open:
-            self._init_pending()
-            self._update_display()
-            self._render_dial()
+            self._tp_init_pending(self._time)
+            self._tp_update_display()
+            self._tp_render_dial()
 
     def _set_label(self, value):
         self.selection_field.label = value
