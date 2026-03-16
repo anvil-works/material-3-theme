@@ -5,7 +5,6 @@ from ..._utils.properties import (
     anvil_prop,
     get_unset_margin,
     margin_property,
-    role_property,
     theme_color_to_css,
     tooltip_property,
 )
@@ -24,9 +23,9 @@ class LinearProgressIndicator(LinearProgressIndicatorTemplate):
         m = get_unset_margin(el, self.margin)
         return {"margin": m}
 
+    role = HtmlTemplate.role
     visible = HtmlTemplate.visible
     tooltip = tooltip_property('anvil-m3-progressindicator-linear')
-    role = role_property('anvil-m3-progressindicator-linear')
     margin = margin_property('anvil-m3-progressindicator-linear')
 
     @anvil_prop
