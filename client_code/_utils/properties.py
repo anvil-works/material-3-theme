@@ -18,6 +18,12 @@ from anvil.property_utils import (
 
 from . import fui, noop
 
+# Skulpt does not provide typing.
+try:
+    from typing import TYPE_CHECKING
+except ImportError:
+    TYPE_CHECKING = False
+
 _directions = ("Top", "Right", "Bottom", "Left")
 
 
@@ -269,6 +275,17 @@ def tooltip_property(dom_node_name, prop_name="tooltip"):
 
 
 simple_prop = property_without_callback
+
+
+if TYPE_CHECKING:
+    from typing import Callable, overload
+
+    # The double underscore marks a positional-only parameter for type checkers.
+    @overload
+    def anvil_prop(__prop: property) -> property: ...
+
+    @overload
+    def anvil_prop(*, default_value=None) -> Callable[[property], property]: ...
 
 
 def anvil_prop(*args, **kwargs):
